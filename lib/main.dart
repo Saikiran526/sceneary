@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+ import 'package:sceneary/presentations/subscription/subscription_viewmodel.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'core/navigation/app_routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => SubscriptionViewmodel()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
