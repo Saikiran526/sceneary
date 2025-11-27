@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/presentations/mark_your_availability/mark_your_availability_screen.dart';
 import 'package:sceneary/presentations/subscription/subscription_viewmodel.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class SubscriptionScreen extends StatelessWidget {
   const SubscriptionScreen({super.key});
@@ -9,12 +11,6 @@ class SubscriptionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final providerData = Provider.of<SubscriptionViewmodel>(context);
 
-    // if (providerData.selectDate == null) {
-    //   WidgetsBinding.instance.addPostFrameCallback((_) {
-    //     providerData.selectedDate(context);
-    //   });
-    // }
-
     return Scaffold(
       body: Column(
         children: [
@@ -22,7 +18,7 @@ class SubscriptionScreen extends StatelessWidget {
             width: double.infinity,
             height: 120,
             decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 228, 227, 227),
+              color: Color(0xFFD9D9D9),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(25),
                 bottomRight: Radius.circular(25),
@@ -43,7 +39,7 @@ class SubscriptionScreen extends StatelessWidget {
                     const Text(
                       "Calender",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 14,
                         fontWeight: FontWeight.w600,
                         color: Colors.black,
                       ),
@@ -57,45 +53,68 @@ class SubscriptionScreen extends StatelessWidget {
             child: Column(
               children: [
                 Expanded(
-                  child: Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        providerData.selectedDate(context);
-                      },
-                      child: Text('PickDate'),
+                  child: TableCalendar(
+                    firstDay: DateTime.utc(2020, 1, 1),
+                    lastDay: DateTime.utc(2030, 12, 31),
+                    focusedDay: DateTime.now(),
+
+                    availableCalendarFormats: const {
+                      CalendarFormat.month: 'Month',
+                      CalendarFormat.week: 'Week',
+                    },
+
+                    headerStyle: const HeaderStyle(
+                      titleCentered: true,
+                      formatButtonVisible: false, 
+                      leftChevronVisible: true, 
+                      rightChevronVisible: true, 
                     ),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 30),
-                  width: double.infinity,
-                  height: 93,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 228, 227, 227),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(25),
-                      topRight: Radius.circular(25),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MarkYourAvailabilityScreen(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.symmetric(vertical: 30),
+                    width: double.infinity,
+                    height: 93,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFCECECE),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25),
+                      ),
                     ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Row(
-                      children: [
-                        SizedBox(width: 10),
-                        Text(
-                          "Mark Your Availability",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Row(
+                        children: [
+                          SizedBox(width: 10),
+                          Text(
+                            "Mark Your Availability",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                        ),
-                        Spacer(),
-                        CircleAvatar(
-                          radius: 15,
-                          backgroundColor: Colors.black,
-                          child: Icon(Icons.add, color: Colors.white, size: 15),
-                        ),
-                      ],
+                          Spacer(),
+                          CircleAvatar(
+                            radius: 15,
+                            backgroundColor: Colors.black,
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                              size: 15,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
