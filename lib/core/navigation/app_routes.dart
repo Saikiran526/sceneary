@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/create_project/create_project_screen.dart';
 import 'package:sceneary/presentation/profile_details/profile_details_screen.dart';
+import 'package:sceneary/presentation/project_details/project_details_screen.dart';
 
 class AppRouter {
   // Singleton
@@ -15,6 +17,8 @@ class AppRouter {
   static final Map<String, Widget Function()> _builders = {
 
     RoutePaths.profileDetailsScreen: () => const ProfileDetailsScreen(),
+    RoutePaths.createProjectScreen: () => const CreateProjectScreen(),
+    RoutePaths.projectDetailsScreen: () => const ProjectDetailsScreen(),
 
 
   };

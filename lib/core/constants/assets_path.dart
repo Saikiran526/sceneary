@@ -13,12 +13,20 @@ class AssetsPath {
   static const filterImg='assets/images/filter.svg';
   static const locationPinImg='assets/images/location_pin.svg';
   static const bagExperienceImg='assets/images/bag_experience.svg';
-
   // Profile details
   static const instagramImg='assets/images/instagram.svg';
   static const youtubeImg='assets/images/youtube.svg';
   static const portfolioLinkImg='assets/images/portfolio_link.svg';
 
-
+  /// Projects
+  static const calendarImg='assets/images/calendar.svg';
+  static const budgetMoneyImg='assets/images/budget_money.svg';
+  // Create Project
+  static const calenderFilledImg="assets/images/calendar_filled.svg";
+  // Project Details
+  static const menuImg="assets/images/menu.svg";
+  static const calenderOnrImg="assets/images/calender_1.svg";
+  static const scenesImg="assets/images/scenes.svg";
+  static const clockImg="assets/images/clock.svg";
 
 }

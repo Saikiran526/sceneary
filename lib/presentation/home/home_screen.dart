@@ -1,11 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/core/constants/assets_path.dart';
-import 'package:sceneary/presentation/schedule_screen/home_viewmodel.dart';
-import 'package:sceneary/presentation/schedule_screen/utils.dart';
+import 'package:sceneary/presentation/home/utils.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'home_viewmodel.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -110,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                           SizedBox(height: height*0.01,),
-                          // To see schedule
+                          // To see schedules
                           if(viewModel.selectedDate!=22)...[
                             CarouselSlider(
                               options: CarouselOptions(
@@ -203,7 +202,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                           ],
-                          // Not Schedule card
+                          // If no schedules yet
                           if(viewModel.selectedDate==22)
                             Container(
                               height: height*0.1,

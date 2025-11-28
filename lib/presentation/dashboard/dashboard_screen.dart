@@ -3,10 +3,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_viewmodel.dart';
+import 'package:sceneary/presentation/home/home_screen.dart';
 import 'package:sceneary/presentation/messages/messages_screen.dart';
 import 'package:sceneary/presentation/profile/profile_screen.dart';
 import 'package:sceneary/presentation/projects/projects_screen.dart';
-import 'package:sceneary/presentation/schedule_screen/home_screen.dart';
 import 'package:sceneary/presentation/search_result_screen/search_result_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -23,7 +23,8 @@ class DashboardScreen extends StatelessWidget {
       child:  Consumer<DashboardViewModel>(
           builder: (context,viewModel,child){
             return Scaffold(
-                appBar: AppBar(
+                appBar: (viewModel.selectedIndex==0 || viewModel.selectedIndex==1)
+                    ? AppBar(
                   backgroundColor: Colors.grey.shade300,
                   toolbarHeight: 80,
                   title: Padding(
@@ -146,7 +147,8 @@ class DashboardScreen extends StatelessWidget {
                   actions: [
                     IconButton(onPressed: (){}, icon: SvgPicture.asset(AssetsPath.notificationImg)),
                   ],
-                ) ,
+                )
+                    : null ,
                 body: Consumer<DashboardViewModel>(
                     builder: (context,viewModel,child){
                       return [
