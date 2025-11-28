@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentations/basic_information/view/basic_information_pageview.dart';
-import 'package:sceneary/presentations/login_welocme_back/welcome_back_viewmodel.dart';
-import 'package:sceneary/presentations/widgets/custom_textfield.dart';
-import 'package:sceneary/presentations/widgets/primary_button.dart';
-
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/login_welocme_back/welcome_back_viewmodel.dart';
+  
 class WelcomeBackScreen extends StatelessWidget {
   const WelcomeBackScreen({super.key});
 
@@ -73,6 +73,14 @@ class WelcomeBackScreen extends StatelessWidget {
                         height: 448,
                         padding: const EdgeInsets.fromLTRB(14, 60, 14, 60),
                         decoration: BoxDecoration(
+                           boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.10),
+                              blurRadius: 12,
+                              spreadRadius: 1,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
                           color: Colors.white.withOpacity(1),
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -88,7 +96,7 @@ class WelcomeBackScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 8),
-                            CustomTextField(
+                            customTextField(
                               controller: viewModel.emailOrMobileController,
                               hintText: 'Enter here',
                             ),
@@ -113,14 +121,14 @@ class WelcomeBackScreen extends StatelessWidget {
                               ],
                             ),
                             SizedBox(height: 8),
-                            CustomTextField(
+                            customTextField(
                               controller: viewModel.passwordController,
                               hintText: 'Enter here',
                             ),
                             SizedBox(height: 24),
-                            PrimaryButton(text: 'Login', onPressed: () {
-                              Navigator.push(context, MaterialPageRoute
-                              (builder: (context) => BasicInformationPageview()));
+                            primaryButton(text: 'Login', onPressed: () {
+                             // AppRouter.instance.push(RoutePaths.basicInformationPageview);
+                              AppRouter.instance.push(RoutePaths.castAndCrewScreen);
                             }),
                             SizedBox(height: 24),
                             Center(

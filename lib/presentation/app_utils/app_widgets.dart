@@ -1,7 +1,93 @@
-
-
 import 'package:flutter/material.dart';
 
+Widget customTextField({
+  required TextEditingController controller,
+  required String hintText,
+  TextStyle? hintTextStyle,
+  IconData? prefixIcon,
+  Widget? suffix,
+  VoidCallback? onTap,
+  bool readOnly = false,
+  bool obscureText = false,
+  int maxLines = 1,
+  int? maxLength,
+  TextInputType? keyboardType,
+}) {
+  return Container(
+    width: 300,
+    height: 40,
+    padding: EdgeInsets.symmetric(horizontal: 10),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(8),
+      border: Border.all(color: Color(0xFFEDF1F3), width: 1),
+    ),
+    child: Row(
+      children: [
+        if (prefixIcon != null)
+          Padding(
+            padding: EdgeInsets.only(right: 8),
+            child: Icon(prefixIcon, size: 20, color: Colors.grey),
+          ),
+
+        Expanded(
+          child: TextField(
+            controller: controller,
+            readOnly: readOnly,
+            onTap: onTap,
+            maxLength: maxLength,
+            keyboardType: keyboardType,
+            obscureText: obscureText,
+            maxLines: maxLines,
+            style: TextStyle(fontSize: 14, color: Colors.black),
+            decoration: InputDecoration(
+              isCollapsed: true,
+              border: InputBorder.none,
+              counterText: "",
+              hintText: hintText,
+              hintStyle: hintTextStyle ??
+                  TextStyle(color: Colors.grey, fontSize: 14),
+            ),
+          ),
+        ),
+
+        if (suffix != null)
+          Padding(
+            padding: EdgeInsets.only(left: 8),
+            child: suffix,
+          ),
+      ],
+    ),
+  );
+}
+Widget primaryButton({
+  required String text,
+  required VoidCallback onPressed,
+  Color backgroundColor = Colors.black,
+  Color textColor = Colors.white,
+}) {
+  return SizedBox(
+    width: double.infinity,
+    height: 40,
+    child: ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: backgroundColor,
+        foregroundColor: textColor,
+        padding: const EdgeInsets.symmetric(vertical: 9.2, horizontal: 24),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 14,
+          height: 1.0,
+        ),
+      ),
+    ),
+  );
+}
 AppBar customAppBar(){
   return AppBar(
     title: Text(

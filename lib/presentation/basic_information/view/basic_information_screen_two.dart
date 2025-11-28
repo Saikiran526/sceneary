@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentations/basic_information/viewmodel/basic_information_viewmodel_two.dart';
-import 'package:sceneary/presentations/widgets/custom_textfield.dart';
-import 'package:sceneary/presentations/widgets/primary_button.dart';
-
+import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_viewmodel_two.dart';
+  
 class BasicInformationScreenTwo extends StatelessWidget {
   const BasicInformationScreenTwo({super.key});
 
@@ -24,7 +23,7 @@ class BasicInformationScreenTwo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.08),
+                          color: Colors.black.withOpacity(0.10),
                           blurRadius: 12,
                           spreadRadius: 1,
                           offset: Offset(0, 4),
@@ -191,7 +190,7 @@ class BasicInformationScreenTwo extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 8),
-                          CustomTextField(
+                          customTextField(
                             controller: viewModel.instaUserNameController,
                             hintText: '@Yourusername',
                           ),
@@ -204,7 +203,7 @@ class BasicInformationScreenTwo extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 8),
-                          CustomTextField(
+                          customTextField(
                             controller: viewModel.youtubeController,
                             hintText: 'Channel URL',
                           ),
@@ -217,7 +216,7 @@ class BasicInformationScreenTwo extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 8),
-                          CustomTextField(
+                          customTextField(
                             controller: viewModel.youtubeController,
                             hintText: 'Enter here..',
                             suffix: Container(
@@ -265,7 +264,7 @@ class BasicInformationScreenTwo extends StatelessWidget {
                             ),
                           ),
                            SizedBox(height: 24),
-                          PrimaryButton(text: 'Next', onPressed: () {}),
+                          primaryButton(text: 'Next', onPressed: () {}),
                           SizedBox(height: 24),
                           Center(
                             child: Text(

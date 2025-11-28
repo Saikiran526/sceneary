@@ -9,7 +9,7 @@ class SearchResultScreen extends StatelessWidget {
 
     final size = MediaQuery.of(context).size;
     final height = MediaQuery.of(context).size.height;
-    final width= MediaQuery.of(context).size.width;
+    // final width= MediaQuery.of(context).size.width;
 
     return SingleChildScrollView(
       child: Padding(

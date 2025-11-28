@@ -13,8 +13,6 @@ PopupMenuItem<String> _buildMenuItem(String text) {
   );
 }
 void servicePopUpMenu(BuildContext context) {
-  final RenderBox box = context.findRenderObject() as RenderBox;
-  final Offset pos = box.localToGlobal(Offset.zero);
 
   showMenu(
     context: context,

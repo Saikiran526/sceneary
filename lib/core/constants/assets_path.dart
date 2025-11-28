@@ -28,5 +28,14 @@ class AssetsPath {
   static const calenderOnrImg="assets/images/calender_1.svg";
   static const scenesImg="assets/images/scenes.svg";
   static const clockImg="assets/images/clock.svg";
+  //muni
+    static const cameraImg='assets/images/camera.svg';
+    static const visibiltyImg='assets/images/visibility.svg';
+    static const menu='assets/images/menu.svg';
+    static const calendarBold='assets/images/solar_calendar-bold.svg';
+    static const cancel='assets/images/cancel.svg';
+    static const changeAccess ='assets/images/change_access.svg';
+    static const editMember ='assets/images/edit_member.svg';
+
 
 }

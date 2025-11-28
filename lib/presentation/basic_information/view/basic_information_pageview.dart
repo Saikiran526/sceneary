@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentations/basic_information/view/basic_information_screen_one.dart';
-import 'package:sceneary/presentations/basic_information/view/basic_information_screen_three.dart';
-import 'package:sceneary/presentations/basic_information/view/basic_information_screen_two.dart';
-import 'package:sceneary/presentations/basic_information/viewmodel/basic_information_pageview_viewmodel.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_screen_one.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_screen_three.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_screen_two.dart';
+import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_pageview_viewmodel.dart';
 
 class BasicInformationPageview extends StatelessWidget {
   const BasicInformationPageview({super.key});
@@ -21,7 +21,47 @@ class BasicInformationPageview extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 24),
+                    if (viewModel.currentPage > 0)
+                      GestureDetector(
+                        onTap: () {
+                          viewModel.pageController.previousPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.ease,
+                          );
+                        },
+                        child: Container(
+                          width: 67,
+                          height: 28,
+                          padding: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.10),
+                                blurRadius: 12,
+                                spreadRadius: 1,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(Icons.arrow_back_ios, size: 20),
+                              Text(
+                                'Back',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                    SizedBox(height: 20),
+
                     Row(
                       children: [
                         _buildStepCircle(0, viewModel),
@@ -31,7 +71,9 @@ class BasicInformationPageview extends StatelessWidget {
                         _buildStepCircle(2, viewModel),
                       ],
                     ),
+
                     SizedBox(height: 20),
+
                     Text(
                       "Basic Information",
                       style: TextStyle(
@@ -46,6 +88,7 @@ class BasicInformationPageview extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+
                     SizedBox(height: 24),
 
                     Expanded(
@@ -57,7 +100,7 @@ class BasicInformationPageview extends StatelessWidget {
                         children: const [
                           BasicInformationScreenOne(),
                           BasicInformationScreenTwo(),
-                         BasicInformationScreenThree( ),
+                          BasicInformationScreenThree(),
                         ],
                       ),
                     ),
@@ -78,7 +121,7 @@ class BasicInformationPageview extends StatelessWidget {
       backgroundColor: isActive ? Colors.black : Color(0xFF868686),
       child: Text(
         "${index + 1}",
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.w700,
           fontSize: 20,
@@ -92,7 +135,7 @@ class BasicInformationPageview extends StatelessWidget {
       child: Container(
         height: 2,
         color: Colors.grey.shade400,
-        margin: EdgeInsets.symmetric(horizontal: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 8),
       ),
     );
   }

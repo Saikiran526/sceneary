@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
+import 'package:sceneary/presentation/cast_and_crew/cast_and_crew_screen.dart';
+import 'package:sceneary/presentation/enter_otp/enter_otp_screen.dart';
+import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
 import 'package:sceneary/presentation/profile_details/profile_details_screen.dart';
+import 'package:sceneary/presentation/verify_your_identity/verify_your_identity_screen.dart';
 import 'package:sceneary/presentation/project_details/project_details_screen.dart';
 
 class AppRouter {
@@ -19,6 +24,18 @@ class AppRouter {
     RoutePaths.profileDetailsScreen: () => const ProfileDetailsScreen(),
     RoutePaths.createProjectScreen: () => const CreateProjectScreen(),
     RoutePaths.projectDetailsScreen: () => const ProjectDetailsScreen(),
+
+    //muni
+    RoutePaths.basicInformationPageview: () => const BasicInformationPageview(),
+    RoutePaths.mobileNumberScreen: () => const MobileNumberScreen(),
+    RoutePaths.enterOtpScreen: () => const EnterOtpScreen(),
+    RoutePaths.verifyYourIdentityScreen: () => const VerifyYourIdentityScreen(),
+    RoutePaths.castAndCrewScreen: () => const   CastAndCrewScreen(),
+
+
+
+
+
 
 
   };

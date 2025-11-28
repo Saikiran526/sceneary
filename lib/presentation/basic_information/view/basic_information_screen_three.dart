@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentations/basic_information/viewmodel/basic_information_viewmodel_three.dart';
-import 'package:sceneary/presentations/widgets/custom_textfield.dart';
-import 'package:sceneary/presentations/widgets/primary_button.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_viewmodel_three.dart';
 
 class BasicInformationScreenThree extends StatelessWidget {
   const BasicInformationScreenThree({super.key});
@@ -47,9 +50,11 @@ class BasicInformationScreenThree extends StatelessWidget {
                                       backgroundColor: Color(0xFFD9D9D9),
                                     ),
                                     Positioned(
-                                      right: 0,
-                                      bottom: 0,
-                                      child: Icon(Icons.image),
+                                      right: 3,
+                                      bottom: 2,
+                                      child: SvgPicture.asset(
+                                        AssetsPath.cameraImg,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -73,7 +78,7 @@ class BasicInformationScreenThree extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 8),
-                          CustomTextField(
+                          customTextField(
                             controller: viewModel.portfolioLinkController,
                             hintText: 'Paste here',
                           ),
@@ -86,7 +91,7 @@ class BasicInformationScreenThree extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 8),
-                          CustomTextField(
+                          customTextField(
                             controller: viewModel.locationController,
                             hintText: 'City, state, Country',
                           ),
@@ -133,25 +138,56 @@ class BasicInformationScreenThree extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 16),
-                          Row(
-                            children: [
-                              Checkbox(
-                                value: viewModel.checkBox,
-                                onChanged: (value) {
-                                  viewModel.submitCheckBox();
-                                },
-                              ),
-                              Text('I agree to the Terms & Conditions and \n Privacy Policy',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500
-                              ),)
-                            ],
+                          Container(
+                            width: 300,
+                            height: 40,
+                            alignment: Alignment.centerLeft,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    viewModel.submitCheckBox();
+                                  },
+                                  child: Container(
+                                    width: 24,
+                                    height: 24,
+                                    decoration: BoxDecoration(
+                                      color: viewModel.checkBox
+                                          ? Colors.black
+                                          : Colors.white,
+                                      borderRadius: BorderRadius.circular(4),
+                                      border: Border.all(
+                                        color: Colors.grey,
+                                        width: 1,
+                                      ),
+                                    ),
+                                    child: viewModel.checkBox
+                                        ? Icon(
+                                            Icons.check,
+                                            size: 18,
+                                            color: Colors.white,
+                                          )
+                                        : null,
+                                  ),
+                                ),
+                                SizedBox(width: 16),
+                                Text(
+                                  'I agree to the Terms & Conditions and\n Privacy Policy',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                           SizedBox(height: 24),
-                          PrimaryButton(
+                          primaryButton(
                             text: 'Create Account',
-                            onPressed: () {},
+                            onPressed: () {
+                              AppRouter.instance.push(RoutePaths.mobileNumberScreen);
+                            },
                           ),
                           SizedBox(height: 24),
                           Center(
