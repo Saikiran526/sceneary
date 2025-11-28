@@ -18,6 +18,10 @@ class AssetsPath {
   static const instagramImg='assets/images/instagram.svg';
   static const youtubeImg='assets/images/youtube.svg';
   static const portfolioLinkImg='assets/images/portfolio_link.svg';
+  //muni
+    static const cameraImg='assets/images/camera.svg';
+    static const visibiltyImg='assets/images/visibility.svg';
+
 
 
 

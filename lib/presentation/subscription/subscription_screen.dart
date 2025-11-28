@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentations/mark_your_availability/mark_your_availability_screen.dart';
-import 'package:sceneary/presentations/subscription/subscription_viewmodel.dart';
+import 'package:sceneary/presentation/mark_your_availability/mark_your_availability_screen.dart';
+import 'package:sceneary/presentation/subscription/subscription_viewmodel.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class SubscriptionScreen extends StatelessWidget {
@@ -9,10 +9,12 @@ class SubscriptionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final providerData = Provider.of<SubscriptionViewmodel>(context);
-
     return Scaffold(
-      body: Column(
+      body: ChangeNotifierProvider(
+        create: (context) => SubscriptionViewmodel(context: context),
+        child: Consumer(
+          builder:(context,viewModel,child){
+            return Column(
         children: [
           Container(
             width: double.infinity,
@@ -122,7 +124,8 @@ class SubscriptionScreen extends StatelessWidget {
             ),
           ),
         ],
-      ),
+      );
+          } ),)
     );
   }
 }

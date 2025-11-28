@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentations/basic_information/view/basic_information_pageview.dart';
-import 'package:sceneary/presentations/login_welocme_back/welcome_back_viewmodel.dart';
-import 'package:sceneary/presentations/widgets/custom_textfield.dart';
-import 'package:sceneary/presentations/widgets/primary_button.dart';
-
+import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
+import 'package:sceneary/presentation/login_welocme_back/welcome_back_viewmodel.dart';
+  
 class WelcomeBackScreen extends StatelessWidget {
   const WelcomeBackScreen({super.key});
 
@@ -88,7 +87,7 @@ class WelcomeBackScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 8),
-                            CustomTextField(
+                            customTextField(
                               controller: viewModel.emailOrMobileController,
                               hintText: 'Enter here',
                             ),
@@ -113,12 +112,12 @@ class WelcomeBackScreen extends StatelessWidget {
                               ],
                             ),
                             SizedBox(height: 8),
-                            CustomTextField(
+                            customTextField(
                               controller: viewModel.passwordController,
                               hintText: 'Enter here',
                             ),
                             SizedBox(height: 24),
-                            PrimaryButton(text: 'Login', onPressed: () {
+                            primaryButton(text: 'Login', onPressed: () {
                               Navigator.push(context, MaterialPageRoute
                               (builder: (context) => BasicInformationPageview()));
                             }),

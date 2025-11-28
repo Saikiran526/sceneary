@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentations/basic_information/view/basic_information_screen_one.dart';
-import 'package:sceneary/presentations/basic_information/view/basic_information_screen_three.dart';
-import 'package:sceneary/presentations/basic_information/view/basic_information_screen_two.dart';
-import 'package:sceneary/presentations/basic_information/viewmodel/basic_information_pageview_viewmodel.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_screen_one.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_screen_three.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_screen_two.dart';
+import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_pageview_viewmodel.dart';
 
 class BasicInformationPageview extends StatelessWidget {
   const BasicInformationPageview({super.key});

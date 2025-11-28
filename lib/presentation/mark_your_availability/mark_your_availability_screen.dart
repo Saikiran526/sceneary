@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentations/mark_your_availability/mark_your_availability_viewmodel.dart';
+import 'package:sceneary/presentation/mark_your_availability/mark_your_availability_viewmodel.dart';
 
 class MarkYourAvailabilityScreen extends StatelessWidget {
   const MarkYourAvailabilityScreen({super.key});
