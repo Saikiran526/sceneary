@@ -26,7 +26,7 @@ class BasicInformationScreenOne extends StatelessWidget {
                        boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(
-                            0.08,
+                            0.10,
                           ),
                           blurRadius: 12,
                           spreadRadius: 1,

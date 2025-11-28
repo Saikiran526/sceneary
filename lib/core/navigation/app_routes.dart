@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
+import 'package:sceneary/presentation/cast_and_crew/cast_and_crew_screen.dart';
+import 'package:sceneary/presentation/enter_otp/enter_otp_screen.dart';
+import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/profile_details/profile_details_screen.dart';
+import 'package:sceneary/presentation/verify_your_identity/verify_your_identity_screen.dart';
 
 class AppRouter {
   // Singleton
@@ -15,6 +20,18 @@ class AppRouter {
   static final Map<String, Widget Function()> _builders = {
 
     RoutePaths.profileDetailsScreen: () => const ProfileDetailsScreen(),
+
+    //muni
+    RoutePaths.basicInformationPageview: () => const BasicInformationPageview(),
+    RoutePaths.mobileNumberScreen: () => const MobileNumberScreen(),
+    RoutePaths.enterOtpScreen: () => const EnterOtpScreen(),
+    RoutePaths.verifyYourIdentityScreen: () => const VerifyYourIdentityScreen(),
+    RoutePaths.castAndCrewScreen: () => const   CastAndCrewScreen(),
+
+
+
+
+
 
 
   };

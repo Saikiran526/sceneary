@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_viewmodel_three.dart';
 
@@ -183,7 +185,9 @@ class BasicInformationScreenThree extends StatelessWidget {
                           SizedBox(height: 24),
                           primaryButton(
                             text: 'Create Account',
-                            onPressed: () {},
+                            onPressed: () {
+                              AppRouter.instance.push(RoutePaths.mobileNumberScreen);
+                            },
                           ),
                           SizedBox(height: 24),
                           Center(

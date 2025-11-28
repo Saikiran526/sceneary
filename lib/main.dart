@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-  import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'package:sceneary/presentation/login_welocme_back/welcome_back_screen%20.dart';
 import 'core/navigation/app_routes.dart';
 
 void main() {
-  runApp(
-   MyApp()
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
