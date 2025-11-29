@@ -1,86 +1,75 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-
 Widget customTextField({
   String? label,
   required String hint,
   required TextEditingController controller,
   int maxLines = 1,
   bool enabled = true,
-  IconData? suffixIcon,
+  Widget? suffix,
   VoidCallback? onTap,
 }) {
   return Padding(
-    padding: const EdgeInsets.only(bottom: 8.0),
+    padding: const EdgeInsets.only(bottom: 8),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 20,
-          child: label != null
-              ? Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: Colors.black,
+        if (label != null)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 4),
+            child: Text(
+              label,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: Colors.black,
+              ),
             ),
-          )
-              : null,
-        ),
-        SizedBox(height: 4),
-        TextField(
-          controller: controller,
-          maxLines: maxLines,
-          enabled: enabled,
-          readOnly: onTap != null,
-          onTap: onTap,
+          ),
+        Container(
+          width: 328,
+          height: 40,
+          padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: const Color(0x33000000),
+              width: 1,
+            ),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: controller,
+                  maxLines: 1,
+                  enabled: enabled,
+                  readOnly: onTap != null,
+                  onTap: onTap,
+                  decoration: InputDecoration(
+                    hintText: hint,  
+                    border: InputBorder.none,
+                    isCollapsed: true,
+                  ),
 
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: Color(0XFF5D5D5D),
-            ),
-            suffixIcon: suffixIcon != null ? Icon(suffixIcon) : null,
-
-            contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(
-                color: Color(0x33000000),
-                width: 1,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
               ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(
-                color: Color(0x33000000),
-                width: 1,
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(
-                color: Color(0x33000000),
-                width: 1,
-              ),
-            ),
-            disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(
-                color: const Color(0x33000000).withOpacity(0.5),
-                width: 1,
-              ),
-            ),
+              if (suffix != null) const SizedBox(width: 10),
+              if (suffix != null)
+                SizedBox(height: 16, width: 16, child: suffix),
+            ],
           ),
         ),
       ],
     ),
   );
 }
+
+
 
 Widget uploadWidget({
   String? label,

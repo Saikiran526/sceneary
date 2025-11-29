@@ -46,7 +46,7 @@ class VerifyYourIdentityScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Container(
-                        width: 328,
+                        width: double.infinity,
                         height: 144,
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
@@ -105,7 +105,7 @@ class VerifyYourIdentityScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 24,),
                       Container(
-                        width: 328,
+                        width: double.infinity,
                         height: 482,
                         decoration: BoxDecoration(
                           color: Color(0xFFD9D9D9),

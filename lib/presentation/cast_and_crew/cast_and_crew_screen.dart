@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 import 'package:sceneary/presentation/cast_and_crew/cast_and_crew_viewmodel.dart';
 
@@ -23,7 +25,26 @@ class CastAndCrewScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                   ),
                   Spacer(),
-                  SvgPicture.asset(AssetsPath.menu),
+                  Container(
+                    height: 40,
+                    width: 40,
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0, 1),
+                          blurRadius: 3,
+                          spreadRadius: 0,
+                          color: Colors.black.withOpacity(
+                            0.08,
+                          ), 
+                        ),
+                      ],
+                    ),
+                    child: SvgPicture.asset(AssetsPath.menuImg,height: 24,width: 24,)
+                  ),
                 ],
               ),
             ),
@@ -146,24 +167,33 @@ class CastAndCrewScreen extends StatelessWidget {
                                       ),
                                     ),
                                     Spacer(),
-                                    Container(
-                                      width: 120,
-                                      height: 32,
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 8,
-                                        vertical: 8,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
-                                        color: Color(0xFF454545),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          '+Add Member',
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            color: Colors.white,
+                                    GestureDetector(
+                                      onTap: () {
+                                        AppRouter.instance.push(
+                                          RoutePaths.addMemberScreen,
+                                        );
+                                      },
+                                      child: Container(
+                                        width: 120,
+                                        height: 32,
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 8,
+                                          vertical: 8,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                          color: Color(0xFF454545),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            '+Add Member',
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: Colors.white,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -178,7 +208,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                         bottom: 12,
                                       ),
                                       child: Container(
-                                        width: 328,
+                                        width: double.infinity,
                                         height: 57,
                                         padding: EdgeInsets.fromLTRB(
                                           16,
@@ -268,7 +298,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                 SizedBox(height: 16),
                                 Container(
                                   height: 365,
-                                  width: 328,
+                                  width: double.infinity,
                                   padding: EdgeInsets.only(top: 8, bottom: 8),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(16),
@@ -317,7 +347,12 @@ class CastAndCrewScreen extends StatelessWidget {
                                             Container(
                                               width: 76,
                                               height: 25,
-                                              padding: EdgeInsets.fromLTRB(16,4,16,4,),
+                                              padding: EdgeInsets.fromLTRB(
+                                                16,
+                                                4,
+                                                16,
+                                                4,
+                                              ),
                                               decoration: BoxDecoration(
                                                 color: Color(0xFF474747),
                                                 borderRadius:
@@ -335,12 +370,12 @@ class CastAndCrewScreen extends StatelessWidget {
                                               ),
                                             ),
                                             SizedBox(width: 20),
-                                        buildPopupMenu(context, viewModel),
+                                            buildPopupMenu(context, viewModel),
                                           ],
                                         ),
                                       ),
                                       Divider(),
-                                       Padding(
+                                      Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Row(
                                           children: [
@@ -379,7 +414,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                             Container(
                                               width: 76,
                                               height: 25,
-                                               decoration: BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 color: Color(0xFF474747),
                                                 borderRadius:
                                                     BorderRadius.circular(8),
@@ -396,12 +431,12 @@ class CastAndCrewScreen extends StatelessWidget {
                                               ),
                                             ),
                                             SizedBox(width: 20),
-                                           buildPopupMenu(context, viewModel)
+                                            buildPopupMenu(context, viewModel),
                                           ],
                                         ),
                                       ),
                                       Divider(),
-                                       Padding(
+                                      Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Row(
                                           children: [
@@ -457,12 +492,12 @@ class CastAndCrewScreen extends StatelessWidget {
                                               ),
                                             ),
                                             SizedBox(width: 20),
-                                            buildPopupMenu(context, viewModel)
+                                            buildPopupMenu(context, viewModel),
                                           ],
                                         ),
                                       ),
                                       Divider(),
-                                       Padding(
+                                      Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Row(
                                           children: [
@@ -501,7 +536,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                             Container(
                                               width: 76,
                                               height: 25,
-                                               decoration: BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 color: Color(0xFF474747),
                                                 borderRadius:
                                                     BorderRadius.circular(8),
@@ -518,11 +553,11 @@ class CastAndCrewScreen extends StatelessWidget {
                                               ),
                                             ),
                                             SizedBox(width: 20),
-                                           buildPopupMenu(context, viewModel)
+                                            buildPopupMenu(context, viewModel),
                                           ],
                                         ),
                                       ),
-                                      Divider()
+                                      Divider(),
                                     ],
                                   ),
                                 ),
@@ -664,64 +699,68 @@ class CastAndCrewScreen extends StatelessWidget {
       ),
     );
   }
+
   Widget buildPopupMenu(BuildContext context, CastAndCrewViewmodel viewModel) {
-  return Theme(
-  data: Theme.of(context).copyWith(
-    popupMenuTheme: PopupMenuThemeData(
-      color: Colors.white, 
-      textStyle: TextStyle(color: Colors.white),
-    ),
-  ),
-  child: PopupMenuButton<String>(
-    icon: Icon(Icons.more_vert, color: Colors.black),
-    onSelected: (value) {},
-    itemBuilder: (context) => [
-      PopupMenuItem(
-        value: "edit",
-        child: Row(
-          children: [
-            SvgPicture.asset(AssetsPath.editMember),
-            SizedBox(width: 15,),
-            Text("Edit Member",
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600
-            ),),
-          ],
+    return Theme(
+      data: Theme.of(context).copyWith(
+        popupMenuTheme: PopupMenuThemeData(
+          color: Colors.white,
+          textStyle: TextStyle(color: Colors.white),
         ),
       ),
-      PopupMenuItem(
-        value: "change",
-        child: Row(
-          children: [
-            SvgPicture.asset(AssetsPath.changeAccess),
-            SizedBox(width: 15,),
-            Text("Change Access",
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600
-            )),
-          ],
-        ),
+      child: PopupMenuButton<String>(
+        icon: Icon(Icons.more_vert, color: Colors.black),
+        onSelected: (value) {
+          if (value == "remove") {
+            viewModel.showRemoveDialog();
+          } else if (value == "change") {
+            viewModel.changeAccessDailog();
+          } else if (value == "edit") {
+            AppRouter.instance.push(RoutePaths.editMemberScreen);
+          }
+        },
+        itemBuilder: (context) => [
+          PopupMenuItem(
+            value: "edit",
+            child: Row(
+              children: [
+                SvgPicture.asset(AssetsPath.editMember),
+                SizedBox(width: 15),
+                Text(
+                  "Edit Member",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ),
+          PopupMenuItem(
+            value: "change",
+            child: Row(
+              children: [
+                SvgPicture.asset(AssetsPath.changeAccess),
+                SizedBox(width: 15),
+                Text(
+                  "Change Access",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ),
+          PopupMenuItem(
+            value: "remove",
+            child: Row(
+              children: [
+                SvgPicture.asset(AssetsPath.cancel, height: 13, width: 13),
+                SizedBox(width: 20),
+                Text(
+                  "Remove",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
-      PopupMenuItem(
-        value: "remove",
-        child: Row(
-          children: [
-            SvgPicture.asset(AssetsPath.cancel,height: 13,width: 13,),
-            SizedBox(width: 20,),
-            Text("Remove",
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600
-            )),
-          ],
-        ),
-      ),
-    ],
-  ),
-);
-
-}
-
+    );
+  }
 }
