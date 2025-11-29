@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
+import 'package:sceneary/presentation/cast_add_member/add_member_screen.dart';
 import 'package:sceneary/presentation/cast_and_crew/cast_and_crew_screen.dart';
+import 'package:sceneary/presentation/cast_edit_member/edit_member_screen.dart';
 import 'package:sceneary/presentation/enter_otp/enter_otp_screen.dart';
 import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
 import 'package:sceneary/presentation/profile_details/profile_details_screen.dart';
+import 'package:sceneary/presentation/project_settings/view/project_settings_screen.dart';
 import 'package:sceneary/presentation/verify_your_identity/verify_your_identity_screen.dart';
 import 'package:sceneary/presentation/project_details/project_details_screen.dart';
 
@@ -20,7 +23,6 @@ class AppRouter {
 
   // Route Builders (String → Widget)
   static final Map<String, Widget Function()> _builders = {
-
     RoutePaths.profileDetailsScreen: () => const ProfileDetailsScreen(),
     RoutePaths.createProjectScreen: () => const CreateProjectScreen(),
     RoutePaths.projectDetailsScreen: () => const ProjectDetailsScreen(),
@@ -30,14 +32,10 @@ class AppRouter {
     RoutePaths.mobileNumberScreen: () => const MobileNumberScreen(),
     RoutePaths.enterOtpScreen: () => const EnterOtpScreen(),
     RoutePaths.verifyYourIdentityScreen: () => const VerifyYourIdentityScreen(),
-    RoutePaths.castAndCrewScreen: () => const   CastAndCrewScreen(),
-
-
-
-
-
-
-
+    RoutePaths.castAndCrewScreen: () => const CastAndCrewScreen(),
+    RoutePaths.editMemberScreen: () => const EditMemberScreen(),
+    RoutePaths.addMemberScreen: () => const AddMemberScreen(),
+    RoutePaths.projectSettingsScreen: () => const ProjectSettingsScreen(),
   };
 
   // Route Generator
@@ -94,9 +92,9 @@ class AppRouter {
   /// Push a widget directly (optionally with arguments)
   Future<T?> pushWidget<T extends Object?>(Widget page, {Object? arguments}) {
     return _navKey.currentState!.push(
-      _slide(page, RouteSettings(arguments: arguments)),
-    )
-    as Future<T?>;
+          _slide(page, RouteSettings(arguments: arguments)),
+        )
+        as Future<T?>;
   }
 
   /// Replace the current screen (optionally with arguments)
@@ -119,7 +117,7 @@ class AppRouter {
       RouteSettings(name: routePath, arguments: arguments),
     );
     return _navKey.currentState!.pushAndRemoveUntil(route, (_) => false)
-    as Future<T?>;
+        as Future<T?>;
   }
 
   /// Pop current screen
@@ -127,7 +125,7 @@ class AppRouter {
 
   /// Pop until routePath
   void popUntil(String routePath) => _navKey.currentState!.popUntil(
-        (route) => route.settings.name == routePath,
+    (route) => route.settings.name == routePath,
   );
 
   /// Check if can pop

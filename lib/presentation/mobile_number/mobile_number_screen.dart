@@ -39,7 +39,7 @@ class MobileNumberScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 40),
                       Container(
-                        width: 328,
+                        width: double.infinity,
                         height: 356,
                         padding: const EdgeInsets.fromLTRB(14, 60, 14, 60),
                         decoration: BoxDecoration(

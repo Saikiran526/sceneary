@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/create_project/utils.dart';
 import 'create_project_viewmodel.dart';
 
@@ -154,7 +156,7 @@ class CreateProjectScreen extends StatelessWidget {
                             label: "Start Date",
                             hint: "Pick a date",
                             controller: viewModel.startDateController,
-                            suffixIcon: Icons.calendar_month,
+                            suffix: SvgPicture.asset(AssetsPath.calendarImg),
                             onTap: () {
                               viewModel.pickStartDate(context);
                             },
@@ -167,7 +169,6 @@ class CreateProjectScreen extends StatelessWidget {
                             label: "End Date",
                             hint: "Pick a date",
                             controller: viewModel.endDateController,
-                            suffixIcon: Icons.calendar_month,
                             onTap: () {
                               viewModel.pickEndDate(context);
                             },

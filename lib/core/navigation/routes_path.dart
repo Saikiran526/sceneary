@@ -11,6 +11,12 @@ class RoutePaths{
     static const String enterOtpScreen='/EnterOtpScreen';
      static const String verifyYourIdentityScreen='/VerifyYourIdentityScreen';
      static const String castAndCrewScreen='/CastAndCrewScreen';
+    static const String editMemberScreen='/EditMemberScreen';
+    static const String addMemberScreen='/AddMemberScreen';
+    static const String projectSettingsScreen='/ProjectSettingsScreen';
+
+
+
 
 
 

@@ -36,6 +36,8 @@ class AssetsPath {
     static const cancel='assets/images/cancel.svg';
     static const changeAccess ='assets/images/change_access.svg';
     static const editMember ='assets/images/edit_member.svg';
+    static const projectsuffix ='assets/images/project_settings_suffix.svg';
+    static const upload ='assets/images/upload.svg';
 
 
 }

@@ -21,7 +21,7 @@ class BasicInformationScreenThree extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Center(
                   child: Container(
-                    width: 328,
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       borderRadius: BorderRadius.circular(16),

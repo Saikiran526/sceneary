@@ -69,7 +69,7 @@ class WelcomeBackScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 40),
                       Container(
-                        width: 328,
+                        width: double.infinity,
                         height: 448,
                         padding: const EdgeInsets.fromLTRB(14, 60, 14, 60),
                         decoration: BoxDecoration(
@@ -128,7 +128,7 @@ class WelcomeBackScreen extends StatelessWidget {
                             SizedBox(height: 24),
                             primaryButton(text: 'Login', onPressed: () {
                              // AppRouter.instance.push(RoutePaths.basicInformationPageview);
-                              AppRouter.instance.push(RoutePaths.castAndCrewScreen);
+                              AppRouter.instance.push(RoutePaths.projectSettingsScreen);
                             }),
                             SizedBox(height: 24),
                             Center(
