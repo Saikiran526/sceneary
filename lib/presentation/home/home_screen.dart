@@ -113,8 +113,7 @@ class HomeScreen extends StatelessWidget {
                           if(viewModel.selectedDate!=22)...[
                             CarouselSlider(
                               options: CarouselOptions(
-                                height: height*0.2,
-                                autoPlay: false,
+                                autoPlay: true,
                                 enlargeCenterPage: true,
                                 viewportFraction: 1,
                                 aspectRatio: 16 / 9,

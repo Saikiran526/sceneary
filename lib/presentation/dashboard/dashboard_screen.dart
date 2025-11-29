@@ -183,7 +183,7 @@ class DashboardScreen extends StatelessWidget {
                       ),
                       BottomNavigationBarItem(
                         label: 'Profile',
-                        icon:viewModel.selectedIndex==0 ? SvgPicture.asset(AssetsPath.profileActiveImg) : SvgPicture.asset(AssetsPath.profileInActiveImg),
+                        icon: viewModel.selectedIndex==3 ? SvgPicture.asset(AssetsPath.profileActiveImg) : SvgPicture.asset(AssetsPath.profileInActiveImg),
                       ),
                     ]
                 )

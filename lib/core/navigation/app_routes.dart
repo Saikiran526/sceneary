@@ -2,10 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
 import 'package:sceneary/presentation/cast_and_crew/cast_and_crew_screen.dart';
+import 'package:sceneary/presentation/chang_password/change_password_screen.dart';
+import 'package:sceneary/presentation/edit_profile/edit_profile_screen.dart';
 import 'package:sceneary/presentation/enter_otp/enter_otp_screen.dart';
+import 'package:sceneary/presentation/faqs/faqs_screen.dart';
+import 'package:sceneary/presentation/help_and_support/help_and_support_screen.dart';
 import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
+import 'package:sceneary/presentation/privacy_policy/privacy_policy_screen.dart';
 import 'package:sceneary/presentation/profile_details/profile_details_screen.dart';
+import 'package:sceneary/presentation/refund_policy/refund_policy_screen.dart';
+import 'package:sceneary/presentation/subscription_planes/subscription_planes_screen.dart';
+import 'package:sceneary/presentation/terms_and_conditions/terms_and_conditions_screen.dart';
+import 'package:sceneary/presentation/two_factor_authentication/two_factor_authentication_screen.dart';
 import 'package:sceneary/presentation/verify_your_identity/verify_your_identity_screen.dart';
 import 'package:sceneary/presentation/project_details/project_details_screen.dart';
 
@@ -21,9 +30,21 @@ class AppRouter {
   // Route Builders (String → Widget)
   static final Map<String, Widget Function()> _builders = {
 
+    // Home
     RoutePaths.profileDetailsScreen: () => const ProfileDetailsScreen(),
+    // Projects
     RoutePaths.createProjectScreen: () => const CreateProjectScreen(),
     RoutePaths.projectDetailsScreen: () => const ProjectDetailsScreen(),
+    // Profile
+    RoutePaths.editProfileScreen : () => const EditProfileScreen(),
+    RoutePaths.changePasswordScreen : () => const ChangePasswordScreen(),
+    RoutePaths.twoFactorAuthenticationScreen : () => const TwoFactorAuthenticationScreen(),
+    RoutePaths.subscriptionPlanesScreen : () => const SubscriptionPlanesScreen(),
+    RoutePaths.termsAndConditionsScreen : () => const TermsAndConditionsScreen(),
+    RoutePaths.privacyPolicyScreen : () => const PrivacyPolicyScreen(),
+    RoutePaths.refundPolicyScreen : () => const RefundPolicyScreen(),
+    RoutePaths.helpAndSupportScreen : () => const HelpAndSupportScreen(),
+    RoutePaths.faqsScreen : () => const FaqsScreen(),
 
     //muni
     RoutePaths.basicInformationPageview: () => const BasicInformationPageview(),

@@ -60,6 +60,60 @@ Widget customTextField({
     ),
   );
 }
+Widget customTextFieldWithHeading({
+  required Size size,
+  required String heading,
+  required String hintText,
+  required TextEditingController controller,
+  required bool readOnly,
+  Widget? suffix,
+  int? maxLines
+}){
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        heading,
+        style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600
+        ),
+      ),
+      SizedBox(height: size.height*0.01),
+      TextField(
+        controller: controller,
+        readOnly: readOnly,
+        maxLines: maxLines,
+        decoration: InputDecoration(
+            hintText: hintText,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(
+                color: Colors.grey.shade300,
+                width: 1,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(
+                color: Colors.grey.shade300,
+                width: 1,
+              ),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(
+                  color: Colors.grey.shade300,
+                  width: 1
+              ),
+            ),
+            suffix: suffix
+
+        ),
+      )
+    ],
+  );
+}
 Widget primaryButton({
   required String text,
   required VoidCallback onPressed,
@@ -88,10 +142,10 @@ Widget primaryButton({
     ),
   );
 }
-AppBar customAppBar(){
+AppBar customAppBar({required String title}){
   return AppBar(
     title: Text(
-      'Profile',
+      title,
       style: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.w600

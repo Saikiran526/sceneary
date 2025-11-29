@@ -1,19 +1,24 @@
-class RoutePaths{
-
+class RoutePaths {
   // Home Screens
-  static const String profileDetailsScreen='/ProfileDetailsScreen';
-  static const String createProjectScreen='/CreateProjectScreen';
-  static const String projectDetailsScreen='/ProjectDetailsScreen';
+  static const String profileDetailsScreen = '/ProfileDetailsScreen';
+  static const String createProjectScreen = '/CreateProjectScreen';
+  static const String projectDetailsScreen = '/ProjectDetailsScreen';
+
+  // Profile
+  static const String editProfileScreen = '/EditProfileScreen';
+  static const String changePasswordScreen = '/ChangePasswordScreen';
+  static const String twoFactorAuthenticationScreen = '/TwoFactorAuthenticationScreen';
+  static const String subscriptionPlanesScreen = '/SubscriptionPlanesScreen';
+  static const String termsAndConditionsScreen = '/TermsAndConditionsScreen';
+  static const String privacyPolicyScreen = '/PrivacyPolicyScreen';
+  static const String refundPolicyScreen = '/RefundPolicyScreen';
+  static const String helpAndSupportScreen = '/HelpAndSupportScreen';
+  static const String faqsScreen = '/FaqsScreen';
 
   //muni
-    static const String basicInformationPageview='/BasicInformationPageview';
-    static const String mobileNumberScreen='/MobileNumberScreen';
-    static const String enterOtpScreen='/EnterOtpScreen';
-     static const String verifyYourIdentityScreen='/VerifyYourIdentityScreen';
-     static const String castAndCrewScreen='/CastAndCrewScreen';
-
-
-
-
-
+  static const String basicInformationPageview = '/BasicInformationPageview';
+  static const String mobileNumberScreen = '/MobileNumberScreen';
+  static const String enterOtpScreen = '/EnterOtpScreen';
+  static const String verifyYourIdentityScreen = '/VerifyYourIdentityScreen';
+  static const String castAndCrewScreen = '/CastAndCrewScreen';
 }
