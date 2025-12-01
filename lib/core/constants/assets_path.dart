@@ -55,5 +55,18 @@ class AssetsPath {
   static const editMember = 'assets/images/edit_member.svg';
   static const projectsuffix = 'assets/images/project_settings_suffix.svg';
   static const upload = 'assets/images/upload.svg';
+  static const delete = 'assets/images/delete.svg';
+  static const men = 'assets/images/men.svg';
+  static const men1 = 'assets/images/men1.png';
+  static const timer = 'assets/images/time.svg';
+  static const women = 'assets/images/women.png';
+  static const unAvailable = 'assets/images/unavailable.svg';
+  static const attach = 'assets/images/attach.svg';
+  static const document = 'assets/images/document.svg';
+  static const gallery = 'assets/images/gallery.svg';
+  static const existGroup = 'assets/images/exist_group.svg';
+  static const block = 'assets/images/block.svg';
+   static const muteNotification = 'assets/images/mute.svg';
+
 
 }

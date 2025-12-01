@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:sceneary/presentation/group_chat/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
 import 'package:sceneary/presentation/cast_add_member/add_member_screen.dart';
 import 'package:sceneary/presentation/cast_and_crew/cast_and_crew_screen.dart';
+import 'package:sceneary/presentation/cast_and_crew_availability/cast_and_crew_availability_screen.dart';
 import 'package:sceneary/presentation/chang_password/change_password_screen.dart';
 import 'package:sceneary/presentation/edit_profile/edit_profile_screen.dart';
 import 'package:sceneary/presentation/cast_edit_member/edit_member_screen.dart';
 import 'package:sceneary/presentation/enter_otp/enter_otp_screen.dart';
 import 'package:sceneary/presentation/faqs/faqs_screen.dart';
+import 'package:sceneary/presentation/group_chat_history/group_chat_history_screen.dart';
 import 'package:sceneary/presentation/help_and_support/help_and_support_screen.dart';
+import 'package:sceneary/presentation/individual_chat/individual_chat_screen.dart';
+import 'package:sceneary/presentation/mark_your_availability/mark_your_availability_screen.dart';
 import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
 import 'package:sceneary/presentation/privacy_policy/privacy_policy_screen.dart';
@@ -57,7 +62,19 @@ class AppRouter {
     RoutePaths.castAndCrewScreen: () => const CastAndCrewScreen(),
     RoutePaths.editMemberScreen: () => const EditMemberScreen(),
     RoutePaths.addMemberScreen: () => const AddMemberScreen(),
+    RoutePaths.castAndCrewAvailabilityScreen: () => const CastAndCrewAvailabilityScreen(),
     RoutePaths.projectSettingsScreen: () => const ProjectSettingsScreen(),
+   RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
+   RoutePaths.chatScreen: () => const ChatScreen(),
+  RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
+    RoutePaths.individualChatScreen: () => const IndividualChatScreen(),
+
+
+
+
+
+
+    
   };
 
   // Route Generator

@@ -686,7 +686,9 @@ class CastAndCrewScreen extends StatelessWidget {
                                   },
                                 ),
                                 SizedBox(height: 24),
-                                primaryButton(text: 'View', onPressed: () {}),
+                                primaryButton(text: 'View', onPressed: () {
+                                  AppRouter.instance.push(RoutePaths.castAndCrewAvailabilityScreen);
+                                }),
                               ],
                             ),
                           ),
