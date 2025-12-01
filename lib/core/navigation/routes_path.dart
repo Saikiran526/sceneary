@@ -1,4 +1,5 @@
 class RoutePaths {
+
   // Home Screens
   static const String profileDetailsScreen = '/ProfileDetailsScreen';
   static const String createProjectScreen = '/CreateProjectScreen';
@@ -14,6 +15,13 @@ class RoutePaths {
   static const String refundPolicyScreen = '/RefundPolicyScreen';
   static const String helpAndSupportScreen = '/HelpAndSupportScreen';
   static const String faqsScreen = '/FaqsScreen';
+
+  // Scenic Order
+  static const String scenicOrderScreen='/ScenicOrderScreen';
+  static const String scenicOrderTemplateListScreen='/ScenicOrderTemplateListScreen';
+  static const String scenicOrderTemplateDetailsScreen='/ScenicOrderTemplateDetailsScreen';
+  static const String enterScenicOrderTemplateDetailsScreen='/EnterScenicOrderTemplateDetailsScreen';
+  static const String previewScenicOrderTemplateDetailsScreen='/PreviewScenicOrderTemplateDetailsScreen';
 
   //muni
   static const String basicInformationPageview = '/BasicInformationPageview';

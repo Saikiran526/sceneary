@@ -148,7 +148,7 @@ class DashboardScreen extends StatelessWidget {
                     IconButton(onPressed: (){}, icon: SvgPicture.asset(AssetsPath.notificationImg)),
                   ],
                 )
-                    : null ,
+                    : null,
                 body: Consumer<DashboardViewModel>(
                     builder: (context,viewModel,child){
                       return [

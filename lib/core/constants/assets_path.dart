@@ -21,15 +21,17 @@ class AssetsPath {
   /// Projects
   static const calendarImg = 'assets/images/calendar.svg';
   static const budgetMoneyImg = 'assets/images/budget_money.svg';
-
   // Create Project
   static const calenderFilledImg = "assets/images/calendar_filled.svg";
-
   // Project Details
   static const menuImg = "assets/images/menu.svg";
   static const calenderOnrImg = "assets/images/calender_1.svg";
   static const scenesImg = "assets/images/scenes.svg";
   static const clockImg = "assets/images/clock.svg";
+  // Scenic Order
+  static const addImg = "assets/images/add.svg";
+  static const downloadImg="assets/images/download.svg";
+  static const crossImg="assets/images/cross.svg";
 
   ///Profile
   static const editProfileImg = "assets/images/edit_profile.svg";
@@ -50,7 +52,7 @@ class AssetsPath {
   static const visibiltyImg = 'assets/images/visibility.svg';
   static const menu = 'assets/images/menu.svg';
   static const calendarBold = 'assets/images/solar_calendar-bold.svg';
-  static const cancel = 'assets/images/cancel.svg';
+  static const cancelImg = 'assets/images/cancel.svg';
   static const changeAccess = 'assets/images/change_access.svg';
   static const editMember = 'assets/images/edit_member.svg';
   static const projectsuffix = 'assets/images/project_settings_suffix.svg';

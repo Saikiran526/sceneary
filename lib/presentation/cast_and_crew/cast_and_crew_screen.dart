@@ -277,7 +277,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                             ),
                                             SizedBox(width: 10),
                                             SvgPicture.asset(
-                                              AssetsPath.cancel,
+                                              AssetsPath.cancelImg,
                                               width: 11,
                                               height: 11,
                                             ),
@@ -750,7 +750,7 @@ class CastAndCrewScreen extends StatelessWidget {
             value: "remove",
             child: Row(
               children: [
-                SvgPicture.asset(AssetsPath.cancel, height: 13, width: 13),
+                SvgPicture.asset(AssetsPath.cancelImg, height: 13, width: 13),
                 SizedBox(width: 20),
                 Text(
                   "Remove",

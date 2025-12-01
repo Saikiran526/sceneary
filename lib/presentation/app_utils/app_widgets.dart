@@ -114,6 +114,83 @@ Widget customTextFieldWithHeading({
     ],
   );
 }
+Widget customDropdownWithHeading({
+  required String heading,
+  required String hintText,
+  required String? value,
+  required List<String> items,
+  required Function(String?) onChanged,
+}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        heading,
+        style: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      const SizedBox(height: 8),
+
+      DropdownButtonFormField<String>(
+        value: value,
+        decoration: InputDecoration(
+          hintText: hintText,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+          ),
+        ),
+        items: items.map((e) => DropdownMenuItem(
+          value: e,
+          child: Text(e),
+        ))
+            .toList(),
+        onChanged: onChanged,
+      ),
+    ],
+  );
+}
+Widget customDropdown({
+  required String? value,
+  required String hintText,
+  required List<String> items,
+  required Function(String?) onChanged
+}){
+  return DropdownButtonFormField<String>(
+    value: value,
+    decoration: InputDecoration(
+      hintText: hintText,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+      ),
+    ),
+    items: items.map((e) => DropdownMenuItem(
+      value: e,
+      child: Text(e),
+    ))
+        .toList(),
+    onChanged: onChanged,
+  );
+}
 
 
 Widget primaryButton({
@@ -141,6 +218,27 @@ Widget primaryButton({
           height: 1.0,
         ),
       ),
+    ),
+  );
+}
+Widget primaryOutlinedButton({
+  required String text,
+  required VoidCallback onPressed
+}){
+  return SizedBox(
+    width: double.infinity,
+    child: OutlinedButton(
+        onPressed: onPressed,
+        style: OutlinedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: BorderSide(
+                    color: Colors.black,
+                    width: 1
+                )
+            )
+        ),
+        child: Text(text,style: TextStyle(color: Colors.black),)
     ),
   );
 }

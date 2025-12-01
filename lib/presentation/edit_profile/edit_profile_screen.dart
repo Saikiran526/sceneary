@@ -110,7 +110,7 @@ class EditProfileScreen extends StatelessWidget {
                           maxLines:3
                       ),
                       SizedBox(height: height*0.02),
-                      customDropdown(
+                      localCustomDropdown(
                           heading: 'Craft',
                           hintText: 'Select craft',
                           value: viewModel.selectedCraft,
@@ -120,7 +120,7 @@ class EditProfileScreen extends StatelessWidget {
                           }
                       ),
                       SizedBox(height: height*0.02),
-                      customDropdown(
+                      localCustomDropdown(
                           heading: 'Subcraft',
                           hintText: 'Select subcraft',
                           value: viewModel.selectedSubCraft,
@@ -130,7 +130,7 @@ class EditProfileScreen extends StatelessWidget {
                           }
                       ),
                       SizedBox(height: height*0.02),
-                      customDropdown(
+                      localCustomDropdown(
                           heading: 'Experience level',
                           hintText: 'Select experience level',
                           value: viewModel.selectedExperience,

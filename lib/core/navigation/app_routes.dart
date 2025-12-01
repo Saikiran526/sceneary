@@ -7,13 +7,18 @@ import 'package:sceneary/presentation/chang_password/change_password_screen.dart
 import 'package:sceneary/presentation/edit_profile/edit_profile_screen.dart';
 import 'package:sceneary/presentation/cast_edit_member/edit_member_screen.dart';
 import 'package:sceneary/presentation/enter_otp/enter_otp_screen.dart';
+import 'package:sceneary/presentation/enter_scenic_order_template_details/enter_scenic_order_template_details_screen.dart';
 import 'package:sceneary/presentation/faqs/faqs_screen.dart';
 import 'package:sceneary/presentation/help_and_support/help_and_support_screen.dart';
 import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
+import 'package:sceneary/presentation/preview_scenic_order_template_details/preview_scenic_order_template_details_screen.dart';
 import 'package:sceneary/presentation/privacy_policy/privacy_policy_screen.dart';
 import 'package:sceneary/presentation/profile_details/profile_details_screen.dart';
 import 'package:sceneary/presentation/refund_policy/refund_policy_screen.dart';
+import 'package:sceneary/presentation/scenic_order/scenic_order_screen.dart';
+import 'package:sceneary/presentation/scenic_order_template_details/scenic_order_template_details_screen.dart';
+import 'package:sceneary/presentation/scenic_order_template_list/scenic_order_template_list_screen.dart';
 import 'package:sceneary/presentation/subscription_planes/subscription_planes_screen.dart';
 import 'package:sceneary/presentation/terms_and_conditions/terms_and_conditions_screen.dart';
 import 'package:sceneary/presentation/two_factor_authentication/two_factor_authentication_screen.dart';
@@ -48,6 +53,12 @@ class AppRouter {
     RoutePaths.refundPolicyScreen : () => const RefundPolicyScreen(),
     RoutePaths.helpAndSupportScreen : () => const HelpAndSupportScreen(),
     RoutePaths.faqsScreen : () => const FaqsScreen(),
+    // Scenic order
+    RoutePaths.scenicOrderScreen : ()=> ScenicOrderScreen(),
+    RoutePaths.scenicOrderTemplateListScreen : ()=> ScenicOrderTemplateListScreen(),
+    RoutePaths.scenicOrderTemplateDetailsScreen : ()=> ScenicOrderTemplateDetailsScreen(),
+    RoutePaths.enterScenicOrderTemplateDetailsScreen : ()=> EnterScenicOrderTemplateDetailsScreen(),
+    RoutePaths.previewScenicOrderTemplateDetailsScreen : ()=> PreviewScenicOrderTemplateDetailsScreen(),
 
     //muni
     RoutePaths.basicInformationPageview: () => const BasicInformationPageview(),

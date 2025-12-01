@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget customDropdown({
+Widget localCustomDropdown({
   required String heading,
   required String hintText,
   required String? value,
