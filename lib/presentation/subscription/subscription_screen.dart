@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentation/mark_your_availability/mark_your_availability_screen.dart';
-import 'package:sceneary/presentation/subscription/subscription_viewmodel.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
+ import 'package:sceneary/presentation/subscription/subscription_viewmodel.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class SubscriptionScreen extends StatelessWidget {
@@ -75,12 +76,7 @@ class SubscriptionScreen extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MarkYourAvailabilityScreen(),
-                      ),
-                    );
+                   AppRouter.instance.push(RoutePaths.markYourAvailabilityScreen);
                   },
                   child: Container(
                     margin: EdgeInsets.symmetric(vertical: 30),

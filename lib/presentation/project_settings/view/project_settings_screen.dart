@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/project_settings/view/project_information_screen.dart';
+import 'package:sceneary/presentation/project_settings/view/project_status_screen.dart';
 import 'package:sceneary/presentation/project_settings/view/roles_and_permission_screen.dart';
 import 'package:sceneary/presentation/project_settings/viewmodel/project_settings_viewmodel.dart';
 
@@ -75,7 +76,7 @@ class ProjectSettingsScreen extends StatelessWidget {
                     children: [
                      ProjectInformationScreen(),
                      RolesAndPermissionScreen(),
-                      Center(child: Text("Project Status")),
+                     ProjectStatusScreen(),
                     ],
                   ),
                 ),

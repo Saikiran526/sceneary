@@ -127,8 +127,7 @@ class WelcomeBackScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 24),
                             primaryButton(text: 'Login', onPressed: () {
-                             // AppRouter.instance.push(RoutePaths.basicInformationPageview);
-                              AppRouter.instance.push(RoutePaths.projectSettingsScreen);
+                              AppRouter.instance.push(RoutePaths.basicInformationPageview);
                             }),
                             SizedBox(height: 24),
                             Center(

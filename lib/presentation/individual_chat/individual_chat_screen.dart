@@ -1,0 +1,159 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/individual_chat/individual_chat_viewmodel.dart';
+
+class IndividualChatScreen extends StatelessWidget {
+  const IndividualChatScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => IndividualChatViewmodel(context: context),
+      child: Consumer<IndividualChatViewmodel>(
+        builder: (context,viewModel,child){
+          return Scaffold(
+            body: Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    AppRouter.instance.push(RoutePaths.groupChatHistoryScreen);
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 137,
+                    padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).padding.top + 16,
+                      left: 16,
+                      right: 16,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.08),
+                          blurRadius: 12,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 24,
+                          backgroundColor: Color(0xFFD9D9D9),
+                        ),
+                        SizedBox(width: 12),
+                         Expanded(
+                          child: Text(
+                            'JD',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        Icon(Icons.search, size: 22),
+                        SizedBox(width: 16),
+                        IconButton(onPressed: (){
+                          viewModel.showPopMoreVert();
+                        },
+                      icon:  Icon(Icons.more_vert, size: 22), )
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    padding: EdgeInsets.all(16),
+                    itemCount: viewModel.messages.length,
+                    itemBuilder: (context, index) {
+                      final msg = viewModel.messages[index];
+                      return Align(
+                        alignment: msg.isMe
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 14,
+                            vertical: 10,
+                          ),
+                          margin: EdgeInsets.symmetric(vertical: 6),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            msg.text,
+                            style: TextStyle(color: Colors.black87),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          controller: viewModel.messageController,
+                          decoration: InputDecoration(
+                            suffixIcon: SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: GestureDetector(
+                                onTap: () {
+                                  viewModel.showPopUpMenu();
+                                },
+                                child: SvgPicture.asset(
+                                  AssetsPath.attach,
+                                  fit: BoxFit.scaleDown,
+                                ),
+                              ),
+                            ),
+                            hintText: "Type a message...",
+                            filled: true,
+                            fillColor: Color(0xFFFFFFFF),
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 14,
+                            ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide.none,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () => viewModel.sendMessage(),
+                        child: Container(
+                          padding: EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.send,
+                            color: Colors.white,
+                            size: 18,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );;
+
+        }),);
+  }
+}

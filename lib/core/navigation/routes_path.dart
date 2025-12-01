@@ -32,6 +32,15 @@ class RoutePaths {
   static const String editMemberScreen = '/EditMemberScreen';
   static const String addMemberScreen = '/AddMemberScreen';
   static const String projectSettingsScreen = '/ProjectSettingsScreen';
+  static const String castAndCrewAvailabilityScreen = '/CastAndCrewAvailabilityScreen';
+  static const String markYourAvailabilityScreen = '/MarkYourAvailabilityScreen';
+  static const String chatScreen = '/ChatScreen';
+ static const String groupChatHistoryScreen = '/GroupChatHistoryScreen';
+ static const String individualChatScreen = '/IndividualChatScreen';
+
+
+
+
 
 
 }

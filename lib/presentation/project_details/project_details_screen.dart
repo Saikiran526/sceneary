@@ -14,7 +14,7 @@ class ProjectDetailsScreen extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final GlobalKey recentUpdatesKey = GlobalKey();
-
+    
     return Scaffold(
       body: Column(
         children: [
@@ -59,7 +59,6 @@ class ProjectDetailsScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Color(0xff9F9B9B),
                               borderRadius: BorderRadius.circular(8),
-
                             ),
                           ),
                           SizedBox(width: width*0.04,),
@@ -71,7 +70,6 @@ class ProjectDetailsScreen extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
-
                                 ),
                               ),
                               SizedBox(height: height*0.02,),
@@ -134,7 +132,6 @@ class ProjectDetailsScreen extends StatelessWidget {
                                     ]
                                 ),
                               ),
-
                             ],
                           )
                         ],
@@ -162,7 +159,6 @@ class ProjectDetailsScreen extends StatelessWidget {
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600,
-
                                       ),
                                     ),
                                   ],
@@ -212,8 +208,6 @@ class ProjectDetailsScreen extends StatelessWidget {
                           )
                         ],
                       ),
-
-
                     ],
                   ),
                 ),
