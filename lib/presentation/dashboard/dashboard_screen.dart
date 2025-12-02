@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_viewmodel.dart';
 import 'package:sceneary/presentation/home/home_screen.dart';
 import 'package:sceneary/presentation/messages/messages_screen.dart';
@@ -145,7 +147,9 @@ class DashboardScreen extends StatelessWidget {
                     ),
                   ),
                   actions: [
-                    IconButton(onPressed: (){}, icon: SvgPicture.asset(AssetsPath.notificationImg)),
+                    IconButton(onPressed: (){
+                      AppRouter.instance.push(RoutePaths.notificationsScreen);
+                    }, icon: SvgPicture.asset(AssetsPath.notificationImg)),
                   ],
                 )
                     : null,

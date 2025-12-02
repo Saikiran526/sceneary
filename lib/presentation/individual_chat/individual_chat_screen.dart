@@ -14,7 +14,7 @@ class IndividualChatScreen extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => IndividualChatViewmodel(context: context),
       child: Consumer<IndividualChatViewmodel>(
-        builder: (context,viewModel,child){
+        builder: (context, viewModel, child) {
           return Scaffold(
             body: Column(
               children: [
@@ -48,7 +48,7 @@ class IndividualChatScreen extends StatelessWidget {
                           backgroundColor: Color(0xFFD9D9D9),
                         ),
                         SizedBox(width: 12),
-                         Expanded(
+                        Expanded(
                           child: Text(
                             'JD',
                             style: TextStyle(
@@ -59,10 +59,12 @@ class IndividualChatScreen extends StatelessWidget {
                         ),
                         Icon(Icons.search, size: 22),
                         SizedBox(width: 16),
-                        IconButton(onPressed: (){
-                          viewModel.showPopMoreVert();
-                        },
-                      icon:  Icon(Icons.more_vert, size: 22), )
+                        IconButton(
+                          onPressed: () {
+                            viewModel.showPopMoreVert();
+                          },
+                          icon: Icon(Icons.more_vert, size: 22),
+                        ),
                       ],
                     ),
                   ),
@@ -152,8 +154,10 @@ class IndividualChatScreen extends StatelessWidget {
                 ),
               ],
             ),
-          );;
-
-        }),);
+          );
+          ;
+        },
+      ),
+    );
   }
 }

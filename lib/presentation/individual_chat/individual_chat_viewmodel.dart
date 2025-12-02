@@ -74,7 +74,7 @@ List<ChatMessage> messages = [];
     context: context,  
     color: Colors.white,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-    position: RelativeRect.fromLTRB(300, 600, 0, 0), 
+    position: RelativeRect.fromLTRB(10, 150, 0, 0), 
     items: [
       PopupMenuItem(
         value: "blockJd",

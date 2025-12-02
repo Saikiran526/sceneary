@@ -16,8 +16,11 @@ import 'package:sceneary/presentation/group_chat_history/group_chat_history_scre
 import 'package:sceneary/presentation/help_and_support/help_and_support_screen.dart';
 import 'package:sceneary/presentation/individual_chat/individual_chat_screen.dart';
 import 'package:sceneary/presentation/mark_your_availability/mark_your_availability_screen.dart';
+import 'package:sceneary/presentation/message_request/message_request_screen.dart';
+import 'package:sceneary/presentation/messages_individual_chat/messages_individual_chat_screen.dart';
 import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
+import 'package:sceneary/presentation/notifications/notifications_screen.dart';
 import 'package:sceneary/presentation/preview_scenic_order_template_details/preview_scenic_order_template_details_screen.dart';
 import 'package:sceneary/presentation/privacy_policy/privacy_policy_screen.dart';
 import 'package:sceneary/presentation/profile_details/profile_details_screen.dart';
@@ -80,10 +83,21 @@ class AppRouter {
     RoutePaths.addMemberScreen: () => const AddMemberScreen(),
     RoutePaths.castAndCrewAvailabilityScreen: () => const CastAndCrewAvailabilityScreen(),
     RoutePaths.projectSettingsScreen: () => const ProjectSettingsScreen(),
+<<<<<<< HEAD
     RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
     RoutePaths.chatScreen: () => const ChatScreen(),
     RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
+=======
+   RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
+   RoutePaths.chatScreen: () => const ChatScreen(),
+   RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
+>>>>>>> 0aafbfc4bb2bff92b11263ba8698f62b2c957d9c
     RoutePaths.individualChatScreen: () => const IndividualChatScreen(),
+    RoutePaths.messagesIndividualChatScreen: () => const MessagesIndividualChatScreen(),
+    RoutePaths.messageRequestScreen: () => const MessageRequestScreen(),
+    RoutePaths.notificationsScreen: () => const NotificationsScreen(),
+
+
 
 
 
