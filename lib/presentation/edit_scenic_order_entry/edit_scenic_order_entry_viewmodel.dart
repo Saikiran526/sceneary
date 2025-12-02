@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class EnterScenicOrderTemplateDetailsViewmodel extends ChangeNotifier{
+class EditScenicOrderEntryViewmodel extends ChangeNotifier{
 
   // State
   TextEditingController _sceneNumController=TextEditingController();

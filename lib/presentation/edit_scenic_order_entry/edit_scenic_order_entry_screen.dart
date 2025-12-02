@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
-import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
-import 'package:sceneary/presentation/enter_scenic_order_template_details/enter_scenic_order_template_details_viewmodel.dart';
+import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_viewmodel.dart';
 
-class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
-  const EnterScenicOrderTemplateDetailsScreen({super.key});
+class EditScenicOrderEntryScreen extends StatelessWidget {
+  const EditScenicOrderEntryScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
 
     final size = MediaQuery.of(context).size;
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    final width= MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: ChangeNotifierProvider(
-          create: (_)=> EnterScenicOrderTemplateDetailsViewmodel(),
-        child: Consumer<EnterScenicOrderTemplateDetailsViewmodel>(
+          create: (_)=> EditScenicOrderEntryViewmodel(),
+        child: Consumer<EditScenicOrderEntryViewmodel>(
             builder: (context,viewModel,child){
               return SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(21.0),
-                  child: SafeArea(
+                child: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.all(21.0),
                     child: Column(
                       children: [
                         Row(
@@ -34,7 +33,7 @@ class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
                                 child: SizedBox()
                             ),
                             Text(
-                              'Add Scenic order Entry',
+                              'Edit Scenic order Entry',
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w700
@@ -48,7 +47,7 @@ class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
                                     child: Align(alignment:Alignment.centerRight ,child: SvgPicture.asset(AssetsPath.crossImg))
                                 )
                             ),
-                
+
                           ],
                         ),
                         SizedBox(height: height*0.02,),
@@ -80,7 +79,7 @@ class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
                                   hintText: 'Enter scene no',
                                   controller: viewModel.sceneNemController,
                                   readOnly: false,
-                                maxLines: 1
+                                  maxLines: 1
                               ),
                             ),
                             SizedBox(width: width*0.02,),
@@ -89,12 +88,12 @@ class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
                                   size: size,
                                   heading: 'Sub Scene *',
                                   hintText: 'Enter Sub-scene no',
-                                  controller: viewModel.subSceneNemController,
+                                  controller: viewModel.sceneNemController,
                                   readOnly: false,
                                   maxLines: 1
                               ),
                             ),
-                
+
                           ],
                         ),
                         SizedBox(height: height*0.02,),
@@ -102,7 +101,7 @@ class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
                             size: size,
                             heading: 'Description',
                             hintText: 'Brief description of the scene',
-                            controller: viewModel.descriptionController,
+                            controller: viewModel.sceneNemController,
                             readOnly: false,
                             maxLines: 5
                         ),
@@ -111,7 +110,7 @@ class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
                             size: size,
                             heading: 'Location *',
                             hintText: 'e g. Stadium or office',
-                            controller: viewModel.locationController,
+                            controller: viewModel.sceneNemController,
                             readOnly: false,
                             maxLines: 1
                         ),
@@ -144,7 +143,7 @@ class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
                             size: size,
                             heading: 'Actors',
                             hintText: 'Allu Arjun, Rashmika... ',
-                            controller: viewModel.actorsController,
+                            controller: viewModel.sceneNemController,
                             readOnly: false,
                             maxLines: 1
                         ),
@@ -177,7 +176,7 @@ class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
                                 child: primaryButton(
                                     text: 'Save Entry',
                                     onPressed: (){
-                                      AppRouter.instance.push(RoutePaths.previewScenicOrderTemplateDetailsScreen);
+                                      // AppRouter.instance.push(RoutePaths.previewScenicOrderTemplateDetailsScreen);
                                     }
                                 )
                             )
@@ -185,7 +184,6 @@ class EnterScenicOrderTemplateDetailsScreen extends StatelessWidget {
                         )
 
 
-                
                       ],
                     ),
                   ),

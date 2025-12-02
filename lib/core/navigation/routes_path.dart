@@ -22,6 +22,10 @@ class RoutePaths {
   static const String scenicOrderTemplateDetailsScreen='/ScenicOrderTemplateDetailsScreen';
   static const String enterScenicOrderTemplateDetailsScreen='/EnterScenicOrderTemplateDetailsScreen';
   static const String previewScenicOrderTemplateDetailsScreen='/PreviewScenicOrderTemplateDetailsScreen';
+  static const String editScenicOrderEntryScreen='/EditScenicOrderEntryScreen';
+
+  // Shooting Schedules
+  static const String shootingScheduleScreen='/ShootingScheduleScreen';
 
   //muni
   static const String basicInformationPageview = '/BasicInformationPageview';

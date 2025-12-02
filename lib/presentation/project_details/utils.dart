@@ -76,9 +76,7 @@ void servicePopUpMenu(BuildContext context) {
 
         break;
 
-      case "Shooting Schedules":
-
-        break;
+      case "Shooting Schedules": AppRouter.instance.push(RoutePaths.shootingScheduleScreen);break;
 
       case "Group Chat":
          AppRouter.instance.push(RoutePaths.chatScreen);

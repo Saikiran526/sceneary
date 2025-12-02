@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
 import 'package:sceneary/presentation/group_chat/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
@@ -24,6 +25,7 @@ import 'package:sceneary/presentation/refund_policy/refund_policy_screen.dart';
 import 'package:sceneary/presentation/scenic_order/scenic_order_screen.dart';
 import 'package:sceneary/presentation/scenic_order_template_details/scenic_order_template_details_screen.dart';
 import 'package:sceneary/presentation/scenic_order_template_list/scenic_order_template_list_screen.dart';
+import 'package:sceneary/presentation/shooting_schedule/shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/subscription_planes/subscription_planes_screen.dart';
 import 'package:sceneary/presentation/terms_and_conditions/terms_and_conditions_screen.dart';
 import 'package:sceneary/presentation/two_factor_authentication/two_factor_authentication_screen.dart';
@@ -64,6 +66,9 @@ class AppRouter {
     RoutePaths.scenicOrderTemplateDetailsScreen : ()=> ScenicOrderTemplateDetailsScreen(),
     RoutePaths.enterScenicOrderTemplateDetailsScreen : ()=> EnterScenicOrderTemplateDetailsScreen(),
     RoutePaths.previewScenicOrderTemplateDetailsScreen : ()=> PreviewScenicOrderTemplateDetailsScreen(),
+    RoutePaths.editScenicOrderEntryScreen : ()=> EditScenicOrderEntryScreen(),
+    // Shooting Schedules
+    RoutePaths.shootingScheduleScreen : () => ShootingScheduleScreen(),
 
     //muni
     RoutePaths.basicInformationPageview: () => const BasicInformationPageview(),
@@ -75,9 +80,9 @@ class AppRouter {
     RoutePaths.addMemberScreen: () => const AddMemberScreen(),
     RoutePaths.castAndCrewAvailabilityScreen: () => const CastAndCrewAvailabilityScreen(),
     RoutePaths.projectSettingsScreen: () => const ProjectSettingsScreen(),
-   RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
-   RoutePaths.chatScreen: () => const ChatScreen(),
-  RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
+    RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
+    RoutePaths.chatScreen: () => const ChatScreen(),
+    RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
     RoutePaths.individualChatScreen: () => const IndividualChatScreen(),
 
 
