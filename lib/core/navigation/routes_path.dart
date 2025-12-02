@@ -37,6 +37,11 @@ class RoutePaths {
   static const String chatScreen = '/ChatScreen';
  static const String groupChatHistoryScreen = '/GroupChatHistoryScreen';
  static const String individualChatScreen = '/IndividualChatScreen';
+  static const String messagesIndividualChatScreen = '/MessagesIndividualChatScreen';
+  static const String messageRequestScreen = '/MessageRequestScreen';
+   static const String notificationsScreen = '/NotificationsScreen';
+
+
 
 
 
