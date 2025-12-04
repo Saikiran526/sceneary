@@ -69,6 +69,8 @@ class AssetsPath {
   static const existGroup = 'assets/images/exist_group.svg';
   static const block = 'assets/images/block.svg';
    static const muteNotification = 'assets/images/mute.svg';
+  static const historyNotification = 'assets/images/historyall.svg';
+    static const messageIcon = 'assets/images/message.svg';
 
 
 }

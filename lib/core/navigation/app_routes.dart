@@ -83,16 +83,13 @@ class AppRouter {
     RoutePaths.addMemberScreen: () => const AddMemberScreen(),
     RoutePaths.castAndCrewAvailabilityScreen: () => const CastAndCrewAvailabilityScreen(),
     RoutePaths.projectSettingsScreen: () => const ProjectSettingsScreen(),
-<<<<<<< HEAD
-    RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
+     RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
     RoutePaths.chatScreen: () => const ChatScreen(),
     RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
-=======
-   RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
+    RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
    RoutePaths.chatScreen: () => const ChatScreen(),
    RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
->>>>>>> 0aafbfc4bb2bff92b11263ba8698f62b2c957d9c
-    RoutePaths.individualChatScreen: () => const IndividualChatScreen(),
+     RoutePaths.individualChatScreen: () => const IndividualChatScreen(),
     RoutePaths.messagesIndividualChatScreen: () => const MessagesIndividualChatScreen(),
     RoutePaths.messageRequestScreen: () => const MessageRequestScreen(),
     RoutePaths.notificationsScreen: () => const NotificationsScreen(),
