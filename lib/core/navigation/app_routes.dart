@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
+import 'package:sceneary/presentation/calender_month_plan/calender_month_plan_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
 import 'package:sceneary/presentation/group_chat/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
@@ -17,8 +18,7 @@ import 'package:sceneary/presentation/faqs/faqs_screen.dart';
 import 'package:sceneary/presentation/group_chat_history/group_chat_history_screen.dart';
 import 'package:sceneary/presentation/help_and_support/help_and_support_screen.dart';
 import 'package:sceneary/presentation/individual_chat/individual_chat_screen.dart';
-import 'package:sceneary/presentation/mark_your_availability/mark_your_availability_screen.dart';
-import 'package:sceneary/presentation/message_request/message_request_screen.dart';
+ import 'package:sceneary/presentation/message_request/message_request_screen.dart';
 import 'package:sceneary/presentation/messages_individual_chat/messages_individual_chat_screen.dart';
 import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
@@ -86,14 +86,14 @@ class AppRouter {
     RoutePaths.addMemberScreen: () => const AddMemberScreen(),
     RoutePaths.castAndCrewAvailabilityScreen: () => const CastAndCrewAvailabilityScreen(),
     RoutePaths.projectSettingsScreen: () => const ProjectSettingsScreen(),
-    RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
-    RoutePaths.chatScreen: () => const ChatScreen(),
+     RoutePaths.chatScreen: () => const ChatScreen(),
     RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
     RoutePaths.individualChatScreen: () => const IndividualChatScreen(),
     RoutePaths.messagesIndividualChatScreen: () => const MessagesIndividualChatScreen(),
     RoutePaths.messageRequestScreen: () => const MessageRequestScreen(),
     RoutePaths.notificationsScreen: () => const NotificationsScreen(),
-   RoutePaths.calenderScreen: () => const CalenderScreen(),
+     RoutePaths.calenderScreen: () => const CalenderScreen(),
+      RoutePaths.calenderMonthPlanScreen: () => const CalenderMonthPlanScreen(),
 
 
 

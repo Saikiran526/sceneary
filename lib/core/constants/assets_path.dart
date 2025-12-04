@@ -71,6 +71,8 @@ class AssetsPath {
    static const muteNotification = 'assets/images/mute.svg';
   static const historyNotification = 'assets/images/historyall.svg';
    static const messageIcon = 'assets/images/message.svg';
+   static const arrowForward = 'assets/images/Arrow 1.svg';
+    static const datePicker = 'assets/images/date_picker.svg';
 
 
 }

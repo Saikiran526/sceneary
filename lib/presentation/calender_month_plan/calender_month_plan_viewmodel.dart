@@ -1,35 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 
-class CalenderViewmodel extends ChangeNotifier {
+class CalenderMonthPlanViewmodel extends ChangeNotifier {
   final BuildContext context;
-
-  CalenderViewmodel({required this.context}) {
-    selectedDay = DateTime.now(); 
-    focusedDay = DateTime.now();
-  }
- 
-  DateTime? selectedDay;
-  DateTime focusedDay = DateTime.now();
+  CalenderMonthPlanViewmodel({required this.context});
+  final TextEditingController fromDateController = TextEditingController();
+  final TextEditingController toDateController = TextEditingController();
   bool wholeDayOff = false;
   bool wholeDayBusy = false;
-  int selectedTab = 0;
-
-void changeTab(int index) {
-  selectedTab = index;
-  notifyListeners();
-}
 
 
-  void updateSelectedDay(DateTime selected, DateTime focused) {
-    selectedDay = selected;
-    focusedDay = focused;
-    notifyListeners();
-  }
-
-  void submitWholeDayOff() {
+   void submitWholeDayOff() {
     wholeDayOff = !wholeDayOff;
     notifyListeners();
   }
@@ -39,7 +24,33 @@ void changeTab(int index) {
     notifyListeners();
   }
 
-  TimeOfDay? selectedTime;
+  Future<void> selectFromDate() async {
+    final picked = await showDatePicker(
+      context: context,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+      initialDate: DateTime.now(),
+    );
+    if (picked != null) {
+      fromDateController.text = DateFormat("dd-MM-yyyy").format(picked);
+      notifyListeners();
+    }
+  }
+
+  Future<void> selectToDate() async {
+    final picked = await showDatePicker(
+      context: context,
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+      initialDate: DateTime.now(),
+    );
+    if (picked != null) {
+      toDateController.text = DateFormat("dd-MM-yyyy").format(picked);
+      notifyListeners();
+    }
+  }
+
+   TimeOfDay? selectedTime;
   TimeOfDay? toSelectedTime;
   String? selectedValue = "Busy";
   List<String> chooseSelectedValue = [
