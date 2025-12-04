@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
+import 'package:sceneary/presentation/calender/calender_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
 import 'package:sceneary/presentation/group_chat/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
@@ -92,6 +93,8 @@ class AppRouter {
     RoutePaths.messagesIndividualChatScreen: () => const MessagesIndividualChatScreen(),
     RoutePaths.messageRequestScreen: () => const MessageRequestScreen(),
     RoutePaths.notificationsScreen: () => const NotificationsScreen(),
+   RoutePaths.calenderScreen: () => const CalenderScreen(),
+
 
 
 

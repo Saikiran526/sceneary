@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 import 'package:sceneary/presentation/notifications/notifications_viewmodel.dart';
 
 class NotificationsScreen extends StatelessWidget {
@@ -255,15 +256,21 @@ class NotificationsScreen extends StatelessWidget {
                         Container(
                           width: double.infinity,
                           height: 111,
-                          padding: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.symmetric(vertical: 8),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Row(
                             children: [
-                              SvgPicture.asset(AssetsPath.messageIcon),
-                              SizedBox(width: 16),
+                              IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.messenger,
+                                  size: 20,
+                                  color: Colors.black,
+                                ),
+                              ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 spacing: 8,
@@ -359,7 +366,56 @@ class NotificationsScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Center(child: Text("Project Notifications")),
+                  //project
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(12),
+                          width: double.infinity,
+                          height: 123,
+                          color: Colors.white,
+                          child: Column(
+                            spacing: 12,
+                            children: [
+                              Text(
+                                'New Scenic Order Created — Scenes 14 & 14A”',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              Text(
+                                '“A new scenic order has been created for your scenes (14 & 14A)”',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xFF888888),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 242,
+                                height: 27,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Color(0xFF4F4F4F),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadiusGeometry.circular(4)
+                                    )
+                                  ),
+                                  onPressed: (){}, 
+                                  child: Text('View details',
+                                  style: TextStyle(
+                                    color: Colors.white
+                                  ),))
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   Center(child: Text("Chat Notifications")),
                   Center(child: Text("System Notifications")),
                 ],
