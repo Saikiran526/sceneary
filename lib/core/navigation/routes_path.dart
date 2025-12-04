@@ -26,6 +26,7 @@ class RoutePaths {
 
   // Shooting Schedules
   static const String shootingScheduleScreen='/ShootingScheduleScreen';
+  static const String addShootingScheduleScreen='/AddShootingScheduleScreen';
 
   //muni
   static const String basicInformationPageview = '/BasicInformationPageview';

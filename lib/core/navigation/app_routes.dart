@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
 import 'package:sceneary/presentation/group_chat/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
@@ -72,6 +73,7 @@ class AppRouter {
     RoutePaths.editScenicOrderEntryScreen : ()=> EditScenicOrderEntryScreen(),
     // Shooting Schedules
     RoutePaths.shootingScheduleScreen : () => ShootingScheduleScreen(),
+    RoutePaths.addShootingScheduleScreen : () => AddShootingScheduleScreen(),
 
     //muni
     RoutePaths.basicInformationPageview: () => const BasicInformationPageview(),
@@ -83,15 +85,9 @@ class AppRouter {
     RoutePaths.addMemberScreen: () => const AddMemberScreen(),
     RoutePaths.castAndCrewAvailabilityScreen: () => const CastAndCrewAvailabilityScreen(),
     RoutePaths.projectSettingsScreen: () => const ProjectSettingsScreen(),
-<<<<<<< HEAD
     RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
     RoutePaths.chatScreen: () => const ChatScreen(),
     RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
-=======
-   RoutePaths.markYourAvailabilityScreen: () => const MarkYourAvailabilityScreen(),
-   RoutePaths.chatScreen: () => const ChatScreen(),
-   RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
->>>>>>> 0aafbfc4bb2bff92b11263ba8698f62b2c957d9c
     RoutePaths.individualChatScreen: () => const IndividualChatScreen(),
     RoutePaths.messagesIndividualChatScreen: () => const MessagesIndividualChatScreen(),
     RoutePaths.messageRequestScreen: () => const MessageRequestScreen(),

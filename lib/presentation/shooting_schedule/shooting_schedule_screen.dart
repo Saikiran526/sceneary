@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/project_details/utils.dart';
 
 class ShootingScheduleScreen extends StatelessWidget {
   const ShootingScheduleScreen({super.key});
@@ -14,6 +17,28 @@ class ShootingScheduleScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Shooting schedule'),
+        actions: [
+          SizedBox(width: 21,),
+          IconButton(
+              onPressed: () { AppRouter.instance.push(RoutePaths.notificationsScreen); },
+              icon: SvgPicture.asset(AssetsPath.notificationImg)
+          ),
+          GestureDetector(
+            onTap: (){
+              servicePopUpMenu(context);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: SvgPicture.asset(AssetsPath.menuImg),
+              ),
+            ),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -35,7 +60,7 @@ class ShootingScheduleScreen extends StatelessWidget {
                     flex: 2,
                     child: ElevatedButton(
                       onPressed: (){
-                        // AppRouter.instance.push(RoutePaths.scenicOrderTemplateListScreen);
+                        AppRouter.instance.push(RoutePaths.addShootingScheduleScreen);
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.black,
@@ -49,7 +74,7 @@ class ShootingScheduleScreen extends StatelessWidget {
                         children: [
                           SvgPicture.asset(AssetsPath.addImg),
                           Text(
-                            'Add Entry',
+                            'Add schedule',
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
@@ -135,7 +160,7 @@ class ShootingScheduleScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 50.0,vertical: 40),
                     child: Text(
-                      'No scenic order entries yet. Add your first entry or upload an Excel file.',
+                      'No entries are scheduled. Add your first shooting schedule or upload an Excel file.',
                       style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -145,6 +170,8 @@ class ShootingScheduleScreen extends StatelessWidget {
                   ),
                 ),
               )
+
+
             ],
           ),
         ),
