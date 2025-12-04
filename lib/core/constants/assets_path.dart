@@ -32,6 +32,8 @@ class AssetsPath {
   static const addImg = "assets/images/add.svg";
   static const downloadImg="assets/images/download.svg";
   static const crossImg="assets/images/cross.svg";
+  // Shooting order
+  static const actionIndicatorImg= "assets/images/action_indicator.svg";
 
   ///Profile
   static const editProfileImg = "assets/images/edit_profile.svg";

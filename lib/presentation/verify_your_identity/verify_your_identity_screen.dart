@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 import 'package:sceneary/presentation/verify_your_identity/verify_your_identity_viewmodel.dart';
 
@@ -113,7 +115,13 @@ class VerifyYourIdentityScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 24,),
-                      primaryButton(text: 'Take Video', onPressed: (){})
+                      primaryButton(
+                          text: 'Take Video', 
+                          onPressed: (){
+                            AppRouter.instance.push(RoutePaths.dashboardScreen);
+                          }
+                      )
+                      
                     ],
                   ),
                 ),

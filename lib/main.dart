@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
+import 'package:sceneary/presentation/login_welocme_back/welcome_back_screen%20.dart';
  import 'core/navigation/app_routes.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: AppRouter.instance.navKey,
       onGenerateRoute: AppRouter.instance.onGenerateRoute,
-      home: const DashboardScreen() ,
+      home: const DashboardScreen() ,//WelcomeBackScreen() ,
     );
   }
 }

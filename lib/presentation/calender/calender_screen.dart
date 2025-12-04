@@ -40,29 +40,21 @@ class CalenderScreen extends StatelessWidget {
                     focusedDay: viewModel.focusedDay,
                     selectedDayPredicate: (day) =>
                         isSameDay(viewModel.selectedDay, day),
+
                     onDaySelected: (selectedDay, focusedDay) {
                       viewModel.updateSelectedDay(selectedDay, focusedDay);
                     },
+
                     availableCalendarFormats: const {
                       CalendarFormat.month: 'Month',
                       CalendarFormat.week: 'Week',
                     },
+
                     headerStyle: const HeaderStyle(
                       titleCentered: true,
                       formatButtonVisible: false,
                       leftChevronVisible: true,
                       rightChevronVisible: true,
-                    ),
-                    calendarStyle: const CalendarStyle(
-                      todayDecoration: BoxDecoration(color: Colors.transparent),
-                      selectedDecoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.all(Radius.circular(6)),
-                      ),
-                      selectedTextStyle: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
                     ),
                   ),
 

@@ -67,6 +67,7 @@ Widget customTextFieldWithHeading({
   required TextEditingController controller,
   required bool readOnly,
   Widget? suffix,
+  Icon? suffixIcon,
   int? maxLines
 }){
   return Column(
@@ -107,7 +108,8 @@ Widget customTextFieldWithHeading({
                   width: 1
               ),
             ),
-            suffix: suffix
+            suffix: suffix,
+            suffixIcon: suffixIcon
 
         ),
       )

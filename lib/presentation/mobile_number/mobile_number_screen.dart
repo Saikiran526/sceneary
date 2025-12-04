@@ -10,6 +10,10 @@ class MobileNumberScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final height = MediaQuery.of(context).size.height;
+    final width= MediaQuery.of(context).size.width;
+
     return ChangeNotifierProvider(
       create: (context) => MobileNumberViewmodel(context: context),
       child: Consumer<MobileNumberViewmodel>(
@@ -40,7 +44,6 @@ class MobileNumberScreen extends StatelessWidget {
                       SizedBox(height: 40),
                       Container(
                         width: double.infinity,
-                        height: 356,
                         padding: const EdgeInsets.fromLTRB(14, 60, 14, 60),
                         decoration: BoxDecoration(
                           boxShadow: [
@@ -66,10 +69,14 @@ class MobileNumberScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 8),
-                            customTextField(
-                              controller: viewModel.mobileNOController,
-                              hintText: ' +91 Enter here',
-                              keyboardType: TextInputType.number
+                            SizedBox(
+                              width: width,
+                              height: 50,
+                              child: customTextField(
+                                controller: viewModel.mobileNOController,
+                                hintText: ' +91 Enter here',
+                                keyboardType: TextInputType.number
+                              ),
                             ),
                             SizedBox(height: 40),
                             primaryButton(text: 'Login', onPressed: () {

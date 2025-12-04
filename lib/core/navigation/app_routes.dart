@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
+import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
 import 'package:sceneary/presentation/group_chat/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
@@ -50,6 +51,8 @@ class AppRouter {
   // Route Builders (String → Widget)
   static final Map<String, Widget Function()> _builders = {
 
+    // Dashboard
+    RoutePaths.dashboardScreen : () => DashboardScreen(),
     // Home
     RoutePaths.profileDetailsScreen: () => const ProfileDetailsScreen(),
     // Projects
