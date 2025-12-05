@@ -1,5 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+
 Widget customTextField({
   String? label,
   required String hint,
@@ -7,6 +8,7 @@ Widget customTextField({
   int maxLines = 1,
   bool enabled = true,
   Widget? suffix,
+  Widget? prefix,   // 🔥 ADDED PREFIX
   VoidCallback? onTap,
 }) {
   return Padding(
@@ -14,6 +16,7 @@ Widget customTextField({
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+
         if (label != null)
           Padding(
             padding: const EdgeInsets.only(bottom: 4),
@@ -26,38 +29,46 @@ Widget customTextField({
               ),
             ),
           ),
+
         Container(
           width: 328,
-          height: 40,
           padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              color: const Color(0x33000000),
-              width: 1,
-            ),
+            border: Border.all(color: const Color(0x33000000), width: 1),
           ),
+
           child: Row(
             children: [
+
+              // 🔥 PREFIX ICON
+              if (prefix != null)
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: SizedBox(height: 16, width: 16, child: prefix),
+                ),
+
+              // TEXTFIELD
               Expanded(
                 child: TextField(
                   controller: controller,
-                  maxLines: 1,
+                  maxLines: maxLines,
                   enabled: enabled,
                   readOnly: onTap != null,
                   onTap: onTap,
                   decoration: InputDecoration(
-                    hintText: hint,  
+                    hintText: hint,
                     border: InputBorder.none,
                     isCollapsed: true,
                   ),
-
                   style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
+
+              // SUFFIX ICON
               if (suffix != null) const SizedBox(width: 10),
               if (suffix != null)
                 SizedBox(height: 16, width: 16, child: suffix),
@@ -68,7 +79,6 @@ Widget customTextField({
     ),
   );
 }
-
 
 
 Widget uploadWidget({
@@ -153,7 +163,7 @@ Widget responsiveButton({
           width: widthFactor != null ? screenWidth * widthFactor : null,
           height: height ?? 48,
           padding:
-          padding ??
+              padding ??
               const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
           decoration: BoxDecoration(
             color: bgColor ?? Colors.black,

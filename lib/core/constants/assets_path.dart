@@ -30,10 +30,10 @@ class AssetsPath {
   static const clockImg = "assets/images/clock.svg";
   // Scenic Order
   static const addImg = "assets/images/add.svg";
-  static const downloadImg="assets/images/download.svg";
-  static const crossImg="assets/images/cross.svg";
+  static const downloadImg = "assets/images/download.svg";
+  static const crossImg = "assets/images/cross.svg";
   // Shooting order
-  static const actionIndicatorImg= "assets/images/action_indicator.svg";
+  static const actionIndicatorImg = "assets/images/action_indicator.svg";
 
   ///Profile
   static const editProfileImg = "assets/images/edit_profile.svg";
@@ -70,11 +70,12 @@ class AssetsPath {
   static const gallery = 'assets/images/gallery.svg';
   static const existGroup = 'assets/images/exist_group.svg';
   static const block = 'assets/images/block.svg';
-   static const muteNotification = 'assets/images/mute.svg';
+  static const muteNotification = 'assets/images/mute.svg';
   static const historyNotification = 'assets/images/historyall.svg';
-   static const messageIcon = 'assets/images/message.svg';
-   static const arrowForward = 'assets/images/Arrow 1.svg';
-    static const datePicker = 'assets/images/date_picker.svg';
-
-
+  static const messageIcon = 'assets/images/message.svg';
+  static const arrowForward = 'assets/images/Arrow 1.svg';
+  static const datePicker = 'assets/images/date_picker.svg';
+  static const projectPlanDate = 'assets/images/uil_calender.svg';
+  static const viewProjectPlan = "assets/images/view_plan.svg";
+  static const forwardGroup = "assets/images/forward_group.svg";
 }

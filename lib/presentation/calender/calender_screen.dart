@@ -295,7 +295,7 @@ class CalenderScreen extends StatelessWidget {
                                         ),
                                         SizedBox(width: 3),
                                         Text(
-                                          'Ramoji Film City – Set ',
+                                          'Ramoji Film City Set ',
                                           style: TextStyle(
                                             fontSize: 7,
                                             fontWeight: FontWeight.w500,

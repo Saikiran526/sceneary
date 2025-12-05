@@ -49,7 +49,17 @@ class RoutePaths {
   static const String messageRequestScreen = '/MessageRequestScreen';
   static const String notificationsScreen = '/NotificationsScreen';
   static const String calenderScreen = '/CalenderScreen';
-    static const String calenderMonthPlanScreen = '/CalenderMonthPlanScreen';
+  static const String calenderMonthPlanScreen = '/CalenderMonthPlanScreen';
+  static const String projectPlanScreen = '/ProjectPlanScreen';
+  static const String addPhaseScreen = '/AddPhaseScreen';
+   static const String projectPlanAddPhaseScreen = '/ProjectPlanAddPhaseScreen';
+   static const String preProductionScreen = '/PreProductionScreen';
+  static const String editPhaseScreen = '/EditPhaseScreen';
+   static const String createTaskScreen = '/CreateTaskScreen';
+
+
+
+
 
 
 
