@@ -26,7 +26,7 @@ class AddPhaseScreen extends StatelessWidget {
             ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -188,18 +188,20 @@ class AddPhaseScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Expanded(
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
                                 foregroundColor: const Color(0xff5D5D5D),
+                                side: const BorderSide(
+                                  color: Color(0xff5D5D5D),
+                                  width: 1,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  side: BorderSide(
-                                    color: const Color(0xff5D5D5D),
-                                    width: 1,
-                                  ),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
                               child: const Text(
                                 'Cancel',
                                 style: TextStyle(

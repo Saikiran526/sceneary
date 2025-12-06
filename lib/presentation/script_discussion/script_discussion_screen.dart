@@ -2,29 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/create_project/utils.dart';
-import 'package:sceneary/presentation/create_task/create_task_viewmodel.dart';
+import 'package:sceneary/presentation/script_discussion/script_discussion_viewmodel.dart';
 
-class CreateTaskScreen extends StatelessWidget {
-  const CreateTaskScreen({super.key});
+class ScriptDiscussionScreen extends StatelessWidget {
+  const ScriptDiscussionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => CreateTaskViewmodel(context: context),
-      child: Consumer<CreateTaskViewmodel>(
+      create: (context) => ScriptDiscussionViewmodel(context: context),
+      child: Consumer<ScriptDiscussionViewmodel>(
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
               titleSpacing: 0,
               title: Text(
-                'Create Task',
+                'Script Discussion',
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
               ),
             ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.only(left: 15,right: 15),
+                padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -37,7 +39,7 @@ class CreateTaskScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Add Task Name',
+                      'Edit Task Name',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
@@ -45,11 +47,11 @@ class CreateTaskScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     customTextField(
-                      hint: 'Enter task name',
-                      controller: viewModel.addTaskController,
+                      hint: 'Script Discussion',
+                      controller: viewModel.editTaskController,
                     ),
                     Text(
-                      'Description',
+                      'Edit Desciption',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
@@ -57,7 +59,7 @@ class CreateTaskScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     customTextField(
-                      hint: 'Enter task name',
+                      hint: 'Write screenplay , dailogues',
                       controller: viewModel.descriptionController,
                       maxLines: 3,
                     ),
@@ -91,26 +93,124 @@ class CreateTaskScreen extends StatelessWidget {
                       hint: 'Select',
                       controller: viewModel.endDateController,
                       suffix: SvgPicture.asset(AssetsPath.projectPlanDate),
-                      onTap: () {
-                        viewModel.selectendDate();
+                      onTap: () async {
+                        final result = await viewModel.showExtendDate();
+                        if (result == "pick_date") {
+                          viewModel.selectendDate();
+                        }
+                        if (result == "continue") {
+                          AppRouter.instance.push(
+                            RoutePaths.extentPhaseDateScreen,
+                          );
+                        }
                       },
                     ),
                     SizedBox(height: 16),
-                    Text(
-                      'Add Members',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
+                    Container(
+                      width: double.infinity,
+                      height: 57,
+                      padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            spreadRadius: 1,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 20,
+                            backgroundColor: Color(0xFFD9D9D9),
+                          ),
+                          SizedBox(width: 6),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'JD',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                'Director',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF5D5D5D),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Spacer(),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.more_vert),
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(height: 8),
-                    customTextField(
-                      hint: 'Search by name',
-                      controller: viewModel.addMembernController,
-                      prefix: Icon(
-                        Icons.search,
-                        size: 12,
-                        color: Color(0xFF5D5D5D),
+                    SizedBox(height: 16),
+                    Container(
+                      width: double.infinity,
+                      height: 57,
+                      padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            spreadRadius: 1,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 20,
+                            backgroundColor: Color(0xFFD9D9D9),
+                          ),
+                          SizedBox(width: 6),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'JD',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                'Director',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF5D5D5D),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Spacer(),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.more_vert),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(height: 16),
@@ -210,7 +310,7 @@ class CreateTaskScreen extends StatelessWidget {
                               ),
                               onPressed: () {},
                               child: const Text(
-                                'Create',
+                                'Save',
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,

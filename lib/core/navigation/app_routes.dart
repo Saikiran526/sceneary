@@ -7,6 +7,7 @@ import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'package:sceneary/presentation/calender_month_plan/calender_month_plan_screen.dart';
 import 'package:sceneary/presentation/edit_phase/edit_phase_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
+import 'package:sceneary/presentation/extent_phase_date/extent_phase_date_screen.dart';
 import 'package:sceneary/presentation/group_chat/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
@@ -37,6 +38,7 @@ import 'package:sceneary/presentation/refund_policy/refund_policy_screen.dart';
 import 'package:sceneary/presentation/scenic_order/scenic_order_screen.dart';
 import 'package:sceneary/presentation/scenic_order_template_details/scenic_order_template_details_screen.dart';
 import 'package:sceneary/presentation/scenic_order_template_list/scenic_order_template_list_screen.dart';
+import 'package:sceneary/presentation/script_discussion/script_discussion_screen.dart';
 import 'package:sceneary/presentation/shooting_schedule/shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/subscription_planes/subscription_planes_screen.dart';
 import 'package:sceneary/presentation/terms_and_conditions/terms_and_conditions_screen.dart';
@@ -44,6 +46,7 @@ import 'package:sceneary/presentation/two_factor_authentication/two_factor_authe
 import 'package:sceneary/presentation/project_settings/view/project_settings_screen.dart';
 import 'package:sceneary/presentation/verify_your_identity/verify_your_identity_screen.dart';
 import 'package:sceneary/presentation/project_details/project_details_screen.dart';
+import 'package:sceneary/presentation/view_chart_view_project_plan/view_chart_view_screen.dart';
 
 class AppRouter {
   // Singleton
@@ -109,6 +112,9 @@ class AppRouter {
        RoutePaths.preProductionScreen: () => const PreProductionScreen(),
       RoutePaths.editPhaseScreen: () => const EditPhaseScreen(),
       RoutePaths.createTaskScreen: () => const CreateTaskScreen(),
+     RoutePaths.scriptDiscussionScreen: () => const ScriptDiscussionScreen(),
+    RoutePaths.extentPhaseDateScreen: () => const ExtentPhaseDateScreen(),
+   RoutePaths.viewChartViewScreen: () => const ViewChartViewScreen(),
 
 
 

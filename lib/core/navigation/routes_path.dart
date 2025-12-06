@@ -56,6 +56,10 @@ class RoutePaths {
    static const String preProductionScreen = '/PreProductionScreen';
   static const String editPhaseScreen = '/EditPhaseScreen';
    static const String createTaskScreen = '/CreateTaskScreen';
+   static const String scriptDiscussionScreen = '/ScriptDiscussionScreen';
+   static const String extentPhaseDateScreen = '/ExtentPhaseDateScreen';
+   static const String viewChartViewScreen = '/ViewChartViewScreen';
+
 
 
 

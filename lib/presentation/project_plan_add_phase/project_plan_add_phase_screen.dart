@@ -139,43 +139,48 @@ class ProjectPlanAddPhaseScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 16),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFFC3C3C3),
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 6,
-                            spreadRadius: 1,
-                            offset: Offset(0, 3),
+                    GestureDetector(
+                      onTap: () {
+                        AppRouter.instance.push(RoutePaths.viewChartViewScreen);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xFFC3C3C3),
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 6,
+                              spreadRadius: 1,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
+                          border: Border.all(
+                            color: Colors.grey.shade300,
+                            width: 1,
                           ),
-                        ],
-                        border: Border.all(
-                          color: Colors.grey.shade300,
-                          width: 1,
                         ),
-                      ),
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 50.0,
-                            vertical: 40,
-                          ),
-                          child: Column(
-                            children: [
-                              SvgPicture.asset(AssetsPath.viewProjectPlan),
-                              SizedBox(height: 16),
-                              Text(
-                                'View Chart View',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                  decoration: TextDecoration.underline,
-                                  decorationThickness: 2,
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 50.0,
+                              vertical: 40,
+                            ),
+                            child: Column(
+                              children: [
+                                SvgPicture.asset(AssetsPath.viewProjectPlan),
+                                SizedBox(height: 16),
+                                Text(
+                                  'View Chart View',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.underline,
+                                    decorationThickness: 2,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
