@@ -18,7 +18,7 @@ void servicePopUpMenu(BuildContext context) {
     items: [
       _buildMenuItem("Overview"),
       _buildMenuItem("Cast & Crew"),
-      _buildMenuItem("Timeline / Task"),
+      _buildMenuItem("Project Plan"),
       _buildMenuItem("Budget"),
       _buildMenuItem("Scenic Order"),
       _buildMenuItem("Call Sheets"),
@@ -48,6 +48,29 @@ void servicePopUpMenu(BuildContext context) {
       case "Shooting Schedules":
         break;
       case "Group Chat":
+        break;
+      case "Project Settings":
+        AppRouter.instance.push(RoutePaths.projectSettingsScreen);
+        break;
+      case "Overview":
+        break;
+      case "Cast & Crew":
+        AppRouter.instance.push(RoutePaths.castAndCrewScreen);
+        break;
+      case "Project Plan":
+        AppRouter.instance.push(RoutePaths.projectPlanScreen);
+      case "Budget":
+        break;
+      case "Scenic Order":
+        AppRouter.instance.push(RoutePaths.scenicOrderScreen);
+        break;
+      case "Call Sheets":
+        break;
+      case "Shooting Schedules":
+        AppRouter.instance.push(RoutePaths.shootingScheduleScreen);
+        break;
+      case "Group Chat":
+        AppRouter.instance.push(RoutePaths.chatScreen);
         break;
       case "Project Settings":
         AppRouter.instance.push(RoutePaths.projectSettingsScreen);

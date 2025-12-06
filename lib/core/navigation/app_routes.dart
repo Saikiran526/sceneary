@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:sceneary/presentation/add_phase/add_phase_screen.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
-import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
+ import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_check_availability_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/edit_call_sheet_screen.dart';
-import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
+ 
+import 'package:sceneary/presentation/create_task/create_task_screen.dart';
+ import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'package:sceneary/presentation/calender_month_plan/calender_month_plan_screen.dart';
+import 'package:sceneary/presentation/edit_phase/edit_phase_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
 import 'package:sceneary/presentation/group_chat/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
@@ -28,9 +32,12 @@ import 'package:sceneary/presentation/messages_individual_chat/messages_individu
 import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
 import 'package:sceneary/presentation/notifications/notifications_screen.dart';
+import 'package:sceneary/presentation/pre_production/pre_production_screen.dart';
 import 'package:sceneary/presentation/preview_scenic_order_template_details/preview_scenic_order_template_details_screen.dart';
 import 'package:sceneary/presentation/privacy_policy/privacy_policy_screen.dart';
 import 'package:sceneary/presentation/profile_details/profile_details_screen.dart';
+import 'package:sceneary/presentation/project_plan/project_plan_screen.dart';
+import 'package:sceneary/presentation/project_plan_add_phase/project_plan_add_phase_screen.dart';
 import 'package:sceneary/presentation/refund_policy/refund_policy_screen.dart';
 import 'package:sceneary/presentation/scenic_order/scenic_order_screen.dart';
 import 'package:sceneary/presentation/scenic_order_template_details/scenic_order_template_details_screen.dart';
@@ -105,13 +112,39 @@ class AppRouter {
         const MessagesIndividualChatScreen(),
     RoutePaths.messageRequestScreen: () => const MessageRequestScreen(),
     RoutePaths.notificationsScreen: () => const NotificationsScreen(),
-    RoutePaths.calenderScreen: () => const CalenderScreen(),
+     RoutePaths.calenderScreen: () => const CalenderScreen(),
     RoutePaths.calenderMonthPlanScreen: () => const CalenderMonthPlanScreen(),
+  
+ 
+        RoutePaths.projectPlanScreen: () => const ProjectPlanScreen(),
+      RoutePaths.addPhaseScreen: () => const AddPhaseScreen(),
+      RoutePaths.projectPlanAddPhaseScreen: () => const ProjectPlanAddPhaseScreen(),
+       RoutePaths.preProductionScreen: () => const PreProductionScreen(),
+      RoutePaths.editPhaseScreen: () => const EditPhaseScreen(),
+      RoutePaths.createTaskScreen: () => const CreateTaskScreen(),
+
+      //upendar
+
     RoutePaths.callSheetScreen: () => const CallSheetScreen(),
     RoutePaths.createCallSheetScreen: () => const CreateCallSheetScreen(),
     RoutePaths.createCallSheetCheckAvailabilityScreen:() => const CreateCallSheetCheckAvailabilityScreen(),
     RoutePaths.editCallSheetScreen:()=> const EditCallSheetScreen(),
-  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   };
 
   // Route Generator
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
