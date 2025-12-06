@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'package:sceneary/presentation/calender_month_plan/calender_month_plan_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
@@ -19,7 +20,7 @@ import 'package:sceneary/presentation/faqs/faqs_screen.dart';
 import 'package:sceneary/presentation/group_chat_history/group_chat_history_screen.dart';
 import 'package:sceneary/presentation/help_and_support/help_and_support_screen.dart';
 import 'package:sceneary/presentation/individual_chat/individual_chat_screen.dart';
- import 'package:sceneary/presentation/message_request/message_request_screen.dart';
+import 'package:sceneary/presentation/message_request/message_request_screen.dart';
 import 'package:sceneary/presentation/messages_individual_chat/messages_individual_chat_screen.dart';
 import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
@@ -50,34 +51,38 @@ class AppRouter {
 
   // Route Builders (String → Widget)
   static final Map<String, Widget Function()> _builders = {
-
     // Dashboard
-    RoutePaths.dashboardScreen : () => DashboardScreen(),
+    RoutePaths.dashboardScreen: () => DashboardScreen(),
     // Home
     RoutePaths.profileDetailsScreen: () => const ProfileDetailsScreen(),
     // Projects
     RoutePaths.createProjectScreen: () => const CreateProjectScreen(),
     RoutePaths.projectDetailsScreen: () => const ProjectDetailsScreen(),
     // Profile
-    RoutePaths.editProfileScreen : () => const EditProfileScreen(),
-    RoutePaths.changePasswordScreen : () => const ChangePasswordScreen(),
-    RoutePaths.twoFactorAuthenticationScreen : () => const TwoFactorAuthenticationScreen(),
-    RoutePaths.subscriptionPlanesScreen : () => const SubscriptionPlanesScreen(),
-    RoutePaths.termsAndConditionsScreen : () => const TermsAndConditionsScreen(),
-    RoutePaths.privacyPolicyScreen : () => const PrivacyPolicyScreen(),
-    RoutePaths.refundPolicyScreen : () => const RefundPolicyScreen(),
-    RoutePaths.helpAndSupportScreen : () => const HelpAndSupportScreen(),
-    RoutePaths.faqsScreen : () => const FaqsScreen(),
+    RoutePaths.editProfileScreen: () => const EditProfileScreen(),
+    RoutePaths.changePasswordScreen: () => const ChangePasswordScreen(),
+    RoutePaths.twoFactorAuthenticationScreen: () =>
+        const TwoFactorAuthenticationScreen(),
+    RoutePaths.subscriptionPlanesScreen: () => const SubscriptionPlanesScreen(),
+    RoutePaths.termsAndConditionsScreen: () => const TermsAndConditionsScreen(),
+    RoutePaths.privacyPolicyScreen: () => const PrivacyPolicyScreen(),
+    RoutePaths.refundPolicyScreen: () => const RefundPolicyScreen(),
+    RoutePaths.helpAndSupportScreen: () => const HelpAndSupportScreen(),
+    RoutePaths.faqsScreen: () => const FaqsScreen(),
     // Scenic order
-    RoutePaths.scenicOrderScreen : ()=> ScenicOrderScreen(),
-    RoutePaths.scenicOrderTemplateListScreen : ()=> ScenicOrderTemplateListScreen(),
-    RoutePaths.scenicOrderTemplateDetailsScreen : ()=> ScenicOrderTemplateDetailsScreen(),
-    RoutePaths.enterScenicOrderTemplateDetailsScreen : ()=> EnterScenicOrderTemplateDetailsScreen(),
-    RoutePaths.previewScenicOrderTemplateDetailsScreen : ()=> PreviewScenicOrderTemplateDetailsScreen(),
-    RoutePaths.editScenicOrderEntryScreen : ()=> EditScenicOrderEntryScreen(),
+    RoutePaths.scenicOrderScreen: () => ScenicOrderScreen(),
+    RoutePaths.scenicOrderTemplateListScreen: () =>
+        ScenicOrderTemplateListScreen(),
+    RoutePaths.scenicOrderTemplateDetailsScreen: () =>
+        ScenicOrderTemplateDetailsScreen(),
+    RoutePaths.enterScenicOrderTemplateDetailsScreen: () =>
+        EnterScenicOrderTemplateDetailsScreen(),
+    RoutePaths.previewScenicOrderTemplateDetailsScreen: () =>
+        PreviewScenicOrderTemplateDetailsScreen(),
+    RoutePaths.editScenicOrderEntryScreen: () => EditScenicOrderEntryScreen(),
     // Shooting Schedules
-    RoutePaths.shootingScheduleScreen : () => ShootingScheduleScreen(),
-    RoutePaths.addShootingScheduleScreen : () => AddShootingScheduleScreen(),
+    RoutePaths.shootingScheduleScreen: () => ShootingScheduleScreen(),
+    RoutePaths.addShootingScheduleScreen: () => AddShootingScheduleScreen(),
 
     //muni
     RoutePaths.basicInformationPageview: () => const BasicInformationPageview(),
@@ -87,26 +92,19 @@ class AppRouter {
     RoutePaths.castAndCrewScreen: () => const CastAndCrewScreen(),
     RoutePaths.editMemberScreen: () => const EditMemberScreen(),
     RoutePaths.addMemberScreen: () => const AddMemberScreen(),
-    RoutePaths.castAndCrewAvailabilityScreen: () => const CastAndCrewAvailabilityScreen(),
+    RoutePaths.castAndCrewAvailabilityScreen: () =>
+        const CastAndCrewAvailabilityScreen(),
     RoutePaths.projectSettingsScreen: () => const ProjectSettingsScreen(),
-     RoutePaths.chatScreen: () => const ChatScreen(),
+    RoutePaths.chatScreen: () => const ChatScreen(),
     RoutePaths.groupChatHistoryScreen: () => const GroupChatHistoryScreen(),
     RoutePaths.individualChatScreen: () => const IndividualChatScreen(),
-    RoutePaths.messagesIndividualChatScreen: () => const MessagesIndividualChatScreen(),
+    RoutePaths.messagesIndividualChatScreen: () =>
+        const MessagesIndividualChatScreen(),
     RoutePaths.messageRequestScreen: () => const MessageRequestScreen(),
     RoutePaths.notificationsScreen: () => const NotificationsScreen(),
-     RoutePaths.calenderScreen: () => const CalenderScreen(),
-      RoutePaths.calenderMonthPlanScreen: () => const CalenderMonthPlanScreen(),
-
-
-
-
-
-
-
-
-
-    
+    RoutePaths.calenderScreen: () => const CalenderScreen(),
+    RoutePaths.calenderMonthPlanScreen: () => const CalenderMonthPlanScreen(),
+    RoutePaths.callSheetScreen: () => const CallSheetScreen(),
   };
 
   // Route Generator
@@ -163,9 +161,9 @@ class AppRouter {
   /// Push a widget directly (optionally with arguments)
   Future<T?> pushWidget<T extends Object?>(Widget page, {Object? arguments}) {
     return _navKey.currentState!.push(
-      _slide(page, RouteSettings(arguments: arguments)),
-    )
-    as Future<T?>;
+          _slide(page, RouteSettings(arguments: arguments)),
+        )
+        as Future<T?>;
   }
 
   /// Replace the current screen (optionally with arguments)
@@ -188,7 +186,7 @@ class AppRouter {
       RouteSettings(name: routePath, arguments: arguments),
     );
     return _navKey.currentState!.pushAndRemoveUntil(route, (_) => false)
-    as Future<T?>;
+        as Future<T?>;
   }
 
   /// Pop current screen
@@ -196,7 +194,7 @@ class AppRouter {
 
   /// Pop until routePath
   void popUntil(String routePath) => _navKey.currentState!.popUntil(
-        (route) => route.settings.name == routePath,
+    (route) => route.settings.name == routePath,
   );
 
   /// Check if can pop
