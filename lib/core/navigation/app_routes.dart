@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_check_availability_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/edit_call_sheet_screen.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'package:sceneary/presentation/calender_month_plan/calender_month_plan_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
@@ -105,6 +108,9 @@ class AppRouter {
     RoutePaths.calenderScreen: () => const CalenderScreen(),
     RoutePaths.calenderMonthPlanScreen: () => const CalenderMonthPlanScreen(),
     RoutePaths.callSheetScreen: () => const CallSheetScreen(),
+    RoutePaths.createCallSheetScreen: () => const CreateCallSheetScreen(),
+    RoutePaths.createCallSheetCheckAvailabilityScreen:() => const CreateCallSheetCheckAvailabilityScreen(),
+    RoutePaths.editCallSheetScreen:()=> const EditCallSheetScreen(),
   };
 
   // Route Generator

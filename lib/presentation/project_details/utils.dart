@@ -53,41 +53,41 @@ void servicePopUpMenu(BuildContext context) {
         AppRouter.instance.push(RoutePaths.projectSettingsScreen);
         break;
     }
-    if (value == null) return;
+    // if (value == null) return;
 
-    switch (value) {
-      case "Overview":
-        break;
+    // switch (value) {
+    //   case "Overview":
+    //     break;
 
-      case "Cast & Crew":
-        AppRouter.instance.push(RoutePaths.castAndCrewScreen);
-        break;
+    //   case "Cast & Crew":
+    //     AppRouter.instance.push(RoutePaths.castAndCrewScreen);
+    //     break;
 
-      case "Timeline / Task":
-        break;
+    //   case "Timeline / Task":
+    //     break;
 
-      case "Budget":
-        break;
+    //   case "Budget":
+    //     break;
 
-      case "Scenic Order":
-        break;
+    //   case "Scenic Order":
+    //     break;
 
-      case "Call Sheets":
-        AppRouter.instance.push(RoutePaths.callSheetScreen);
-        break;
+    //   case "Call Sheets":
+    //     AppRouter.instance.push(RoutePaths.callSheetScreen);
+    //     break;
 
-      case "Shooting Schedules":
-        AppRouter.instance.push(RoutePaths.shootingScheduleScreen);
-        break;
+    //   case "Shooting Schedules":
+    //     AppRouter.instance.push(RoutePaths.shootingScheduleScreen);
+    //     break;
 
-      case "Group Chat":
-        AppRouter.instance.push(RoutePaths.chatScreen);
-        break;
+    //   case "Group Chat":
+    //     AppRouter.instance.push(RoutePaths.chatScreen);
+    //     break;
 
-      case "Project Settings":
-        AppRouter.instance.push(RoutePaths.projectSettingsScreen);
-        break;
-    }
+    //   case "Project Settings":
+    //     AppRouter.instance.push(RoutePaths.projectSettingsScreen);
+    //     break;
+    // }
   });
 }
 

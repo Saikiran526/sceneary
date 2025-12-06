@@ -51,6 +51,9 @@ class RoutePaths {
   static const String calenderScreen = '/CalenderScreen';
     static const String calenderMonthPlanScreen = '/CalenderMonthPlanScreen';
     static const String callSheetScreen="/callSheetScreen";
+    static const String createCallSheetScreen="/createCallSheet";
+    static const String createCallSheetCheckAvailabilityScreen="/createCallSheetCheckAvailabilityScreen";
+    static const String editCallSheetScreen="/editCallSheetScreen";
 
 
 
