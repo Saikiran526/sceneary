@@ -72,4 +72,5 @@ class RoutePaths {
   static const String createCallSheetCheckAvailabilityScreen =
       "/createCallSheetCheckAvailabilityScreen";
   static const String editCallSheetScreen = "/editCallSheetScreen";
+  static const String callSheetTableSceen="/callSheetTableSceen";
 }
