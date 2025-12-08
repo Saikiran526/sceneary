@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/presentation/call_sheets/viewmodel/edit_call_sheet_viewmodel.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/customField.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/custom_action_btn.dart';
-import 'package:sceneary/presentation/create_project/utils.dart';
 
 class EditCallSheetScreen extends StatelessWidget {
   const EditCallSheetScreen({super.key});
@@ -20,10 +20,9 @@ class EditCallSheetScreen extends StatelessWidget {
             appBar: AppBar(
               title: Text(
                 "Edit call Sheet",
-                style: TextStyle(
+                style :GoogleFonts.montserrat(
                   fontSize: 14,
-                  fontFamily: "Montserrat",
-                  fontWeight: FontWeight.w600,
+                   fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
@@ -144,8 +143,7 @@ class EditCallSheetScreen extends StatelessWidget {
                             Flexible(
                               child: Text(
                                 "Select all crew members",
-                                style: const TextStyle(
-                                  fontFamily: "Inter",
+                                style: GoogleFonts.inter(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 12,
                                   height: 23 / 12,
@@ -217,8 +215,7 @@ class EditCallSheetScreen extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           title,
-          style: const TextStyle(
-            fontFamily: "Montserrat",
+          style:  GoogleFonts.montserrat(
             fontWeight: FontWeight.w500,
             fontSize: 10,
             height: 1.0,

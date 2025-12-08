@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomActionButton extends StatelessWidget {
   final String label;
@@ -56,8 +57,7 @@ class CustomActionButton extends StatelessWidget {
         
         Text(
           label,
-          style: TextStyle(
-            fontFamily: "Montserrat",
+          style:  GoogleFonts.montserrat(
             fontSize: 14,
             fontWeight: FontWeight.w500,
             color: textColor,
