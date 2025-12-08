@@ -64,13 +64,15 @@ class RoutePaths {
   static const String projectPlanAddPhaseScreen = '/ProjectPlanAddPhaseScreen';
   static const String preProductionScreen = '/PreProductionScreen';
   static const String editPhaseScreen = '/EditPhaseScreen';
-  static const String createTaskScreen = '/CreateTaskScreen';
-
+    static const String createTaskScreen = '/CreateTaskScreen';
+   static const String scriptDiscussionScreen = '/ScriptDiscussionScreen';
+   static const String extentPhaseDateScreen = '/ExtentPhaseDateScreen';
+   static const String viewChartViewScreen = '/ViewChartViewScreen';
+ 
   //upendar
   static const String callSheetScreen = "/callSheetScreen";
   static const String createCallSheetScreen = "/createCallSheet";
-  static const String createCallSheetCheckAvailabilityScreen =
-      "/createCallSheetCheckAvailabilityScreen";
+  static const String createCallSheetCheckAvailabilityScreen = "/createCallSheetCheckAvailabilityScreen";
   static const String editCallSheetScreen = "/editCallSheetScreen";
   static const String callSheetTableSceen="/callSheetTableSceen";
 }

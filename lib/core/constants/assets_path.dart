@@ -78,4 +78,5 @@ class AssetsPath {
   static const projectPlanDate = 'assets/images/uil_calender.svg';
   static const viewProjectPlan = "assets/images/view_plan.svg";
   static const forwardGroup = "assets/images/forward_group.svg";
+  static const filterProjectPlan = "assets/images/filter_plan.svg";
 }

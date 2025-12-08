@@ -255,71 +255,76 @@ class PreProductionScreen extends StatelessWidget {
                                 SingleChildScrollView(
                                   child: Column(
                                     children: [
-                                      Container(
-                                        padding: EdgeInsets.all(12),
-                                        width: double.infinity,
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFC3C3C3),
-                                          borderRadius: BorderRadius.circular(12),
-                                          border: Border.all(
-                                            color: Colors.grey.shade300,
-                                            width: 1,
+                                      GestureDetector(
+                                        onTap: () {
+                                          AppRouter.instance.push(RoutePaths.scriptDiscussionScreen);
+                                        },
+                                        child: Container(
+                                          padding: EdgeInsets.all(12),
+                                          width: double.infinity,
+                                          height: 120,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFC3C3C3),
+                                            borderRadius: BorderRadius.circular(12),
+                                            border: Border.all(
+                                              color: Colors.grey.shade300,
+                                              width: 1,
+                                            ),
                                           ),
-                                        ),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              "Script Discussion",
-                                              style: TextStyle(
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                            SizedBox(height: 16),
-                                            Row(
-                                              children: [
-                                                Icon(Icons.access_time, size: 13),
-                                                SizedBox(width: 4),
-                                                Text(
-                                                  "Start Date - 22/11/25",
-                                                  style: TextStyle(fontSize: 12),
-                                                ),
-                                                SizedBox(width: 16),
-                                                Icon(Icons.access_time, size: 13),
-                                                SizedBox(width: 4),
-                                                Text(
-                                                  "End Date - 22/1/26",
-                                                  style: TextStyle(fontSize: 12),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 16),
-                                            RichText(
-                                              text: TextSpan(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                "Script Discussion",
                                                 style: TextStyle(
                                                   fontSize: 12,
-                                                  color: Color(0xFF454545),
+                                                  fontWeight: FontWeight.w600,
                                                 ),
+                                              ),
+                                              SizedBox(height: 16),
+                                              Row(
                                                 children: [
-                                                  TextSpan(
-                                                    text: "Status : ",
-                                                    style: TextStyle(
-                                                      fontWeight: FontWeight.w600,
-                                                    ),
+                                                  Icon(Icons.access_time, size: 13),
+                                                  SizedBox(width: 4),
+                                                  Text(
+                                                    "Start Date - 22/11/25",
+                                                    style: TextStyle(fontSize: 12),
                                                   ),
-                                                  TextSpan(
-                                                    text: 'on-going',
-                                                    style: TextStyle(
-                                                      fontWeight: FontWeight.w500,
-                                                    ),
+                                                  SizedBox(width: 16),
+                                                  Icon(Icons.access_time, size: 13),
+                                                  SizedBox(width: 4),
+                                                  Text(
+                                                    "End Date - 22/1/26",
+                                                    style: TextStyle(fontSize: 12),
                                                   ),
                                                 ],
                                               ),
-                                            ),
-                                          ],
+                                              SizedBox(height: 16),
+                                              RichText(
+                                                text: TextSpan(
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Color(0xFF454545),
+                                                  ),
+                                                  children: [
+                                                    TextSpan(
+                                                      text: "Status : ",
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w600,
+                                                      ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: 'on-going',
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       SizedBox(height: 16),

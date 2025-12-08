@@ -8,7 +8,7 @@ Widget customTextField({
   int maxLines = 1,
   bool enabled = true,
   Widget? suffix,
-  Widget? prefix,   // 🔥 ADDED PREFIX
+  Widget? prefix,
   VoidCallback? onTap,
 }) {
   return Padding(
@@ -16,7 +16,6 @@ Widget customTextField({
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         if (label != null)
           Padding(
             padding: const EdgeInsets.only(bottom: 4),
@@ -35,20 +34,20 @@ Widget customTextField({
           padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: const Color(0x33000000), width: 1),
+            border: Border.all(color: Color(0x33000000)),
           ),
 
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
-              // 🔥 PREFIX ICON
+              
+              /// ⭐ FIXED PREFIX
               if (prefix != null)
                 Padding(
                   padding: const EdgeInsets.only(right: 8),
-                  child: SizedBox(height: 16, width: 16, child: prefix),
+                  child: prefix, // No forced size
                 ),
 
-              // TEXTFIELD
               Expanded(
                 child: TextField(
                   controller: controller,
@@ -68,10 +67,12 @@ Widget customTextField({
                 ),
               ),
 
-              // SUFFIX ICON
-              if (suffix != null) const SizedBox(width: 10),
+              /// ⭐ FIXED SUFFIX
               if (suffix != null)
-                SizedBox(height: 16, width: 16, child: suffix),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: suffix,
+                ),
             ],
           ),
         ),
@@ -79,6 +80,7 @@ Widget customTextField({
     ),
   );
 }
+
 
 
 Widget uploadWidget({
