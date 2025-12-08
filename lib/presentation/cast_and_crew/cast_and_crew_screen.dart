@@ -37,13 +37,15 @@ class CastAndCrewScreen extends StatelessWidget {
                           offset: Offset(0, 1),
                           blurRadius: 3,
                           spreadRadius: 0,
-                          color: Colors.black.withOpacity(
-                            0.08,
-                          ), 
+                          color: Colors.black.withOpacity(0.08),
                         ),
                       ],
                     ),
-                    child: SvgPicture.asset(AssetsPath.menuImg,height: 24,width: 24,)
+                    child: SvgPicture.asset(
+                      AssetsPath.menuImg,
+                      height: 24,
+                      width: 24,
+                    ),
                   ),
                 ],
               ),
@@ -84,73 +86,19 @@ class CastAndCrewScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        GestureDetector(
+                        buildTabItem(
+                          title: "Members",
+                          isSelected: viewModel.selectedTab == 0,
                           onTap: () => viewModel.changeTab(0),
-                          child: viewModel.selectedTab == 0
-                              ? Container(
-                                  width: 164,
-                                  height: 40,
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: Color(0Xff4F4F4F),
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(color: Colors.black),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Members",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : Text(
-                                  "Members",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
                         ),
-                        GestureDetector(
+                        buildTabItem(
+                          title: "Availability",
+                          isSelected: viewModel.selectedTab == 1,
                           onTap: () => viewModel.changeTab(1),
-                          child: viewModel.selectedTab == 1
-                              ? Container(
-                                  width: 164,
-                                  height: 40,
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: Color(0Xff4F4F4F),
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(color: Colors.black),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "Availability",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : Text(
-                                  "Availability",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 40),
                     viewModel.selectedTab == 0
                         ? Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -686,9 +634,14 @@ class CastAndCrewScreen extends StatelessWidget {
                                   },
                                 ),
                                 SizedBox(height: 24),
-                                primaryButton(text: 'View', onPressed: () {
-                                  AppRouter.instance.push(RoutePaths.castAndCrewAvailabilityScreen);
-                                }),
+                                primaryButton(
+                                  text: 'View',
+                                  onPressed: () {
+                                    AppRouter.instance.push(
+                                      RoutePaths.castAndCrewAvailabilityScreen,
+                                    );
+                                  },
+                                ),
                               ],
                             ),
                           ),
@@ -762,6 +715,36 @@ class CastAndCrewScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildTabItem({
+    required String title,
+    required bool isSelected,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 164,
+        height: 40,
+        decoration: isSelected
+            ? BoxDecoration(
+                color: const Color(0xff4F4F4F),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: Colors.black),
+              )
+            : null,
+        alignment: Alignment.center,
+        child: Text(
+          title,
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
+            color: isSelected ? Colors.white : Colors.black,
+          ),
+        ),
       ),
     );
   }
