@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/core/navigation/app_routes.dart';
-import 'package:sceneary/core/navigation/routes_path.dart';
-import 'package:sceneary/presentation/call_sheets/viewmodel/create_call_sheet_viewmodel.dart';
+  import 'package:sceneary/presentation/call_sheets/viewmodel/create_call_sheet_viewmodel.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/customField.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/custom_action_btn.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/custom_dropdown.dart';
 
 class CreateCallSheetScreen extends StatelessWidget {
   const CreateCallSheetScreen({super.key});
@@ -20,10 +20,9 @@ class CreateCallSheetScreen extends StatelessWidget {
             appBar: AppBar(
               title: Text(
                 "Create Call Sheet",
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   fontSize: 14,
-                  fontFamily: "Montserrat",
-                  fontWeight: FontWeight.w600,
+                   fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
@@ -63,42 +62,68 @@ class CreateCallSheetScreen extends StatelessWidget {
                         CustomTextField(
                           label: "Banner Name",
                           hintText: "ARKA Productions",
+                          controller: viewModel.bannerNameController,
                           isRequired: true,
                         ),
                         CustomTextField(
                           label: "Producer",
                           hintText: "Comma-Separated names",
                           isRequired: true,
+                          controller: viewModel.producerController,
                         ),
                         CustomTextField(
                           label: "Director",
                           hintText: "Comma-Separated names",
                           isRequired: true,
+                          controller: viewModel.directorController,
                         ),
                         CustomTextField(
                           label: "CEO",
                           hintText: "Comma-Separated names",
                           isRequired: true,
+                          controller: viewModel.ceoController,
                         ),
                         CustomTextField(
                           label: "Date of shoot",
                           hintText: "dd-mm-yyyy",
                           isRequired: true,
                           suffixIcon: Icons.calendar_month,
+                          controller: viewModel.dateController,
+                          readOnly: true,
+                          onTap: () {
+                            viewModel.pickDateOrTime(
+                              controller: viewModel.dateController,
+                              isDate: true,
+                            );
+                          },
                         ),
                         CustomTextField(
                           label: "Shooting Call Time",
                           hintText: "Select Time",
                           isRequired: true,
+                          controller: viewModel.shootingTimeController,
                           suffixIcon: Icons.access_time_filled,
+                          onTap: () {
+                            viewModel.pickDateOrTime(
+                              controller: viewModel.shootingTimeController,
+                              isDate: false,
+                            );
+                          },
                         ),
 
                         Row(
                           children: [
                             Expanded(
                               child: CustomTextField(
-                                label: "Breakfast Timne",
+                                label: "Breakfast Time",
                                 hintText: "Select time",
+                                controller: viewModel.breakFastController,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.breakFastController,
+                                    isDate: false,
+                                  );
+                                },
                                 isRequired: true,
                                 suffixIcon: Icons.access_time_filled,
                               ),
@@ -106,6 +131,13 @@ class CreateCallSheetScreen extends StatelessWidget {
                             const SizedBox(width: 12),
                             Expanded(
                               child: CustomTextField(
+                                controller: viewModel.lunchTimeController,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.lunchTimeController,
+                                    isDate: false,
+                                  );
+                                },
                                 label: "Lunch Time",
                                 hintText: "Select Time",
                                 isRequired: true,
@@ -120,8 +152,15 @@ class CreateCallSheetScreen extends StatelessWidget {
                               child: CustomTextField(
                                 label: "Dinner",
                                 hintText: "Select time",
+                                controller: viewModel.dinnerController,
                                 isRequired: true,
                                 suffixIcon: Icons.access_time_filled,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.dinnerController,
+                                    isDate: false,
+                                  );
+                                },
                               ),
                             ),
                             const SizedBox(width: 12),
@@ -129,6 +168,13 @@ class CreateCallSheetScreen extends StatelessWidget {
                               child: CustomTextField(
                                 label: "Wrap up",
                                 hintText: "Select Time",
+                                controller: viewModel.wrapUpController,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.wrapUpController,
+                                    isDate: false,
+                                  );
+                                },
                                 isRequired: true,
                                 suffixIcon: Icons.access_time_filled,
                               ),
@@ -138,20 +184,41 @@ class CreateCallSheetScreen extends StatelessWidget {
                         Row(
                           children: [
                             Expanded(
+                              flex: 1,
                               child: CustomTextField(
-                                label: "Tea/Coffe",
-                                hintText: "Select time",
+                                label: "Tea/Coffee",
+                                hintText: "Select Time",
+                                controller: viewModel.teaCoffeContoller,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.teaCoffeContoller,
+                                    isDate: false,
+                                  );
+                                },
                                 isRequired: true,
                                 suffixIcon: Icons.access_time_filled,
                               ),
                             ),
-                            const SizedBox(width: 12),
+
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.03,
+                            ),
+
                             Expanded(
-                              child: CustomTextField(
+                              flex: 1,
+                              child: CustomDropdownField(
                                 label: "Day",
-                                hintText: "Select Day",
+
                                 isRequired: true,
-                                suffixIcon: Icons.calendar_month,
+                                hintText: "Select Day",
+                                value: viewModel.selectedDay,
+                                items: viewModel.day,
+                                suffixIcon: Icons.keyboard_arrow_down,
+                                onChanged: (String? val) {
+                                  viewModel.setSelectedDay(val);
+                                
+                                },
+                                
                               ),
                             ),
                           ],
@@ -161,31 +228,37 @@ class CreateCallSheetScreen extends StatelessWidget {
                           label: "Actors",
                           hintText: "Comma-Separated names",
                           isRequired: true,
+                          controller: viewModel.actorsController,
                         ),
                         CustomTextField(
                           label: "Select Cast",
                           hintText: "Hero- AlluArjun - Heroine-Das",
                           isRequired: true,
+                          controller: viewModel.selectCastController,
                         ),
                         CustomTextField(
                           label: "Scene Description",
                           hintText: "Write about scence",
                           maxLines: 3,
+                          controller: viewModel.sceneDescriptionController,
                         ),
                         CustomTextField(
                           label: "Script Page",
                           hintText: "Hero- AlluArjun - Heroine-Das",
                           isRequired: true,
+                          controller: viewModel.scriptPageController,
                         ),
                         CustomTextField(
                           label: "Location",
                           hintText: "Hero- AlluArjun - Heroine-Das",
                           isRequired: true,
+                          controller: viewModel.locationController,
                         ),
                         CustomTextField(
                           label: "Important Contacts",
                           hintText: "Write about scence",
                           maxLines: 3,
+                          controller: viewModel.importantContactsController,
                         ),
 
                         SizedBox(height: 50),
@@ -209,10 +282,7 @@ class CreateCallSheetScreen extends StatelessWidget {
                                 textColor: Colors.white,
                                 borderColor: Colors.black,
                                 onTap: () {
-                                  AppRouter.instance.push(
-                                    RoutePaths
-                                        .createCallSheetCheckAvailabilityScreen,
-                                  );
+                                viewModel.onNextPressed();
                                 },
                                 isFullWidth: true,
                               ),
@@ -255,8 +325,7 @@ class CreateCallSheetScreen extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           title,
-          style: const TextStyle(
-            fontFamily: "Montserrat",
+          style: GoogleFonts.montserrat(
             fontWeight: FontWeight.w500,
             fontSize: 10,
             height: 1.0,

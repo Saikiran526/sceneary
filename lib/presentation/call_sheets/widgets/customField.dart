@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextField extends StatelessWidget {
   final String? label;
@@ -27,12 +28,14 @@ class CustomTextField extends StatelessWidget {
   final Function(String)? onChanged;
   final List<TextInputFormatter>? inputFormatters;
   final bool autofocus;
+  final VoidCallback? onTap;
 
   /// Gap after this field
   final double verticalGap;
 
   const CustomTextField({
     super.key,
+    this.onTap,
     this.label,
     this.isRequired = false,
     this.hintText,
@@ -57,7 +60,7 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.inputFormatters,
     this.autofocus = false,
-    this.verticalGap = 16.0, // default 16px
+    this.verticalGap = 16.0,
   });
 
   @override
@@ -71,8 +74,7 @@ class CustomTextField extends StatelessWidget {
             children: [
               Text(
                 label!,
-                style: const TextStyle(
-                  fontFamily: "Montserrat",
+                style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
                   height: 1.4,
@@ -98,9 +100,10 @@ class CustomTextField extends StatelessWidget {
         ],
 
         TextField(
+          onTap: onTap,
           controller: controller,
           enabled: enabled,
-          readOnly: readOnly,
+          readOnly: readOnly || onTap != null,
           autofocus: autofocus,
           obscureText: obscureText,
           keyboardType: keyboardType,
@@ -111,16 +114,14 @@ class CustomTextField extends StatelessWidget {
           textAlign: textAlign,
           textCapitalization: textCapitalization,
           onChanged: onChanged,
-          style: TextStyle(
-            fontFamily: "Montserrat",
+          style:  GoogleFonts.montserrat(
             fontWeight: FontWeight.w500,
             fontSize: 14,
             color: enabled ? textColor : Colors.grey.shade600,
           ),
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: TextStyle(
-              fontFamily: "Montserrat",
+            hintStyle:  GoogleFonts.montserrat(
               fontSize: 14,
               color: hintColor.withOpacity(0.7),
             ),

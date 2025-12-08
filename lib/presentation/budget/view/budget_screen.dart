@@ -5,28 +5,28 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
-import 'package:sceneary/presentation/call_sheets/viewmodel/call_sheet_viewmodel.dart';
+import 'package:sceneary/presentation/budget/viewmodel/budget_viewmodel.dart';
 import 'package:sceneary/presentation/project_details/utils.dart';
 
-class CallSheetScreen extends StatelessWidget {
-  const CallSheetScreen({super.key});
+class BudgetScreen extends StatelessWidget {
+  const BudgetScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-
     return ChangeNotifierProvider(
-      create: (_) => CallSheetViewmodel(context: context),
-      child: Consumer<CallSheetViewmodel>(
+      create: (_) => BudgetViewmodel(context: context),
+      child: Consumer<BudgetViewmodel>(
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
               title: Text(
-                "Call Sheet",
-                style:  GoogleFonts.montserrat(
+                "Budget",
+                style:GoogleFonts.montserrat(
                   fontSize: 14,
-                   fontWeight: FontWeight.w600,
+                  
+                  fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
@@ -50,45 +50,28 @@ class CallSheetScreen extends StatelessWidget {
             body: Padding(
               padding: EdgeInsets.all(width * 0.05),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    'Manage and Send call sheets to cast and crew.',
-                    style: TextStyle(
-                      fontSize: width * 0.032,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff787878),
-                    ),
-                  ),
-
-                  SizedBox(height: height * 0.03),
-
                   Wrap(
                     spacing: width * 0.03,
                     runSpacing: height * 0.015,
                     children: [
                       _buildBlackButton(
                         icon: AssetsPath.addImg,
-                        label: "Create Call Sheet",
+                        label: "Add Budget",
                         onTap: () {
-                          AppRouter.instance.push(
-                            RoutePaths.createCallSheetScreen,
-                          );
+                          AppRouter.instance.push(RoutePaths.addBudgetScreen);
                         },
                       ),
                       _buildOutlinedButton(
                         icon: AssetsPath.downloadImg,
-                        label: "Download Template",
+                        label: "Download Sheet",
                         onTap: () {},
                       ),
                       _buildOutlinedButton(
                         icon: AssetsPath.downloadImg,
-                        label: "Upload Call Sheet",
-                        onTap: () {
-                          AppRouter.instance.push(
-                            RoutePaths.callSheetTableSceen,
-                          );
-                        },
+                        label: "Upload Sheet",
+                        onTap: () {},
                       ),
                     ],
                   ),
@@ -107,7 +90,7 @@ class CallSheetScreen extends StatelessWidget {
                       border: Border.all(color: Colors.grey.shade300),
                     ),
                     child: Text(
-                      'No entries are scheduled. Add your first shooting schedule or upload an Excel file.',
+                      'No Budget Added! Add Budget to Manage.',
                       style: TextStyle(
                         fontSize: width * 0.035,
                         fontWeight: FontWeight.w400,
@@ -120,8 +103,6 @@ class CallSheetScreen extends StatelessWidget {
               ),
             ),
           );
-    
-    
         },
       ),
     );

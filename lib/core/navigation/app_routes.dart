@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_phase/add_phase_screen.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
+import 'package:sceneary/presentation/budget/view/add_budget_screen.dart';
+import 'package:sceneary/presentation/budget/view/budget_screen.dart';
+import 'package:sceneary/presentation/budget/view/budget_tab_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
- import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_table_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_check_availability_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/edit_call_sheet_screen.dart';
- 
+
 import 'package:sceneary/presentation/create_task/create_task_screen.dart';
- import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
+import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'package:sceneary/presentation/calender_month_plan/calender_month_plan_screen.dart';
 import 'package:sceneary/presentation/edit_phase/edit_phase_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
@@ -116,43 +119,31 @@ class AppRouter {
         const MessagesIndividualChatScreen(),
     RoutePaths.messageRequestScreen: () => const MessageRequestScreen(),
     RoutePaths.notificationsScreen: () => const NotificationsScreen(),
-     RoutePaths.calenderScreen: () => const CalenderScreen(),
+    RoutePaths.calenderScreen: () => const CalenderScreen(),
     RoutePaths.calenderMonthPlanScreen: () => const CalenderMonthPlanScreen(),
-  
- 
-        RoutePaths.projectPlanScreen: () => const ProjectPlanScreen(),
-      RoutePaths.addPhaseScreen: () => const AddPhaseScreen(),
-      RoutePaths.projectPlanAddPhaseScreen: () => const ProjectPlanAddPhaseScreen(),
-       RoutePaths.preProductionScreen: () => const PreProductionScreen(),
-      RoutePaths.editPhaseScreen: () => const EditPhaseScreen(),
-      RoutePaths.createTaskScreen: () => const CreateTaskScreen(),
-     RoutePaths.scriptDiscussionScreen: () => const ScriptDiscussionScreen(),
+
+    RoutePaths.projectPlanScreen: () => const ProjectPlanScreen(),
+    RoutePaths.addPhaseScreen: () => const AddPhaseScreen(),
+    RoutePaths.projectPlanAddPhaseScreen: () =>
+        const ProjectPlanAddPhaseScreen(),
+    RoutePaths.preProductionScreen: () => const PreProductionScreen(),
+    RoutePaths.editPhaseScreen: () => const EditPhaseScreen(),
+    RoutePaths.createTaskScreen: () => const CreateTaskScreen(),
+    RoutePaths.scriptDiscussionScreen: () => const ScriptDiscussionScreen(),
     RoutePaths.extentPhaseDateScreen: () => const ExtentPhaseDateScreen(),
-   RoutePaths.viewChartViewScreen: () => const ViewChartViewScreen(),
+    RoutePaths.viewChartViewScreen: () => const ViewChartViewScreen(),
 
-      //upendar
-
+    //upendar
     RoutePaths.callSheetScreen: () => const CallSheetScreen(),
     RoutePaths.createCallSheetScreen: () => const CreateCallSheetScreen(),
-    RoutePaths.createCallSheetCheckAvailabilityScreen:() => const CreateCallSheetCheckAvailabilityScreen(),
-    RoutePaths.editCallSheetScreen:()=> const EditCallSheetScreen(),
-    RoutePaths.callSheetTableSceen:()=> const CallSheetTableScreen(),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-   };
+    RoutePaths.createCallSheetCheckAvailabilityScreen: () =>
+        const CreateCallSheetCheckAvailabilityScreen(),
+    RoutePaths.editCallSheetScreen: () => const EditCallSheetScreen(),
+    RoutePaths.callSheetTableSceen: () => const CallSheetTableScreen(),
+    RoutePaths.budgetScreen: () => const BudgetScreen(),
+    RoutePaths.addBudgetScreen: () => const AddBudgetScreen(),
+    RoutePaths.budgetTabScreen: () => const BudgetTabScreen(),
+  };
 
   // Route Generator
   Route<dynamic> onGenerateRoute(RouteSettings settings) {

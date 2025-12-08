@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/core/navigation/app_routes.dart';
-import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/call_sheets/viewmodel/create_call_sheet_check_availability_viewmodel.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/custom_action_btn.dart';
 
@@ -21,10 +20,9 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
             appBar: AppBar(
               title: Text(
                 "Create Call Sheet",
-                style: TextStyle(
+                style:  GoogleFonts.montserrat(
                   fontSize: 14,
-                  fontFamily: "Montserrat",
-                  fontWeight: FontWeight.w600,
+                   fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
@@ -79,17 +77,15 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Step 2: Availability check & create",
-                            style: const TextStyle(
-                              fontFamily: "Montserrat",
-                              fontWeight: FontWeight.w600,
+                            style:     GoogleFonts.montserrat(
+                               fontWeight: FontWeight.w600,
                               fontSize: 14,
                               color: Colors.black,
                             ),
                           ),
                           Text(
                             "Review the team availability for the create call sheet",
-                            style: const TextStyle(
-                              fontFamily: "Inter",
+                            style: GoogleFonts.inter(
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
                               color: Color(0XFF4B4B4B),
@@ -131,9 +127,8 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                               "Date",
-                                              style: const TextStyle(
-                                                fontFamily: "Inter",
-                                                fontWeight: FontWeight.w400,
+                                              style:   GoogleFonts.inter(
+                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 12,
                                                 color: Colors.black,
                                               ),
@@ -141,9 +136,8 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                             const SizedBox(height: 4),
                                             Text(
                                               "Friday, November 28,2025",
-                                              style: const TextStyle(
-                                                fontFamily: "Inter",
-                                                fontWeight: FontWeight.w400,
+                                              style: GoogleFonts.inter(
+                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 12,
                                                 color: Colors.black54,
                                               ),
@@ -172,9 +166,8 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                               "Call Time",
-                                              style: const TextStyle(
-                                                fontFamily: "Inter",
-                                                fontWeight: FontWeight.w400,
+                                              style:     GoogleFonts.inter(
+                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 12,
                                                 color: Colors.black,
                                               ),
@@ -182,9 +175,8 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                             const SizedBox(height: 4),
                                             Text(
                                               "8:30 AM",
-                                              style: const TextStyle(
-                                                fontFamily: "Inter",
-                                                fontWeight: FontWeight.w400,
+                                              style:     GoogleFonts.inter(
+                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 12,
                                                 color: Colors.black54,
                                               ),
@@ -213,9 +205,8 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                           children: [
                                             Text(
                                               "Location",
-                                              style: const TextStyle(
-                                                fontFamily: "Inter",
-                                                fontWeight: FontWeight.w400,
+                                              style:  GoogleFonts.inter(
+                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 12,
                                                 color: Colors.black,
                                               ),
@@ -223,8 +214,8 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                             const SizedBox(height: 4),
                                             Text(
                                               "Hyderabad (Interior)",
-                                              style: const TextStyle(
-                                                fontFamily: "Inter",
+                                              style:  GoogleFonts.inter(
+                                           
                                                 fontWeight: FontWeight.w400,
                                                 fontSize: 12,
                                                 color: Colors.black54,
@@ -262,17 +253,15 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                       children: [
                                         TextSpan(
                                           text: "Available members ",
-                                          style: const TextStyle(
-                                            fontFamily: "Inter",
-                                            fontWeight: FontWeight.w400,
+                                          style:  GoogleFonts.inter(
+                                             fontWeight: FontWeight.w400,
                                             fontSize: 14,
                                             color: Colors.black,
                                           ),
                                         ),
                                         TextSpan(
                                           text: "1 / 2  ",
-                                          style: const TextStyle(
-                                            fontFamily: "Inter",
+                                          style:   GoogleFonts.inter(
                                             fontWeight: FontWeight.w400,
                                             fontSize: 14,
                                             color: Colors.red,
@@ -280,9 +269,8 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                         ),
                                         TextSpan(
                                           text: "Available ",
-                                          style: const TextStyle(
-                                            fontFamily: "Inter",
-                                            fontWeight: FontWeight.w400,
+                                          style:     GoogleFonts.inter(
+                                             fontWeight: FontWeight.w400,
                                             fontSize: 14,
                                             color: Colors.black,
                                           ),
@@ -324,9 +312,8 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               "Cast & Crew Availability",
-                              style: const TextStyle(
-                                fontFamily: "Montserrat",
-                                fontWeight: FontWeight.w500,
+                              style:  GoogleFonts.montserrat(
+                                 fontWeight: FontWeight.w500,
                                 fontSize: 14,
                                 height: 1.0,
                                 color: Color(0xFF000000),
@@ -394,21 +381,19 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: const [
+                                    children: [
                                       Text(
                                         "John Doe",
-                                        style: TextStyle(
-                                          fontFamily: "Montserrat",
+                                        style:  GoogleFonts.montserrat(
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
                                           color: Colors.black,
                                         ),
                                       ),
-                                      SizedBox(height: 2),
-                                      Text(
+                                      const SizedBox(height: 2),
+                                        Text(
                                         "Lead Actor",
-                                        style: TextStyle(
-                                          fontFamily: "Montserrat",
+                                        style:  GoogleFonts.montserrat(
                                           fontWeight: FontWeight.w400,
                                           fontSize: 10,
                                           color: Color(0XFF888888),
@@ -434,7 +419,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
-                                    children: const [
+                                    children:   [
                                       Icon(
                                         Icons.access_time_filled,
                                         size: 14,
@@ -444,8 +429,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                       Text(
                                         "Available",
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontFamily: "Montserrat",
+                                        style: GoogleFonts.montserrat(
                                           fontWeight: FontWeight.w400,
                                           fontSize: 12,
                                           color: Color(0xFF0F8A41),
@@ -458,8 +442,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                             ),
                           ),
 
-                          /// seond
-                          ///
+                    
                           Container(
                             width: double.infinity,
                             padding: const EdgeInsets.all(12),
@@ -522,11 +505,10 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: const [
+                                        children:   [
                                           Text(
                                             "Arya strac",
-                                            style: TextStyle(
-                                              fontFamily: "Montserrat",
+                                            style: GoogleFonts.montserrat(
                                               fontWeight: FontWeight.w500,
                                               fontSize: 12,
                                               color: Colors.black,
@@ -535,8 +517,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                           SizedBox(height: 2),
                                           Text(
                                             "Lead Actress",
-                                            style: TextStyle(
-                                              fontFamily: "Montserrat",
+                                            style:  GoogleFonts.montserrat(
                                               fontWeight: FontWeight.w400,
                                               fontSize: 10,
                                               color: Color(0XFF888888),
@@ -563,7 +544,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                             MainAxisAlignment.center,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
-                                        children: const [
+                                        children:   [
                                           Icon(
                                             Icons.error_outline,
                                             size: 14,
@@ -573,8 +554,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                           Text(
                                             "Busy",
                                             textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              fontFamily: "Montserrat",
+                                            style: GoogleFonts.montserrat(
                                               fontWeight: FontWeight.w400,
                                               fontSize: 12,
                                               color: Color(0xFFC2060D),
@@ -600,8 +580,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                       Text(
                                         "Unavailable: 2:00 PM - 6:00 PM",
                                         textAlign: TextAlign.center,
-                                        style: const TextStyle(
-                                          fontFamily: "Montserrat",
+                                        style:  GoogleFonts.montserrat(
                                           fontWeight: FontWeight.w400,
                                           fontSize: 12,
                                           height: 1.0,
@@ -639,11 +618,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                             backgroundColor: Colors.black,
                             textColor: Colors.white,
                             borderColor: Colors.black,
-                            onTap: () {
-                              AppRouter.instance.push(
-                                RoutePaths.editCallSheetScreen,
-                              );
-                            },
+                            onTap: () {},
                             isFullWidth: true,
                           ),
                         ),
@@ -683,8 +658,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           title,
-          style: const TextStyle(
-            fontFamily: "Montserrat",
+          style: GoogleFonts.montserrat(
             fontWeight: FontWeight.w500,
             fontSize: 10,
             height: 1.0,
