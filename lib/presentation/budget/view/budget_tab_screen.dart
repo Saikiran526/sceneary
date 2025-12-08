@@ -3,23 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
-class AssetsPath {
-  static const menuImg = 'assets/menu.svg';
-}
-
-class BudgetTabViewmodel extends ChangeNotifier {
-  final BuildContext context;
-  BudgetTabViewmodel({required this.context});
-
-  List<String> tabs = ["Overview", "Details"];
-  int selectedIndex = 0;
-
-  void changeTab(int index) {
-    selectedIndex = index;
-    notifyListeners();
-  }
-}
+import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/presentation/budget/viewmodel/budget_tab_viewmodel.dart';
 
 class BudgetTabScreen extends StatelessWidget {
   const BudgetTabScreen({super.key});
