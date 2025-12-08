@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_phase/add_phase_screen.dart';
-import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
+import 'package:sceneary/presentation/add_shooting_schedule/view/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
  import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_check_availability_screen.dart';

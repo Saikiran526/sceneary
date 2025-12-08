@@ -30,87 +30,17 @@ void servicePopUpMenu(BuildContext context) {
     if (value == null) return;
 
     switch (value) {
-      case "Overview":
-        break;
-      case "Cast & Crew":
-        AppRouter.instance.push(RoutePaths.castAndCrewScreen);
-        break;
-      case "Timeline / Task":
-        break;
-      case "Budget":
-        break;
-      case "Scenic Order":
-        AppRouter.instance.push(RoutePaths.scenicOrderScreen);
-        break;
-      case "Call Sheets":
-        AppRouter.instance.push(RoutePaths.callSheetScreen);
-        break;
-      case "Shooting Schedules":
-        break;
-      case "Group Chat":
-        break;
-      case "Project Settings":
-        AppRouter.instance.push(RoutePaths.projectSettingsScreen);
-        break;
-      case "Overview":
-        break;
-      case "Cast & Crew":
-        AppRouter.instance.push(RoutePaths.castAndCrewScreen);
-        break;
-      case "Project Plan":
-        AppRouter.instance.push(RoutePaths.projectPlanScreen);
-      case "Budget":
-        break;
-      case "Scenic Order":
-        AppRouter.instance.push(RoutePaths.scenicOrderScreen);
-        break;
-      case "Call Sheets":
-        break;
-      case "Shooting Schedules":
-        AppRouter.instance.push(RoutePaths.shootingScheduleScreen);
-        break;
-      case "Group Chat":
-        AppRouter.instance.push(RoutePaths.chatScreen);
-        break;
-      case "Project Settings":
-        AppRouter.instance.push(RoutePaths.projectSettingsScreen);
-        break;
+      case "Overview":break;
+      case "Cast & Crew":AppRouter.instance.push(RoutePaths.castAndCrewScreen);break;
+      case "Timeline / Task":break;
+      case "Budget": break;
+      case "Scenic Order":AppRouter.instance.push(RoutePaths.scenicOrderScreen);break;
+      case "Call Sheets":AppRouter.instance.push(RoutePaths.callSheetScreen);break;
+      case "Shooting Schedules": AppRouter.instance.push(RoutePaths.shootingScheduleScreen);break;
+      case "Group Chat":break;
+      case "Project Settings":AppRouter.instance.push(RoutePaths.projectSettingsScreen);break;
     }
-    // if (value == null) return;
 
-    // switch (value) {
-    //   case "Overview":
-    //     break;
-
-    //   case "Cast & Crew":
-    //     AppRouter.instance.push(RoutePaths.castAndCrewScreen);
-    //     break;
-
-    //   case "Timeline / Task":
-    //     break;
-
-    //   case "Budget":
-    //     break;
-
-    //   case "Scenic Order":
-    //     break;
-
-    //   case "Call Sheets":
-    //     AppRouter.instance.push(RoutePaths.callSheetScreen);
-    //     break;
-
-    //   case "Shooting Schedules":
-    //     AppRouter.instance.push(RoutePaths.shootingScheduleScreen);
-    //     break;
-
-    //   case "Group Chat":
-    //     AppRouter.instance.push(RoutePaths.chatScreen);
-    //     break;
-
-    //   case "Project Settings":
-    //     AppRouter.instance.push(RoutePaths.projectSettingsScreen);
-    //     break;
-    // }
   });
 }
 
