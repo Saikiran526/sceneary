@@ -10,34 +10,35 @@ class ShootingScheduleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final height= MediaQuery.of(context).size.height;
-    final width= MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Shooting schedule'),
         actions: [
-          SizedBox(width: 21,),
+          SizedBox(width: 21),
           IconButton(
-              onPressed: () { AppRouter.instance.push(RoutePaths.notificationsScreen); },
-              icon: SvgPicture.asset(AssetsPath.notificationImg)
+            onPressed: () {
+              AppRouter.instance.push(RoutePaths.notificationsScreen);
+            },
+            icon: SvgPicture.asset(AssetsPath.notificationImg),
           ),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               servicePopUpMenu(context);
             },
             child: Container(
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(8)
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: SvgPicture.asset(AssetsPath.menuImg),
               ),
             ),
-          )
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -48,130 +49,130 @@ class ShootingScheduleScreen extends StatelessWidget {
               Text(
                 'Manage and organize your shooting scenes',
                 style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff787878)
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff787878),
                 ),
               ),
-              SizedBox(height: height*0.02,),
+              SizedBox(height: height * 0.02),
               Row(
                 children: [
+                  // ---------------------- Add Schedule Button ----------------------
                   Expanded(
-                    flex: 2,
+                    flex: 1,
                     child: ElevatedButton(
-                      onPressed: (){
-                        AppRouter.instance.push(RoutePaths.addShootingScheduleScreen);
+                      onPressed: () {
+                        AppRouter.instance.push(
+                          RoutePaths.addShootingScheduleScreen,
+                        );
                       },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          )
+                        backgroundColor: Colors.black,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SvgPicture.asset(AssetsPath.addImg),
+                          SizedBox(width: 6),
                           Text(
                             'Add schedule',
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(width: width*0.03,),
+
+                  SizedBox(width: width * 0.02),
+
+                  // ---------------------- Download Template Button ----------------------
                   Expanded(
-                    flex: 3,
+                    flex: 1,
                     child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              side: BorderSide(
-                                  color: Colors.black,
-                                  width: 1
-                              )
-                          ),
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                        onPressed: (){},
+                        side: BorderSide(color: Colors.black, width: 1),
+                      ),
+                      onPressed: () {},
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SvgPicture.asset(AssetsPath.downloadImg),
-                            SizedBox(width: width*0.01,),
+                            SizedBox(width: 6),
                             Text(
                               'Download Template',
                               style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black,
                               ),
-                            )
+                            ),
                           ],
-                        )
+                        ),
+                      ),
                     ),
                   ),
-
                 ],
               ),
-              SizedBox(height: height*0.01,),
+              SizedBox(height: height * 0.01),
               OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        side: BorderSide(
-                            color: Colors.black,
-                            width: 1
-                        )
-                    ),
+                style: OutlinedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    side: BorderSide(color: Colors.black, width: 1),
                   ),
-                  onPressed: (){},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(AssetsPath.upload),
-                      SizedBox(width: width*0.01,),
-                      Text(
-                        'Upload scenic order',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black
-                        ),
-                      )
-                    ],
-                  )
+                ),
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(AssetsPath.upload),
+                    SizedBox(width: width * 0.01),
+                    Text(
+                      'Upload scenic order',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: height*0.05,),
+              SizedBox(height: height * 0.05),
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                        color: Colors.grey.shade300,
-                        width: 1
-                    )
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: Colors.grey.shade300, width: 1),
                 ),
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50.0,vertical: 40),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 50.0,
+                      vertical: 40,
+                    ),
                     child: Text(
                       'No entries are scheduled. Add your first shooting schedule or upload an Excel file.',
                       style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff787878)
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff787878),
                       ),
                     ),
                   ),
                 ),
-              )
-
-
+              ),
             ],
           ),
         ),
