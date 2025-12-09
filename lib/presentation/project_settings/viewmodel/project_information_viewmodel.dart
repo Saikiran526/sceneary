@@ -25,10 +25,8 @@ Future<void> selectStartDate() async {
      firstDate: DateTime(1990), 
      lastDate: DateTime(2100),
      initialDate: DateTime.now());
-     if (picked != null){
-      startDateController.text = DateFormat('dd/MM/yyyy').format(picked);
-     }
-}
+    startDateController.text = DateFormat('dd/MM/yyyy').format(picked!);
+   }
 
 Future<void> selectEndDate() async {
   DateTime? picked =  await showDatePicker(
@@ -36,10 +34,8 @@ Future<void> selectEndDate() async {
      firstDate: DateTime(1990), 
      lastDate: DateTime(2100),
      initialDate: DateTime.now());
-     if (picked != null){
-      endDateController.text = DateFormat('dd/MM/yyyy').format(picked);
-     }
-}
+    endDateController.text = DateFormat('dd/MM/yyyy').format(picked!);
+   }
 
 
 

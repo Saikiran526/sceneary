@@ -4,6 +4,10 @@ import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedul
 import 'package:sceneary/presentation/budget/view/add_budget_screen.dart';
 import 'package:sceneary/presentation/budget/view/budget_screen.dart';
 import 'package:sceneary/presentation/budget/view/budget_tab_screen.dart';
+import 'package:sceneary/presentation/budget/view/budget_version_screen.dart';
+import 'package:sceneary/presentation/budget/view/document_detail_form_screen.dart';
+import 'package:sceneary/presentation/budget/view/document_detail_screen.dart';
+import 'package:sceneary/presentation/budget/view/documents_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_table_screen.dart';
@@ -143,6 +147,10 @@ class AppRouter {
     RoutePaths.budgetScreen: () => const BudgetScreen(),
     RoutePaths.addBudgetScreen: () => const AddBudgetScreen(),
     RoutePaths.budgetTabScreen: () => const BudgetTabScreen(),
+    RoutePaths.documentsScreen: () => const DocumentsScreen(),
+    RoutePaths.documentDetailScreen: () => const DocumentDetailScreen(),
+    RoutePaths.documentDetailFormScreen: () => const DocumentDetailFormScreen(),
+    RoutePaths.budgetVersionScreen: () => const BudgetVersionScreen(),
   };
 
   // Route Generator

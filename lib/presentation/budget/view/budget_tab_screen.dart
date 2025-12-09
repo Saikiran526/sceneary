@@ -4,7 +4,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/budget/viewmodel/budget_tab_viewmodel.dart';
+import 'package:sceneary/presentation/project_details/utils.dart';
 
 class BudgetTabScreen extends StatelessWidget {
   const BudgetTabScreen({super.key});
@@ -31,9 +34,8 @@ class BudgetTabScreen extends StatelessWidget {
               elevation: 0,
               actions: [
                 GestureDetector(
-                  onTap: () {
-                    // Add your popup menu logic here
-                  },
+                  onTap: () => servicePopUpMenu(context),
+
                   child: Padding(
                     padding: EdgeInsets.only(right: width * 0.04),
                     child: Container(
@@ -53,7 +55,6 @@ class BudgetTabScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
-                    // Tab Bar
                     Center(
                       child: Container(
                         width: 339,
@@ -96,6 +97,7 @@ class BudgetTabScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+
                     const SizedBox(height: 16),
 
                     // Budget Overview Title
@@ -123,50 +125,52 @@ class BudgetTabScreen extends StatelessWidget {
                         color: Colors.grey.shade200,
                         borderRadius: BorderRadius.circular(16),
                       ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: SizedBox(
-                              height: 100,
-                              width: 100,
-                              child: budgetDonutChart(60, 100),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: SizedBox(
+                                height: 100,
+                                width: 100,
+                                child: budgetDonutChart(60, 100),
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 18),
-                          Expanded(
-                            flex: 1,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                _infoTextBlock(
-                                  title: "Total Budget",
-                                  value: "4567",
-                                ),
-                                const SizedBox(height: 12),
-                                Row(
-                                  children: [
-                                    _infoTextBlock(
-                                      title: "Spent",
-                                      value: "Rs.45678",
-                                    ),
-                                    const SizedBox(width: 10),
-                                    _infoTextBlock(
-                                      title: "Remaining",
-                                      value: "456789",
-                                    ),
-                                  ],
-                                ),
-                              ],
+                            const SizedBox(width: 18),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  _infoTextBlock(
+                                    title: "Total Budget",
+                                    value: "₹ 10 CR",
+                                  ),
+                                  const SizedBox(height: 12),
+                                  Row(
+                                    children: [
+                                      _infoTextBlock(
+                                        title: "Spent",
+                                        value: "₹.3.5 Cr",
+                                      ),
+                                      const SizedBox(width: 10),
+                                      _infoTextBlock(
+                                        title: "Remaining",
+                                        value: "₹ 6.5 Cr",
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16),
 
-                    // Quick Actions Title
                     Row(
                       children: [
                         Text(
@@ -183,18 +187,25 @@ class BudgetTabScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
 
-                    // Quick Actions Cards
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _menuCard(icon: Icons.person, title: "Cast"),
-                        _menuCard(icon: Icons.work, title: "Crew"),
-                        _menuCard(icon: Icons.location_on, title: "Location"),
+                        _menuCard(
+                          icon: Icons.plus_one_rounded,
+                          title: "Add Budget",
+                        ),
+                        _menuCard(
+                          icon: Icons.download,
+                          title: "Download Sheet",
+                        ),
+                        _menuCard(
+                          icon: Icons.upload_file,
+                          title: "Upload Sheet",
+                        ),
                       ],
                     ),
                     const SizedBox(height: 16),
 
-                    // Documents Section
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -209,7 +220,9 @@ class BudgetTabScreen extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            AppRouter.instance.push(RoutePaths.documentsScreen);
+                          },
                           child: Text(
                             "View All",
                             style: GoogleFonts.poppins(
@@ -226,15 +239,14 @@ class BudgetTabScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
 
-                    // Profile Tiles
                     profileTile(
                       leading: CircleAvatar(
                         radius: 20,
                         backgroundColor: Colors.grey,
                         child: Icon(Icons.person, color: Colors.white),
                       ),
-                      title: "John Doe",
-                      subtitle: "Lead Actor",
+                      title: "Rajesh Kumar",
+                      subtitle: "Total Documents Uploaded - 12",
                       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                       onTap: () {},
                     ),
@@ -244,9 +256,31 @@ class BudgetTabScreen extends StatelessWidget {
                         backgroundColor: Colors.grey,
                         child: Icon(Icons.person, color: Colors.white),
                       ),
-                      title: "Jane Smith",
-                      subtitle: "Director",
-                      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+                      title: "Rajesh Kumar",
+                      subtitle: "Total Documents Uploaded - 12",
+                      trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                      onTap: () {},
+                    ),
+                    profileTile(
+                      leading: CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Colors.grey,
+                        child: Icon(Icons.person, color: Colors.white),
+                      ),
+                      title: "Rajesh Kumar",
+                      subtitle: "Total Documents Uploaded - 12",
+                      trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                      onTap: () {},
+                    ),
+                    profileTile(
+                      leading: CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Colors.grey,
+                        child: Icon(Icons.person, color: Colors.white),
+                      ),
+                      title: "Rajesh Kumar",
+                      subtitle: "Total Documents Uploaded - 12",
+                      trailing: Icon(Icons.arrow_forward_ios, size: 16),
                       onTap: () {},
                     ),
                   ],
@@ -258,8 +292,6 @@ class BudgetTabScreen extends StatelessWidget {
       ),
     );
   }
-
-  // --- HELPERS ---
 
   Widget profileTile({
     required Widget leading,
@@ -292,11 +324,10 @@ class BudgetTabScreen extends StatelessWidget {
                     title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontFamily: "Poppins",
+                    style: GoogleFonts.montserrat(
                       fontWeight: FontWeight.w600,
                       fontSize: 12,
-                      color: Color(0xFF252525),
+                      color: Color(0XFF000000),
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -304,17 +335,27 @@ class BudgetTabScreen extends StatelessWidget {
                     subtitle,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontFamily: "Montserrat",
+                    style: GoogleFonts.montserrat(
                       fontSize: 10,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFFB0B0B0),
+                      fontWeight: FontWeight.w300,
+                      color: Color(0XFF000000),
                     ),
                   ),
                 ],
               ),
             ),
-            if (trailing != null) trailing,
+
+            if (trailing != null)
+              Container(
+                width: 29,
+                height: 29,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                  shape: BoxShape.circle,
+                ),
+                child: trailing,
+              ),
           ],
         ),
       ),
@@ -359,11 +400,17 @@ class BudgetTabScreen extends StatelessWidget {
         centerSpaceRadius: 35,
         startDegreeOffset: -90,
         sections: [
-          PieChartSectionData(value: used, color: Colors.black, radius: 28),
+          PieChartSectionData(
+            value: used,
+            color: Colors.black,
+            radius: 28,
+            showTitle: false,
+          ),
           PieChartSectionData(
             value: remaining,
             color: Colors.grey.shade300,
             radius: 28,
+            showTitle: false,
           ),
         ],
         centerSpaceColor: Colors.white,
@@ -373,35 +420,37 @@ class BudgetTabScreen extends StatelessWidget {
 
   Widget _menuCard({required IconData icon, required String title}) {
     return Expanded(
-      child: Container(
-        height: 100,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 4,
-              offset: Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 32, color: Colors.black),
-            const SizedBox(height: 6),
-            Text(
-              title,
-              style: const TextStyle(
-                decoration: TextDecoration.underline,
-                fontFamily: "Poppins",
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFF252525),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          height: 100,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 4,
+                offset: Offset(0, 2),
               ),
-            ),
-          ],
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 32, color: Colors.black),
+              const SizedBox(height: 6),
+              Text(
+                title,
+                style: GoogleFonts.montserrat(
+                  decoration: TextDecoration.underline,
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF252525),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

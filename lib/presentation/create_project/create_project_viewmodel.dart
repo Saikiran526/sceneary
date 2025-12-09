@@ -16,20 +16,18 @@ class CreateProjectViewmodel extends ChangeNotifier{
       lastDate: DateTime(2100),
     );
 
-    if (picked != null) {
-      _startDate = picked;
-      startDateController.text =
-      "${picked.day}/${picked.month}/${picked.year}";
+    _startDate = picked;
+    startDateController.text =
+    "${picked?.day}/${picked?.month}/${picked?.year}";
 
-      // Reset end date if invalid
-      if (_endDate != null && _endDate!.isBefore(picked)) {
-        _endDate = null;
-        endDateController.clear();
-      }
-
-      notifyListeners();
+    // Reset end date if invalid
+    if (_endDate != null && _endDate!.isBefore(picked!)) {
+      _endDate = null;
+      endDateController.clear();
     }
-  }
+
+    notifyListeners();
+    }
 
   Future<void> pickEndDate(BuildContext context) async {
     DateTime? picked = await showDatePicker(
@@ -39,13 +37,11 @@ class CreateProjectViewmodel extends ChangeNotifier{
       lastDate: DateTime(2100),
     );
 
-    if (picked != null) {
-      _endDate = picked;
-      endDateController.text =
-      "${picked.day}/${picked.month}/${picked.year}";
+    _endDate = picked;
+    endDateController.text =
+    "${picked?.day}/${picked?.month}/${picked?.year}";
 
-      notifyListeners();
+    notifyListeners();
     }
-  }
 
 }
