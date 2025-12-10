@@ -82,4 +82,7 @@ class RoutePaths {
   static const String documentDetailScreen="/documentDetailScreen";
   static const String documentDetailFormScreen="/documentDetailFormScreen";
   static const String budgetVersionScreen="/budgetVersionScreen";
+  static const String editBudgetScreen="/editBudgetScreen";
+  static const String actualsScreen="/actualsScreen";
+  static const String addExpenseScreen="/addExpenseScreen";
 }

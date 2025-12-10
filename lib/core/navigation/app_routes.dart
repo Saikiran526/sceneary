@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_phase/add_phase_screen.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/budget/view/add_budget_screen.dart';
+import 'package:sceneary/presentation/budget/view/actuals_screen.dart';
+import 'package:sceneary/presentation/budget/view/add_expense_screen.dart';
 import 'package:sceneary/presentation/budget/view/budget_screen.dart';
 import 'package:sceneary/presentation/budget/view/budget_tab_screen.dart';
 import 'package:sceneary/presentation/budget/view/budget_version_screen.dart';
 import 'package:sceneary/presentation/budget/view/document_detail_form_screen.dart';
 import 'package:sceneary/presentation/budget/view/document_detail_screen.dart';
 import 'package:sceneary/presentation/budget/view/documents_screen.dart';
+import 'package:sceneary/presentation/budget/view/edit_budget_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_table_screen.dart';
@@ -151,6 +154,9 @@ class AppRouter {
     RoutePaths.documentDetailScreen: () => const DocumentDetailScreen(),
     RoutePaths.documentDetailFormScreen: () => const DocumentDetailFormScreen(),
     RoutePaths.budgetVersionScreen: () => const BudgetVersionScreen(),
+    RoutePaths.editBudgetScreen: () => const EditBudgetScreen(),
+    RoutePaths.actualsScreen: () => const ActualsScreen(),
+    RoutePaths.addExpenseScreen: () => const AddExpenseScreen(),
   };
 
   // Route Generator

@@ -4,6 +4,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart' as sync;
 
 class BudgetRow {
@@ -93,6 +95,7 @@ class BudgetVersionViewmodel extends ChangeNotifier {
             if (val is bool) return val != null ? 'TRUE' : 'FALSE';
             return val?.toString() ?? '';
           }).toList();
+
           return BudgetRow(rowCells);
         }).toList();
 
@@ -110,6 +113,7 @@ class BudgetVersionViewmodel extends ChangeNotifier {
   }
 
   /// Download Excel - Safe writing to workbook
+
   Future<void> downloadExcel() async {
     if (budgetFiles.isEmpty) return;
 
@@ -188,6 +192,7 @@ class BudgetVersionViewmodel extends ChangeNotifier {
         downloadExcel();
         break;
       case 'Edit Budget':
+        AppRouter.instance.push(RoutePaths.editBudgetScreen);
         isFrozen = false;
         notifyListeners();
         break;
@@ -196,6 +201,8 @@ class BudgetVersionViewmodel extends ChangeNotifier {
         break;
       case 'Add Budget':
         // future implementation
+        AppRouter.instance.push(RoutePaths.actualsScreen);
+
         break;
     }
   }
