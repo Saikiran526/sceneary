@@ -70,7 +70,7 @@ class BudgetScreen extends StatelessWidget {
                               },
                             ),
                           ),
-                          SizedBox(width: 12), 
+                          SizedBox(width: 12),
                           Expanded(
                             child: AppButton(
                               label: "Download Sheet",
@@ -87,16 +87,17 @@ class BudgetScreen extends StatelessWidget {
                       SizedBox(height: 12),
 
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Expanded(
-                            child: AppButton(
-                              label: "Upload Sheet",
-                              onTap: () {},
-                              borderColor: Colors.black,
-                              textColor: Colors.black,
-                              buttonColor: Colors.white,
-                              icon: AssetsPath.downloadImg,
-                            ),
+                          AppButton(
+                            width: 180,
+
+                            label: "Upload Sheet",
+                            onTap: () {},
+                            borderColor: Colors.black,
+                            textColor: Colors.black,
+                            buttonColor: Colors.white,
+                            icon: AssetsPath.downloadImg,
                           ),
                         ],
                       ),

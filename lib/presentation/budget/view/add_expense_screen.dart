@@ -123,8 +123,17 @@ class AddExpenseScreen extends StatelessWidget {
                           ),
                           CustomTextField(
                             label: "Upload(Optional)",
-                            onTap: () {},
                             enabled: false,
+                            maxLines: 3,
+                            centerIcon: Icon(
+                              Icons.upload_file,
+                              size: 40,
+                              color: Colors.blue,
+                            ),
+                            fileName: "script_v2.pdf",
+                            onTap: () {
+                              print("Upload tapped");
+                            },
                           ),
 
                           Row(

@@ -74,12 +74,24 @@ class DocumentDetailFormScreen extends StatelessWidget {
                       maxLines: 3,
                       hintText: "Paid All Amount Given To me To Make Up Artist",
                     ),
+                    // CustomTextField(
+                    //   label: "Upload(Optional)",
+                    //   maxLines: 3,
+
+                    //   enabled: false,
+                    //   onTap: () {},
+                    // ),
                     CustomTextField(
-                      label: "Upload(Optional)",
-                      maxLines: 3,
-                      enabled: false,
-                      onTap: () {},
-                    ),
+  label: "Upload (Optional)",
+  maxLines: 3,
+  enabled: false,
+  centerIcon: Icon(Icons.upload_file, size: 40, color: Colors.blue),
+  fileName: "script_v2.pdf",
+  onTap: () {
+    print("Upload tapped");
+  },
+)
+
                   ],
                 ),
               ),

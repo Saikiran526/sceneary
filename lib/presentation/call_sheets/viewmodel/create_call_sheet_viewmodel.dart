@@ -45,25 +45,29 @@ class CreateCallSheetViewmodel extends ChangeNotifier {
         lastDate: DateTime(2100),
       );
 
+      if (pickedDate == null) return;
+
       String formattedDate =
-          "${pickedDate?.day.toString().padLeft(2, '0')}-"
-          "${pickedDate?.month.toString().padLeft(2, '0')}-"
-          "${pickedDate?.year}";
+          "${pickedDate.day.toString().padLeft(2, '0')}-"
+          "${pickedDate.month.toString().padLeft(2, '0')}-"
+          "${pickedDate.year}";
+
       controller.text = formattedDate;
       notifyListeners();
-        } else {
+    } else {
       TimeOfDay? pickedTime = await showTimePicker(
         context: context,
         initialTime: TimeOfDay.now(),
       );
 
-      if (pickedTime != null) {
-        String formattedTime =
-            "${pickedTime.hour.toString().padLeft(2, '0')}:"
-            "${pickedTime.minute.toString().padLeft(2, '0')}";
-        controller.text = formattedTime;
-        notifyListeners();
-      }
+      if (pickedTime == null) return;
+
+      String formattedTime =
+          "${pickedTime.hour.toString().padLeft(2, '0')}:" +
+          "${pickedTime.minute.toString().padLeft(2, '0')}";
+
+      controller.text = formattedTime;
+      notifyListeners();
     }
   }
 
@@ -147,5 +151,28 @@ class CreateCallSheetViewmodel extends ChangeNotifier {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message), backgroundColor: Colors.red),
     );
+  }
+
+  @override
+  void dispose() {
+    bannerNameController.dispose();
+    producerController.dispose();
+    directorController.dispose();
+    ceoController.dispose();
+    actorsController.dispose();
+    selectCastController.dispose();
+    sceneDescriptionController.dispose();
+    scriptPageController.dispose();
+    locationController.dispose();
+    importantContactsController.dispose();
+    dateController.dispose();
+    shootingTimeController.dispose();
+    breakFastController.dispose();
+    lunchTimeController.dispose();
+    dinnerController.dispose();
+    wrapUpController.dispose();
+    teaCoffeContoller.dispose();
+
+    super.dispose();
   }
 }

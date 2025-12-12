@@ -51,10 +51,17 @@ class DocumentsScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: Colors.black12, width: 1),
                           ),
-                          child: Icon(
-                            Icons.filter_alt,
-                            size: 22,
-                            color: Colors.black,
+                          child: GestureDetector(
+                            onTap: () {
+                              AppRouter.instance.push(
+                                RoutePaths.selectDateFilterScreen,
+                              );
+                            },
+                            child: Icon(
+                              Icons.filter_alt,
+                              size: 22,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ],
@@ -161,6 +168,4 @@ class DocumentsScreen extends StatelessWidget {
       ),
     );
   }
-
-  
 }

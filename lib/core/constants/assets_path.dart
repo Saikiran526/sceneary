@@ -80,4 +80,7 @@ class AssetsPath {
   static const forwardGroup = "assets/images/forward_group.svg";
   static const filterProjectPlan = "assets/images/filter_plan.svg";
   static const closeCircle = "assets/images/close-circle.svg";
+
+  //upendar
+  static const callSheetPreview = "assets/images/call_sheet_preview.png";
 }

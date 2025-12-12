@@ -12,11 +12,14 @@ import 'package:sceneary/presentation/budget/view/document_detail_screen.dart';
 import 'package:sceneary/presentation/budget/view/documents_screen.dart';
 import 'package:sceneary/presentation/budget/view/edit_budget_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/call_sheet_preview_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_table_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_check_availability_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/edit_call_sheet_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/notification_screen.dart';
+import 'package:sceneary/presentation/budget/view/select_date_filter_screen.dart';
 
 import 'package:sceneary/presentation/create_task/create_task_screen.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
@@ -157,6 +160,9 @@ class AppRouter {
     RoutePaths.editBudgetScreen: () => const EditBudgetScreen(),
     RoutePaths.actualsScreen: () => const ActualsScreen(),
     RoutePaths.addExpenseScreen: () => const AddExpenseScreen(),
+    RoutePaths.callSheetPreviewScreen: () => const CallSheetPreviewScreen(),
+    RoutePaths.notificationScreen: () => const NotificationScreen(),
+    RoutePaths.selectDateFilterScreen: () => const SelectDateFilterScreen(),
   };
 
   // Route Generator

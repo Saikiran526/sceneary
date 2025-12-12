@@ -98,20 +98,20 @@ class CallSheetScreen extends StatelessWidget {
                       SizedBox(height: 12),
 
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Expanded(
-                            child: AppButton(
-                              label: "Upload Call Sheet",
-                              onTap: () {
-                                AppRouter.instance.push(
-                                  RoutePaths.callSheetTableSceen,
-                                );
-                              },
-                              borderColor: Colors.black,
-                              textColor: Colors.black,
-                              buttonColor: Colors.white,
-                              icon: AssetsPath.downloadImg,
-                            ),
+                          AppButton(
+                            width: 180,
+                            label: "Upload Call Sheet",
+                            onTap: () {
+                              AppRouter.instance.push(
+                                RoutePaths.callSheetTableSceen,
+                              );
+                            },
+                            borderColor: Colors.black,
+                            textColor: Colors.black,
+                            buttonColor: Colors.white,
+                            icon: AssetsPath.downloadImg,
                           ),
                         ],
                       ),

@@ -6,6 +6,7 @@ import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/call_sheets/viewmodel/call_sheet_table_viewmodel.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/project_details/utils.dart';
 
 class CallSheetTableScreen extends StatelessWidget {
@@ -54,24 +55,53 @@ class CallSheetTableScreen extends StatelessWidget {
                     padding: EdgeInsets.all(width * 0.05),
                     child: Column(
                       children: [
-                        Wrap(
-                          spacing: width * 0.03,
-                          runSpacing: height * 0.015,
+                        Column(
                           children: [
-                            _buildBlackButton(
-                              icon: AssetsPath.addImg,
-                              label: "Create Call Sheet",
-                              onTap: () {},
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: AppButton(
+                                    label: "Create Call Sheet",
+                                    buttonColor: Colors.black,
+                                    textColor: Colors.white,
+                                    icon: AssetsPath.addImg,
+                                    onTap: () {
+                                      AppRouter.instance.push(
+                                        RoutePaths.addBudgetScreen,
+                                      );
+                                    },
+                                  ),
+                                ),
+                                SizedBox(width: 12),
+                                Expanded(
+                                  child: AppButton(
+                                    label: "Download Template",
+                                    onTap: () {},
+                                    buttonColor: Colors.white,
+                                    textColor: Colors.black,
+                                    borderColor: Colors.black,
+                                    icon: AssetsPath.downloadImg,
+                                  ),
+                                ),
+                              ],
                             ),
-                            _buildOutlinedButton(
-                              icon: AssetsPath.downloadImg,
-                              label: "Download Template",
-                              onTap: () {},
-                            ),
-                            _buildOutlinedButton(
-                              icon: AssetsPath.downloadImg,
-                              label: "Upload Call Sheet",
-                              onTap: () {},
+
+                            SizedBox(height: 12),
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                AppButton(
+                                  width: 180,
+
+                                  label: "Upload Call Sheet",
+                                  onTap: () {},
+                                  borderColor: Colors.black,
+                                  textColor: Colors.black,
+                                  buttonColor: Colors.white,
+                                  icon: AssetsPath.downloadImg,
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -149,53 +179,6 @@ class CallSheetTableScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildBlackButton({
-    required String icon,
-    required String label,
-    required Function() onTap,
-  }) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SvgPicture.asset(icon),
-          const SizedBox(width: 8),
-          Text(label),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildOutlinedButton({
-    required String icon,
-    required String label,
-    required Function() onTap,
-  }) {
-    return OutlinedButton(
-      onPressed: onTap,
-      style: OutlinedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        side: const BorderSide(color: Colors.black),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SvgPicture.asset(icon),
-          const SizedBox(width: 8),
-          Text(label, style: const TextStyle(color: Colors.black)),
-        ],
-      ),
-    );
-  }
-
   Widget _buildHeaderCell(String text) {
     return Container(
       height: 45,
@@ -240,7 +223,7 @@ class CallSheetTableScreen extends StatelessWidget {
         icon: Icon(Icons.edit, size: iconSize, color: Colors.white),
         label: Text(
           "Edit",
-          style:  GoogleFonts.inter(
+          style: GoogleFonts.inter(
             fontWeight: FontWeight.w600,
             fontSize: fontSize,
             color: Colors.white,

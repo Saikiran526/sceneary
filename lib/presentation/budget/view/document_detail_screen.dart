@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/budget/viewmodel/document_detail_viewmodel.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/customField.dart';
 
 class DocumentDetailScreen extends StatelessWidget {
   const DocumentDetailScreen({super.key});
@@ -51,6 +52,46 @@ class DocumentDetailScreen extends StatelessWidget {
                         subtitle: "Total Documents Uploaded - 12",
                       ),
 
+                      const SizedBox(height: 10),
+
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CustomTextField(
+                              prefixIcon: Icons.search,
+                              hintText: "Search here",
+                              verticalGap: 0,
+                            ),
+                          ),
+
+                          const SizedBox(width: 10),
+
+                          Container(
+                            width: 47,
+                            height: 48,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFFF3FB),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: Colors.black12,
+                                width: 1,
+                              ),
+                            ),
+                            child: GestureDetector(
+                              onTap: () {
+                                AppRouter.instance.push(
+                                  RoutePaths.selectDateFilterScreen,
+                                );
+                              },
+                              child: Icon(
+                                Icons.filter_alt,
+                                size: 22,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       const SizedBox(height: 10),
 
                       ListView.builder(

@@ -8,15 +8,18 @@ class BudgetTabViewmodel extends ChangeNotifier {
   List<String> tabs = ["Overview", "Budget Sheet"];
   int selectedIndex = 0;
 
-  void changeTab(int index) {
+  void changeTab(int index) async {
     selectedIndex = index;
     notifyListeners();
 
     if (index == 1) {
-      Navigator.push(
+      await Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) =>  BudgetVersionScreen()),
+        MaterialPageRoute(builder: (_) => BudgetVersionScreen()),
       );
+
+      selectedIndex = 0;
+      notifyListeners();
     }
   }
 }

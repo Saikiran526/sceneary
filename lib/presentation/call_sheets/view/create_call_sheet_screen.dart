@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-  import 'package:sceneary/presentation/call_sheets/viewmodel/create_call_sheet_viewmodel.dart';
+import 'package:sceneary/presentation/call_sheets/viewmodel/create_call_sheet_viewmodel.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/customField.dart';
-import 'package:sceneary/presentation/call_sheets/widgets/custom_action_btn.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/custom_dropdown.dart';
 
 class CreateCallSheetScreen extends StatelessWidget {
@@ -22,7 +22,7 @@ class CreateCallSheetScreen extends StatelessWidget {
                 "Create Call Sheet",
                 style: GoogleFonts.montserrat(
                   fontSize: 14,
-                   fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
@@ -115,7 +115,7 @@ class CreateCallSheetScreen extends StatelessWidget {
                           children: [
                             Expanded(
                               child: CustomTextField(
-                                label: "Breakfast Time",
+                                label: "First Meal",
                                 hintText: "Select time",
                                 controller: viewModel.breakFastController,
                                 onTap: () {
@@ -124,7 +124,7 @@ class CreateCallSheetScreen extends StatelessWidget {
                                     isDate: false,
                                   );
                                 },
-                                isRequired: true,
+                                isRequired: false,
                                 suffixIcon: Icons.access_time_filled,
                               ),
                             ),
@@ -138,7 +138,7 @@ class CreateCallSheetScreen extends StatelessWidget {
                                     isDate: false,
                                   );
                                 },
-                                label: "Lunch Time",
+                                label: "Second Meal",
                                 hintText: "Select Time",
                                 isRequired: true,
                                 suffixIcon: Icons.access_time_filled,
@@ -150,10 +150,9 @@ class CreateCallSheetScreen extends StatelessWidget {
                           children: [
                             Expanded(
                               child: CustomTextField(
-                                label: "Dinner",
+                                label: "Third Meal",
                                 hintText: "Select time",
                                 controller: viewModel.dinnerController,
-                                isRequired: true,
                                 suffixIcon: Icons.access_time_filled,
                                 onTap: () {
                                   viewModel.pickDateOrTime(
@@ -175,7 +174,6 @@ class CreateCallSheetScreen extends StatelessWidget {
                                     isDate: false,
                                   );
                                 },
-                                isRequired: true,
                                 suffixIcon: Icons.access_time_filled,
                               ),
                             ),
@@ -195,7 +193,6 @@ class CreateCallSheetScreen extends StatelessWidget {
                                     isDate: false,
                                   );
                                 },
-                                isRequired: true,
                                 suffixIcon: Icons.access_time_filled,
                               ),
                             ),
@@ -216,9 +213,7 @@ class CreateCallSheetScreen extends StatelessWidget {
                                 suffixIcon: Icons.keyboard_arrow_down,
                                 onChanged: (String? val) {
                                   viewModel.setSelectedDay(val);
-                                
                                 },
-                                
                               ),
                             ),
                           ],
@@ -261,30 +256,48 @@ class CreateCallSheetScreen extends StatelessWidget {
                           controller: viewModel.importantContactsController,
                         ),
 
+                        AppButton(
+                          label: "Add new crew member",
+                          fullWidth: true,
+                          onTap: () {},
+                          buttonColor: Color(0XFF1D55A8),
+                          textColor: Colors.white,
+                        ),
+                        SizedBox(height: 10),
+
+                        CustomDropdownField(
+                          label: "Select Crew",
+
+                          isRequired: true,
+                          hintText: "Select ",
+                          value: viewModel.selectedDay,
+                          items: viewModel.day,
+                          suffixIcon: Icons.keyboard_arrow_down,
+                          onChanged: (String? val) {
+                            viewModel.setSelectedDay(val);
+                          },
+                        ),
                         SizedBox(height: 50),
 
                         Row(
                           children: [
                             Expanded(
-                              child: CustomActionButton(
+                              child: AppButton(
                                 label: "Cancel",
                                 onTap: () {},
-                                isFullWidth: true,
-                                backgroundColor: Colors.white,
-                                textColor: Colors.black,
+                                buttonColor: Colors.white,
+                                borderColor: Colors.black,
                               ),
                             ),
                             const SizedBox(width: 12),
                             Expanded(
-                              child: CustomActionButton(
-                                label: "Next",
-                                backgroundColor: Colors.black,
+                              child: AppButton(
                                 textColor: Colors.white,
-                                borderColor: Colors.black,
+                                label: "Next",
                                 onTap: () {
-                                viewModel.onNextPressed();
+                                  viewModel.onNextPressed();
                                 },
-                                isFullWidth: true,
+                                buttonColor: Color(0XFF1D55A8),
                               ),
                             ),
                           ],

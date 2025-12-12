@@ -85,4 +85,8 @@ class RoutePaths {
   static const String editBudgetScreen="/editBudgetScreen";
   static const String actualsScreen="/actualsScreen";
   static const String addExpenseScreen="/addExpenseScreen";
+  static const String callSheetPreviewScreen="/callSheetPreviewScreen";
+  static const String notificationScreen="/notificationScreen";
+  static const String selectDateFilterScreen="/selectDateFilterScreen";
+  
 }

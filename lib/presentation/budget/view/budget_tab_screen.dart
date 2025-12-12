@@ -100,8 +100,7 @@ class BudgetTabScreen extends StatelessWidget {
 
                     const SizedBox(height: 16),
 
-                    // Budget Overview Title
-                    Row(
+                     Row(
                       children: [
                         Text(
                           "Budget Overview",

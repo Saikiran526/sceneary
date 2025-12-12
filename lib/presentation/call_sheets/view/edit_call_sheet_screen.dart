@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/call_sheets/viewmodel/edit_call_sheet_viewmodel.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/customField.dart';
-import 'package:sceneary/presentation/call_sheets/widgets/custom_action_btn.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/custom_dropdown.dart';
 
 class EditCallSheetScreen extends StatelessWidget {
   const EditCallSheetScreen({super.key});
@@ -20,9 +23,9 @@ class EditCallSheetScreen extends StatelessWidget {
             appBar: AppBar(
               title: Text(
                 "Edit call Sheet",
-                style :GoogleFonts.montserrat(
+                style: GoogleFonts.montserrat(
                   fontSize: 14,
-                   fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
@@ -59,50 +62,158 @@ class EditCallSheetScreen extends StatelessWidget {
 
                     Column(
                       children: [
+                        CustomTextField(
+                          label: "Banner Name",
+                          isRequired: true,
+                          hintText: "ARKA Production",
+                        ),
+                        CustomTextField(
+                          label: "Producer",
+                          isRequired: true,
+                          hintText: "Producer",
+                        ),
+                        CustomTextField(
+                          label: "Director",
+                          isRequired: true,
+                          hintText: "Director",
+                        ),
+                        CustomTextField(
+                          label: "CEO",
+                          isRequired: true,
+                          hintText: "comma separated values",
+                        ),
+
+                        CustomTextField(
+                          label: "Date of shoot",
+                          hintText: "dd-mm-yyyy",
+                          isRequired: true,
+                          suffixIcon: Icons.calendar_month,
+                          controller: viewModel.dateController,
+                          readOnly: true,
+                          onTap: () {
+                            viewModel.pickDateOrTime(
+                              controller: viewModel.dateController,
+                              isDate: true,
+                            );
+                          },
+                        ),
+                        CustomTextField(
+                          label: "Shooting Call Time",
+                          hintText: "Select Time",
+                          isRequired: true,
+                          controller: viewModel.shootingTimeController,
+                          suffixIcon: Icons.access_time_filled,
+                          onTap: () {
+                            viewModel.pickDateOrTime(
+                              controller: viewModel.shootingTimeController,
+                              isDate: false,
+                            );
+                          },
+                        ),
+
                         Row(
                           children: [
                             Expanded(
                               child: CustomTextField(
-                                label: "From Date",
-                                hintText: "dd-mm-yyyy",
-                                isRequired: true,
-                                suffixIcon: Icons.calendar_month,
+                                label: "First Meal",
+                                hintText: "Select time",
+                                controller: viewModel.breakFastController,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.breakFastController,
+                                    isDate: false,
+                                  );
+                                },
+                                isRequired: false,
+                                suffixIcon: Icons.access_time_filled,
                               ),
                             ),
                             const SizedBox(width: 12),
                             Expanded(
                               child: CustomTextField(
-                                label: "To Date",
-                                hintText: "dd-mm-yyyy",
+                                controller: viewModel.lunchTimeController,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.lunchTimeController,
+                                    isDate: false,
+                                  );
+                                },
+                                label: "Second Meal",
+                                hintText: "Select Time",
                                 isRequired: true,
-                                suffixIcon: Icons.calendar_month,
+                                suffixIcon: Icons.access_time_filled,
                               ),
                             ),
                           ],
                         ),
-
-                        CustomTextField(
-                          label: "Locations",
-                          isRequired: true,
-                          hintText: "e.g Stadium or office",
-                        ),
                         Row(
                           children: [
                             Expanded(
                               child: CustomTextField(
-                                label: "Shoot start time",
+                                label: "Third Meal",
                                 hintText: "Select time",
-                                isRequired: true,
+                                controller: viewModel.dinnerController,
                                 suffixIcon: Icons.access_time_filled,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.dinnerController,
+                                    isDate: false,
+                                  );
+                                },
                               ),
                             ),
                             const SizedBox(width: 12),
                             Expanded(
                               child: CustomTextField(
-                                label: "Shooot end time",
-                                hintText: "Select time",
-                                isRequired: true,
+                                label: "Wrap up",
+                                hintText: "Select Time",
+                                controller: viewModel.wrapUpController,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.wrapUpController,
+                                    isDate: false,
+                                  );
+                                },
                                 suffixIcon: Icons.access_time_filled,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: CustomTextField(
+                                label: "Tea/Coffee",
+                                hintText: "Select Time",
+                                controller: viewModel.teaCoffeContoller,
+                                onTap: () {
+                                  viewModel.pickDateOrTime(
+                                    controller: viewModel.teaCoffeContoller,
+                                    isDate: false,
+                                  );
+                                },
+                                suffixIcon: Icons.access_time_filled,
+                              ),
+                            ),
+
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.03,
+                            ),
+
+                            Expanded(
+                              flex: 1,
+                              child: CustomDropdownField(
+                                label: "Day",
+
+                                isRequired: true,
+                                hintText: "Select Day",
+                                value: viewModel.selectedDay,
+                                items: viewModel.day,
+                                suffixIcon: Icons.keyboard_arrow_down,
+                                onChanged: (String? val) {
+                                  viewModel.setSelectedDay(val);
+                                },
                               ),
                             ),
                           ],
@@ -110,71 +221,63 @@ class EditCallSheetScreen extends StatelessWidget {
 
                         CustomTextField(
                           label: "Actors",
+                          hintText: "Comma-Separated names",
                           isRequired: true,
-                          hintText: "Comma separated name",
+                          controller: viewModel.actorsController,
                         ),
                         CustomTextField(
-                          label: "Selected cast",
+                          label: "Select Cast",
+                          hintText: "Hero- AlluArjun - Heroine-Das",
                           isRequired: true,
-                          hintText: "Hero -A rjun Heroine - Das",
+                          controller: viewModel.selectCastController,
                         ),
                         CustomTextField(
-                          label: "Equipment List",
-                          hintText: "Comma separared names",
-                          maxLength: 3,
+                          label: "Scene Description",
+                          hintText: "Write about scence",
+                          maxLines: 3,
+                          controller: viewModel.sceneDescriptionController,
                         ),
                         CustomTextField(
-                          label: "Notes / special instructions",
-                          hintText: "Any special instructions or notes..",
-                          maxLength: 3,
+                          label: "Script Page",
+                          isRequired: true,
+                          hintText: "Hero -heroine",
+                          controller: viewModel.sceneDescriptionController,
                         ),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Checkbox(
-                              value: viewModel.selectAll,
-                              onChanged: (value) {
-                                viewModel.toggleSelectAll(value!);
-                              },
-                              activeColor: Colors.black,
-                            ),
-
-                            Flexible(
-                              child: Text(
-                                "Select all crew members",
-                                style: GoogleFonts.inter(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12,
-                                  height: 23 / 12,
-                                  letterSpacing: 0.01,
-                                  color: Color(0xFF252525),
-                                ),
-                              ),
-                            ),
-                          ],
+                        CustomTextField(
+                          label: "Location",
+                          isRequired: true,
+                          hintText: "location",
+                          controller: viewModel.sceneDescriptionController,
+                        ),
+                        CustomTextField(
+                          label: "Important Contacts",
+                          hintText: "Hero -heroine",
+                          maxLines: 3,
+                          controller: viewModel.sceneDescriptionController,
                         ),
 
                         Row(
                           children: [
                             Expanded(
-                              child: CustomActionButton(
+                              child: AppButton(
                                 label: "Cancel",
                                 onTap: () {},
-                                isFullWidth: true,
-                                backgroundColor: Colors.white,
-                                textColor: Colors.black,
+                                buttonColor: Colors.white,
+                                borderColor: Color(0XFF1D55A8),
+                                textColor: Color(0XFF1D55A8),
                               ),
                             ),
-                            const SizedBox(width: 12),
+                            const SizedBox(width: 10),
                             Expanded(
-                              child: CustomActionButton(
+                              child: AppButton(
                                 label: "Next",
-                                backgroundColor: Colors.black,
+                                onTap: () {
+                                  AppRouter.instance.push(
+                                    RoutePaths.notificationScreen,
+                                  );
+                                },
+                                buttonColor: Color(0XFF1D55A8),
                                 textColor: Colors.white,
-                                borderColor: Colors.black,
-                                onTap: () {},
-                                isFullWidth: true,
                               ),
                             ),
                           ],
@@ -215,7 +318,7 @@ class EditCallSheetScreen extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           title,
-          style:  GoogleFonts.montserrat(
+          style: GoogleFonts.montserrat(
             fontWeight: FontWeight.w500,
             fontSize: 10,
             height: 1.0,

@@ -433,7 +433,7 @@ class AddShootingScheduleStepTwo extends StatelessWidget {
               SizedBox(width: width*0.03,),
               Expanded(
                 flex: 1,
-                  child: primaryButton(text: 'Add Schedule', onPressed: (){})
+                  child: primaryButton(text: 'Add Schedule' , onPressed: (){})
               )
             ],
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
-  import 'core/navigation/app_routes.dart';
+import 'core/navigation/app_routes.dart';
 
 void main() {
   runApp(MyApp());
