@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentation/messages_individual_chat/messages_individual_viewmodel.dart';
+import 'package:sceneary/presentation/messages/viewmodel/messages_individual_viewmodel.dart';
 
 class MessageRequestScreen extends StatelessWidget {
   const MessageRequestScreen({super.key});

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
-import 'package:sceneary/presentation/cast_and_crew/cast_and_crew_viewmodel.dart';
+import 'package:sceneary/presentation/cast_and_crew/viewmodel/cast_and_crew_viewmodel.dart';
 
 class CastAndCrewScreen extends StatelessWidget {
   const CastAndCrewScreen({super.key});
@@ -57,18 +58,21 @@ class CastAndCrewScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 328,
-                      height: 48,
+                      width: double.infinity,
+                      // height: 48,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Color(0xFF5D5D5D), width: 1),
+                        borderRadius: BorderRadius.circular(26),
+                        border: Border.all(
+                          color: Color.fromARGB(255, 157, 155, 155),
+                          width: 1,
+                        ),
                       ),
                       child: TextField(
                         maxLines: 1,
                         style: TextStyle(fontSize: 14, color: Colors.black),
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search),
+                          prefixIcon: Icon(Icons.search, color: Colors.grey),
                           hintText: 'Search by name or role..',
                           hintStyle: TextStyle(
                             color: Colors.grey,
@@ -149,6 +153,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                   ],
                                 ),
                                 SizedBox(height: 16),
+
                                 Column(
                                   children: List.generate(3, (index) {
                                     return Padding(
@@ -157,12 +162,9 @@ class CastAndCrewScreen extends StatelessWidget {
                                       ),
                                       child: Container(
                                         width: double.infinity,
-                                        height: 57,
-                                        padding: EdgeInsets.fromLTRB(
-                                          16,
-                                          8,
-                                          16,
-                                          8,
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                          vertical: 8,
                                         ),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
@@ -178,7 +180,10 @@ class CastAndCrewScreen extends StatelessWidget {
                                                 0xFFD9D9D9,
                                               ),
                                             ),
-                                            SizedBox(width: 6),
+
+                                            const SizedBox(width: 12),
+
+                                            /// Name & Role
                                             Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -187,15 +192,15 @@ class CastAndCrewScreen extends StatelessWidget {
                                               children: [
                                                 Text(
                                                   'Ram',
-                                                  style: TextStyle(
+                                                  style: GoogleFonts.montserrat(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                                 ),
                                                 SizedBox(height: 4),
                                                 Text(
-                                                  'hero',
-                                                  style: TextStyle(
+                                                  'Hero',
+                                                  style: GoogleFonts.poppins(
                                                     fontSize: 12,
                                                     fontWeight: FontWeight.w600,
                                                     color: Color(0xFF5D5D5D),
@@ -203,31 +208,43 @@ class CastAndCrewScreen extends StatelessWidget {
                                                 ),
                                               ],
                                             ),
-                                            Spacer(),
+
+                                            const Spacer(),
+
+                                            /// Resend Button
                                             Container(
-                                              width: 72,
                                               height: 32,
-                                              padding: EdgeInsets.all(8),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                    horizontal: 12,
+                                                  ),
                                               decoration: BoxDecoration(
+                                                color: const Color(0xFFD3D3D3),
                                                 borderRadius:
                                                     BorderRadius.circular(8),
-                                                color: Color(0xFFD3D3D3),
                                               ),
-                                              child: Center(
-                                                child: Text(
-                                                  'Resend',
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
+                                              alignment: Alignment.center,
+                                              child: const Text(
+                                                'Resend',
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(width: 10),
-                                            SvgPicture.asset(
-                                              AssetsPath.cancelImg,
-                                              width: 11,
-                                              height: 11,
+
+                                            const SizedBox(width: 12),
+
+                                            /// Cancel Icon
+                                            GestureDetector(
+                                              onTap: () {
+                                                // cancel action
+                                              },
+                                              child: SvgPicture.asset(
+                                                AssetsPath.cancelImg,
+                                                width: 14,
+                                                height: 14,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -244,35 +261,52 @@ class CastAndCrewScreen extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(height: 16),
+
                                 Container(
-                                  height: 365,
                                   width: double.infinity,
-                                  padding: EdgeInsets.only(top: 8, bottom: 8),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16),
-                                    color: Colors.white,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 8,
                                   ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  child: ListView.separated(
+                                    shrinkWrap: true,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    itemCount: 4,
+                                    separatorBuilder: (_, __) =>
+                                        const Divider(height: 1),
+                                    itemBuilder: (context, index) {
+                                      final accessList = [
+                                        'Editor',
+                                        'Manager',
+                                        'Viewer',
+                                        'Manager',
+                                      ];
+
+                                      return Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 12,
+                                          vertical: 8,
+                                        ),
                                         child: Row(
                                           children: [
-                                            CircleAvatar(
+                                            const CircleAvatar(
                                               radius: 20,
                                               backgroundColor: Color(
                                                 0xFFD9D9D9,
                                               ),
                                             ),
-                                            SizedBox(width: 10),
+
+                                            const SizedBox(width: 10),
+
+                                            /// Name & Role
                                             Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
+                                              children: const [
                                                 Text(
                                                   'JD',
                                                   style: TextStyle(
@@ -291,222 +325,40 @@ class CastAndCrewScreen extends StatelessWidget {
                                                 ),
                                               ],
                                             ),
-                                            Spacer(),
+
+                                            const Spacer(),
+
+                                            /// Access badge
                                             Container(
-                                              width: 76,
                                               height: 25,
-                                              padding: EdgeInsets.fromLTRB(
-                                                16,
-                                                4,
-                                                16,
-                                                4,
-                                              ),
+                                               padding:
+                                                  const EdgeInsets.symmetric(
+                                                    horizontal: 16,
+                                                  ),
                                               decoration: BoxDecoration(
-                                                color: Color(0xFF474747),
+                                                color: const Color(0xFF474747),
                                                 borderRadius:
                                                     BorderRadius.circular(8),
                                               ),
-                                              child: Center(
-                                                child: Text(
-                                                  "Editor",
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                  ),
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                accessList[index],
+                                                style: const TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.white,
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(width: 20),
+
+                                            const SizedBox(width: 16),
+
+                                            /// More menu
                                             buildPopupMenu(context, viewModel),
                                           ],
                                         ),
-                                      ),
-                                      Divider(),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 20,
-                                              backgroundColor: Color(
-                                                0xFFD9D9D9,
-                                              ),
-                                            ),
-                                            SizedBox(width: 10),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  'JD',
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                                ),
-                                                SizedBox(height: 4),
-                                                Text(
-                                                  'Director',
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Color(0xFF5D5D5D),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Spacer(),
-                                            Container(
-                                              width: 76,
-                                              height: 25,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFF474747),
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  "Manager",
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(width: 20),
-                                            buildPopupMenu(context, viewModel),
-                                          ],
-                                        ),
-                                      ),
-                                      Divider(),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 20,
-                                              backgroundColor: Color(
-                                                0xFFD9D9D9,
-                                              ),
-                                            ),
-                                            SizedBox(width: 10),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  'JD',
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                                ),
-                                                SizedBox(height: 4),
-                                                Text(
-                                                  'Director',
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Color(0xFF5D5D5D),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Spacer(),
-                                            Container(
-                                              width: 76,
-                                              height: 25,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFF474747),
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  "Viewer",
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(width: 20),
-                                            buildPopupMenu(context, viewModel),
-                                          ],
-                                        ),
-                                      ),
-                                      Divider(),
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: 20,
-                                              backgroundColor: Color(
-                                                0xFFD9D9D9,
-                                              ),
-                                            ),
-                                            SizedBox(width: 10),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  'JD',
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                                ),
-                                                SizedBox(height: 4),
-                                                Text(
-                                                  'Director',
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Color(0xFF5D5D5D),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Spacer(),
-                                            Container(
-                                              width: 76,
-                                              height: 25,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFF474747),
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  "Manager",
-                                                  style: TextStyle(
-                                                    fontSize: 12,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(width: 20),
-                                            buildPopupMenu(context, viewModel),
-                                          ],
-                                        ),
-                                      ),
-                                      Divider(),
-                                    ],
+                                      );
+                                    },
                                   ),
                                 ),
                               ],

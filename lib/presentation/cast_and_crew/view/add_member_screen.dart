@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/create_project/utils.dart';
-import 'package:sceneary/presentation/cast_add_member/add_member_viewmodel.dart';
+import 'package:sceneary/presentation/cast_and_crew/viewmodel/add_member_viewmodel.dart';
 
 class AddMemberScreen extends StatelessWidget {
   const AddMemberScreen({super.key});
@@ -126,48 +127,33 @@ class AddMemberScreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(
-                        height: 40,
-                        width: 140,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              side: BorderSide(color: Colors.black, width: 1),
+                   Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: AppButton(
+                              label: "Cancel",
+                              onTap: () {},
+                              buttonColor: Colors.white,
+                              textColor: Color(0XFF1D55A8),
+                              borderColor: Color(0XFF1D55A8),
                             ),
                           ),
-                          onPressed: () => Navigator.pop(context),
-                          child: Text(
-                            'Cancel',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 20),
-                      SizedBox(
-                        width: 160,
-                        height: 40,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF454545),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
+                          SizedBox(width: 20),
+                      
+                          Expanded(
+                            child: AppButton(
+                              label: "Add",
+                              onTap: () {},
+                              buttonColor: Color(0XFF1D55A8),
+                              textColor: Colors.white,
                             ),
                           ),
-                          onPressed: () {},
-                          child: Text(
-                            'Save Changes',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
                 ],
               ),
             ),

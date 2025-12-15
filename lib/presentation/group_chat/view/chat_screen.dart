@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
-import 'package:sceneary/presentation/individual_chat/individual_chat_viewmodel.dart';
+import 'package:sceneary/presentation/group_chat/viewmodel/chat_viewmodel.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/presentation/project_details/utils.dart';
 
-class IndividualChatScreen extends StatelessWidget {
-  const IndividualChatScreen({super.key});
+class ChatScreen extends StatelessWidget {
+  const ChatScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return ChangeNotifierProvider(
-      create: (context) => IndividualChatViewmodel(context: context),
-      child: Consumer<IndividualChatViewmodel>(
+      create: (context) => ChatViewmodel(context: context),
+      child: Consumer<ChatViewmodel>(
         builder: (context, viewModel, child) {
           return Scaffold(
             body: Column(
@@ -49,21 +52,44 @@ class IndividualChatScreen extends StatelessWidget {
                         ),
                         SizedBox(width: 12),
                         Expanded(
-                          child: Text(
-                            'JD',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'The Lost Chronicle',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              SizedBox(height: 2),
+                              Text(
+                                'Ram, Seetha, Arjun, das',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Icon(Icons.search, size: 22),
                         SizedBox(width: 16),
-                        IconButton(
-                          onPressed: () {
-                            viewModel.showPopMoreVert();
-                          },
-                          icon: Icon(Icons.more_vert, size: 22),
+                        GestureDetector(
+                          onTap: () => servicePopUpMenu(context),
+                          child: Padding(
+                            padding: EdgeInsets.only(right: width * 0.04),
+                            child: Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: SvgPicture.asset(AssetsPath.menuImg),
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -155,7 +181,6 @@ class IndividualChatScreen extends StatelessWidget {
               ],
             ),
           );
-          ;
         },
       ),
     );

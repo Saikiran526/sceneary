@@ -83,4 +83,6 @@ class AssetsPath {
 
   //upendar
   static const callSheetPreview = "assets/images/call_sheet_preview.png";
+  static const socialActive="assets/images/socialActive.svg";
+  static const socialInActive="assets/images/socialInActive.svg";
 }
