@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 
 class CastAndCrewViewmodel extends ChangeNotifier {
   final BuildContext context;
@@ -9,6 +9,12 @@ class CastAndCrewViewmodel extends ChangeNotifier {
   final TextEditingController showDateController = TextEditingController();
 
   int selectedTab = 0;
+
+  void changeTab(int index) {
+    selectedTab = index;
+    notifyListeners();
+  }
+
   String? selectCraft = "Select";
   String? viewPeople = "Select";
 
@@ -32,11 +38,6 @@ class CastAndCrewViewmodel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeTab(int index) {
-    selectedTab = index;
-    notifyListeners();
-  }
-
   Future<void> selectDate() async {
     final picked = await showDatePicker(
       context: context,
@@ -50,6 +51,15 @@ class CastAndCrewViewmodel extends ChangeNotifier {
     }
   }
 
+  final List<bool> _selected = [false, false, false];
+
+  bool isSelected(int index) => _selected[index];
+
+  void toggle(int index, bool value) {
+    _selected[index] = value;
+    notifyListeners();
+  }
+
   void showRemoveDialog() {
     showDialog(
       context: context,
@@ -59,15 +69,15 @@ class CastAndCrewViewmodel extends ChangeNotifier {
             borderRadius: BorderRadius.circular(16),
           ),
           child: Container(
-            width: 320,
+            width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               color: Colors.white,
             ),
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   'Remove member from project?',
@@ -77,37 +87,33 @@ class CastAndCrewViewmodel extends ChangeNotifier {
                 Text(
                   'Are you sure you want to remove Ravi Kumar from Kabaddi Warriors?',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                  softWrap: true,
                 ),
                 SizedBox(height: 20),
+
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          side: BorderSide(color: Colors.black, width: 1),
-                        ),
-                      ),
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(
-                        'Cancel',
-                        style: TextStyle(color: Colors.black),
+                    Expanded(
+                      child: AppButton(
+                        label: "Cancel",
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        buttonColor: Colors.white,
+                        textColor: Color(0XFF1D55A8),
+                        borderColor: Color(0XFF1D55A8),
                       ),
                     ),
-                    SizedBox(width: 30),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF454545),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        'Yes remove',
-                        style: TextStyle(color: Colors.white),
+
+                    const SizedBox(width: 20),
+
+                    Expanded(
+                      child: AppButton(
+                        label: "Yes Remove",
+                        onTap: () {},
+                        buttonColor: Color(0XFF1D55A8),
+                        textColor: Colors.white,
                       ),
                     ),
                   ],
@@ -188,34 +194,26 @@ class CastAndCrewViewmodel extends ChangeNotifier {
                     ),
                     SizedBox(height: 20),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              side: BorderSide(color: Colors.black, width: 1),
-                            ),
-                          ),
-                          onPressed: () => Navigator.pop(context),
-                          child: Text(
-                            'Cancel',
-                            style: TextStyle(color: Colors.black),
+                        Expanded(
+                          child: AppButton(
+                            label: "Cancel",
+                            onTap: () {},
+                            buttonColor: Colors.white,
+                            textColor: Color(0XFF1D55A8),
+                            borderColor: Color(0XFF1D55A8),
                           ),
                         ),
-                        SizedBox(width: 20),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF454545),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            'Save Changes',
-                            style: TextStyle(color: Colors.white),
+
+                        const SizedBox(width: 20),
+
+                        Expanded(
+                          child: AppButton(
+                            label: "Save Changes",
+                            onTap: () {},
+                            buttonColor: Color(0XFF1D55A8),
+                            textColor: Colors.white,
                           ),
                         ),
                       ],

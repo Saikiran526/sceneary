@@ -6,10 +6,10 @@ import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_viewmodel.dart';
 import 'package:sceneary/presentation/home/home_screen.dart';
-import 'package:sceneary/presentation/messages/view/messages_screen.dart';
 import 'package:sceneary/presentation/profile/profile_screen.dart';
 import 'package:sceneary/presentation/projects/projects_screen.dart';
 import 'package:sceneary/presentation/search_result_screen/search_result_screen.dart';
+import 'package:sceneary/presentation/social/view/social_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -168,7 +168,7 @@ class DashboardScreen extends StatelessWidget {
                       ? HomeScreen()
                       : SearchResultScreen(),
                   ProjectsScreen(),
-                  MessagesScreen(),
+                  SocialScreen(),
                   ProfileScreen(),
                 ][viewModel.selectedIndex];
               },

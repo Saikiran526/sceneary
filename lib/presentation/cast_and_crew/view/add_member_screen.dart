@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
-import 'package:sceneary/presentation/create_project/utils.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/customField.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/custom_dropdown.dart';
 import 'package:sceneary/presentation/cast_and_crew/viewmodel/add_member_viewmodel.dart';
 
 class AddMemberScreen extends StatelessWidget {
@@ -15,119 +18,91 @@ class AddMemberScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
+                iconTheme: const IconThemeData(
+    color: Colors.white,  
+  ),
+              backgroundColor: Colors.transparent,
+              flexibleSpace: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                  ),
+                ),
+              ),
               title: Text(
                 'Add Member',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                style: GoogleFonts.montserrat(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              centerTitle: false,
+              bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(10),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Update member profile and contact information',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
-            body: Padding(
-              padding: const EdgeInsets.all(15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Update member profile and contact information',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Name',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(height: 8),
-                  customTextField(
-                    hint: 'Jd',
-                    controller: viewModel.nameController,
-                  ),
-                  Text(
-                    'Role',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(height: 8),
-                  customTextField(
-                    hint: 'Director',
-                    controller: viewModel.roleController,
-                  ),
-                  Text(
-                    'Character',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(height: 8),
-                  customTextField(
-                    hint: 'Enter Character here..',
-                    controller: viewModel.characterController,
-                  ),
-                  Text(
-                    'Email',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(height: 8),
-                  customTextField(
-                    hint: 'Director@gamil.com',
-                    controller: viewModel.emailController,
-                  ),
-                  Text(
-                    'Phone',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(height: 8),
-                  customTextField(
-                    hint: '+91 753990343',
-                    controller: viewModel.phoneController,
-                  ),
-                  Text(
-                    'Assign Access Level',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(height: 8),
-                  Container(
-                    width: 328,
-                    height: 40,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: const Color(0x33000000),
-                        width: 1,
-                      ),
-                    ),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton<String>(
-                        isExpanded: true,
-                        borderRadius: BorderRadius.circular(8),
-                        value: viewModel.assignLevel,
-                        items: viewModel.selectAssignedLevel
-                            .map(
-                              (e) => DropdownMenuItem(
-                                value: e,
-                                child: Text(
-                                  e,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ).toList(),
-                        onChanged: (value) {
-                          if (value != null) {
-                            viewModel.selectedAssignedLevel(value);
-                          }
-                        },
-                        icon: const Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          size: 20,
-                          color: Colors.black54,
-                        ),
-                      ),
-                    ),
-                  ),
 
-                  SizedBox(height: 20),
-                   Padding(
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: CircleAvatar(
+                        backgroundColor: Colors.black,
+                        radius: 32,
+                        backgroundImage: AssetImage(AssetsPath.women),
+                      ),
+                    ),
+
+                    CustomTextField(label: "Name", hintText: "JD"),
+                    CustomTextField(
+                      label: "Project Role",
+                      hintText: "Director",
+                    ),
+                    CustomTextField(
+                      label: "Character",
+                      hintText: "Enter Character here...",
+                    ),
+                    CustomTextField(
+                      label: "Email",
+                      hintText: "director@gmail.com",
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                    CustomTextField(
+                      label: "Phone",
+                      hintText: "+91 9119919191991",
+                      keyboardType: TextInputType.phone,
+                      maxLength: 10,
+                    ),
+
+                    CustomDropdownField(
+                      label: "Assign Access Level",
+                      items: viewModel.selectAssignedLevel,
+                      hintText: "Select",
+                      onChanged: (String? p1) {},
+                    ),
+
+                    SizedBox(height: 20),
+                    Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -141,8 +116,9 @@ class AddMemberScreen extends StatelessWidget {
                               borderColor: Color(0XFF1D55A8),
                             ),
                           ),
-                          SizedBox(width: 20),
-                      
+
+                          const SizedBox(width: 20),
+
                           Expanded(
                             child: AppButton(
                               label: "Add",
@@ -154,11 +130,11 @@ class AddMemberScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
-          ;
         },
       ),
     );

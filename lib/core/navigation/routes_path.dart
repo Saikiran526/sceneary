@@ -88,5 +88,12 @@ class RoutePaths {
   static const String callSheetPreviewScreen="/callSheetPreviewScreen";
   static const String notificationScreen="/notificationScreen";
   static const String selectDateFilterScreen="/selectDateFilterScreen";
+  static const String socialScreen="/socialScreen";
+  static const String addPostScreen='/addPostScreen';
+  static const String viewProfileScreen="/viewProfileScreen";
+  static const String socialMessagesScreen="/messagesScreen";
+  static const String socialMessageRequestsScreen="/socialMessageRequestsScreen";
+  static const String socialSearchScreen="/socialSearchScreen";
+  static const String socialNotificationsScreen="/socialNotificationScreen";
   
 }

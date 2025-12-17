@@ -59,6 +59,13 @@ import 'package:sceneary/presentation/scenic_order_template_details/scenic_order
 import 'package:sceneary/presentation/scenic_order_template_list/scenic_order_template_list_screen.dart';
 import 'package:sceneary/presentation/script_discussion/script_discussion_screen.dart';
 import 'package:sceneary/presentation/shooting_schedule/shooting_schedule_screen.dart';
+import 'package:sceneary/presentation/social/view/add_post_screen.dart';
+import 'package:sceneary/presentation/social/view/messages_screen.dart';
+import 'package:sceneary/presentation/social/view/social_message_requests_screen.dart';
+import 'package:sceneary/presentation/social/view/social_notification_screen.dart';
+import 'package:sceneary/presentation/social/view/social_screen.dart';
+import 'package:sceneary/presentation/social/view/social_search_screen.dart';
+import 'package:sceneary/presentation/social/view/view_profile_screen.dart';
 import 'package:sceneary/presentation/subscription_planes/subscription_planes_screen.dart';
 import 'package:sceneary/presentation/terms_and_conditions/terms_and_conditions_screen.dart';
 import 'package:sceneary/presentation/two_factor_authentication/two_factor_authentication_screen.dart';
@@ -163,6 +170,14 @@ class AppRouter {
     RoutePaths.callSheetPreviewScreen: () => const CallSheetPreviewScreen(),
     RoutePaths.notificationScreen: () => const NotificationScreen(),
     RoutePaths.selectDateFilterScreen: () => const SelectDateFilterScreen(),
+    RoutePaths.socialScreen: () => const SocialScreen(),
+    RoutePaths.addPostScreen: () => const AddPostScreen(),
+    RoutePaths.viewProfileScreen: () => const ViewProfileScreen(),
+    RoutePaths.socialMessagesScreen: () => const SocialMessagesScreen(),
+    RoutePaths.socialMessageRequestsScreen: () =>
+        const SocialMessageRequestsScreen(),
+        RoutePaths.socialSearchScreen:()=> const SocialSearchScreen(),
+    RoutePaths.socialNotificationsScreen:()=> const SocialNotificationScreen(),
   };
 
   // Route Generator

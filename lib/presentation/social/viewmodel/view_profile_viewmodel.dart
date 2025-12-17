@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 
-class SocialViewmodel extends ChangeNotifier {
-  SocialViewmodel({required BuildContext context});
+class ViewProfileViewmodel extends ChangeNotifier {
+  final BuildContext context;
+
+  ViewProfileViewmodel({required this.context});
+
+  int selectedTab = 0;
+
+  void changeTab(int index) {
+    selectedTab = index;
+    notifyListeners();
+  }
+
+  final List<Map<String, String>> connections = List.generate(
+    14,
+    (index) => {"name": "JD ${index + 1}", "image": AssetsPath.women},
+  );
 
   final List<Map<String, dynamic>> posts = [
     {
@@ -29,10 +43,27 @@ class SocialViewmodel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void onConnectionMenuSelected({
+    required String action,
+    required int postIndex,
+  }) {
+    switch (action) {
+      case 'Remove Connection':
+        print("Remove Connection");
+        break;
+      case 'Block':
+        print("Block");
+        break;
+    }
+  }
+
   void onPostMenuSelected({required String action, required int postIndex}) {
     switch (action) {
-      case 'report':
-        print("report");
+      case 'Edit':
+        print("Edit");
+        break;
+      case 'Delete':
+        print("Delete");
         break;
     }
   }

@@ -49,13 +49,17 @@ class EditMemberScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomTextField(label: "Name", hintText: "js"),
-                    CustomTextField(label: "Role", hintText: "Director"),
+                    CustomTextField(
+                      label: "Project Role",
+                      hintText: "Director",
+                    ),
                     CustomTextField(
                       label: "Email",
                       hintText: "director@gmail.com",
                     ),
                     CustomTextField(label: "Phone", hintText: "+9191919191"),
 
+                    const SizedBox(height: 10),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(

@@ -53,6 +53,8 @@ dependencies:
   open_filex: ^4.7.0
   path_provider: ^2.1.5
   excel: ^4.0.6
+  image_picker: ^1.2.1
+
  
 dependency_overrides:
   archive: ^3.0.0
