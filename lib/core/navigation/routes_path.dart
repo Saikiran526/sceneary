@@ -74,4 +74,29 @@ class RoutePaths {
   static const String createCallSheetScreen = "/createCallSheet";
   static const String createCallSheetCheckAvailabilityScreen = "/createCallSheetCheckAvailabilityScreen";
   static const String editCallSheetScreen = "/editCallSheetScreen";
+  static const String callSheetTableSceen="/callSheetTableSceen";
+  static const String budgetScreen="/budgetScreen";
+  static const String addBudgetScreen="/addBudgetScreen";
+  static const String budgetTabScreen="/budgetTabScreen";
+  static const String documentsScreen="/documentsScreen";
+  static const String documentDetailScreen="/documentDetailScreen";
+  static const String documentDetailFormScreen="/documentDetailFormScreen";
+  static const String budgetVersionScreen="/budgetVersionScreen";
+  static const String editBudgetScreen="/editBudgetScreen";
+  static const String actualsScreen="/actualsScreen";
+  static const String addExpenseScreen="/addExpenseScreen";
+  static const String callSheetPreviewScreen="/callSheetPreviewScreen";
+  static const String notificationScreen="/notificationScreen";
+  static const String selectDateFilterScreen="/selectDateFilterScreen";
+  static const String socialScreen="/socialScreen";
+  static const String addPostScreen='/addPostScreen';
+  static const String viewProfileScreen="/viewProfileScreen";
+  static const String socialMessagesScreen="/messagesScreen";
+  static const String socialMessageRequestsScreen="/socialMessageRequestsScreen";
+  static const String socialSearchScreen="/socialSearchScreen";
+  static const String socialNotificationsScreen="/socialNotificationScreen";
+  static const String socialReportPostScreen="/socialReportPostScreen";
+  static const String socialReportSuccessScreen="/socialReportSuccessScreen";
+  static const String socialChatScreen="/socialChatScreen";
+  
 }

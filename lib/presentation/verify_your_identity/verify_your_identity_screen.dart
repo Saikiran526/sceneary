@@ -66,19 +66,21 @@ class VerifyYourIdentityScreen extends StatelessWidget {
                                 color: Color(0xFF454545),
                               ),
                             ),
-                            SizedBox(height: 8,),
+                            SizedBox(height: 8),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: List.generate(
                                 viewModel.guidelinesData.length,
                                 (index) {
-                                  
                                   return Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 10,
+                                    ),
                                     child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        SizedBox(height: 20,),
+                                        SizedBox(height: 20),
                                         Container(
                                           width: 4,
                                           height: 4,
@@ -87,13 +89,13 @@ class VerifyYourIdentityScreen extends StatelessWidget {
                                             color: Colors.black,
                                             shape: BoxShape.circle,
                                           ),
-                                        ), 
-                                        SizedBox(width: 6,),
+                                        ),
+                                        SizedBox(width: 6),
                                         Text(
                                           viewModel.guidelinesData[index],
                                           style: TextStyle(
                                             fontSize: 10,
-                                            fontWeight: FontWeight.w400
+                                            fontWeight: FontWeight.w400,
                                           ),
                                         ),
                                       ],
@@ -105,23 +107,22 @@ class VerifyYourIdentityScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(height: 24,),
+                      SizedBox(height: 24),
                       Container(
                         width: double.infinity,
                         height: 482,
                         decoration: BoxDecoration(
                           color: Color(0xFFD9D9D9),
-                          borderRadius: BorderRadius.circular(12)
+                          borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      SizedBox(height: 24,),
+                      SizedBox(height: 24),
                       primaryButton(
-                          text: 'Take Video', 
-                          onPressed: (){
-                            AppRouter.instance.push(RoutePaths.dashboardScreen);
-                          }
-                      )
-                      
+                        text: 'Take Video',
+                        onPressed: () {
+                          AppRouter.instance.push(RoutePaths.dashboardScreen);
+                        },
+                      ),
                     ],
                   ),
                 ),

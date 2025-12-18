@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/call_sheets/viewmodel/call_sheet_viewmodel.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/project_details/utils.dart';
 
 class CallSheetScreen extends StatelessWidget {
@@ -23,9 +25,8 @@ class CallSheetScreen extends StatelessWidget {
             appBar: AppBar(
               title: Text(
                 "Call Sheet",
-                style: TextStyle(
+                style: GoogleFonts.montserrat(
                   fontSize: 14,
-                  fontFamily: "Montserrat",
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
@@ -63,28 +64,56 @@ class CallSheetScreen extends StatelessWidget {
 
                   SizedBox(height: height * 0.03),
 
-                  Wrap(
-                    spacing: width * 0.03,
-                    runSpacing: height * 0.015,
+                  Column(
                     children: [
-                      _buildBlackButton(
-                        icon: AssetsPath.addImg,
-                        label: "Create Call Sheet",
-                        onTap: () {
-                          AppRouter.instance.push(
-                            RoutePaths.createCallSheetScreen,
-                          );
-                        },
+                      Row(
+                        children: [
+                          Expanded(
+                            child: AppButton(
+                              label: "Create Call Sheet",
+                              buttonColor: Colors.black,
+                              textColor: Colors.white,
+                              icon: AssetsPath.addImg,
+                              onTap: () {
+                                AppRouter.instance.push(
+                                  RoutePaths.createCallSheetScreen,
+                                );
+                              },
+                            ),
+                          ),
+                          SizedBox(width: 12),
+                          Expanded(
+                            child: AppButton(
+                              label: "Download Template",
+                              onTap: () {},
+                              buttonColor: Colors.white,
+                              textColor: Colors.black,
+                              borderColor: Colors.black,
+                              icon: AssetsPath.downloadImg,
+                            ),
+                          ),
+                        ],
                       ),
-                      _buildOutlinedButton(
-                        icon: AssetsPath.downloadImg,
-                        label: "Download Template",
-                        onTap: () {},
-                      ),
-                      _buildOutlinedButton(
-                        icon: AssetsPath.downloadImg,
-                        label: "Upload Call Sheet",
-                        onTap: () {},
+
+                      SizedBox(height: 12),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          AppButton(
+                            width: 180,
+                            label: "Upload Call Sheet",
+                            onTap: () {
+                              AppRouter.instance.push(
+                                RoutePaths.callSheetTableSceen,
+                              );
+                            },
+                            borderColor: Colors.black,
+                            textColor: Colors.black,
+                            buttonColor: Colors.white,
+                            icon: AssetsPath.downloadImg,
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -117,49 +146,6 @@ class CallSheetScreen extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-
-  Widget _buildBlackButton({
-    required String icon,
-    required String label,
-    required Function() onTap,
-  }) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [SvgPicture.asset(icon), SizedBox(width: 8), Text(label)],
-      ),
-    );
-  }
-
-  Widget _buildOutlinedButton({
-    required String icon,
-    required String label,
-    required Function() onTap,
-  }) {
-    return OutlinedButton(
-      onPressed: onTap,
-      style: OutlinedButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        side: BorderSide(color: Colors.black),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SvgPicture.asset(icon),
-          SizedBox(width: 8),
-          Text(label, style: TextStyle(color: Colors.black)),
-        ],
       ),
     );
   }

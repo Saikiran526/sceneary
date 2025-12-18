@@ -45,21 +45,19 @@ Widget customTextField({
               border: InputBorder.none,
               counterText: "",
               hintText: hintText,
-              hintStyle: hintTextStyle ??
-                  TextStyle(color: Colors.grey, fontSize: 14),
+              hintStyle:
+                  hintTextStyle ?? TextStyle(color: Colors.grey, fontSize: 14),
             ),
           ),
         ),
 
         if (suffix != null)
-          Padding(
-            padding: EdgeInsets.only(left: 8),
-            child: suffix,
-          ),
+          Padding(padding: EdgeInsets.only(left: 8), child: suffix),
       ],
     ),
   );
 }
+
 Widget customTextFieldWithHeading({
   required Size size,
   required String heading,
@@ -68,54 +66,42 @@ Widget customTextFieldWithHeading({
   required bool readOnly,
   Widget? suffix,
   Icon? suffixIcon,
-  int? maxLines
-}){
+  int? maxLines,
+}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
         heading,
-        style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w600
-        ),
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
       ),
-      SizedBox(height: size.height*0.01),
+      SizedBox(height: size.height * 0.01),
       TextField(
         controller: controller,
         readOnly: readOnly,
         maxLines: maxLines,
         decoration: InputDecoration(
-            hintText: hintText,
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(
-                color: Colors.grey.shade300,
-                width: 1,
-              ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(
-                color: Colors.grey.shade300,
-                width: 1,
-              ),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(
-                  color: Colors.grey.shade300,
-                  width: 1
-              ),
-            ),
-            suffix: suffix,
-            suffixIcon: suffixIcon
-
+          hintText: hintText,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+          ),
+          suffix: suffix,
+          suffixIcon: suffixIcon,
         ),
-      )
+      ),
     ],
   );
 }
+
 Widget customDropdownWithHeading({
   required String heading,
   required String hintText,
@@ -128,13 +114,10 @@ Widget customDropdownWithHeading({
     children: [
       Text(
         heading,
-        style: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-        ),
+        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
       ),
       const SizedBox(height: 8),
-
+  
       DropdownButtonFormField<String>(
         value: value,
         decoration: InputDecoration(
@@ -152,22 +135,21 @@ Widget customDropdownWithHeading({
             borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
           ),
         ),
-        items: items.map((e) => DropdownMenuItem(
-          value: e,
-          child: Text(e),
-        ))
+        items: items
+            .map((e) => DropdownMenuItem(value: e, child: Text(e)))
             .toList(),
         onChanged: onChanged,
       ),
     ],
   );
 }
+
 Widget customDropdown({
   required String? value,
   required String hintText,
   required List<String> items,
-  required Function(String?) onChanged
-}){
+  required Function(String?) onChanged,
+}) {
   return DropdownButtonFormField<String>(
     value: value,
     decoration: InputDecoration(
@@ -185,15 +167,12 @@ Widget customDropdown({
         borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
       ),
     ),
-    items: items.map((e) => DropdownMenuItem(
-      value: e,
-      child: Text(e),
-    ))
+    items: items
+        .map((e) => DropdownMenuItem(value: e, child: Text(e)))
         .toList(),
     onChanged: onChanged,
   );
 }
-
 
 Widget primaryButton({
   required String text,
@@ -223,41 +202,35 @@ Widget primaryButton({
     ),
   );
 }
+
 Widget primaryOutlinedButton({
   required String text,
-  required VoidCallback onPressed
-}){
+  required VoidCallback onPressed,
+}) {
   return SizedBox(
     width: double.infinity,
     child: OutlinedButton(
-        onPressed: onPressed,
-        style: OutlinedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-                side: BorderSide(
-                    color: Colors.black,
-                    width: 1
-                )
-            )
+      onPressed: onPressed,
+      style: OutlinedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+          side: BorderSide(color: Colors.black, width: 1),
         ),
-        child: Text(text,style: TextStyle(color: Colors.black),)
+      ),
+      child: Text(text, style: TextStyle(color: Colors.black)),
     ),
   );
 }
-AppBar customAppBar({required String title}){
+
+AppBar customAppBar({required String title}) {
   return AppBar(
     title: Text(
       title,
-      style: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w600
-      ),
+      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
     ),
     backgroundColor: Color(0xffD9D9D9),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(
-        bottom: Radius.circular(25),
-      ),
+      borderRadius: BorderRadius.vertical(bottom: Radius.circular(25)),
     ),
   );
 }

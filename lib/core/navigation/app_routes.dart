@@ -1,35 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_phase/add_phase_screen.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/view/add_shooting_schedule_screen.dart';
+import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
+import 'package:sceneary/presentation/budget/view/add_budget_screen.dart';
+import 'package:sceneary/presentation/budget/view/actuals_screen.dart';
+import 'package:sceneary/presentation/budget/view/add_expense_screen.dart';
+import 'package:sceneary/presentation/budget/view/budget_screen.dart';
+import 'package:sceneary/presentation/budget/view/budget_tab_screen.dart';
+import 'package:sceneary/presentation/budget/view/budget_version_screen.dart';
+import 'package:sceneary/presentation/budget/view/document_detail_form_screen.dart';
+import 'package:sceneary/presentation/budget/view/document_detail_screen.dart';
+import 'package:sceneary/presentation/budget/view/documents_screen.dart';
+import 'package:sceneary/presentation/budget/view/edit_budget_screen.dart';
 import 'package:sceneary/presentation/calender/calender_screen.dart';
- import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/call_sheet_preview_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
+import 'package:sceneary/presentation/call_sheets/view/call_sheet_table_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_check_availability_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/create_call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/edit_call_sheet_screen.dart';
- 
+import 'package:sceneary/presentation/call_sheets/view/notification_screen.dart';
+import 'package:sceneary/presentation/budget/view/select_date_filter_screen.dart';
+
 import 'package:sceneary/presentation/create_task/create_task_screen.dart';
- import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
+import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'package:sceneary/presentation/calender_month_plan/calender_month_plan_screen.dart';
 import 'package:sceneary/presentation/edit_phase/edit_phase_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
 import 'package:sceneary/presentation/extent_phase_date/extent_phase_date_screen.dart';
-import 'package:sceneary/presentation/group_chat/chat_screen.dart';
+import 'package:sceneary/presentation/group_chat/view/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
-import 'package:sceneary/presentation/cast_add_member/add_member_screen.dart';
-import 'package:sceneary/presentation/cast_and_crew/cast_and_crew_screen.dart';
-import 'package:sceneary/presentation/cast_and_crew_availability/cast_and_crew_availability_screen.dart';
+import 'package:sceneary/presentation/cast_and_crew/view/add_member_screen.dart';
+import 'package:sceneary/presentation/cast_and_crew/view/cast_and_crew_screen.dart';
+import 'package:sceneary/presentation/cast_and_crew/view/cast_and_crew_availability_screen.dart';
 import 'package:sceneary/presentation/chang_password/change_password_screen.dart';
 import 'package:sceneary/presentation/edit_profile/edit_profile_screen.dart';
-import 'package:sceneary/presentation/cast_edit_member/edit_member_screen.dart';
+import 'package:sceneary/presentation/cast_and_crew/view/edit_member_screen.dart';
 import 'package:sceneary/presentation/enter_otp/enter_otp_screen.dart';
 import 'package:sceneary/presentation/enter_scenic_order_template_details/enter_scenic_order_template_details_screen.dart';
 import 'package:sceneary/presentation/faqs/faqs_screen.dart';
-import 'package:sceneary/presentation/group_chat_history/group_chat_history_screen.dart';
+import 'package:sceneary/presentation/group_chat/view/group_chat_history_screen.dart';
 import 'package:sceneary/presentation/help_and_support/help_and_support_screen.dart';
-import 'package:sceneary/presentation/individual_chat/individual_chat_screen.dart';
-import 'package:sceneary/presentation/message_request/message_request_screen.dart';
-import 'package:sceneary/presentation/messages_individual_chat/messages_individual_chat_screen.dart';
+import 'package:sceneary/presentation/group_chat/view/individual_chat_screen.dart';
+import 'package:sceneary/presentation/messages/view/message_request_screen.dart';
+import 'package:sceneary/presentation/messages/view/messages_individual_chat_screen.dart';
 import 'package:sceneary/presentation/mobile_number/mobile_number_screen.dart';
 import 'package:sceneary/presentation/create_project/create_project_screen.dart';
 import 'package:sceneary/presentation/notifications/notifications_screen.dart';
@@ -45,6 +60,16 @@ import 'package:sceneary/presentation/scenic_order_template_details/scenic_order
 import 'package:sceneary/presentation/scenic_order_template_list/scenic_order_template_list_screen.dart';
 import 'package:sceneary/presentation/script_discussion/script_discussion_screen.dart';
 import 'package:sceneary/presentation/shooting_schedule/shooting_schedule_screen.dart';
+import 'package:sceneary/presentation/social/view/add_post_screen.dart';
+import 'package:sceneary/presentation/social/view/messages_screen.dart';
+import 'package:sceneary/presentation/social/view/social_chat_screen.dart';
+import 'package:sceneary/presentation/social/view/social_message_requests_screen.dart';
+import 'package:sceneary/presentation/social/view/social_notification_screen.dart';
+import 'package:sceneary/presentation/social/view/social_report_post_screen.dart';
+import 'package:sceneary/presentation/social/view/social_report_success_screen.dart';
+import 'package:sceneary/presentation/social/view/social_screen.dart';
+import 'package:sceneary/presentation/social/view/social_search_screen.dart';
+import 'package:sceneary/presentation/social/view/view_profile_screen.dart';
 import 'package:sceneary/presentation/subscription_planes/subscription_planes_screen.dart';
 import 'package:sceneary/presentation/terms_and_conditions/terms_and_conditions_screen.dart';
 import 'package:sceneary/presentation/two_factor_authentication/two_factor_authentication_screen.dart';
@@ -115,42 +140,54 @@ class AppRouter {
         const MessagesIndividualChatScreen(),
     RoutePaths.messageRequestScreen: () => const MessageRequestScreen(),
     RoutePaths.notificationsScreen: () => const NotificationsScreen(),
-     RoutePaths.calenderScreen: () => const CalenderScreen(),
+    RoutePaths.calenderScreen: () => const CalenderScreen(),
     RoutePaths.calenderMonthPlanScreen: () => const CalenderMonthPlanScreen(),
-  
- 
-        RoutePaths.projectPlanScreen: () => const ProjectPlanScreen(),
-      RoutePaths.addPhaseScreen: () => const AddPhaseScreen(),
-      RoutePaths.projectPlanAddPhaseScreen: () => const ProjectPlanAddPhaseScreen(),
-       RoutePaths.preProductionScreen: () => const PreProductionScreen(),
-      RoutePaths.editPhaseScreen: () => const EditPhaseScreen(),
-      RoutePaths.createTaskScreen: () => const CreateTaskScreen(),
-     RoutePaths.scriptDiscussionScreen: () => const ScriptDiscussionScreen(),
+
+    RoutePaths.projectPlanScreen: () => const ProjectPlanScreen(),
+    RoutePaths.addPhaseScreen: () => const AddPhaseScreen(),
+    RoutePaths.projectPlanAddPhaseScreen: () =>
+        const ProjectPlanAddPhaseScreen(),
+    RoutePaths.preProductionScreen: () => const PreProductionScreen(),
+    RoutePaths.editPhaseScreen: () => const EditPhaseScreen(),
+    RoutePaths.createTaskScreen: () => const CreateTaskScreen(),
+    RoutePaths.scriptDiscussionScreen: () => const ScriptDiscussionScreen(),
     RoutePaths.extentPhaseDateScreen: () => const ExtentPhaseDateScreen(),
-   RoutePaths.viewChartViewScreen: () => const ViewChartViewScreen(),
+    RoutePaths.viewChartViewScreen: () => const ViewChartViewScreen(),
 
-      //upendar
-
+    //upendar
     RoutePaths.callSheetScreen: () => const CallSheetScreen(),
     RoutePaths.createCallSheetScreen: () => const CreateCallSheetScreen(),
-    RoutePaths.createCallSheetCheckAvailabilityScreen:() => const CreateCallSheetCheckAvailabilityScreen(),
-    RoutePaths.editCallSheetScreen:()=> const EditCallSheetScreen(),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-   };
+    RoutePaths.createCallSheetCheckAvailabilityScreen: () =>
+        const CreateCallSheetCheckAvailabilityScreen(),
+    RoutePaths.editCallSheetScreen: () => const EditCallSheetScreen(),
+    RoutePaths.callSheetTableSceen: () => const CallSheetTableScreen(),
+    RoutePaths.budgetScreen: () => const BudgetScreen(),
+    RoutePaths.addBudgetScreen: () => const AddBudgetScreen(),
+    RoutePaths.budgetTabScreen: () => const BudgetTabScreen(),
+    RoutePaths.documentsScreen: () => const DocumentsScreen(),
+    RoutePaths.documentDetailScreen: () => const DocumentDetailScreen(),
+    RoutePaths.documentDetailFormScreen: () => const DocumentDetailFormScreen(),
+    RoutePaths.budgetVersionScreen: () => const BudgetVersionScreen(),
+    RoutePaths.editBudgetScreen: () => const EditBudgetScreen(),
+    RoutePaths.actualsScreen: () => const ActualsScreen(),
+    RoutePaths.addExpenseScreen: () => const AddExpenseScreen(),
+    RoutePaths.callSheetPreviewScreen: () => const CallSheetPreviewScreen(),
+    RoutePaths.notificationScreen: () => const NotificationScreen(),
+    RoutePaths.selectDateFilterScreen: () => const SelectDateFilterScreen(),
+    RoutePaths.socialScreen: () => const SocialScreen(),
+    RoutePaths.addPostScreen: () => const AddPostScreen(),
+    RoutePaths.viewProfileScreen: () => const ViewProfileScreen(),
+    RoutePaths.socialMessagesScreen: () => const SocialMessagesScreen(),
+    RoutePaths.socialMessageRequestsScreen: () =>
+        const SocialMessageRequestsScreen(),
+    RoutePaths.socialSearchScreen: () => const SocialSearchScreen(),
+    RoutePaths.socialNotificationsScreen: () =>
+        const SocialNotificationScreen(),
+    RoutePaths.socialReportPostScreen: () => const SocialReportPostScreen(),
+    RoutePaths.socialReportSuccessScreen: () =>
+        const SocialReportSuccessScreen(),
+        RoutePaths.socialChatScreen:()=> const SocialChatScreen(),
+  };
 
   // Route Generator
   Route<dynamic> onGenerateRoute(RouteSettings settings) {

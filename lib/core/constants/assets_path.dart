@@ -79,4 +79,17 @@ class AssetsPath {
   static const viewProjectPlan = "assets/images/view_plan.svg";
   static const forwardGroup = "assets/images/forward_group.svg";
   static const filterProjectPlan = "assets/images/filter_plan.svg";
+  static const closeCircle = "assets/images/close-circle.svg";
+
+  //upendar
+  static const callSheetPreview = "assets/images/call_sheet_preview.png";
+  static const socialActive = "assets/images/socialActive.svg";
+  static const socialInActive = "assets/images/socialInActive.svg";
+  static const appBarBg = "assets/images/appBarBg.svg";
+  static const socialPost = "assets/images/social_post.jpg";
+  static const socialNotification = "assets/images/social_notification.svg";
+  static const socialFeed = "assets/images/social_feed.svg";
+  static const socialMessage = "assets/images/social_message.svg";
+  static const socialComment = "assets/images/social_comment.svg";
+  static const reportSuccess = 'assets/images/report_success.svg';
 }
