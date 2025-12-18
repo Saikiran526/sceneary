@@ -9,6 +9,7 @@ class AddShootingScheduleViewmodel extends ChangeNotifier{
   // Behaviour
   set changePage(int page) {
     currentPage = page;
+    pageController.jumpToPage(page);
     notifyListeners();
   }
 

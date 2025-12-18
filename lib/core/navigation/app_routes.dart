@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sceneary/presentation/shooting_schedules_notifications/accept_reject_shooting_schedules_screen.dart';
 import 'package:sceneary/presentation/add_phase/add_phase_screen.dart';
-import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
+import 'package:sceneary/presentation/add_shooting_schedule/view/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_screen_three.dart';
 import 'package:sceneary/presentation/budget/view/add_budget_screen.dart';
 import 'package:sceneary/presentation/budget/view/actuals_screen.dart';
@@ -27,6 +28,7 @@ import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
 import 'package:sceneary/presentation/calender_month_plan/calender_month_plan_screen.dart';
 import 'package:sceneary/presentation/edit_phase/edit_phase_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
+import 'package:sceneary/presentation/edit_shooting_schedule/edit_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/extent_phase_date/extent_phase_date_screen.dart';
 import 'package:sceneary/presentation/group_chat/view/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
@@ -60,6 +62,10 @@ import 'package:sceneary/presentation/scenic_order_template_details/scenic_order
 import 'package:sceneary/presentation/scenic_order_template_list/scenic_order_template_list_screen.dart';
 import 'package:sceneary/presentation/script_discussion/script_discussion_screen.dart';
 import 'package:sceneary/presentation/shooting_schedule/shooting_schedule_screen.dart';
+import 'package:sceneary/presentation/shooting_schedule_preview/shooting_schedules_preview_screen.dart';
+import 'package:sceneary/presentation/shooting_schedules_notifications/rejected_screen.dart';
+import 'package:sceneary/presentation/shooting_schedules_notifications/review_rejected_screen.dart';
+import 'package:sceneary/presentation/shooting_schedules_notifications/shooting_schedules_notification_screen.dart';
 import 'package:sceneary/presentation/social/view/add_post_screen.dart';
 import 'package:sceneary/presentation/social/view/messages_screen.dart';
 import 'package:sceneary/presentation/social/view/social_chat_screen.dart';
@@ -121,6 +127,12 @@ class AppRouter {
     // Shooting Schedules
     RoutePaths.shootingScheduleScreen: () => ShootingScheduleScreen(),
     RoutePaths.addShootingScheduleScreen: () => AddShootingScheduleScreen(),
+    RoutePaths.shootingSchedulesPreviewScreen: () => ShootingSchedulesPreviewScreen(),
+    RoutePaths.editShootingScheduleScreen: () => EditShootingScheduleScreen(),
+    RoutePaths.shootingSchedulesNotificationScreen: () => ShootingSchedulesNotificationScreen(),
+    RoutePaths.acceptRejectShootingSchedulesScreen: () => AcceptRejectShootingSchedulesScreen(),
+    RoutePaths.rejectedScreen: () => RejectedScreen(),
+    RoutePaths.reviewRejectedScreen: () => ReviewRejectedScreen(),
 
     //muni
     RoutePaths.basicInformationPageview: () => const BasicInformationPageview(),

@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/presentation/add_shooting_schedule/viewmodel/add_shooting_schedule_viewmodel.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 
 class AddShootingScheduleStepOne extends StatelessWidget {
-  const AddShootingScheduleStepOne({super.key});
+  final AddShootingScheduleViewmodel viewModel;
+  const AddShootingScheduleStepOne({super.key, required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -136,13 +139,19 @@ class AddShootingScheduleStepOne extends StatelessWidget {
                 flex: 1,
                 child: primaryOutlinedButton(
                     text: 'Cancel',
-                    onPressed: (){}
+                    onPressed: (){
+                      AppRouter.instance.pop();
+                    }
                 ),
               ),
               SizedBox(width: width*0.03,),
               Expanded(
                 flex: 1,
-                  child: primaryButton(text: 'Next', onPressed: (){})
+                  child: primaryButton(text: 'Next', onPressed: (){
+                    if(viewModel.currentPage==0){
+                      viewModel.changePage=1;
+                    }
+                  })
               )
             ],
           )
