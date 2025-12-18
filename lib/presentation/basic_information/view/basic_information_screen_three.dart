@@ -105,7 +105,7 @@ class BasicInformationScreenThree extends StatelessWidget {
                           ),
                           SizedBox(height: 8),
                           Container(
-                            width: 300,
+                            width: double.infinity,
                             padding: EdgeInsets.symmetric(
                               horizontal: 10,
                               vertical: 8,

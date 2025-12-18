@@ -98,7 +98,6 @@ class CastAndCrewScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 20),
-
                     DefaultTabController(
                       length: 2,
                       initialIndex: viewModel.selectedTab,

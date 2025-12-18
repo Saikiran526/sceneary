@@ -244,8 +244,7 @@ class BasicInformationScreenTwo extends StatelessWidget {
                           SizedBox(height: 16,),
                           Container(
                             padding: EdgeInsets.all(10),
-                            height: 54,
-                            width: double.infinity,
+                             width: double.infinity,
                             color: Color(0xFFE4E4E4),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
