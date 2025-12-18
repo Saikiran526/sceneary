@@ -105,7 +105,10 @@ class ExtentPhaseDateScreen extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              
+                              Navigator.pop(context, {
+                                "startDate": viewModel.startDateController.text,
+                                "endDate": viewModel.endDateController.text,
+                              });
                             },
                             child: const Text(
                               'Continue',

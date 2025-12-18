@@ -44,8 +44,7 @@ class EnterOtpScreen extends StatelessWidget {
                       SizedBox(height: 40),
                       Container(
                         width: double.infinity,
-                        height: 356,
-                        padding: const EdgeInsets.fromLTRB(34, 60, 14, 60),
+                         padding: const EdgeInsets.fromLTRB(34, 60, 14, 60),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(16),

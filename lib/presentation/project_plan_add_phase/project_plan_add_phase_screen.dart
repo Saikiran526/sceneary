@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/project_details/utils.dart';
 import 'package:sceneary/presentation/project_plan_add_phase/project_plan_add_phase_viewmodel.dart';
 
 class ProjectPlanAddPhaseScreen extends StatelessWidget {
@@ -11,34 +12,33 @@ class ProjectPlanAddPhaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final width = MediaQuery.of(context).size.width;
     return ChangeNotifierProvider(
       create: (context) => ProjectPlanAddPhaseViewmodel(context: context),
       child: Consumer<ProjectPlanAddPhaseViewmodel>(
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
-              title: Row(
-                children: [
-                  Text(
-                    'Project Plan',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 21.0),
+              title: Text(
+                'Project Plan',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              ),
+                actions: [
+                GestureDetector(
+                  onTap: () => servicePopUpMenu(context),
+                  child: Padding(
+                    padding: EdgeInsets.only(right: width * 0.04),
                     child: Container(
+                      padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset(AssetsPath.menuImg),
-                      ),
+                      child: SvgPicture.asset(AssetsPath.menuImg),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             body: SingleChildScrollView(
               child: Padding(
@@ -62,7 +62,7 @@ class ProjectPlanAddPhaseScreen extends StatelessWidget {
                             children: [
                               SvgPicture.asset(AssetsPath.addImg),
                               Text(
-                                'Add Entry',
+                                'Add Phase',
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
@@ -72,28 +72,30 @@ class ProjectPlanAddPhaseScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 10),
-                        OutlinedButton(
-                          style: OutlinedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              side: BorderSide(color: Colors.black, width: 1),
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(AssetsPath.downloadImg),
-                              SizedBox(width: 5),
-                              Text(
-                                'Download Sheet',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
-                                ),
+                        Expanded(
+                          child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                side: BorderSide(color: Colors.black, width: 1),
                               ),
-                            ],
+                            ),
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(AssetsPath.downloadImg),
+                                SizedBox(width: 5),
+                                Text(
+                                  'Download Sheet',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -201,8 +203,7 @@ class ProjectPlanAddPhaseScreen extends StatelessWidget {
                         child: Container(
                           padding: EdgeInsets.all(12),
                           width: double.infinity,
-                          height: 127,
-                          decoration: BoxDecoration(
+                           decoration: BoxDecoration(
                             color: Color(0xFFC3C3C3),
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
@@ -302,8 +303,7 @@ class ProjectPlanAddPhaseScreen extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(12),
                       width: double.infinity,
-                      height: 127,
-                      decoration: BoxDecoration(
+                       decoration: BoxDecoration(
                         color: Color(0xFFC3C3C3),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
