@@ -81,9 +81,9 @@ class AddShootingScheduleScreen extends StatelessWidget {
                         onPageChanged: (page) {
                           viewModel.changePage=page;
                         },
-                        children: const [
-                          AddShootingScheduleStepOne(),
-                          AddShootingScheduleStepTwo(),
+                        children:  [
+                          AddShootingScheduleStepOne(viewModel:viewModel),
+                          AddShootingScheduleStepTwo(viewModelSuper:viewModel,isEdit: false,),
                         ],
                       ),
                     ),

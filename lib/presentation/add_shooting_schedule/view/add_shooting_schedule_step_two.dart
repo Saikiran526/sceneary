@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/viewmodel/add_shooting_schedule_step_two_viewmodel.dart';
+import 'package:sceneary/presentation/add_shooting_schedule/viewmodel/add_shooting_schedule_viewmodel.dart';
+import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 
 class AddShootingScheduleStepTwo extends StatelessWidget {
-  const AddShootingScheduleStepTwo({super.key});
+  final AddShootingScheduleViewmodel viewModelSuper;
+  final bool isEdit;
+  const AddShootingScheduleStepTwo({super.key, required this.viewModelSuper, required this.isEdit});
 
   @override
   Widget build(BuildContext context) {
@@ -251,223 +257,211 @@ class AddShootingScheduleStepTwo extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: height*0.02,),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              width: 1,
-                              color: Color(0xffD1D1D1),
-                            )
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(21.0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CircleAvatar(
-                                  radius: 20,
-                                  backgroundColor: Colors.grey,
-                                  child: Center(child: Text('Image',style: TextStyle(color: Colors.white,fontSize: 10),),),
-                                ),
-                                SizedBox(width: width*0.03,),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'John snew',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500
-                                      ),
-                                    ),
-                                    Text(
-                                      'Lead Actor',
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff888888)
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const Spacer(),
-                                Center(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Color(0xff0F8A41).withAlpha(40),
-                                      borderRadius: BorderRadius.circular(26),
-                                    ),
-                                    child:Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 5),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.access_time,color: Color(0xff0F8A41)),
-                                          Text(
-                                            'Available',
-                                            style: TextStyle(
-                                              color: Color(0xff0F8A41),
-
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                const Spacer(),
-
-
-                              ],
-                            ),
-                          ),
-                        ),
                         SizedBox(height: height*0.01,),
                         Container(
+                          margin: EdgeInsets.only(top: 8),
+                          padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                           decoration: BoxDecoration(
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              width: 1,
-                              color: Color(0xffD1D1D1),
-                            )
+                            border: Border.all(color: Color(0xFFEDF1F3), width: 1),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(21.0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CircleAvatar(
-                                  radius: 20,
-                                  backgroundColor: Colors.grey,
-                                  child: Center(child: Text('Image',style: TextStyle(color: Colors.white,fontSize: 10),),),
-                                ),
-                                SizedBox(width: width*0.03,),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Arya starc',
-                                      style: TextStyle(
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Image.asset(AssetsPath.men1, height: 40, width: 40),
+                                  SizedBox(width: 14),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'John snow',
+                                        style: TextStyle(
                                           fontSize: 12,
-                                          fontWeight: FontWeight.w500
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      'Lead Actress',
-                                      style: TextStyle(
+                                      SizedBox(height: 6),
+                                      Text(
+                                        'Lead Actor',
+                                        style: TextStyle(
                                           fontSize: 10,
                                           fontWeight: FontWeight.w400,
-                                          color: Color(0xff888888)
+                                          color: Color(0xFF888888),
+                                        ),
                                       ),
+                                    ],
+                                  ),
+                                  Spacer(),
+                                  Container(
+                                    padding: EdgeInsets.fromLTRB(8, 4, 8, 4),
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFF0FDF4),
+                                      borderRadius: BorderRadius.circular(26),
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset(AssetsPath.timer),
+                                        SizedBox(width: 4),
+                                        Text(
+                                          'Available',
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            color: Color(0xFF0F8A41),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: height*0.01),
+                        Container(
+                          width: double.infinity,
+                          height: 76,
+                          padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: Color(0xFFEDF1F3), width: 1),
+                          ),
+                          child: Row(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: Image.asset(
+                                  AssetsPath.women,
+                                  height: 40,
+                                  width: 40,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              SizedBox(width: 12),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Arya starc',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                            Text(
+                                              'Lead Actress',
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.w400,
+                                                color: Color(0xFF888888),
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ],
+                                        ),
+                                        Spacer(),
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 8,
+                                            vertical: 4,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFFFEF2F2),
+                                            borderRadius: BorderRadius.circular(26),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              SvgPicture.asset(
+                                                AssetsPath.unAvailable,
+                                                width: 10,
+                                                height: 10,
+                                              ),
+                                              SizedBox(width: 4),
+                                              Text(
+                                                'Busy',
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Color(0xFFC2060D),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Spacer(),
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                          AssetsPath.timer,
+                                          color: Color(0xFF6D6D6D),
+                                          width: 10,
+                                          height: 10,
+                                        ),
+                                        SizedBox(width: 4),
+                                        Expanded(
+                                          child: Text(
+                                            'Unavailable: 2:00 PM - 6:00 PM',
+                                            style: TextStyle(
+                                              fontSize: 10,
+                                              fontWeight: FontWeight.w400,
+                                              color: Color(0xFF6D6D6D),
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                                const Spacer(),
-                                Center(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.red.withAlpha(40),
-                                      borderRadius: BorderRadius.circular(26),
-                                    ),
-                                    child:Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 5),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.error_outline,color: Colors.red),
-                                          Text(
-                                            'Busy',
-                                            style: TextStyle(
-                                              color: Colors.red,
-
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                const Spacer(),
-                                // Column(
-                                //   children: [
-                                //     Row(
-                                //       children: [
-                                //         Column(
-                                //           crossAxisAlignment: CrossAxisAlignment.start,
-                                //           children: [
-                                //             Text(
-                                //               'Arya starc',
-                                //               style: TextStyle(
-                                //                   fontSize: 12,
-                                //                   fontWeight: FontWeight.w500
-                                //               ),
-                                //             ),
-                                //             Text(
-                                //               'Lead Actress',
-                                //               style: TextStyle(
-                                //                   fontSize: 10,
-                                //                   fontWeight: FontWeight.w400,
-                                //                   color: Color(0xff888888)
-                                //               ),
-                                //             ),
-                                //           ],
-                                //         ),
-                                //         const Spacer(),
-                                //         Center(
-                                //           child: Container(
-                                //             decoration: BoxDecoration(
-                                //               color: Colors.red.withAlpha(40),
-                                //               borderRadius: BorderRadius.circular(26),
-                                //             ),
-                                //             child:Padding(
-                                //               padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 5),
-                                //               child: Row(
-                                //                 mainAxisAlignment: MainAxisAlignment.center,
-                                //                 children: [
-                                //                   Icon(Icons.error_outline,color: Colors.red),
-                                //                   Text(
-                                //                     'Busy',
-                                //                     style: TextStyle(
-                                //                       color: Colors.red,
-                                //
-                                //                     ),
-                                //                   )
-                                //                 ],
-                                //               ),
-                                //             ),
-                                //           ),
-                                //         ),
-                                //         const Spacer(),
-                                //       ],
-                                //     ),
-                                //     Row(
-                                //       children: [
-                                //         Icon(Icons.access_time,color: Color(0xff6D6D6D),),
-                                //         SizedBox(width: width*0.01,),
-                                //         Text(
-                                //           'Unavailable: 2:00 PM - 6:00 PM',
-                                //           style: TextStyle(
-                                //             fontSize: 12,
-                                //             fontWeight: FontWeight.w400,
-                                //             color: Color(0xff6D6D6D)
-                                //           ),
-                                //         )
-                                //       ],
-                                //     )
-                                //   ],
-                                // )
-
-
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
 
                       ],
                     ),
                   ),
-                )
+                ),
+                SizedBox(height: height*0.01,),
+                Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: primaryOutlinedButton(
+                          text: 'Back',
+                          onPressed: (){
+                            viewModelSuper.changePage=0;
+                          }
+                      ),
+                    ),
+                    SizedBox(width: width*0.03,),
+                    Expanded(
+                        flex: 1,
+                        child: primaryButton(
+                            text: 'Add Schedule' ,
+                            onPressed: (){
+                              if(isEdit==false) {
+                                AppRouter.instance.push(RoutePaths.shootingSchedulesPreviewScreen);
+                              }
+                            }
+                        )
+                    )
+                  ],
+                ),
               ],
             );
           }
