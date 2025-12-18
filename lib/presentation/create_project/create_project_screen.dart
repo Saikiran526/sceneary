@@ -221,6 +221,7 @@ class CreateProjectScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Flexible(
                           flex: 3,
@@ -235,19 +236,17 @@ class CreateProjectScreen extends StatelessWidget {
                           flex: 3,
                           child: customTextField(
                             hint: "Name, Mobile Number",
+                            label: "",
                             controller: viewModel.titleController,
                           ),
                         ),
                         const SizedBox(width: 10),
-
                         Flexible(
                           flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 16.0),
-                            child: responsiveButton(
-                              text: "Add",
-                              onTap: () => print("Submit Clicked"),
-                            ),
+                          child: responsiveButton(
+                            text: "Add",
+                            // lab
+                            onTap: () => print("Submit Clicked"),
                           ),
                         ),
                       ],

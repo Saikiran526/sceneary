@@ -13,66 +13,69 @@ Widget customTextField({
 }) {
   return Padding(
     padding: const EdgeInsets.only(bottom: 8),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (label != null)
-          Padding(
-            padding: const EdgeInsets.only(bottom: 4),
-            child: Text(
-              label,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
+    child: SizedBox(
+      // height: 70,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (label != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                ),
               ),
             ),
-          ),
 
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: Color(0x33000000)),
-          ),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Color(0x33000000)),
+            ),
 
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-               if (prefix != null)
-                Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: prefix, // No forced size
-                ),
-              Expanded(
-                child: TextField(
-                  controller: controller,
-                  maxLines: maxLines,
-                  enabled: enabled,
-                  readOnly: onTap != null,
-                  onTap: onTap,
-                  decoration: InputDecoration(
-                    hintText: hint,
-                    border: InputBorder.none,
-                    isCollapsed: true,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                 if (prefix != null)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: prefix, // No forced size
                   ),
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                Expanded(
+                  child: TextField(
+                    controller: controller,
+                    maxLines: maxLines,
+                    enabled: enabled,
+                    readOnly: onTap != null,
+                    onTap: onTap,
+                    decoration: InputDecoration(
+                      hintText: hint,
+                      border: InputBorder.none,
+                      isCollapsed: true,
+                    ),
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
-              ),
 
-                if (suffix != null)
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: suffix,
-                ),
-            ],
+                  if (suffix != null)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: suffix,
+                  ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
   );
 }
