@@ -14,7 +14,7 @@ Widget customTextField({
   TextInputType? keyboardType,
 }) {
   return Container(
-    width: 300,
+    width: double.infinity,
     height: 40,
     padding: EdgeInsets.symmetric(horizontal: 10),
     decoration: BoxDecoration(
