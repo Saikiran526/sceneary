@@ -20,7 +20,7 @@ class ShootingScheduleScreen extends StatelessWidget {
           SizedBox(width: 21),
           IconButton(
             onPressed: () {
-              AppRouter.instance.push(RoutePaths.notificationsScreen);
+             
             },
             icon: SvgPicture.asset(AssetsPath.notificationImg),
           ),
