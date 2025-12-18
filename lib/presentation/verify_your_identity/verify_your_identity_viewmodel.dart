@@ -5,6 +5,7 @@ class VerifyYourIdentityViewmodel extends ChangeNotifier{
   VerifyYourIdentityViewmodel ({
     required this.context
   });
+  bool isVideoStarted = false;
   List<String> guidelinesData = [
 "Your full face must be visible",
 "Use good lighting",
@@ -12,4 +13,13 @@ class VerifyYourIdentityViewmodel extends ChangeNotifier{
 "Say the number loud and clear",
 "Make sure only you appear in the frame",
   ];
+   void startVideo() {
+    isVideoStarted = true;
+    notifyListeners();
+  }
+
+  void retakeVideo() {
+    isVideoStarted = false;
+    notifyListeners();
+  }
 } 

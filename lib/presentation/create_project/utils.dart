@@ -30,7 +30,7 @@ Widget customTextField({
           ),
 
         Container(
-          width: 328,
+          width: double.infinity,
           padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
@@ -40,14 +40,11 @@ Widget customTextField({
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              
-              /// ⭐ FIXED PREFIX
-              if (prefix != null)
+               if (prefix != null)
                 Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: prefix, // No forced size
                 ),
-
               Expanded(
                 child: TextField(
                   controller: controller,
@@ -67,8 +64,7 @@ Widget customTextField({
                 ),
               ),
 
-              /// ⭐ FIXED SUFFIX
-              if (suffix != null)
+                if (suffix != null)
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: suffix,

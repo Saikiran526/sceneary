@@ -6,7 +6,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'home_viewmodel.dart';
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 

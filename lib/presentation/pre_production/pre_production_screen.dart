@@ -30,8 +30,9 @@ class PreProductionScreen extends StatelessWidget {
                     onTap: () {
                       AppRouter.instance.push(RoutePaths.editPhaseScreen);
                     },
-                    child: SvgPicture.asset(AssetsPath.editMember)),
-                  SizedBox(width: 60),
+                    child: SvgPicture.asset(AssetsPath.editMember),
+                  ),
+                  SizedBox(width: 80),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF454545),
@@ -43,7 +44,7 @@ class PreProductionScreen extends StatelessWidget {
                     onPressed: () {
                       AppRouter.instance.push(RoutePaths.createTaskScreen);
                     },
-                    child: Text('+Add Tasks'),
+                    child: Text('+ Add Tasks'),
                   ),
                 ],
               ),
@@ -53,26 +54,28 @@ class PreProductionScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 328,
-                    height: 48,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(width: 1, color: Colors.grey),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Search here..",
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Color(0xFF5D5D5D),
-                        ),
-                        contentPadding: EdgeInsets.symmetric(vertical: 14),
-                      ),
-                    ),
-                  ),
+                              Container(
+                                height: 48,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    width: 1,
+                                  ),
+                                ),
+                                child: TextField(
+                                  controller: viewModel.searchController,
+                                  decoration: InputDecoration(
+                                    prefixIcon: Icon(Icons.search),
+                                    hintText: "Search here...",
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.symmetric(
+                                      vertical: 10,
+                                    ),
+                                  ),
+                                ),
+                              ),
+
                   SizedBox(height: 16),
                   Row(
                     spacing: 16,
@@ -257,7 +260,9 @@ class PreProductionScreen extends StatelessWidget {
                                     children: [
                                       GestureDetector(
                                         onTap: () {
-                                          AppRouter.instance.push(RoutePaths.scriptDiscussionScreen);
+                                          AppRouter.instance.push(
+                                            RoutePaths.scriptDiscussionScreen,
+                                          );
                                         },
                                         child: Container(
                                           padding: EdgeInsets.all(12),
@@ -265,7 +270,9 @@ class PreProductionScreen extends StatelessWidget {
                                           height: 120,
                                           decoration: BoxDecoration(
                                             color: Color(0xFFC3C3C3),
-                                            borderRadius: BorderRadius.circular(12),
+                                            borderRadius: BorderRadius.circular(
+                                              12,
+                                            ),
                                             border: Border.all(
                                               color: Colors.grey.shade300,
                                               width: 1,
@@ -285,18 +292,28 @@ class PreProductionScreen extends StatelessWidget {
                                               SizedBox(height: 16),
                                               Row(
                                                 children: [
-                                                  Icon(Icons.access_time, size: 13),
+                                                  Icon(
+                                                    Icons.access_time,
+                                                    size: 13,
+                                                  ),
                                                   SizedBox(width: 4),
                                                   Text(
                                                     "Start Date - 22/11/25",
-                                                    style: TextStyle(fontSize: 12),
+                                                    style: TextStyle(
+                                                      fontSize: 12,
+                                                    ),
                                                   ),
                                                   SizedBox(width: 16),
-                                                  Icon(Icons.access_time, size: 13),
+                                                  Icon(
+                                                    Icons.access_time,
+                                                    size: 13,
+                                                  ),
                                                   SizedBox(width: 4),
                                                   Text(
                                                     "End Date - 22/1/26",
-                                                    style: TextStyle(fontSize: 12),
+                                                    style: TextStyle(
+                                                      fontSize: 12,
+                                                    ),
                                                   ),
                                                 ],
                                               ),
@@ -311,13 +328,15 @@ class PreProductionScreen extends StatelessWidget {
                                                     TextSpan(
                                                       text: "Status : ",
                                                       style: TextStyle(
-                                                        fontWeight: FontWeight.w600,
+                                                        fontWeight:
+                                                            FontWeight.w600,
                                                       ),
                                                     ),
                                                     TextSpan(
                                                       text: 'on-going',
                                                       style: TextStyle(
-                                                        fontWeight: FontWeight.w500,
+                                                        fontWeight:
+                                                            FontWeight.w500,
                                                       ),
                                                     ),
                                                   ],
@@ -333,7 +352,9 @@ class PreProductionScreen extends StatelessWidget {
                                           return Column(
                                             children: [
                                               Container(
-                                                margin: EdgeInsets.symmetric(vertical: 8),
+                                                margin: EdgeInsets.symmetric(
+                                                  vertical: 8,
+                                                ),
                                                 padding: EdgeInsets.all(12),
                                                 width: double.infinity,
                                                 height: 120,
@@ -400,14 +421,16 @@ class PreProductionScreen extends StatelessWidget {
                                                             text: "Status : ",
                                                             style: TextStyle(
                                                               fontWeight:
-                                                                  FontWeight.w600,
+                                                                  FontWeight
+                                                                      .w600,
                                                             ),
                                                           ),
                                                           TextSpan(
                                                             text: 'on-going',
                                                             style: TextStyle(
                                                               fontWeight:
-                                                                  FontWeight.w500,
+                                                                  FontWeight
+                                                                      .w500,
                                                             ),
                                                           ),
                                                         ],
