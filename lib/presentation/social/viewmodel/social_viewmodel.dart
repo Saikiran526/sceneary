@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 
 class SocialViewmodel extends ChangeNotifier {
   SocialViewmodel({required BuildContext context});
@@ -33,6 +35,7 @@ class SocialViewmodel extends ChangeNotifier {
     switch (action) {
       case 'report':
         print("report");
+        AppRouter.instance.push(RoutePaths.socialReportPostScreen);
         break;
     }
   }

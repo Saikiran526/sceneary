@@ -115,102 +115,112 @@ class SocialMessagesScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final chat = viewModel.chats[index];
 
-                        return Container(
-                          color: Colors.white,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 10,
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              CircleAvatar(
-                                radius: 24,
-                                backgroundImage: AssetImage(chat["image"]),
-                              ),
+                        return GestureDetector(
+                          onTap: () {
+                            AppRouter.instance.push(
+                              RoutePaths.socialChatScreen,
+                            );
+                          },
+                          child: Container(
+                            color: Colors.white,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 10,
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                CircleAvatar(
+                                  radius: 24,
+                                  backgroundImage: AssetImage(chat["image"]),
+                                ),
 
-                              const SizedBox(width: 12),
+                                const SizedBox(width: 12),
 
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      chat["name"],
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.montserrat(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        chat["name"],
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(height: 4),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        chat["lastMessage"],
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: GoogleFonts.inter(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                                const SizedBox(width: 8),
+
+                                // Date + unread count
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    if (chat["unread"] > 0)
+                                      Container(
+                                        constraints: const BoxConstraints(
+                                          minWidth: 24,
+                                          minHeight: 24,
+                                        ),
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 6,
+                                          vertical: 2,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight,
+                                            colors: [
+                                              Color(0xFF090216),
+                                              Color(0xFF9D306A),
+                                            ],
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                            12,
+                                          ),
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          chat["unread"] > 99
+                                              ? "99+"
+                                              : chat["unread"].toString(),
+                                          style: GoogleFonts.inter(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+
+                                    const SizedBox(height: 6),
+
                                     Text(
-                                      chat["lastMessage"],
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: GoogleFonts.inter(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w400,
+                                      chat["date"],
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w500,
+                                        color: const Color(0XFF4F4F4F),
                                       ),
                                     ),
                                   ],
                                 ),
-                              ),
-
-                              const SizedBox(width: 8),
-
-                              // Date + unread count
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  if (chat["unread"] > 0)
-                                    Container(
-                                      constraints: const BoxConstraints(
-                                        minWidth: 24,
-                                        minHeight: 24,
-                                      ),
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 6,
-                                        vertical: 2,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        gradient: const LinearGradient(
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                          colors: [
-                                            Color(0xFF090216),
-                                            Color(0xFF9D306A),
-                                          ],
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        chat["unread"] > 99
-                                            ? "99+"
-                                            : chat["unread"].toString(),
-                                        style: GoogleFonts.inter(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-
-                                  const SizedBox(height: 6),
-
-                                  Text(
-                                    chat["date"],
-                                    style: GoogleFonts.montserrat(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                      color: const Color(0XFF4F4F4F),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         );
                       },

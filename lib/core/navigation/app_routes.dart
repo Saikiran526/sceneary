@@ -61,8 +61,11 @@ import 'package:sceneary/presentation/script_discussion/script_discussion_screen
 import 'package:sceneary/presentation/shooting_schedule/shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/social/view/add_post_screen.dart';
 import 'package:sceneary/presentation/social/view/messages_screen.dart';
+import 'package:sceneary/presentation/social/view/social_chat_screen.dart';
 import 'package:sceneary/presentation/social/view/social_message_requests_screen.dart';
 import 'package:sceneary/presentation/social/view/social_notification_screen.dart';
+import 'package:sceneary/presentation/social/view/social_report_post_screen.dart';
+import 'package:sceneary/presentation/social/view/social_report_success_screen.dart';
 import 'package:sceneary/presentation/social/view/social_screen.dart';
 import 'package:sceneary/presentation/social/view/social_search_screen.dart';
 import 'package:sceneary/presentation/social/view/view_profile_screen.dart';
@@ -176,8 +179,13 @@ class AppRouter {
     RoutePaths.socialMessagesScreen: () => const SocialMessagesScreen(),
     RoutePaths.socialMessageRequestsScreen: () =>
         const SocialMessageRequestsScreen(),
-        RoutePaths.socialSearchScreen:()=> const SocialSearchScreen(),
-    RoutePaths.socialNotificationsScreen:()=> const SocialNotificationScreen(),
+    RoutePaths.socialSearchScreen: () => const SocialSearchScreen(),
+    RoutePaths.socialNotificationsScreen: () =>
+        const SocialNotificationScreen(),
+    RoutePaths.socialReportPostScreen: () => const SocialReportPostScreen(),
+    RoutePaths.socialReportSuccessScreen: () =>
+        const SocialReportSuccessScreen(),
+        RoutePaths.socialChatScreen:()=> const SocialChatScreen(),
   };
 
   // Route Generator

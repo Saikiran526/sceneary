@@ -95,5 +95,8 @@ class RoutePaths {
   static const String socialMessageRequestsScreen="/socialMessageRequestsScreen";
   static const String socialSearchScreen="/socialSearchScreen";
   static const String socialNotificationsScreen="/socialNotificationScreen";
+  static const String socialReportPostScreen="/socialReportPostScreen";
+  static const String socialReportSuccessScreen="/socialReportSuccessScreen";
+  static const String socialChatScreen="/socialChatScreen";
   
 }

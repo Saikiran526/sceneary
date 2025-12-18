@@ -91,4 +91,5 @@ class AssetsPath {
   static const socialFeed = "assets/images/social_feed.svg";
   static const socialMessage = "assets/images/social_message.svg";
   static const socialComment = "assets/images/social_comment.svg";
+  static const reportSuccess = 'assets/images/report_success.svg';
 }

@@ -180,7 +180,7 @@ class SocialScreen extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-
+                          
                                     PopupMenuButton<String>(
                                       icon: const Icon(
                                         Icons.more_vert,
@@ -202,7 +202,7 @@ class SocialScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-
+                          
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
@@ -211,9 +211,9 @@ class SocialScreen extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-
+                          
                               const SizedBox(height: 8),
-
+                          
                               // 🔹 Actions
                               Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -222,7 +222,8 @@ class SocialScreen extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     GestureDetector(
-                                      onTap: () => viewModel.toggleLike(index),
+                                      onTap: () =>
+                                          viewModel.toggleLike(index),
                                       child: Row(
                                         children: [
                                           Icon(
@@ -266,9 +267,9 @@ class SocialScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-
+                          
                               const SizedBox(height: 8),
-
+                          
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
                                   12,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/social/viewmodel/social_notification_viewmodel.dart';
 
@@ -15,7 +14,11 @@ class SocialNotificationScreen extends StatelessWidget {
       child: Consumer<SocialNotificationViewmodel>(
         builder: (context, viewModel, child) {
           return Scaffold(
+            backgroundColor: Color(0XFFEEEEEE),
+
             appBar: AppBar(
+              backgroundColor: Color(0XFFEEEEEE),
+
               title: Text(
                 "Notifications",
                 style: GoogleFonts.montserrat(
@@ -27,129 +30,105 @@ class SocialNotificationScreen extends StatelessWidget {
 
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16),
+
                 child: Column(
-                  children: [
-                    Container(
-                      height: 64,
-                      padding: const EdgeInsets.symmetric(horizontal: 12),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
-                            blurRadius: 4,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const CircleAvatar(
-                            radius: 24,
-                            backgroundImage: AssetImage(AssetsPath.men1),
-                          ),
+                  children: List.generate(viewModel.notifications.length, (
+                    index,
+                  ) {
+                    final item = viewModel.notifications[index];
+                    final bool isConnect = item['type'] == 'connect';
 
-                          const SizedBox(width: 12),
-
-                          Expanded(
-                            child: Text(
-                              "Arya liked your post",
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: GoogleFonts.montserrat(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                              ),
-                            ),
+                    return Column(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
                           ),
-
-                          const Icon(
-                            Icons.favorite,
-                            color: Colors.red,
-                            size: 24,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                       padding: const EdgeInsets.symmetric(horizontal: 12),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
-                            blurRadius: 4,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                          child: Row(
+                            crossAxisAlignment: isConnect
+                                ? CrossAxisAlignment.start
+                                : CrossAxisAlignment.center,
                             children: [
-                              const CircleAvatar(
+                              CircleAvatar(
                                 radius: 24,
-                                backgroundImage: AssetImage(AssetsPath.men1),
+                                backgroundImage: AssetImage(item['avatar']),
                               ),
 
                               const SizedBox(width: 12),
 
                               Expanded(
-                                child: Text(
-                                  '"Arya " wants to connect with you.',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black,
-                                  ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      isConnect
+                                          ? '"${item['name']}" wants to connect with you.'
+                                          : '${item['name']} liked your post',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+
+                                    if (isConnect) ...[
+                                      const SizedBox(height: 8),
+
+                                      Row(
+                                        children: [
+                                          AppButton(
+                                            label: "Delete",
+                                            onTap: () {},
+                                            textColor: Colors.black,
+                                            buttonColor: Colors.white,
+                                            borderColor: Colors.black,
+                                            borderRadius: 12,
+                                            height: 27,
+                                            width: 80,
+                                          ),
+
+                                          const SizedBox(width: 12),
+
+                                          AppButton(
+                                            label: "Accept",
+                                            onTap: () {},
+                                            textColor: Colors.white,
+                                            buttonColor: const Color(
+                                              0XFF1D55A8,
+                                            ),
+                                            borderRadius: 12,
+                                            height: 27,
+                                            width: 80,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ],
                                 ),
                               ),
 
-                              const Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                                size: 24,
-                              ),
+                              if (!isConnect)
+                                const Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                  size: 24,
+                                ),
                             ],
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: AppButton(
-                                  label: "Delete",
-                                  onTap: () {},
-                                  textColor: Colors.black,
-                                  buttonColor: Colors.white,
-                                  borderColor: Colors.black,
-                                  height: 27,
-                                  width: 80,
-                                ),
-                              ),
-                              Expanded(
-                                child: AppButton(
-                                  label: "Accept",
-                                  onTap: () {},
-                                  textColor: Colors.white,
-                                  buttonColor: Color(0XFF1D55A8),
-                                  height: 27,
-                                  width: 80,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                        ),
+
+                        const Divider(
+                          height: 1,
+                          thickness: 0.6,
+                          color: Colors.grey,
+                        ),
+                      ],
+                    );
+                  }),
                 ),
               ),
             ),

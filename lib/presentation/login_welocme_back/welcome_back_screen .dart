@@ -4,7 +4,7 @@ import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 import 'package:sceneary/presentation/login_welocme_back/welcome_back_viewmodel.dart';
-  
+
 class WelcomeBackScreen extends StatelessWidget {
   const WelcomeBackScreen({super.key});
 
@@ -42,11 +42,18 @@ class WelcomeBackScreen extends StatelessWidget {
                             border: Border.all(width: 1, color: Colors.grey),
                           ),
                           child: Center(
-                            child: Text(
-                              "Skip",
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
+                            child: GestureDetector(
+                              onTap: () {
+                                AppRouter.instance.replace(
+                                  RoutePaths.dashboardScreen,
+                                );
+                              },
+                              child: Text(
+                                "Skip",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ),
@@ -73,7 +80,7 @@ class WelcomeBackScreen extends StatelessWidget {
                         height: 448,
                         padding: const EdgeInsets.fromLTRB(14, 60, 14, 60),
                         decoration: BoxDecoration(
-                           boxShadow: [
+                          boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.10),
                               blurRadius: 12,
@@ -126,9 +133,14 @@ class WelcomeBackScreen extends StatelessWidget {
                               hintText: 'Enter here',
                             ),
                             SizedBox(height: 24),
-                            primaryButton(text: 'Login', onPressed: () {
-                              AppRouter.instance.push(RoutePaths.basicInformationPageview);
-                            }),
+                            primaryButton(
+                              text: 'Login',
+                              onPressed: () {
+                                AppRouter.instance.push(
+                                  RoutePaths.basicInformationPageview,
+                                );
+                              },
+                            ),
                             SizedBox(height: 24),
                             Center(
                               child: Text(
@@ -159,9 +171,8 @@ class WelcomeBackScreen extends StatelessWidget {
                                         fontSize: 14,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
-                                        decoration: TextDecoration.underline, 
+                                        decoration: TextDecoration.underline,
                                         decorationThickness: 2,
-                                        
                                       ),
                                     ),
                                   ],
