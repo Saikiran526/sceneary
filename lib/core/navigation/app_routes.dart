@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/add_phase/add_phase_screen.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/view/add_shooting_schedule_screen.dart';
-import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/budget/view/add_budget_screen.dart';
 import 'package:sceneary/presentation/budget/view/actuals_screen.dart';
 import 'package:sceneary/presentation/budget/view/add_expense_screen.dart';

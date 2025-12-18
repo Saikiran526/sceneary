@@ -116,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                                 autoPlay: true,
                                 enlargeCenterPage: true,
                                 viewportFraction: 1,
-                                aspectRatio: 16 / 9,
+                                aspectRatio: 16 / 7,
                                 autoPlayInterval: const Duration(seconds: 3),
                                 onPageChanged: (index, reason) {
                                   viewModel.updateIndex=index;
