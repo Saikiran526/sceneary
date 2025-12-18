@@ -464,10 +464,6 @@ class AddShootingScheduleStepTwo extends StatelessWidget {
                           ),
                         ),
 
-
-
-
-
                       ],
                     ),
                   ),
