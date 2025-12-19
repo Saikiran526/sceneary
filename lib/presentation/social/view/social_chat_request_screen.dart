@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
-import 'package:sceneary/presentation/social/viewmodel/social_chat_viewmodel.dart';
+import 'package:sceneary/presentation/social/viewmodel/social_chat_request_viewmodel.dart';
 
-class SocialChatScreen extends StatelessWidget {
-  const SocialChatScreen({super.key});
+class SocialChatRequestScreen extends StatelessWidget {
+  const SocialChatRequestScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => SocialChatViewmodel(context: context),
-      child: Consumer<SocialChatViewmodel>(
+      create: (_) => SocialChatRequestViewmodel(context: context),
+      child: Consumer<SocialChatRequestViewmodel>(
         builder: (context, viewModel, child) {
           return Scaffold(
             backgroundColor: Color(0XFFEEEEEE),
@@ -158,13 +158,53 @@ class SocialChatScreen extends StatelessWidget {
                     },
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 48,
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                            ),
+                            child: const Text("Block User"),
+                          ),
+                        ),
+
+                        const SizedBox(width: 8),
+
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                            ),
+                            child: const Text("Add Connection"),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
 
                 _ChatInputBar(),
               ],
             ),
           );
-     
-     
         },
       ),
     );

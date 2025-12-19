@@ -61,6 +61,7 @@ import 'package:sceneary/presentation/script_discussion/script_discussion_screen
 import 'package:sceneary/presentation/shooting_schedule/shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/social/view/add_post_screen.dart';
 import 'package:sceneary/presentation/social/view/messages_screen.dart';
+import 'package:sceneary/presentation/social/view/social_chat_request_screen.dart';
 import 'package:sceneary/presentation/social/view/social_chat_screen.dart';
 import 'package:sceneary/presentation/social/view/social_message_requests_screen.dart';
 import 'package:sceneary/presentation/social/view/social_notification_screen.dart';
@@ -185,7 +186,9 @@ class AppRouter {
     RoutePaths.socialReportPostScreen: () => const SocialReportPostScreen(),
     RoutePaths.socialReportSuccessScreen: () =>
         const SocialReportSuccessScreen(),
-        RoutePaths.socialChatScreen:()=> const SocialChatScreen(),
+    RoutePaths.socialChatScreen: () => const SocialChatScreen(),
+
+    RoutePaths.socialChatRequestScreen: () => const SocialChatRequestScreen(),
   };
 
   // Route Generator
