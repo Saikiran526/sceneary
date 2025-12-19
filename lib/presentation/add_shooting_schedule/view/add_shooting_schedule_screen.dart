@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_step_two.dart';
-import 'package:sceneary/presentation/add_shooting_schedule/add_shooting_schedule_viewmodel.dart';
+import 'package:sceneary/presentation/add_shooting_schedule/view/add_shooting_schedule_step_two.dart';
+import 'package:sceneary/presentation/add_shooting_schedule/viewmodel/add_shooting_schedule_viewmodel.dart';
 
 import 'add_shooting_schedule_step_one.dart';
+
 
 class AddShootingScheduleScreen extends StatelessWidget {
   const AddShootingScheduleScreen({super.key});
@@ -80,9 +81,9 @@ class AddShootingScheduleScreen extends StatelessWidget {
                         onPageChanged: (page) {
                           viewModel.changePage=page;
                         },
-                        children: const [
-                          AddShootingScheduleStepOne(),
-                          AddShootingScheduleStepTwo(),
+                        children:  [
+                          AddShootingScheduleStepOne(viewModel:viewModel),
+                          AddShootingScheduleStepTwo(viewModelSuper:viewModel,isEdit: false,),
                         ],
                       ),
                     ),

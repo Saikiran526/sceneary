@@ -123,7 +123,7 @@ class CreateTaskScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     Container(
-                      width: 328,
+                      width: double.infinity,
                       height: 40,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,

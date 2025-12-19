@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/project_details/utils.dart';
 import 'package:sceneary/presentation/project_plan/project_plan_viewmodel.dart';
 
 class ProjectPlanScreen extends StatelessWidget {
@@ -11,38 +12,37 @@ class ProjectPlanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     final width = MediaQuery.of(context).size.width;
     return ChangeNotifierProvider(
       create: (context) => ProjectPlanViewmodel(context: context),
       child: Consumer(
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
-              title: Row(
-                children: [
-                  Text(
-                    'Project Plan',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 21.0),
+              title: Text(
+                'Project Plan',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              ),
+                actions: [
+                GestureDetector(
+                  onTap: () => servicePopUpMenu(context),
+                  child: Padding(
+                    padding: EdgeInsets.only(right: width * 0.04),
                     child: Container(
+                      padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SvgPicture.asset(AssetsPath.menuImg),
-                      ),
+                      child: SvgPicture.asset(AssetsPath.menuImg),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(21),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -63,8 +63,9 @@ class ProjectPlanScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(AssetsPath.addImg),
+                              SizedBox(width: 5,),
                               Text(
-                                'Add Entry',
+                                'Add Phase',
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
@@ -74,28 +75,30 @@ class ProjectPlanScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 10),
-                        OutlinedButton(
-                          style: OutlinedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              side: BorderSide(color: Colors.black, width: 1),
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(AssetsPath.downloadImg),
-                              SizedBox(width: 5),
-                              Text(
-                                'Download Sheet',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
-                                ),
+                        Expanded(
+                          child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                side: BorderSide(color: Colors.black, width: 1),
                               ),
-                            ],
+                            ),
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(AssetsPath.downloadImg),
+                                SizedBox(width: 5),
+                                Text(
+                                  'Download Sheet',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],

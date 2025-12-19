@@ -26,7 +26,7 @@ class AddPhaseScreen extends StatelessWidget {
             ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.only(left: 15,right: 15),
+                padding: const EdgeInsets.all(15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -47,7 +47,7 @@ class AddPhaseScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     Container(
-                      width: 328,
+                      width: double.infinity,
                       height: 40,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
@@ -102,7 +102,7 @@ class AddPhaseScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     Container(
-                      width: 328,
+                      width: double.infinity,
                       height: 40,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,

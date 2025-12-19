@@ -20,22 +20,27 @@ class ShootingScheduleScreen extends StatelessWidget {
           SizedBox(width: 21),
           IconButton(
             onPressed: () {
-              AppRouter.instance.push(RoutePaths.notificationsScreen);
-            },
+              
+
+              AppRouter.instance.push(RoutePaths.shootingSchedulesNotificationScreen);
+             },
             icon: SvgPicture.asset(AssetsPath.notificationImg),
           ),
           GestureDetector(
             onTap: () {
               servicePopUpMenu(context);
             },
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: SvgPicture.asset(AssetsPath.menuImg),
+            child: Padding(
+              padding: const EdgeInsets.only(right: 21.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: SvgPicture.asset(AssetsPath.menuImg),
+                ),
               ),
             ),
           ),
@@ -57,7 +62,6 @@ class ShootingScheduleScreen extends StatelessWidget {
               SizedBox(height: height * 0.02),
               Row(
                 children: [
-                  // ---------------------- Add Schedule Button ----------------------
                   Expanded(
                     flex: 1,
                     child: ElevatedButton(
@@ -89,10 +93,7 @@ class ShootingScheduleScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   SizedBox(width: width * 0.02),
-
-                  // ---------------------- Download Template Button ----------------------
                   Expanded(
                     flex: 1,
                     child: OutlinedButton(

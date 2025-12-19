@@ -176,7 +176,7 @@ class AddShootingScheduleStepTwo extends StatelessWidget {
                   ),
                   SizedBox(height: height * 0.03),
                   Container(
-                    width: 284,
+                    width: double.infinity,
                     height: 99,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -241,8 +241,6 @@ class AddShootingScheduleStepTwo extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 8),
-                    width: 328,
-                    height: 68,
                     padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -278,8 +276,6 @@ class AddShootingScheduleStepTwo extends StatelessWidget {
                             ),
                             Spacer(),
                             Container(
-                              width: 86,
-                              height: 23,
                               padding: EdgeInsets.fromLTRB(8, 4, 8, 4),
                               decoration: BoxDecoration(
                                 color: Color(0xFFF0FDF4),
@@ -307,7 +303,7 @@ class AddShootingScheduleStepTwo extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Container(
-                    width: 284,
+                    width: double.infinity,
                     height: 76,
                     padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                     decoration: BoxDecoration(
@@ -439,7 +435,7 @@ class AddShootingScheduleStepTwo extends StatelessWidget {
           ),
           SizedBox(height: 50,)
         ],
-      ),
+      ), 
     );
   }
 }

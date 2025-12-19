@@ -35,6 +35,12 @@ class RoutePaths {
   // Shooting Schedules
   static const String shootingScheduleScreen = '/ShootingScheduleScreen';
   static const String addShootingScheduleScreen = '/AddShootingScheduleScreen';
+  static const String shootingSchedulesPreviewScreen = '/ShootingSchedulesPreviewScreen';
+  static const String editShootingScheduleScreen = '/EditShootingScheduleScreen';
+  static const String shootingSchedulesNotificationScreen = '/ShootingSchedulesNotificationScreen';
+  static const String acceptRejectShootingSchedulesScreen = '/AcceptRejectShootingSchedulesScreen';
+  static const String rejectedScreen = '/RejectedScreen';
+  static const String reviewRejectedScreen = '/ReviewRejectedScreen';
 
   //muni
   static const String basicInformationPageview = '/BasicInformationPageview';
@@ -58,23 +64,25 @@ class RoutePaths {
   static const String notificationsScreen = '/NotificationsScreen';
   static const String calenderScreen = '/CalenderScreen';
   static const String calenderMonthPlanScreen = '/CalenderMonthPlanScreen';
-
   static const String projectPlanScreen = '/ProjectPlanScreen';
   static const String addPhaseScreen = '/AddPhaseScreen';
   static const String projectPlanAddPhaseScreen = '/ProjectPlanAddPhaseScreen';
   static const String preProductionScreen = '/PreProductionScreen';
   static const String editPhaseScreen = '/EditPhaseScreen';
-    static const String createTaskScreen = '/CreateTaskScreen';
-   static const String scriptDiscussionScreen = '/ScriptDiscussionScreen';
-   static const String extentPhaseDateScreen = '/ExtentPhaseDateScreen';
-   static const String viewChartViewScreen = '/ViewChartViewScreen';
- 
+  static const String createTaskScreen = '/CreateTaskScreen';
+  static const String scriptDiscussionScreen = '/ScriptDiscussionScreen';
+  static const String extentPhaseDateScreen = '/ExtentPhaseDateScreen';
+  static const String viewChartViewScreen = '/ViewChartViewScreen';
+  static const String basicInformationScreenThree =
+      '/basicInformationScreenThree';
+
   //upendar
   static const String callSheetScreen = "/callSheetScreen";
   static const String createCallSheetScreen = "/createCallSheet";
-  static const String createCallSheetCheckAvailabilityScreen = "/createCallSheetCheckAvailabilityScreen";
+  static const String createCallSheetCheckAvailabilityScreen =
+      "/createCallSheetCheckAvailabilityScreen";
   static const String editCallSheetScreen = "/editCallSheetScreen";
-  static const String callSheetTableSceen="/callSheetTableSceen";
+   static const String callSheetTableSceen="/callSheetTableSceen";
   static const String budgetScreen="/budgetScreen";
   static const String addBudgetScreen="/addBudgetScreen";
   static const String budgetTabScreen="/budgetTabScreen";
@@ -100,4 +108,31 @@ class RoutePaths {
   static const String socialChatScreen="/socialChatScreen";
   static const String socialChatRequestScreen="/socialChatRequestScreen";
   
-}
+ 
+//   static const String callSheetTableSceen = "/callSheetTableSceen";
+//   static const String budgetScreen = "/budgetScreen";
+//   static const String addBudgetScreen = "/addBudgetScreen";
+//   static const String budgetTabScreen = "/budgetTabScreen";
+//   static const String documentsScreen = "/documentsScreen";
+//   static const String documentDetailScreen = "/documentDetailScreen";
+//   static const String documentDetailFormScreen = "/documentDetailFormScreen";
+//   static const String budgetVersionScreen = "/budgetVersionScreen";
+//   static const String editBudgetScreen = "/editBudgetScreen";
+//   static const String actualsScreen = "/actualsScreen";
+//   static const String addExpenseScreen = "/addExpenseScreen";
+//   static const String callSheetPreviewScreen = "/callSheetPreviewScreen";
+//   static const String notificationScreen = "/notificationScreen";
+//   static const String selectDateFilterScreen = "/selectDateFilterScreen";
+//   static const String socialScreen = "/socialScreen";
+//   static const String addPostScreen = '/addPostScreen';
+//   static const String viewProfileScreen = "/viewProfileScreen";
+//   static const String socialMessagesScreen = "/messagesScreen";
+//   static const String socialMessageRequestsScreen =
+//       "/socialMessageRequestsScreen";
+//   static const String socialSearchScreen = "/socialSearchScreen";
+//   static const String socialNotificationsScreen = "/socialNotificationScreen";
+//   static const String socialReportPostScreen = "/socialReportPostScreen";
+//   static const String socialReportSuccessScreen = "/socialReportSuccessScreen";
+//   static const String socialChatScreen = "/socialChatScreen";
+
+  }

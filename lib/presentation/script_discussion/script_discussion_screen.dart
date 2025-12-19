@@ -94,21 +94,26 @@ class ScriptDiscussionScreen extends StatelessWidget {
                       controller: viewModel.endDateController,
                       suffix: SvgPicture.asset(AssetsPath.projectPlanDate),
                       onTap: () async {
-                        final result = await viewModel.showExtendDate();
-                        if (result == "pick_date") {
+                        final action = await viewModel.showExtendDate();
+                        if (action == "pick_date") {
                           viewModel.selectendDate();
+                          return;
                         }
-                        if (result == "continue") {
-                          AppRouter.instance.push(
+                        if (action == "continue") {
+                          final result = await AppRouter.instance.push(
                             RoutePaths.extentPhaseDateScreen,
                           );
+                          if (result != null && result is Map) {
+                            viewModel.endDateController.text =
+                                result["endDate"] ?? "";
+                          }
                         }
                       },
                     ),
+
                     SizedBox(height: 16),
                     Container(
                       width: double.infinity,
-                      height: 57,
                       padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -162,7 +167,6 @@ class ScriptDiscussionScreen extends StatelessWidget {
                     SizedBox(height: 16),
                     Container(
                       width: double.infinity,
-                      height: 57,
                       padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -223,7 +227,7 @@ class ScriptDiscussionScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     Container(
-                      width: 328,
+                      width: double.infinity,
                       height: 40,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,

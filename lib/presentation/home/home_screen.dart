@@ -6,7 +6,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'home_viewmodel.dart';
 
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -116,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                                 autoPlay: true,
                                 enlargeCenterPage: true,
                                 viewportFraction: 1,
-                                aspectRatio: 16 / 9,
+                                aspectRatio: 16 / 7,
                                 autoPlayInterval: const Duration(seconds: 3),
                                 onPageChanged: (index, reason) {
                                   viewModel.updateIndex=index;

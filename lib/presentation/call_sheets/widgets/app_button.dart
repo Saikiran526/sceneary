@@ -72,107 +72,6 @@ class AppButton extends StatelessWidget {
     this.textStyle,
   });
 
-  //   @override
-  //   Widget build(BuildContext context) {
-  //     final Color defaultTextColor = textColor ?? Colors.black;
-
-  //     final Widget content = Row(
-  //       mainAxisSize: MainAxisSize.min,
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       children: [
-  //         if (icon != null)
-  //           SvgPicture.asset(icon!, width: iconSize, height: iconSize),
-  //         if (icon != null) SizedBox(width: spacing),
-
-  //         if (!isLoading)
-  //           Flexible(
-  //             child: FittedBox(
-  //               fit: BoxFit.scaleDown,
-  //               child: Text(
-  //                 label,
-  //                 style:
-  //                     textStyle ??
-  //                     GoogleFonts.montserrat(
-  //                       color: defaultTextColor,
-  //                       fontSize: 14,
-  //                       fontWeight: FontWeight.w600,
-  //                     ),
-  //               ),
-  //             ),
-  //           )
-  //         else
-  //           SizedBox(
-  //             width: 18,
-  //             height: 18,
-  //             child: CircularProgressIndicator(
-  //               strokeWidth: 2,
-  //               color: defaultTextColor,
-  //             ),
-  //           ),
-
-  //         if (suffixIcon != null) SizedBox(width: spacing),
-  //         if (suffixIcon != null)
-  //           SvgPicture.asset(suffixIcon!, width: iconSize, height: iconSize),
-  //       ],
-  //     );
-
-  //     final ButtonStyle style = ButtonStyle(
-  //       minimumSize: MaterialStateProperty.all(Size(width ?? 0, height)),
-  //       padding: MaterialStateProperty.all(padding),
-  //       elevation: MaterialStateProperty.all(elevation),
-  //       backgroundColor: MaterialStateProperty.all(
-  //         buttonColor ?? Colors.transparent,
-  //       ),
-  //       foregroundColor: MaterialStateProperty.all(defaultTextColor),
-  //       shadowColor: MaterialStateProperty.all(shadowColor),
-  //       overlayColor: MaterialStateProperty.all(splashColor),
-  //       shape: MaterialStateProperty.all(
-  //         RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(borderRadius),
-  //           side: BorderSide(
-  //             color: borderColor ?? Colors.transparent,
-  //             width: borderWidth,
-  //           ),
-  //         ),
-  //       ),
-  //     );
-
-  //     // return SizedBox(
-  //     //   width: fullWidth ? double.infinity : width,
-  //     //   height: height,
-  //     //   child: ElevatedButton(onPressed: onTap, style: style, child: content),
-  //     // );
-  //     return SizedBox(
-  //   width: fullWidth ? double.infinity : width,
-  //   height: height,
-  //   child: Container(
-  //     decoration: BoxDecoration(
-  //       gradient: gradient, // 👈 gradient applied here
-  //       borderRadius: BorderRadius.circular(borderRadius),
-  //       boxShadow: elevation > 0
-  //           ? [
-  //               BoxShadow(
-  //                 color: shadowColor ?? Colors.black.withOpacity(0.2),
-  //                 blurRadius: elevation,
-  //               ),
-  //             ]
-  //           : null,
-  //     ),
-  //     child: ElevatedButton(
-  //       onPressed: onTap,
-  //       style: style.copyWith(
-  //         backgroundColor: MaterialStateProperty.all(
-  //           gradient != null ? Colors.transparent : buttonColor,
-  //         ),
-  //         shadowColor: MaterialStateProperty.all(Colors.transparent),
-  //       ),
-  //       child: content,
-  //     ),
-  //   ),
-  // );
-
-  //   }
-
   @override
   Widget build(BuildContext context) {
     final Color defaultTextColor = textColor ?? Colors.black;
@@ -186,17 +85,23 @@ class AppButton extends StatelessWidget {
         if (icon != null) SizedBox(width: spacing),
 
         if (!isLoading)
-          Text(
-            label,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style:
-                textStyle ??
-                GoogleFonts.montserrat(
-                  color: defaultTextColor,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
+          Flexible(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.center,
+              child: Text(
+                label,
+                maxLines: 1,
+                softWrap: false,
+                style:
+                    textStyle ??
+                    GoogleFonts.montserrat(
+                      color: defaultTextColor,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
+              ),
+            ),
           )
         else
           SizedBox(

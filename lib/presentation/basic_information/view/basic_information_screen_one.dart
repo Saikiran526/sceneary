@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/basic_information/view/basic_information_screen_two.dart';
+import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_pageview_viewmodel.dart';
 import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_viewmodel_one.dart';
-  
+
 class BasicInformationScreenOne extends StatelessWidget {
   const BasicInformationScreenOne({super.key});
 
@@ -23,14 +27,12 @@ class BasicInformationScreenOne extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF),
                       borderRadius: BorderRadius.circular(16),
-                       boxShadow: [
+                      boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(
-                            0.10,
-                          ),
+                          color: Colors.black.withOpacity(0.10),
                           blurRadius: 12,
                           spreadRadius: 1,
-                          offset: Offset(0, 4), 
+                          offset: Offset(0, 4),
                         ),
                       ],
                     ),
@@ -137,7 +139,7 @@ class BasicInformationScreenOne extends StatelessWidget {
                               ),
                             ),
                           ),
-                           SizedBox(height: 16),
+                          SizedBox(height: 16),
                           Text(
                             "Verify Email ID",
                             style: TextStyle(
@@ -149,14 +151,6 @@ class BasicInformationScreenOne extends StatelessWidget {
                           customTextField(
                             controller: viewModel.verifyEmailIdController,
                             hintText: 'Enter here',
-                          ),
-                          SizedBox(height: 16),
-                          Text(
-                            "Mobile Number",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
                           ),
                           SizedBox(height: 16),
                           Text(
@@ -213,13 +207,12 @@ class BasicInformationScreenOne extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(width: 10),
-                              SizedBox(
-                                width: 240,
+                              Expanded(
                                 child: customTextField(
                                   controller: viewModel.mobileNOController,
                                   hintText: 'Enter here',
                                   keyboardType: TextInputType.number,
-                                 // maxlength: 10,
+                                  // maxlength: 10,
                                 ),
                               ),
                             ],
@@ -236,7 +229,7 @@ class BasicInformationScreenOne extends StatelessWidget {
                           customTextField(
                             controller: viewModel.passwordController,
                             hintText: 'Enter here',
-                            suffix: SvgPicture.asset(AssetsPath.visibiltyImg)
+                            suffix: SvgPicture.asset(AssetsPath.visibiltyImg),
                           ),
                           SizedBox(height: 16),
                           Text(
@@ -253,7 +246,15 @@ class BasicInformationScreenOne extends StatelessWidget {
                             suffix: Icon(Icons.visibility_off),
                           ),
                           SizedBox(height: 24),
-                          primaryButton(text: 'Next', onPressed: () {}),
+                          primaryButton(
+                            text: 'Next',
+                            onPressed: () {
+                              Provider.of<BasicInformationPageviewViewmodel>(
+                                context,
+                                listen: false,
+                              ).nextPage();
+                            },
+                          ),
                           SizedBox(height: 24),
                           Center(
                             child: Text(

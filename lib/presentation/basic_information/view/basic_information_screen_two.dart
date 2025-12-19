@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_pageview_viewmodel.dart';
 import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_viewmodel_two.dart';
-  
+
 class BasicInformationScreenTwo extends StatelessWidget {
   const BasicInformationScreenTwo({super.key});
 
@@ -124,7 +125,8 @@ class BasicInformationScreenTwo extends StatelessWidget {
                                           style: TextStyle(fontSize: 12),
                                         ),
                                       ),
-                                    ).toList(),
+                                    )
+                                    .toList(),
                                 onChanged: (value) {
                                   if (value != null) {
                                     viewModel.selectedSubCraft(value);
@@ -172,7 +174,8 @@ class BasicInformationScreenTwo extends StatelessWidget {
                                           style: TextStyle(fontSize: 12),
                                         ),
                                       ),
-                                    ).toList(),
+                                    )
+                                    .toList(),
                                 onChanged: (value) {
                                   if (value != null) {
                                     viewModel.selectedSeniorLevel(value);
@@ -241,30 +244,42 @@ class BasicInformationScreenTwo extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: 16,),
+                          SizedBox(height: 16),
                           Container(
                             padding: EdgeInsets.all(10),
-                            height: 54,
                             width: double.infinity,
                             color: Color(0xFFE4E4E4),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('. Worked on RRR',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500
-                                ),),
-                                Text('. Worked on RRR',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500
-                                ),),
+                                Text(
+                                  '. Worked on RRR',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                Text(
+                                  '. Worked on RRR',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
                               ],
                             ),
                           ),
-                           SizedBox(height: 24),
-                          primaryButton(text: 'Next', onPressed: () {}),
+                          SizedBox(height: 24),
+                          primaryButton(
+                            text: 'Next',
+                            onPressed: () {
+                              Provider.of<BasicInformationPageviewViewmodel>(
+                                context,
+                                listen: false,
+                              ).nextPage();
+                            },
+                          ),
+
                           SizedBox(height: 24),
                           Center(
                             child: Text(
@@ -302,7 +317,7 @@ class BasicInformationScreenTwo extends StatelessWidget {
                                 ],
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),

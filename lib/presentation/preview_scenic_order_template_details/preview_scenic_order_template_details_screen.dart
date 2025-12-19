@@ -72,7 +72,8 @@ class PreviewScenicOrderTemplateDetailsScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(height: height * 0.01,),
-              Row(
+              Wrap(
+                runSpacing: 5,
                 children: [
                   Expanded(
                     child: SizedBox(
@@ -88,7 +89,7 @@ class PreviewScenicOrderTemplateDetailsScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SvgPicture.asset(AssetsPath.downloadImg),
+                            SvgPicture.asset(AssetsPath.downloadImg,height: 14,),
                             SizedBox(width: width * 0.01),
                             Text(
                               'Download Template',

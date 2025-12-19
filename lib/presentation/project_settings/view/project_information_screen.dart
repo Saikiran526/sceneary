@@ -267,8 +267,8 @@ class ProjectInformationScreen extends StatelessWidget {
                                 height: 16,
                                 width: 16,
                               ),
-                               SizedBox(height: 8),
-                               Text(
+                              SizedBox(height: 8),
+                              Text(
                                 "Click to upload",
                                 style: TextStyle(
                                   fontSize: 12,
@@ -276,19 +276,19 @@ class ProjectInformationScreen extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 8),
-                               Text(
+                              Text(
                                 "PNG, JPG up to 5MB",
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
-                                  color: Color(0xFF5D5D5D)
+                                  color: Color(0xFF5D5D5D),
                                 ),
                               ),
                             ],
                           ),
                         ),
                       ),
-                         SizedBox(height: 8),
+                      SizedBox(height: 8),
                       Text(
                         'Project Crew List',
                         style: TextStyle(
@@ -299,60 +299,87 @@ class ProjectInformationScreen extends StatelessWidget {
                       SizedBox(height: 8),
                       Row(
                         children: [
+                          // Role TextField
                           Expanded(
                             child: SizedBox(
-                              width: 156,
-                              child: customTextField(
-                                hint: 'e.g.., drama',
+                              height: 40,
+                              child: TextField(
                                 controller: viewModel.genereController,
+                                style: const TextStyle(fontSize: 14),
+                                decoration: InputDecoration(
+                                  hintText: 'Role...',
+                                  isDense: true,
+                                  contentPadding: const EdgeInsets.fromLTRB(
+                                    16,
+                                    10,
+                                    16,
+                                    10,
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: const BorderSide(width: 1),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                          SizedBox(width: 10),
-                          Expanded(
+
+                          const SizedBox(width: 10),
+                           Expanded(
                             child: SizedBox(
-                              width: 156,
-                              child: customTextField(
-                                hint: 'e.g.., Telugu,Hindhi',
+                              height: 40,
+                              child: TextField(
                                 controller: viewModel.languageController,
+                                style: const TextStyle(fontSize: 14),
+                                decoration: InputDecoration(
+                                  hintText: 'Name, Mobile Num..',
+                                  isDense: true,
+                                  contentPadding: const EdgeInsets.fromLTRB(16,10,16,10,
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: const BorderSide(width: 1),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                          SizedBox(width: 10),
-                          Container(
-                            width: 40,
-                            height: 40,
-                            padding: EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              color: Color(0xFF5D5D5D),
-                              
-                            ),
-                            child: Center(
-                              child: Text('Add',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white
-                              ),),
-                            ),
-                          )
+                          const SizedBox(width: 10),
+                           Container(
+                             height: 40,
+                             width: 40,
+                             alignment: Alignment.center,
+                             decoration: BoxDecoration(
+                               borderRadius: BorderRadius.circular(8),
+                               color: const Color(0xFF5D5D5D),
+                             ),
+                             child: const Text(
+                               'Add',
+                               style: TextStyle(
+                                 fontSize: 12,
+                                 color: Colors.white,
+                               ),
+                             ),
+                           ),
                         ],
                       ),
-                      SizedBox(height: 16,),
+
+                      SizedBox(height: 16),
                       SizedBox(
                         width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF3D3D3D),
-                          foregroundColor: Colors.white,
-                          padding: EdgeInsets.all(10),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadiusGeometry.circular(8)
-                          )
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF3D3D3D),
+                            foregroundColor: Colors.white,
+                            padding: EdgeInsets.all(10),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadiusGeometry.circular(8),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text('Save Project'),
                         ),
-                        onPressed: (){}, 
-                        child: Text('Save Project')))
+                      ),
                     ],
                   ),
                 ),

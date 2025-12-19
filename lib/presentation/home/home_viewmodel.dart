@@ -7,12 +7,12 @@ class HomeViewmodel extends ChangeNotifier {
   }
 
   // State
-  int? _selectedDate;
+  int _selectedDate=20;
   List<int> remainingDatesOfCurrentMonth = [20,21,22,23,24,25];
   int activeIndex = 0;
 
   // Getters
-  int? get selectedDate=>_selectedDate;
+  int get selectedDate=>_selectedDate;
 
   // Setters
   set setSelectedDate(int newDate){

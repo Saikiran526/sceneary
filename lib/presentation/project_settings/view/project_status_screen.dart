@@ -41,7 +41,6 @@ class ProjectStatusScreen extends StatelessWidget {
                       SizedBox(height: 16),
                       Container(
                         width: double.infinity,
-                        height: 151,
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           color: Colors.white,
