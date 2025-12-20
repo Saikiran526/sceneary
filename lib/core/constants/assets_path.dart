@@ -85,11 +85,13 @@ class AssetsPath {
   static const callSheetPreview = "assets/images/call_sheet_preview.png";
   static const socialActive = "assets/images/socialActive.svg";
   static const socialInActive = "assets/images/socialInActive.svg";
-  static const appBarBg = "assets/images/appBarBg.svg";
-  static const socialPost = "assets/images/social_post.jpg";
+   static const socialPost = "assets/images/social_post.jpg";
   static const socialNotification = "assets/images/social_notification.svg";
   static const socialFeed = "assets/images/social_feed.svg";
   static const socialMessage = "assets/images/social_message.svg";
   static const socialComment = "assets/images/social_comment.svg";
   static const reportSuccess = 'assets/images/report_success.svg';
+  static const edit = "assets/images/edit.svg";
+  static const muteNotifications = "assets/images/mute_notification.svg";
+  static const socialAppBar = "assets/images/social_appbar.svg";
 }

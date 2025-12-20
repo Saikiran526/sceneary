@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/social/viewmodel/social_chat_request_viewmodel.dart';
@@ -62,8 +64,15 @@ class SocialChatRequestScreen extends StatelessWidget {
                   const Spacer(),
 
                   IconButton(
-                    icon: const Icon(Icons.search, color: Colors.white),
-                    onPressed: () {},
+                    icon: Icon(
+                      Icons.search,
+                      color: viewModel.isSearchVisible
+                          ? Colors.grey
+                          : Colors.white,
+                    ),
+                    onPressed: () {
+                      viewModel.toggleSearch();
+                    },
                   ),
 
                   PopupMenuButton<String>(
@@ -71,11 +80,45 @@ class SocialChatRequestScreen extends StatelessWidget {
                     onSelected: (value) {
                       viewModel.onChatMenuSelected(action: value);
                     },
-                    itemBuilder: (context) => const [
-                      PopupMenuItem(value: 'block', child: Text('Block')),
+                    itemBuilder: (context) => [
+                      PopupMenuItem(
+                        value: 'block',
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+
+                          children: [
+                            SvgPicture.asset(AssetsPath.block),
+                            const SizedBox(width: 5),
+
+                            Text(
+                              'Block',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 12,
+                                color: Color(0XFF3D3D3D),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       PopupMenuItem(
                         value: 'muteNotification',
-                        child: Text('Mute Notifications'),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SvgPicture.asset(AssetsPath.muteNotifications),
+                            const SizedBox(width: 5),
+
+                            Text(
+                              'Mute Notifications',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 12,
+                                color: Color(0XFF3D3D3D),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -85,6 +128,44 @@ class SocialChatRequestScreen extends StatelessWidget {
 
             body: Column(
               children: [
+                Visibility(
+                  visible: viewModel.isSearchVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Container(
+                      height: 48,
+                      padding: const EdgeInsets.fromLTRB(16, 8, 10, 8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: const Color(0xFFF4D6EA),
+                          width: 1,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.search, color: Colors.grey),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: TextField(
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                hintText: 'Search people or conversations...',
+                                border: InputBorder.none,
+                                isDense: true,
+                              ),
+                              onChanged: (value) {
+                                // handle filtering here
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
                 Expanded(
                   child: ListView.builder(
                     padding: const EdgeInsets.symmetric(
@@ -179,7 +260,14 @@ class SocialChatRequestScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(6),
                               ),
                             ),
-                            child: const Text("Block User"),
+                            child: Text(
+                              "Block User",
+                              style: GoogleFonts.montserrat(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 10,
+                                color: Color(0XFF454545),
+                              ),
+                            ),
                           ),
                         ),
 
@@ -193,7 +281,14 @@ class SocialChatRequestScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(6),
                               ),
                             ),
-                            child: const Text("Add Connection"),
+                            child: Text(
+                              "Add Connection",
+                              style: GoogleFonts.montserrat(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 10,
+                                color: Color(0XFF454545),
+                              ),
+                            ),
                           ),
                         ),
                       ],

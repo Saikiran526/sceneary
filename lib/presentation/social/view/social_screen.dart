@@ -5,6 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
+import 'package:sceneary/presentation/social/helper_bottomsheets/comment_bottom_sheet.dart';
+import 'package:sceneary/presentation/social/helper_bottomsheets/like_bottom_sheet.dart';
 import 'package:sceneary/presentation/social/viewmodel/social_viewmodel.dart';
 
 class SocialScreen extends StatelessWidget {
@@ -19,6 +22,7 @@ class SocialScreen extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.pink,
+
               elevation: 0,
               toolbarHeight: 100,
 
@@ -180,7 +184,7 @@ class SocialScreen extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                          
+
                                     PopupMenuButton<String>(
                                       icon: const Icon(
                                         Icons.more_vert,
@@ -202,7 +206,7 @@ class SocialScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                          
+
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
@@ -211,9 +215,9 @@ class SocialScreen extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                          
+
                               const SizedBox(height: 8),
-                          
+
                               // 🔹 Actions
                               Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -222,8 +226,7 @@ class SocialScreen extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     GestureDetector(
-                                      onTap: () =>
-                                          viewModel.toggleLike(index),
+                                      onTap: () => viewModel.toggleLike(index),
                                       child: Row(
                                         children: [
                                           Icon(
@@ -235,8 +238,38 @@ class SocialScreen extends StatelessWidget {
                                                 : Colors.black,
                                           ),
                                           const SizedBox(width: 4),
+
+                                          InkWell(
+                                            onTap: () {
+                                              openFormBottomSheet(context);
+                                            },
+                                            child: Text(
+                                              post['likes'].toString(),
+                                              style: GoogleFonts.montserrat(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(width: 20),
+                                    GestureDetector(
+                                      onTap: () {
+                                        openCommentsBottomSheet(context);
+                                      },
+                                      child: Row(
+                                        children: [
+                                          SvgPicture.asset(
+                                            AssetsPath.socialComment,
+                                            width: 24,
+                                            height: 24,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          const SizedBox(width: 4),
                                           Text(
-                                            post['likes'].toString(),
+                                            post['comments'].toString(),
                                             style: GoogleFonts.montserrat(
                                               fontSize: 12,
                                               fontWeight: FontWeight.w600,
@@ -245,31 +278,12 @@ class SocialScreen extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    const SizedBox(width: 20),
-                                    Row(
-                                      children: [
-                                        SvgPicture.asset(
-                                          AssetsPath.socialComment,
-                                          width: 24,
-                                          height: 24,
-                                          fit: BoxFit.cover,
-                                        ),
-                                        const SizedBox(width: 4),
-                                        Text(
-                                          post['comments'].toString(),
-                                          style: GoogleFonts.montserrat(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
                                   ],
                                 ),
                               ),
-                          
+
                               const SizedBox(height: 8),
-                          
+
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
                                   12,
@@ -298,6 +312,34 @@ class SocialScreen extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+
+  void openFormBottomSheet(BuildContext context) {
+    final viewModel = context.read<SocialViewmodel>();
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (_) => ChangeNotifierProvider.value(
+        value: viewModel,
+        child: const LikesBottomSheet(),
+      ),
+    );
+  }
+
+  void openCommentsBottomSheet(BuildContext context) {
+    final viewModel = context.read<SocialViewmodel>();
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (_) => ChangeNotifierProvider.value(
+        value: viewModel,
+        child: const CommentsBottomSheet(),
       ),
     );
   }

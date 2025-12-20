@@ -5,6 +5,21 @@ class SocialChatViewmodel extends ChangeNotifier {
 
   SocialChatViewmodel({required this.context});
 
+
+  bool _isSearchVisible = false;
+
+  bool get isSearchVisible => _isSearchVisible;
+
+  void toggleSearch() {
+    _isSearchVisible = !_isSearchVisible;
+    notifyListeners();
+  }
+
+  void hideSearch() {
+    _isSearchVisible = false;
+    notifyListeners();
+  }
+
   void onChatMenuSelected({required String action}) {
     switch (action) {
       case 'Block':

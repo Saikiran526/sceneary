@@ -23,7 +23,7 @@ class SocialMessageRequestsScreen extends StatelessWidget {
               title: Row(
                 children: [
                   const Text(
-                    "Social",
+                    "Messages",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -54,6 +54,11 @@ class SocialMessageRequestsScreen extends StatelessWidget {
                         const SizedBox(width: 10),
                         Expanded(
                           child: TextField(
+                              onTap: () {
+                              AppRouter.instance.push(
+                                RoutePaths.socialSearchScreen,
+                              );
+                            },
                             decoration: InputDecoration(
                               hintText: 'Search people or conversations...',
                               hintStyle: TextStyle(

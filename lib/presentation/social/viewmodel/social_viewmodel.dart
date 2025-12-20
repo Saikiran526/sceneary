@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/social/model/commemt_model.dart';
+import 'package:sceneary/presentation/social/model/like_model.dart';
 
 class SocialViewmodel extends ChangeNotifier {
   SocialViewmodel({required BuildContext context});
@@ -34,9 +36,83 @@ class SocialViewmodel extends ChangeNotifier {
   void onPostMenuSelected({required String action, required int postIndex}) {
     switch (action) {
       case 'report':
-        print("report");
         AppRouter.instance.push(RoutePaths.socialReportPostScreen);
         break;
     }
+  }
+
+  final List<LikeUser> likes = [
+    LikeUser(name: "John Doe", isConnected: false),
+    LikeUser(name: "Jane Smith", isConnected: true),
+    LikeUser(name: "John Doe", isConnected: false),
+    LikeUser(name: "Jane Smith", isConnected: true),
+    LikeUser(name: "John Doe", isConnected: false),
+    LikeUser(name: "Jane Smith", isConnected: true),
+    LikeUser(name: "John Doe", isConnected: false),
+    LikeUser(name: "Jane Smith", isConnected: true),
+    LikeUser(name: "John Doe", isConnected: false),
+    LikeUser(name: "Jane Smith", isConnected: true),
+    LikeUser(name: "John Doe", isConnected: false),
+    LikeUser(name: "Jane Smith", isConnected: true),
+    LikeUser(name: "John Doe", isConnected: false),
+    LikeUser(name: "Jane Smith", isConnected: true),
+    LikeUser(name: "John Doe", isConnected: false),
+    LikeUser(name: "Jane Smith", isConnected: true),
+  ];
+
+  final TextEditingController commentController = TextEditingController();
+
+  final List<CommentModel> comments = [
+    CommentModel(
+      name: "John Doe",
+      avatar: "https://i.pravatar.cc/150",
+      text: "Nice post 🔥",
+      time: "2h",
+    ),
+    CommentModel(
+      name: "John Doe",
+      avatar: "https://i.pravatar.cc/150",
+      text: "Nice post 🔥",
+      time: "2h",
+    ),
+    CommentModel(
+      name: "John Doe",
+      avatar: "https://i.pravatar.cc/150",
+      text: "Nice post 🔥",
+      time: "2h",
+    ),
+    CommentModel(
+      name: "John Doe",
+      avatar: "https://i.pravatar.cc/150",
+      text: "Nice post 🔥",
+      time: "2h",
+    ),
+    CommentModel(
+      name: "John Doe",
+      avatar: "https://i.pravatar.cc/150",
+      text: "Nice post 🔥",
+      time: "2h",
+    ),
+  ];
+  void addComment() {
+    if (commentController.text.trim().isEmpty) return;
+
+    comments.add(
+      CommentModel(
+        name: "You",
+        avatar: "https://i.pravatar.cc/151",
+        text: commentController.text,
+        time: "Now",
+      ),
+    );
+
+    commentController.clear();
+    notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    commentController.dispose();
+    super.dispose();
   }
 }

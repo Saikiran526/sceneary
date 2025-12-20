@@ -2,11 +2,76 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:photo_manager/photo_manager.dart';
 
 class AddPostViewmodel extends ChangeNotifier {
   final BuildContext context;
 
-  AddPostViewmodel({required this.context});
+  AddPostViewmodel({required this.context}) {
+    loadGallery();
+  }
+
+  // for gallery
+
+  // List<AssetEntity> galleryImages = [];
+  // bool isLoading = true;
+
+  // Future<void> loadGallery() async {
+  //   final permission = await PhotoManager.requestPermissionExtend();
+  //   if (!permission.isAuth) return;
+
+  //   final albums = await PhotoManager.getAssetPathList(
+  //     type: RequestType.image,
+  //     onlyAll: true,
+  //   );
+
+  //   final recentAlbum = albums.first;
+
+  //   galleryImages = await recentAlbum.getAssetListPaged(page: 0, size: 60);
+
+  //   isLoading = false;
+  //   notifyListeners();
+  // }
+  List<AssetEntity> galleryImages = [];
+  bool isLoading = true;
+
+  Future<void> loadGallery() async {
+    isLoading = true;
+    notifyListeners();
+
+    final permission = await PhotoManager.requestPermissionExtend();
+
+    // ✅ Allow both full & limited access (IMPORTANT for iOS)
+    if (!permission.isAuth && !permission.hasAccess) {
+      isLoading = false;
+      notifyListeners();
+      return;
+    }
+
+    // Fetch "Recent" / "All Photos" album
+    final albums = await PhotoManager.getAssetPathList(
+      type: RequestType.image,
+      onlyAll: true,
+    );
+
+    if (albums.isEmpty) {
+      isLoading = false;
+      notifyListeners();
+      return;
+    }
+
+    final recentAlbum = albums.first;
+
+    galleryImages = await recentAlbum.getAssetListPaged(
+      page: 0,
+      size: 100, // increase if you want more
+    );
+
+    isLoading = false;
+    notifyListeners();
+  }
+
+  // ends here
 
   final ImagePicker _picker = ImagePicker();
   File? selectedImage;

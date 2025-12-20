@@ -54,6 +54,11 @@ class SocialMessagesScreen extends StatelessWidget {
                         const SizedBox(width: 10),
                         Expanded(
                           child: TextField(
+                              onTap: () {
+                              AppRouter.instance.push(
+                                RoutePaths.socialSearchScreen,
+                              );
+                            },
                             decoration: InputDecoration(
                               hintText: 'Search people or conversations...',
                               hintStyle: TextStyle(

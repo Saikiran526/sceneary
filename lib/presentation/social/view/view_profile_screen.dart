@@ -281,14 +281,58 @@ class ViewProfileScreen extends StatelessWidget {
                                                 postIndex: index,
                                               );
                                             },
-                                            itemBuilder: (context) => const [
+                                            itemBuilder: (context) => [
                                               PopupMenuItem(
                                                 value: 'Edit',
-                                                child: Text('Edit'),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    SvgPicture.asset(
+                                                      AssetsPath.edit,
+                                                    ),
+                                                    const SizedBox(width: 5),
+                                                    Text(
+                                                      'Edit.',
+                                                      style:
+                                                          GoogleFonts.montserrat(
+                                                            fontSize: 12,
+                                                            color: Color(
+                                                              0XFF3D3D3D,
+                                                            ),
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                               PopupMenuItem(
                                                 value: 'Delete',
-                                                child: Text('Delete'),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+
+                                                  children: [
+                                                    SvgPicture.asset(
+                                                      AssetsPath.delete,
+                                                      color: Colors.black,
+                                                    ),
+                                                    const SizedBox(width: 5),
+                                                    Text(
+                                                      'Delete',
+                                                      style:
+                                                          GoogleFonts.montserrat(
+                                                            fontSize: 12,
+                                                            color: Color(
+                                                              0XFF3D3D3D,
+                                                            ),
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ],
                                           ),
