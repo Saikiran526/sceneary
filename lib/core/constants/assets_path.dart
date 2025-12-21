@@ -94,4 +94,9 @@ class AssetsPath {
   static const edit = "assets/images/edit.svg";
   static const muteNotifications = "assets/images/mute_notification.svg";
   static const socialAppBar = "assets/images/social_appbar.svg";
+  static const socialBg="assets/images/social_bg.jpg";
+  static const addPost="assets/images/add_post.svg";
+  static const downloadSheet="assets/images/download_sheet.svg";
+  static const uploadSheet='assets/images/upload_sheet.svg';
+  static const addBudget='assets/images/add_budget.svg';
 }

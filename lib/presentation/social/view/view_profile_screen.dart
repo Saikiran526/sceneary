@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/social/viewmodel/view_profile_viewmodel.dart';
 
@@ -17,129 +19,150 @@ class ViewProfileScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.pink,
               elevation: 0,
               toolbarHeight: 150,
               automaticallyImplyLeading: false,
+              backgroundColor: Colors.transparent,
 
-              flexibleSpace: SafeArea(
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 8,
-                      left: 8,
-                      child: IconButton(
-                        icon: const Icon(Icons.arrow_back, color: Colors.white),
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                    ),
+              flexibleSpace: Stack(
+                fit: StackFit.expand,
+                children: [
+                   Image.asset(AssetsPath.socialBg, fit: BoxFit.cover),
 
-                    Align(
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const CircleAvatar(
-                              radius: 32,
-                              backgroundImage: AssetImage(AssetsPath.women),
+                   Container(color: Colors.black.withOpacity(0.25)),
+
+                   SafeArea(
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          top: 8,
+                          left: 8,
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.arrow_back,
+                              color: Colors.white,
                             ),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                        ),
 
-                            const SizedBox(width: 16),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const CircleAvatar(
+                                  radius: 32,
+                                  backgroundImage: AssetImage(AssetsPath.women),
+                                ),
+                                const SizedBox(width: 16),
 
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    "Username_01",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-
-                                  const SizedBox(height: 8),
-
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      GestureDetector(
-                                        onTap: () => viewModel.changeTab(0),
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              "19",
-                                              style: GoogleFonts.montserrat(
-                                                color:
-                                                    viewModel.selectedTab == 0
-                                                    ? Colors.white
-                                                    : Colors.white70,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                            Text(
-                                              "Posts",
-                                              style: GoogleFonts.montserrat(
-                                                color:
-                                                    viewModel.selectedTab == 0
-                                                    ? Colors.white
-                                                    : Colors.white70,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                          ],
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 45,
+                                        ),
+                                        child: const Text(
+                                          "Username_01",
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                         ),
                                       ),
+                                      const SizedBox(height: 8),
 
-                                      GestureDetector(
-                                        onTap: () => viewModel.changeTab(1),
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              "19",
-                                              style: GoogleFonts.montserrat(
-                                                color:
-                                                    viewModel.selectedTab == 1
-                                                    ? Colors.white
-                                                    : Colors.white70,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () => viewModel.changeTab(0),
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  "19",
+                                                  style: GoogleFonts.montserrat(
+                                                    color:
+                                                        viewModel.selectedTab ==
+                                                            0
+                                                        ? Colors.white
+                                                        : Colors.white70,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "Posts",
+                                                  style: GoogleFonts.montserrat(
+                                                    color:
+                                                        viewModel.selectedTab ==
+                                                            0
+                                                        ? Colors.white
+                                                        : Colors.white70,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                            Text(
-                                              "Connections",
-                                              style: GoogleFonts.montserrat(
-                                                color:
-                                                    viewModel.selectedTab == 1
-                                                    ? Colors.white
-                                                    : Colors.white70,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                          ),
+
+                                          GestureDetector(
+                                            onTap: () => viewModel.changeTab(1),
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  "19",
+                                                  style: GoogleFonts.montserrat(
+                                                    color:
+                                                        viewModel.selectedTab ==
+                                                            1
+                                                        ? Colors.white
+                                                        : Colors.white70,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "Connections",
+                                                  style: GoogleFonts.montserrat(
+                                                    color:
+                                                        viewModel.selectedTab ==
+                                                            1
+                                                        ? Colors.white
+                                                        : Colors.white70,
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
+
             body: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -147,6 +170,7 @@ class ViewProfileScreen extends StatelessWidget {
                     ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          /// 🔹 Connections Title
                           Text(
                             "Connections",
                             style: GoogleFonts.montserrat(
@@ -154,7 +178,9 @@ class ViewProfileScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
+                          const SizedBox(height: 8),
 
+                          /// 🔹 Connections List
                           ListView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
@@ -162,62 +188,74 @@ class ViewProfileScreen extends StatelessWidget {
                             itemBuilder: (context, index) {
                               final user = viewModel.connections[index];
 
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 16,
-                                      backgroundImage: AssetImage(
-                                        user["image"]!,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 12),
-
-                                    Expanded(
-                                      child: Text(
-                                        user["name"]!,
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600,
+                              return SizedBox(
+                                width: double.infinity, // ✅ full row width
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 8,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 16,
+                                        backgroundImage: AssetImage(
+                                          user["image"]!,
                                         ),
                                       ),
-                                    ),
+                                      const SizedBox(width: 12),
 
-                                    AppButton(
-                                      label: "Message",
-                                      height: 35,
-                                      width: 88,
-                                      buttonColor: const Color(0XFF1D55A8),
-                                      textColor: Colors.white,
-                                      onTap: () {},
-                                    ),
-
-                                    const SizedBox(width: 8),
-
-                                    PopupMenuButton<String>(
-                                      icon: const Icon(
-                                        Icons.more_vert,
-                                        color: Colors.black,
+                                      /// Name
+                                      Expanded(
+                                        child: Text(
+                                          user["name"]!,
+                                          style: GoogleFonts.montserrat(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
                                       ),
-                                      onSelected: (value) {
-                                        viewModel.onConnectionMenuSelected(
-                                          action: value,
-                                          postIndex: index,
-                                        );
-                                      },
-                                      itemBuilder: (context) => const [
-                                        PopupMenuItem(
-                                          value: 'Remove Connection',
-                                          child: Text('Remove Connection'),
+
+                                      /// Message Button
+                                      AppButton(
+                                        label: "Message",
+                                        height: 35,
+                                        width: 87,
+                                        buttonColor: const Color(0XFF1D55A8),
+                                        textColor: Colors.white,
+                                        onTap: () {
+                                          AppRouter.instance.push(
+                                            RoutePaths.socialChatRequestScreen,
+                                          );
+                                        },
+                                      ),
+
+                                      const SizedBox(width: 8),
+
+                                      /// More Menu
+                                      PopupMenuButton<String>(
+                                        icon: const Icon(
+                                          Icons.more_vert,
+                                          color: Colors.black,
                                         ),
-                                        PopupMenuItem(
-                                          value: 'Block',
-                                          child: Text('Block'),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                        onSelected: (value) {
+                                          viewModel.onConnectionMenuSelected(
+                                            action: value,
+                                            postIndex: index,
+                                          );
+                                        },
+                                        itemBuilder: (context) => const [
+                                          PopupMenuItem(
+                                            value: 'Remove Connection',
+                                            child: Text('Remove Connection'),
+                                          ),
+                                          PopupMenuItem(
+                                            value: 'Block',
+                                            child: Text('Block'),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               );
                             },
@@ -225,9 +263,9 @@ class ViewProfileScreen extends StatelessWidget {
                         ],
                       )
                     : Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          /// 🔹 Feed Title
                           Text(
                             "Feed",
                             style: GoogleFonts.montserrat(
@@ -236,6 +274,8 @@ class ViewProfileScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 10),
+
+                          /// 🔹 Posts List
                           ListView.builder(
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
@@ -245,10 +285,10 @@ class ViewProfileScreen extends StatelessWidget {
 
                               return Container(
                                 margin: const EdgeInsets.only(bottom: 16),
-
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    /// Header
                                     Padding(
                                       padding: const EdgeInsets.all(12),
                                       child: Row(
@@ -285,21 +325,16 @@ class ViewProfileScreen extends StatelessWidget {
                                               PopupMenuItem(
                                                 value: 'Edit',
                                                 child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
                                                   children: [
                                                     SvgPicture.asset(
                                                       AssetsPath.edit,
                                                     ),
-                                                    const SizedBox(width: 5),
+                                                    const SizedBox(width: 6),
                                                     Text(
-                                                      'Edit.',
+                                                      'Edit',
                                                       style:
                                                           GoogleFonts.montserrat(
                                                             fontSize: 12,
-                                                            color: Color(
-                                                              0XFF3D3D3D,
-                                                            ),
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                           ),
@@ -310,23 +345,17 @@ class ViewProfileScreen extends StatelessWidget {
                                               PopupMenuItem(
                                                 value: 'Delete',
                                                 child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-
                                                   children: [
                                                     SvgPicture.asset(
                                                       AssetsPath.delete,
                                                       color: Colors.black,
                                                     ),
-                                                    const SizedBox(width: 5),
+                                                    const SizedBox(width: 6),
                                                     Text(
                                                       'Delete',
                                                       style:
                                                           GoogleFonts.montserrat(
                                                             fontSize: 12,
-                                                            color: Color(
-                                                              0XFF3D3D3D,
-                                                            ),
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                           ),
@@ -340,6 +369,7 @@ class ViewProfileScreen extends StatelessWidget {
                                       ),
                                     ),
 
+                                    /// Image
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
@@ -351,7 +381,7 @@ class ViewProfileScreen extends StatelessWidget {
 
                                     const SizedBox(height: 8),
 
-                                    // 🔹 Actions
+                                    /// Actions
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                         horizontal: 12,
@@ -389,7 +419,6 @@ class ViewProfileScreen extends StatelessWidget {
                                                 AssetsPath.socialComment,
                                                 width: 24,
                                                 height: 24,
-                                                fit: BoxFit.cover,
                                               ),
                                               const SizedBox(width: 4),
                                               Text(
@@ -407,6 +436,7 @@ class ViewProfileScreen extends StatelessWidget {
 
                                     const SizedBox(height: 8),
 
+                                    /// Caption
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
                                         12,

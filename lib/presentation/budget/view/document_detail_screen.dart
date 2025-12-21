@@ -17,12 +17,23 @@ class DocumentDetailScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
+                 iconTheme: const IconThemeData(color: Colors.white),
+              backgroundColor: Colors.transparent,
+              flexibleSpace: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                  ),
+                ),
+              ),
               title: Text(
                 "Documents",
                 style: GoogleFonts.montserrat(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -70,10 +81,10 @@ class DocumentDetailScreen extends StatelessWidget {
                             width: 47,
                             height: 48,
                             decoration: BoxDecoration(
-                              color: Color(0xFFFFF3FB),
+                              color: Color(0XFF1D55A8),
                               borderRadius: BorderRadius.circular(8),
                               border: Border.all(
-                                color: Colors.black12,
+                                color: Colors.white,
                                 width: 1,
                               ),
                             ),
@@ -180,7 +191,7 @@ class DocumentDetailScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xFFFFF3FB),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.black12, width: 1),
+          border: Border.all(color: Color(0XFFECB5D9), width: 1),
         ),
         child: Row(
           children: [

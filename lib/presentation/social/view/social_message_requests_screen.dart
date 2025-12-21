@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/social/viewmodel/social_message_requests_viewmodel.dart';
@@ -15,15 +16,30 @@ class SocialMessageRequestsScreen extends StatelessWidget {
       child: Consumer<SocialMessageRequestsViewmodel>(
         builder: (context, viewModel, child) {
           return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.pink,
+     appBar: AppBar(
               elevation: 0,
-              toolbarHeight: 60,
+              toolbarHeight: 80,
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.transparent,
 
-              title: Row(
+              /// ✅ ADD ONLY THIS
+              flexibleSpace: Stack(
+                fit: StackFit.expand,
                 children: [
-                  const Text(
-                    "Messages",
+                  Image.asset(
+                    AssetsPath.socialBg, // same background image
+                    fit: BoxFit.cover,
+                  ),
+                  // Optional overlay for readability
+                  Container(color: Colors.black.withOpacity(0.25)),
+                ],
+              ),
+
+              /// 🔹 UI BELOW IS UNCHANGED
+              title: Row(
+                children: const [
+                  Text(
+                    "Message",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -54,12 +70,13 @@ class SocialMessageRequestsScreen extends StatelessWidget {
                         const SizedBox(width: 10),
                         Expanded(
                           child: TextField(
-                              onTap: () {
+                            readOnly: true,
+                            onTap: () {
                               AppRouter.instance.push(
                                 RoutePaths.socialSearchScreen,
                               );
                             },
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: 'Search people or conversations...',
                               hintStyle: TextStyle(
                                 fontSize: 14,

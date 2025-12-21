@@ -89,9 +89,9 @@ class CastAndCrewAvailabilityScreen extends StatelessWidget {
                           width: double.infinity,
                           padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0XFFFBF4F9),
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: const Color(0xFFEDF1F3)),
+                            border: Border.all(color: const Color(0XFFF4D6EA)),
                           ),
                           child: Row(
                             children: [
@@ -169,9 +169,9 @@ class CastAndCrewAvailabilityScreen extends StatelessWidget {
                       width: double.infinity,
                       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Color(0XFFFBF4F9),
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: const Color(0xFFEDF1F3)),
+                        border: Border.all(color: const Color(0XFFF4D6EA)),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -275,9 +275,9 @@ class CastAndCrewAvailabilityScreen extends StatelessWidget {
                       width: double.infinity,
                       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Color(0XFFFBF4F9),
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: const Color(0xFFEDF1F3)),
+                        border: Border.all(color: const Color(0XFFF4D6EA)),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,

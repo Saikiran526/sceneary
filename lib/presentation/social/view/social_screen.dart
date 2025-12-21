@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
-import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/social/helper_bottomsheets/comment_bottom_sheet.dart';
 import 'package:sceneary/presentation/social/helper_bottomsheets/like_bottom_sheet.dart';
 import 'package:sceneary/presentation/social/viewmodel/social_viewmodel.dart';
@@ -21,11 +20,24 @@ class SocialScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.pink,
-
               elevation: 0,
               toolbarHeight: 100,
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.transparent,
 
+              /// ✅ ADD THIS ONLY
+              flexibleSpace: Stack(
+                fit: StackFit.expand,
+                children: [
+                  /// Background Image
+                  Image.asset(AssetsPath.socialBg, fit: BoxFit.cover),
+
+                  /// Optional dark overlay (remove if not needed)
+                  Container(color: Colors.black.withOpacity(0.25)),
+                ],
+              ),
+
+              /// 🔹 UI BELOW IS 100% UNCHANGED
               title: Row(
                 children: [
                   GestureDetector(
@@ -56,9 +68,10 @@ class SocialScreen extends StatelessWidget {
                       AppRouter.instance.push(RoutePaths.addPostScreen);
                     },
                     child: SvgPicture.asset(
-                      AssetsPath.socialFeed,
+                      AssetsPath.addPost,
                       width: 24,
                       height: 24,
+                      fit: BoxFit.cover,
                     ),
                   ),
 
@@ -74,6 +87,7 @@ class SocialScreen extends StatelessWidget {
                       AssetsPath.socialNotification,
                       width: 24,
                       height: 24,
+                      color: Colors.white,
                     ),
                   ),
 
@@ -87,6 +101,7 @@ class SocialScreen extends StatelessWidget {
                       AssetsPath.socialMessage,
                       width: 24,
                       height: 24,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -113,12 +128,13 @@ class SocialScreen extends StatelessWidget {
                         const SizedBox(width: 10),
                         Expanded(
                           child: TextField(
+                            readOnly: true,
                             onTap: () {
                               AppRouter.instance.push(
                                 RoutePaths.socialSearchScreen,
                               );
                             },
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: 'Search people or conversations...',
                               hintStyle: TextStyle(
                                 fontSize: 14,

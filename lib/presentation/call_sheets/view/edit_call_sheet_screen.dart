@@ -21,12 +21,23 @@ class EditCallSheetScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
+              iconTheme: const IconThemeData(color: Colors.white),
+              backgroundColor: Colors.transparent,
+              flexibleSpace: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                  ),
+                ),
+              ),
               title: Text(
                 "Edit call Sheet",
                 style: GoogleFonts.montserrat(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -42,7 +53,8 @@ class EditCallSheetScreen extends StatelessWidget {
                         children: [
                           buildStepCircle(
                             number: 1,
-                            color: Colors.black,
+                            color: Color(0XFF1D55A8),
+
                             title: 'Basic Details',
                           ),
 
@@ -53,7 +65,7 @@ class EditCallSheetScreen extends StatelessWidget {
 
                           buildStepCircle(
                             number: 2,
-                            color: Color(0xFF868686),
+                            color: Color(0XFFD1D1D1),
                             title: 'Check Availability',
                           ),
                         ],
