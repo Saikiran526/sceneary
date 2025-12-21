@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/social/viewmodel/social_search_viewmodel.dart';
 
 class SocialSearchScreen extends StatelessWidget {
@@ -116,7 +119,11 @@ class SocialSearchScreen extends StatelessWidget {
                           ),
 
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              AppRouter.instance.push(
+                                RoutePaths.socialChatScreen,
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0XFF1D55A8),
                               shape: RoundedRectangleBorder(
@@ -128,7 +135,7 @@ class SocialSearchScreen extends StatelessWidget {
                               ),
                               minimumSize: const Size(0, 32),
                             ),
-                            child: const Text(
+                            child: Text(
                               "Message",
                               style: TextStyle(
                                 fontSize: 12,

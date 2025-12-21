@@ -11,8 +11,10 @@ class SocialReportPostViewmodel extends ChangeNotifier {
 
   List<String> reportOptions = [];
 
+  bool showOtherField = false;
+  final TextEditingController otherController = TextEditingController();
+
   void loadReportOptions() {
-    // This can be replaced with API response later
     reportOptions = [
       "I just don't like it",
       "Bullying or unwanted contact",
@@ -22,14 +24,29 @@ class SocialReportPostViewmodel extends ChangeNotifier {
       "Nudity or sexual activity",
       "Scam, fraud or spam",
       "False information",
+      "Other",
     ];
-
     notifyListeners();
   }
 
   void selectReason(String reason) {
-    // handle selection / API call
-    debugPrint("Selected reason: $reason");
+    if (reason == "Other") {
+      showOtherField = true;
+      notifyListeners();
+    } else {
+      AppRouter.instance.push(RoutePaths.socialReportSuccessScreen);
+    }
+  }
+
+  void submitOtherReason() {
+    if (otherController.text.trim().isEmpty) return;
+
     AppRouter.instance.push(RoutePaths.socialReportSuccessScreen);
+  }
+
+  @override
+  void dispose() {
+    otherController.dispose();
+    super.dispose();
   }
 }

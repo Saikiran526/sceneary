@@ -17,12 +17,23 @@ class DocumentsScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
+                 iconTheme: const IconThemeData(color: Colors.white),
+              backgroundColor: Colors.transparent,
+              flexibleSpace: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                  ),
+                ),
+              ),
               title: Text(
                 "Documents",
                 style: GoogleFonts.montserrat(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -47,7 +58,7 @@ class DocumentsScreen extends StatelessWidget {
                           width: 47,
                           height: 48,
                           decoration: BoxDecoration(
-                            color: Color(0xFFFFF3FB),
+                            color: Color(0XFF1D55A8),
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(color: Colors.black12, width: 1),
                           ),
@@ -60,7 +71,7 @@ class DocumentsScreen extends StatelessWidget {
                             child: Icon(
                               Icons.filter_alt,
                               size: 22,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -81,7 +92,7 @@ class DocumentsScreen extends StatelessWidget {
                           ),
                           title: viewModel.users[index]["name"],
                           subtitle: viewModel.users[index]["docs"],
-                          trailing: Icon(Icons.arrow_forward, size: 16),
+                          trailing: Icon(Icons.arrow_forward,color: Colors.white, size: 16),
                           onTap: () {
                             AppRouter.instance.push(
                               RoutePaths.documentDetailScreen,
@@ -115,9 +126,9 @@ class DocumentsScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         margin: const EdgeInsets.symmetric(vertical: 6),
         decoration: BoxDecoration(
-          color: const Color(0xFFFFF3FB),
+          color: const Color(0XFFFFF3FB),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.black12, width: 1),
+          border: Border.all(color: Color(0XFFECB5D9), width: 1),
         ),
         child: Row(
           children: [
@@ -158,7 +169,7 @@ class DocumentsScreen extends StatelessWidget {
                 height: 29,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.redAccent,
+                  color: Color(0XFF1D55A8),
                   shape: BoxShape.circle,
                 ),
                 child: trailing,

@@ -157,5 +157,28 @@ class AppButton extends StatelessWidget {
         child: ElevatedButton(onPressed: onTap, style: style, child: content),
       ),
     );
+    //     return SizedBox(
+    //   height: height,
+    //   width: fullWidth ? double.infinity : width,
+    //   child: DecoratedBox(
+    //     decoration: BoxDecoration(
+    //       gradient: gradient,
+    //       borderRadius: BorderRadius.circular(borderRadius),
+    //       boxShadow: elevation > 0
+    //           ? [
+    //               BoxShadow(
+    //                 color: shadowColor ?? Colors.black.withOpacity(0.2),
+    //                 blurRadius: elevation,
+    //               ),
+    //             ]
+    //           : null,
+    //     ),
+    //     child: ElevatedButton(
+    //       onPressed: isLoading ? null : onTap,
+    //       style: style,
+    //       child: content,
+    //     ),
+    //   ),
+    // );
   }
 }

@@ -18,12 +18,23 @@ class CreateCallSheetScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
+               iconTheme: const IconThemeData(color: Colors.white),
+              backgroundColor: Colors.transparent,
+              flexibleSpace: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                  ),
+                ),
+              ),
               title: Text(
                 "Create Call Sheet",
                 style: GoogleFonts.montserrat(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -39,7 +50,7 @@ class CreateCallSheetScreen extends StatelessWidget {
                         children: [
                           buildStepCircle(
                             number: 1,
-                            color: Colors.black,
+                            color: Color(0XFF1D55A8),
                             title: 'Basic Details',
                           ),
 
@@ -50,7 +61,7 @@ class CreateCallSheetScreen extends StatelessWidget {
 
                           buildStepCircle(
                             number: 2,
-                            color: Color(0xFF868686),
+                            color: Color(0XFFD1D1D1),
                             title: 'Check Availability',
                           ),
                         ],
@@ -286,7 +297,7 @@ class CreateCallSheetScreen extends StatelessWidget {
                                 label: "Cancel",
                                 onTap: () {},
                                 buttonColor: Colors.white,
-                                borderColor: Colors.black,
+                                borderColor: Color(0XFF1D55A8),
                               ),
                             ),
                             const SizedBox(width: 12),

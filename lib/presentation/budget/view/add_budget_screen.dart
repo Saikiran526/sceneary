@@ -142,17 +142,21 @@ class AddBudgetScreen extends StatelessWidget {
                             },
                             isFullWidth: true,
                             backgroundColor: Colors.white,
-                            textColor: Colors.black,
+                            textColor: Color(0XFF1D55A8),
+                            borderColor: Color(0XFF1D55A8),
                           ),
                         ),
                         const SizedBox(width: 12),
                         Expanded(
                           child: CustomActionButton(
                             label: "Add",
-                            backgroundColor: Colors.black,
+                            backgroundColor: Color(0XFF1D55A8),
                             textColor: Colors.white,
-                            borderColor: Colors.black,
-                            onTap: () {AppRouter.instance.push(RoutePaths.budgetTabScreen);},
+                            onTap: () {
+                              AppRouter.instance.push(
+                                RoutePaths.budgetTabScreen,
+                              );
+                            },
                             isFullWidth: true,
                           ),
                         ),

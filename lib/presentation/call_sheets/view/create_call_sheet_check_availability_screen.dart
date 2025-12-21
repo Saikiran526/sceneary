@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/call_sheets/viewmodel/create_call_sheet_check_availability_viewmodel.dart';
@@ -20,12 +21,23 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
+              iconTheme: const IconThemeData(color: Colors.white),
+              backgroundColor: Colors.transparent,
+              flexibleSpace: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                  ),
+                ),
+              ),
               title: Text(
                 "Create Call Sheet",
                 style: GoogleFonts.montserrat(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -41,7 +53,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                         children: [
                           buildStepCircle(
                             number: 1,
-                            color: Colors.black,
+                            color: Color(0XFF1D55A8),
                             title: 'Basic Details',
                           ),
 
@@ -52,7 +64,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
 
                           buildStepCircle(
                             number: 2,
-                            color: Colors.black,
+                            color: Color(0XFF1D55A8),
                             title: 'Check Availability',
                           ),
                         ],
@@ -65,7 +77,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                         16,
                       ), // padding inside container
                       decoration: BoxDecoration(
-                        color: Colors.white, // background color
+                        color: Color(0XFFF9EAF5), // background color
                         borderRadius: BorderRadius.circular(
                           26,
                         ), // rounded corners
@@ -338,25 +350,17 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Stack(
+                                  clipBehavior: Clip.none,
                                   children: [
-                                    Container(
-                                      width: 40,
-                                      height: 40,
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.grey,
-                                      ),
-                                      child: const Center(
-                                        child: Text(
-                                          "A",
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
+                                    /// 🔹 MAIN AVATAR
+                                    const CircleAvatar(
+                                      radius: 20, // 40x40
+                                      backgroundImage: AssetImage(
+                                        AssetsPath.women,
                                       ),
                                     ),
 
+                                    /// 🔹 STATUS DOT
                                     Positioned(
                                       bottom: 0,
                                       right: 0,
@@ -367,7 +371,7 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                           shape: BoxShape.circle,
                                           color: Colors.green,
                                           border: Border.all(
-                                            color: Colors.white,
+                                            color: Colors.green,
                                             width: 2,
                                           ),
                                         ),
@@ -457,25 +461,17 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Stack(
+                                      clipBehavior: Clip.none,
                                       children: [
-                                        Container(
-                                          width: 40,
-                                          height: 40,
-                                          decoration: const BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: Colors.grey,
-                                          ),
-                                          child: const Center(
-                                            child: Text(
-                                              "A",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
+                                        /// 🔹 MAIN AVATAR
+                                        const CircleAvatar(
+                                          radius: 20, // 40x40
+                                          backgroundImage: AssetImage(
+                                            AssetsPath.women,
                                           ),
                                         ),
 
+                                        /// 🔹 STATUS DOT
                                         Positioned(
                                           bottom: 0,
                                           right: 0,
@@ -484,7 +480,8 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
                                             height: 10,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
-                                              color: Colors.red,
+                                              color:
+                                                  Colors.red, // online / unread
                                               border: Border.all(
                                                 color: Colors.white,
                                                 width: 2,
