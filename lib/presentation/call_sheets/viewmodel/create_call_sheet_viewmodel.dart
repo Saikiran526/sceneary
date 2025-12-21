@@ -72,86 +72,86 @@ class CreateCallSheetViewmodel extends ChangeNotifier {
   }
 
   void onNextPressed() {
-    if (bannerNameController.text.isEmpty) {
-      _showError("Banner Name is required");
-      return;
-    }
+    // if (bannerNameController.text.isEmpty) {
+    //   _showError("Banner Name is required");
+    //   return;
+    // }
 
-    if (producerController.text.isEmpty) {
-      _showError("Producer Name is required");
-      return;
-    }
-    if (directorController.text.isEmpty) {
-      _showError("Director is required");
-      return;
-    }
-    if (ceoController.text.isEmpty) {
-      _showError("Ceo is Required");
-      return;
-    }
+    // if (producerController.text.isEmpty) {
+    //   _showError("Producer Name is required");
+    //   return;
+    // }
+    // if (directorController.text.isEmpty) {
+    //   _showError("Director is required");
+    //   return;
+    // }
+    // if (ceoController.text.isEmpty) {
+    //   _showError("Ceo is Required");
+    //   return;
+    // }
 
-    if (dateController.text.isEmpty) {
-      _showError("Shooting date is required");
-      return;
-    }
-    if (shootingTimeController.text.isEmpty) {
-      _showError("Shooting time is required");
-      return;
-    }
+    // if (dateController.text.isEmpty) {
+    //   _showError("Shooting date is required");
+    //   return;
+    // }
+    // if (shootingTimeController.text.isEmpty) {
+    //   _showError("Shooting time is required");
+    //   return;
+    // }
 
-    if (breakFastController.text.isEmpty) {
-      _showError("BreakFastTime is required");
-      return;
-    }
+    // if (breakFastController.text.isEmpty) {
+    //   _showError("BreakFastTime is required");
+    //   return;
+    // }
 
-    if (lunchTimeController.text.isEmpty) {
-      _showError("Lunch Time Controller");
-      return;
-    }
+    // if (lunchTimeController.text.isEmpty) {
+    //   _showError("Lunch Time Controller");
+    //   return;
+    // }
 
-    if (dinnerController.text.isEmpty) {
-      _showError("Dinner Time is Required");
-      return;
-    }
-    if (wrapUpController.text.isEmpty) {
-      _showError("Wrap Up is required");
-      return;
-    }
+    // if (dinnerController.text.isEmpty) {
+    //   _showError("Dinner Time is Required");
+    //   return;
+    // }
+    // if (wrapUpController.text.isEmpty) {
+    //   _showError("Wrap Up is required");
+    //   return;
+    // }
 
-    if (teaCoffeContoller.text.isEmpty) {
-      _showError("Tea/Coffe time is required");
-      return;
-    }
-    if (selectedDay == null || selectedDay!.isEmpty) {
-      _showError("Please select a day");
-      return;
-    }
+    // if (teaCoffeContoller.text.isEmpty) {
+    //   _showError("Tea/Coffe time is required");
+    //   return;
+    // }
+    // if (selectedDay == null || selectedDay!.isEmpty) {
+    //   _showError("Please select a day");
+    //   return;
+    // }
 
-    if (actorsController.text.isEmpty) {
-      _showError("Actors are required");
-      return;
-    }
+    // if (actorsController.text.isEmpty) {
+    //   _showError("Actors are required");
+    //   return;
+    // }
 
-    if (selectCastController.text.isEmpty) {
-      _showError("Select cast is required");
-      return;
-    }
-    if (scriptPageController.text.isEmpty) {
-      _showError("Script is required");
-      return;
-    }
-    if (locationController.text.isEmpty) {
-      _showError("Location is required");
-      return;
-    }
+    // if (selectCastController.text.isEmpty) {
+    //   _showError("Select cast is required");
+    //   return;
+    // }
+    // if (scriptPageController.text.isEmpty) {
+    //   _showError("Script is required");
+    //   return;
+    // }
+    // if (locationController.text.isEmpty) {
+    //   _showError("Location is required");
+    //   return;
+    // }
     AppRouter.instance.push(RoutePaths.createCallSheetCheckAvailabilityScreen);
   }
 
-  void _showError(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.red),
-    );
-  }
+  // void _showError(String message) {
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //     SnackBar(content: Text(message), backgroundColor: Colors.red),
+  //   );
+  // }
 
   @override
   void dispose() {

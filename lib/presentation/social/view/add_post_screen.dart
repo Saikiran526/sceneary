@@ -33,7 +33,7 @@ class AddPostScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                     SizedBox(
+                    SizedBox(
                       width: 88,
                       child: InkWell(
                         borderRadius: BorderRadius.circular(4),
