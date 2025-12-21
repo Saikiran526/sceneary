@@ -80,12 +80,24 @@ class AssetsPath {
   static const forwardGroup = "assets/images/forward_group.svg";
   static const filterProjectPlan = "assets/images/filter_plan.svg";
   static const closeCircle = "assets/images/close-circle.svg";
+  static const leftGradeient = "assets/images/leftgradeient.svg";
+  static const rightGradeient = "assets/images/right_gradient.svg";
+  static const middleGradeient = "assets/images/middle_gradient.svg";
+  static const loginCenter = "assets/images/login_centerimg.svg";
+  static const appbarBtn = "assets/images/appbar_backbtn.svg";
+  static const basicViewGradient = "assets/images/basic_information_gradient.svg";
+  static const basicViewImg = "assets/images/basic_view_img.svg";
+  static const iconInvisible = "assets/images/icon_invisible.svg";
+  static const pageTwoImg = "assets/images/ptwo_img.png";
+  static const profilePicture = "assets/images/Group 1.png";
+
+
 
   //upendar
   static const callSheetPreview = "assets/images/call_sheet_preview.png";
   static const socialActive = "assets/images/socialActive.svg";
   static const socialInActive = "assets/images/socialInActive.svg";
-   static const socialPost = "assets/images/social_post.jpg";
+  static const socialPost = "assets/images/social_post.jpg";
   static const socialNotification = "assets/images/social_notification.svg";
   static const socialFeed = "assets/images/social_feed.svg";
   static const socialMessage = "assets/images/social_message.svg";
