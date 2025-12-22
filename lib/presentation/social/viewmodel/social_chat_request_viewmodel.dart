@@ -28,4 +28,21 @@ class SocialChatRequestViewmodel extends ChangeNotifier {
         print("Mute Notifications");
     }
   }
+
+
+
+  final GlobalKey attachKey = GlobalKey();
+
+void onAttchmentTapped({required String action}){
+
+   switch (action) {
+      case 'gallery':
+        print("gallery");
+        break;
+      case 'document':
+        print("documet");
+    }
+
+}
+
 }

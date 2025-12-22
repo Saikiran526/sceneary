@@ -111,4 +111,6 @@ class AssetsPath {
   static const downloadSheet="assets/images/download_sheet.svg";
   static const uploadSheet='assets/images/upload_sheet.svg';
   static const addBudget='assets/images/add_budget.svg';
+  static const chatDocument="assets/images/chat_document.svg";
+  static const chatGallery="assets/images/chat_gallery.svg";
 }

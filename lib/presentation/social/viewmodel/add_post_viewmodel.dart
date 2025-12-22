@@ -1,39 +1,23 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:photo_manager/photo_manager.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 
 class AddPostViewmodel extends ChangeNotifier {
   final BuildContext context;
 
-  AddPostViewmodel({required this.context}) {
-    loadGallery();
-  }
+  AddPostViewmodel({required this.context});
 
-  // for gallery
+  // ===================== STATE =====================
 
-  // List<AssetEntity> galleryImages = [];
-  // bool isLoading = true;
+  bool isLoading = false;
 
-  // Future<void> loadGallery() async {
-  //   final permission = await PhotoManager.requestPermissionExtend();
-  //   if (!permission.isAuth) return;
-
-  //   final albums = await PhotoManager.getAssetPathList(
-  //     type: RequestType.image,
-  //     onlyAll: true,
-  //   );
-
-  //   final recentAlbum = albums.first;
-
-  //   galleryImages = await recentAlbum.getAssetListPaged(page: 0, size: 60);
-
-  //   isLoading = false;
-  //   notifyListeners();
-  // }
   List<AssetEntity> galleryImages = [];
-  bool isLoading = true;
+
+  /// Selected image indexes
+  final Set<int> selectedIndexes = {};
+
+  // ===================== INIT =====================
 
   Future<void> loadGallery() async {
     isLoading = true;
@@ -41,96 +25,67 @@ class AddPostViewmodel extends ChangeNotifier {
 
     final permission = await PhotoManager.requestPermissionExtend();
 
-    // ✅ Allow both full & limited access (IMPORTANT for iOS)
-    if (!permission.isAuth && !permission.hasAccess) {
+    if (!permission.isAuth) {
       isLoading = false;
       notifyListeners();
+      PhotoManager.openSetting();
       return;
     }
 
-    // Fetch "Recent" / "All Photos" album
-    final albums = await PhotoManager.getAssetPathList(
+    final List<AssetPathEntity> albums = await PhotoManager.getAssetPathList(
       type: RequestType.image,
-      onlyAll: true,
+      hasAll: true,
     );
 
-    if (albums.isEmpty) {
-      isLoading = false;
-      notifyListeners();
-      return;
+    if (albums.isNotEmpty) {
+      final AssetPathEntity recentAlbum = albums.first;
+
+      galleryImages = await recentAlbum.getAssetListPaged(page: 0, size: 100);
     }
-
-    final recentAlbum = albums.first;
-
-    galleryImages = await recentAlbum.getAssetListPaged(
-      page: 0,
-      size: 100, // increase if you want more
-    );
 
     isLoading = false;
     notifyListeners();
   }
 
-  // ends here
+  // ===================== IMAGE SELECTION =====================
 
-  final ImagePicker _picker = ImagePicker();
-  File? selectedImage;
-
-  Future<void> pickFromCamera() async {
-    final XFile? image = await _picker.pickImage(
-      source: ImageSource.camera,
-      imageQuality: 80,
-    );
-
-    if (image != null) {
-      selectedImage = File(image.path);
-      notifyListeners();
+  void toggleSelection(int index) {
+    if (selectedIndexes.contains(index)) {
+      selectedIndexes.remove(index);
+    } else {
+      selectedIndexes.add(index);
     }
+    notifyListeners();
+  }
+
+  void clearSelection() {
+    selectedIndexes.clear();
+    notifyListeners();
+  }
+
+  // ===================== ACTION BUTTONS =====================
+
+  void onTextPost() {
+    // Navigate to text-only post screen
+    AppRouter.instance.push(RoutePaths.addTextScreen);
+    debugPrint("Text post tapped");
+  }
+
+  Future<void> openCamera() async {
+    // Integrate image_picker (camera) here
+    debugPrint("Camera tapped");
   }
 
   Future<void> pickFromGallery() async {
-    final XFile? image = await _picker.pickImage(
-      source: ImageSource.gallery,
-      imageQuality: 80,
-    );
-
-    if (image != null) {
-      selectedImage = File(image.path);
-      notifyListeners();
-    }
+    // Multi-image picker or confirm selected images
+    debugPrint("Gallery upload tapped");
   }
 
-  void showPicker(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      builder: (_) {
-        return SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                leading: const Icon(Icons.camera_alt),
-                title: const Text("Camera"),
-                onTap: () {
-                  Navigator.pop(context);
-                  pickFromCamera();
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.photo_library),
-                title: const Text("Gallery"),
-                onTap: () {
-                  Navigator.pop(context);
-                  pickFromGallery();
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
+  // ===================== HELPERS =====================
+
+  bool get hasSelection => selectedIndexes.isNotEmpty;
+
+  List<AssetEntity> get selectedAssets {
+    return selectedIndexes.map((i) => galleryImages[i]).toList();
   }
 }

@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/core/navigation/app_routes.dart';
+import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/social/viewmodel/social_report_success_viewmodel.dart';
 
@@ -68,7 +70,9 @@ class SocialReportSuccessScreen extends StatelessWidget {
 
                       AppButton(
                         label: "Done",
-                        onTap: () {},
+                        onTap: () {
+                          AppRouter.instance.push(RoutePaths.socialScreen);
+                        },
                         width: 230,
                         textColor: Colors.white,
                         gradient: const LinearGradient(

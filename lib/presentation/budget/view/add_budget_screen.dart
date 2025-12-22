@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/budget/viewmodel/add_budget_viewmodel.dart';
+import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/customField.dart';
-import 'package:sceneary/presentation/call_sheets/widgets/custom_action_btn.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/custom_dropdown.dart';
 
 class AddBudgetScreen extends StatelessWidget {
@@ -135,29 +135,30 @@ class AddBudgetScreen extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: CustomActionButton(
+                          child: AppButton(
                             label: "Cancel",
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            isFullWidth: true,
-                            backgroundColor: Colors.white,
                             textColor: Color(0XFF1D55A8),
                             borderColor: Color(0XFF1D55A8),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: CustomActionButton(
-                            label: "Add",
-                            backgroundColor: Color(0XFF1D55A8),
-                            textColor: Colors.white,
+                            fullWidth: true,
                             onTap: () {
                               AppRouter.instance.push(
                                 RoutePaths.budgetTabScreen,
                               );
                             },
-                            isFullWidth: true,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: AppButton(
+                            label: "Add",
+                            textColor: Colors.white,
+                            buttonColor: Color(0XFF1D55A8),
+                            fullWidth: true,
+                            onTap: () {
+                              AppRouter.instance.push(
+                                RoutePaths.budgetTabScreen,
+                              );
+                            },
                           ),
                         ),
                       ],

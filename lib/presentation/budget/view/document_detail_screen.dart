@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/budget/viewmodel/document_detail_viewmodel.dart';
@@ -17,7 +18,7 @@ class DocumentDetailScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
-                 iconTheme: const IconThemeData(color: Colors.white),
+              iconTheme: const IconThemeData(color: Colors.white),
               backgroundColor: Colors.transparent,
               flexibleSpace: Container(
                 decoration: const BoxDecoration(
@@ -54,10 +55,12 @@ class DocumentDetailScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       profileTile(
-                        leading: const CircleAvatar(
+                        leading: CircleAvatar(
                           radius: 20,
-                          backgroundColor: Colors.grey,
-                          child: Icon(Icons.person, color: Colors.white),
+                          child: Image.asset(
+                            AssetsPath.men1,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                         title: "Rajesh Kumar",
                         subtitle: "Total Documents Uploaded - 12",
@@ -83,10 +86,7 @@ class DocumentDetailScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Color(0XFF1D55A8),
                               borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                color: Colors.white,
-                                width: 1,
-                              ),
+                              border: Border.all(color: Colors.white, width: 1),
                             ),
                             child: GestureDetector(
                               onTap: () {

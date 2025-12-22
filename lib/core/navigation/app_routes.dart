@@ -67,7 +67,9 @@ import 'package:sceneary/presentation/shooting_schedules_notifications/rejected_
 import 'package:sceneary/presentation/shooting_schedules_notifications/review_rejected_screen.dart';
 import 'package:sceneary/presentation/shooting_schedules_notifications/shooting_schedules_notification_screen.dart';
 import 'package:sceneary/presentation/social/view/add_post_screen.dart';
+import 'package:sceneary/presentation/social/view/add_text_screen.dart';
 import 'package:sceneary/presentation/social/view/messages_screen.dart';
+import 'package:sceneary/presentation/social/view/show_post_screen.dart';
 import 'package:sceneary/presentation/social/view/social_chat_request_screen.dart';
 import 'package:sceneary/presentation/social/view/social_chat_screen.dart';
 import 'package:sceneary/presentation/social/view/social_message_requests_screen.dart';
@@ -203,6 +205,8 @@ class AppRouter {
     RoutePaths.socialChatScreen: () => const SocialChatScreen(),
 
     RoutePaths.socialChatRequestScreen: () => const SocialChatRequestScreen(),
+    RoutePaths.addTextScreen:()=> const AddTextScreen(),
+    RoutePaths.showPostScreen:()=> const ShowPostScreen(),
   };
 
   // Route Generator

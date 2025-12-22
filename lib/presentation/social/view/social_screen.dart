@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,17 +27,17 @@ class SocialScreen extends StatelessWidget {
               automaticallyImplyLeading: false,
               backgroundColor: Colors.transparent,
 
-              /// ✅ ADD THIS ONLY
-              flexibleSpace: Stack(
-                fit: StackFit.expand,
-                children: [
-                  /// Background Image
-                  Image.asset(AssetsPath.socialBg, fit: BoxFit.cover),
-
-                  /// Optional dark overlay (remove if not needed)
-                  Container(color: Colors.black.withOpacity(0.25)),
-                ],
+              flexibleSpace: DecoratedBox(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(AssetsPath.socialBg),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Container(color: Colors.black.withOpacity(0.25)),
               ),
+
+              // ),
 
               /// 🔹 UI BELOW IS 100% UNCHANGED
               title: Row(
@@ -223,12 +225,25 @@ class SocialScreen extends StatelessWidget {
                                 ),
                               ),
 
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.asset(
-                                  post['image'],
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
+                              // ClipRRect(
+                              //   borderRadius: BorderRadius.circular(8),
+                              //   child: Image.asset(
+                              //     post['image'],
+                              //     width: double.infinity,
+                              //     fit: BoxFit.cover,
+                              //   ),
+                              // ),
+                              GestureDetector(
+                                onTap: () {
+                                  _showImagePreview(context, post['image']);
+                                },
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.asset(
+                                    post['image'],
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
 
@@ -359,4 +374,48 @@ class SocialScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+void _showImagePreview(BuildContext context, String imagePath) {
+  final size = MediaQuery.of(context).size;
+
+  showGeneralDialog(
+    context: context,
+    barrierDismissible: true,
+    barrierLabel: "ImagePreview",
+    barrierColor: Colors.transparent,
+    transitionDuration: const Duration(milliseconds: 200),
+    pageBuilder: (_, __, ___) {
+      return GestureDetector(
+        onTap: () => Navigator.pop(context),
+        child: Stack(
+          children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(
+                color: Colors.black.withOpacity(0.3),
+                width: size.width,
+                height: size.height,
+              ),
+            ),
+
+            Center(
+              child: InteractiveViewer(
+                minScale: 1,
+                maxScale: 4,
+                child: SizedBox(
+                  width: size.width,
+                  height: size.height,
+                  child: Image.asset(imagePath, fit: BoxFit.contain),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
+    transitionBuilder: (_, animation, __, child) {
+      return FadeTransition(opacity: animation, child: child);
+    },
+  );
 }

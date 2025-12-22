@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/budget/viewmodel/documents_viewmodel.dart';
@@ -86,10 +87,9 @@ class DocumentsScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return profileTile(
                           leading: CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.grey,
-                            child: Icon(Icons.person, color: Colors.white),
-                          ),
+                        radius: 20,
+                        child: Image.asset(AssetsPath.men1, fit: BoxFit.cover),
+                      ),
                           title: viewModel.users[index]["name"],
                           subtitle: viewModel.users[index]["docs"],
                           trailing: Icon(Icons.arrow_forward,color: Colors.white, size: 16),

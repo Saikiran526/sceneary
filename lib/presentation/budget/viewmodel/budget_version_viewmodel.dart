@@ -152,6 +152,7 @@ class BudgetVersionViewmodel extends ChangeNotifier {
     'Edit Budget',
     'Download Sheet',
     'Freeze Budget',
+    'Delete Version-1 Sheet',
   ];
 
   void onMenuSelected(String option) {
@@ -173,6 +174,8 @@ class BudgetVersionViewmodel extends ChangeNotifier {
       case 'Add Budget':
         // future implementation
         AppRouter.instance.push(RoutePaths.actualsScreen);
+      case 'Delete Version-1 Sheet':
+        print("deleted");
 
         break;
     }

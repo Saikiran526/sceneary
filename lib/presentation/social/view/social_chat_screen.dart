@@ -154,9 +154,7 @@ class SocialChatScreen extends StatelessWidget {
                                 border: InputBorder.none,
                                 isDense: true,
                               ),
-                              onChanged: (value) {
-                                // handle filtering here
-                              },
+                              onChanged: (value) {},
                             ),
                           ),
                         ],
@@ -239,7 +237,7 @@ class SocialChatScreen extends StatelessWidget {
                   ),
                 ),
 
-                _ChatInputBar(),
+                _ChatInputBar(viewModel: viewModel),
               ],
             ),
           );
@@ -250,6 +248,10 @@ class SocialChatScreen extends StatelessWidget {
 }
 
 class _ChatInputBar extends StatelessWidget {
+  final SocialChatViewmodel viewModel;
+
+  const _ChatInputBar({super.key, required this.viewModel});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -277,14 +279,20 @@ class _ChatInputBar extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: "Message...",
                     border: InputBorder.none,
-
                     suffixIcon: IconButton(
+                      key: viewModel.attachKey,
                       icon: const Icon(
                         Icons.attach_file,
                         size: 22,
                         color: Colors.grey,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        _openAttachMenu(
+                          context,
+                          viewModel,
+                          viewModel.attachKey,
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -305,5 +313,73 @@ class _ChatInputBar extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+void _openAttachMenu(
+  BuildContext context,
+  SocialChatViewmodel viewModel,
+  GlobalKey attachKey,
+) async {
+  final RenderBox button =
+      attachKey.currentContext!.findRenderObject() as RenderBox;
+  final RenderBox overlay =
+      Overlay.of(context).context.findRenderObject() as RenderBox;
+
+  final RelativeRect position = RelativeRect.fromRect(
+    Rect.fromPoints(
+      button.localToGlobal(Offset.zero, ancestor: overlay),
+      button.localToGlobal(
+        button.size.bottomRight(Offset.zero),
+        ancestor: overlay,
+      ),
+    ),
+    Offset.zero & overlay.size,
+  );
+
+  final value = await showMenu<String>(
+    context: context,
+    position: position,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    items: [
+      PopupMenuItem(
+        value: 'gallery',
+        child: Row(
+          children: [
+            SvgPicture.asset(AssetsPath.chatGallery),
+            const SizedBox(width: 8),
+            Text(
+              'Gallery',
+              style: GoogleFonts.montserrat(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: const Color(0XFF3D3D3D),
+              ),
+            ),
+          ],
+        ),
+      ),
+      PopupMenuItem(
+        value: 'document',
+        child: Row(
+          children: [
+            SvgPicture.asset(AssetsPath.chatDocument),
+            const SizedBox(width: 8),
+            Text(
+              'Document',
+              style: GoogleFonts.montserrat(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: const Color(0XFF3D3D3D),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
+
+  if (value != null) {
+    viewModel.onAttchmentTapped(action: value);
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/budget/viewmodel/edit_budget_viewmodel.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/call_sheets/widgets/customField.dart';
@@ -25,7 +27,37 @@ class EditBudgetScreen extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
+              actions: [
+                PopupMenuButton<String>(
+                  icon: const Icon(Icons.more_vert, color: Colors.black),
+                  onSelected: (value) {
+                    viewModel.onDelete(action: value);
+                  },
+                  itemBuilder: (context) => [
+                    PopupMenuItem(
+                      value: 'delete',
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            AssetsPath.delete,
+                            color: Colors.black,
+                          ),
+                          const SizedBox(width: 6),
+                          Text(
+                            'Delete',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
+
             body: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -164,8 +196,8 @@ class EditBudgetScreen extends StatelessWidget {
                                   label: "Cancel",
                                   onTap: () {},
                                   buttonColor: Colors.white,
-                                  borderColor: Colors.blue,
-                                  textColor: Colors.blue,
+                                  borderColor: Color(0XFF1D55A8),
+                                  textColor: Color(0XFF1D55A8),
                                   width: 140,
                                 ),
                               ),
@@ -174,7 +206,7 @@ class EditBudgetScreen extends StatelessWidget {
                                 child: AppButton(
                                   label: "Save",
                                   onTap: () {},
-                                  buttonColor: Colors.blue,
+                                  buttonColor: Color(0XFF1D55A8),
                                   textColor: Colors.white,
                                   width: 140,
                                 ),

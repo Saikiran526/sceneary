@@ -198,18 +198,12 @@ class BudgetTabScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        _menuCard(icon: Icons.add, title: "Add Budget"),
                         _menuCard(
-                          svgPath: AssetsPath.addBudget,
-                          title: "Add Budget",
-                        ),
-                        _menuCard(
-                          svgPath: AssetsPath.downloadSheet,
+                          icon: Icons.download,
                           title: "Download Sheet",
                         ),
-                        _menuCard(
-                          svgPath: AssetsPath.uploadSheet,
-                          title: "Upload Sheet",
-                        ),
+                        _menuCard(icon: Icons.upload, title: "Upload Sheet"),
                       ],
                     ),
                     const SizedBox(height: 16),
@@ -250,11 +244,7 @@ class BudgetTabScreen extends StatelessWidget {
                     profileTile(
                       leading: CircleAvatar(
                         radius: 20,
-                        child: SvgPicture.asset(
-                          AssetsPath.men1,
-                          width: 20,
-                          height: 20,
-                        ),
+                        child: Image.asset(AssetsPath.men1, fit: BoxFit.cover),
                       ),
 
                       title: "Rajesh Kumar",
@@ -264,18 +254,16 @@ class BudgetTabScreen extends StatelessWidget {
                         color: Colors.white,
                         size: 16,
                       ),
-                      onTap: () { AppRouter.instance.push(
-                              RoutePaths.documentDetailScreen,
-                            );},
+                      onTap: () {
+                        AppRouter.instance.push(
+                          RoutePaths.documentDetailScreen,
+                        );
+                      },
                     ),
                     profileTile(
                       leading: CircleAvatar(
                         radius: 20,
-                        child: SvgPicture.asset(
-                          AssetsPath.men1,
-                          width: 20,
-                          height: 20,
-                        ),
+                        child: Image.asset(AssetsPath.men1, fit: BoxFit.cover),
                       ),
                       title: "Rajesh Kumar",
                       subtitle: "Total Documents Uploaded - 12",
@@ -284,18 +272,16 @@ class BudgetTabScreen extends StatelessWidget {
                         color: Colors.white,
                         size: 16,
                       ),
-                      onTap: () { AppRouter.instance.push(
-                              RoutePaths.documentDetailScreen,
-                            );},
+                      onTap: () {
+                        AppRouter.instance.push(
+                          RoutePaths.documentDetailScreen,
+                        );
+                      },
                     ),
                     profileTile(
                       leading: CircleAvatar(
                         radius: 20,
-                        child: SvgPicture.asset(
-                          AssetsPath.men1,
-                          width: 20,
-                          height: 20,
-                        ),
+                        child: Image.asset(AssetsPath.men1, fit: BoxFit.cover),
                       ),
                       title: "Rajesh Kumar",
                       subtitle: "Total Documents Uploaded - 12",
@@ -304,15 +290,16 @@ class BudgetTabScreen extends StatelessWidget {
                         color: Colors.white,
                         size: 16,
                       ),
-                      onTap: () { AppRouter.instance.push(
-                              RoutePaths.documentDetailScreen,
-                            );},
+                      onTap: () {
+                        AppRouter.instance.push(
+                          RoutePaths.documentDetailScreen,
+                        );
+                      },
                     ),
                     profileTile(
                       leading: CircleAvatar(
                         radius: 20,
-                        backgroundColor: Colors.grey,
-                        child: Icon(Icons.person, color: Colors.white),
+                        child: Image.asset(AssetsPath.men1, fit: BoxFit.cover),
                       ),
                       title: "Rajesh Kumar",
                       subtitle: "Total Documents Uploaded - 12",
@@ -321,9 +308,11 @@ class BudgetTabScreen extends StatelessWidget {
                         color: Colors.white,
                         size: 16,
                       ),
-                      onTap: () { AppRouter.instance.push(
-                              RoutePaths.documentDetailScreen,
-                            );},
+                      onTap: () {
+                        AppRouter.instance.push(
+                          RoutePaths.documentDetailScreen,
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -410,13 +399,12 @@ class BudgetTabScreen extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontFamily: "Montserrat",
+          style: GoogleFonts.montserrat(
             fontWeight: FontWeight.w600,
             fontSize: 12,
             height: 20 / 12,
             letterSpacing: 0.01,
-            color: Color(0XFFF4D6EA),
+            color: Color(0XFFB0B0B0),
           ),
         ),
         Text(
@@ -439,19 +427,19 @@ class BudgetTabScreen extends StatelessWidget {
     return PieChart(
       PieChartData(
         sectionsSpace: 0,
-        centerSpaceRadius: 35,
+        centerSpaceRadius: 40,
         startDegreeOffset: -90,
         sections: [
           PieChartSectionData(
             value: used,
             color: Colors.green,
-            radius: 28,
+            radius: 22,
             showTitle: false,
           ),
           PieChartSectionData(
             value: remaining,
             color: Colors.grey.shade300,
-            radius: 28,
+            radius: 22,
             showTitle: false,
           ),
         ],
@@ -460,7 +448,7 @@ class BudgetTabScreen extends StatelessWidget {
     );
   }
 
-  Widget _menuCard({required String svgPath, required String title}) {
+  Widget _menuCard({required IconData icon, required String title}) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -480,8 +468,16 @@ class BudgetTabScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(svgPath, width: 32, height: 32),
-
+              Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF9D306A),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                alignment: Alignment.center,
+                child: Icon(icon, size: 18, color: Colors.white),
+              ),
               const SizedBox(height: 6),
 
               Text(
