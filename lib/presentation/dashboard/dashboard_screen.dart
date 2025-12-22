@@ -24,147 +24,153 @@ class DashboardScreen extends StatelessWidget {
       child: Consumer<DashboardViewModel>(
         builder: (context, viewModel, child) {
           return Scaffold(
-            appBar:
-                (viewModel.selectedIndex == 0 || viewModel.selectedIndex == 1)
-                ? AppBar(
-                    backgroundColor: Colors.grey.shade300,
-                    toolbarHeight: 80,
-                    title: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.black, width: 3),
-                            ),
-                            child: Container(
-                              width: 55,
-                              height: 55,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: Color(0xff958D8D),
-                                  width: 3,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: width * 0.03),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Mukesh Raj',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              SizedBox(height: height * 0.01),
-                              Text(
-                                'FE-Developer',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    bottom: PreferredSize(
-                      preferredSize: Size.fromHeight(60),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              flex: 4,
-                              child: Container(
-                                height: 45,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                    width: 1,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                child: TextField(
-                                  controller: viewModel.searchQueryController,
-                                  onChanged: (query) {
-                                    viewModel.setSearchQuery = query;
-                                  },
-                                  decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.search),
-                                    hintText: "Search here...",
-                                    border: InputBorder.none,
-                                    contentPadding: EdgeInsets.symmetric(
-                                      vertical: 10,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            if (viewModel
-                                .searchQueryController
-                                .text
-                                .isNotEmpty) ...[
-                              SizedBox(width: width * 0.02),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  height: 45,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all(
-                                      width: 1,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SvgPicture.asset(AssetsPath.filterImg),
-                                      SizedBox(width: width * 0.01),
-                                      Text(
-                                        'Filter',
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                          color: Color(0xff5D5D5D),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ],
-                        ),
-                      ),
-                    ),
-                    actions: [
-                      IconButton(
-                        onPressed: () {
-                          AppRouter.instance.push(
-                            RoutePaths.notificationsScreen,
-                          );
-                        },
-                        icon: SvgPicture.asset(AssetsPath.notificationImg),
-                      ),
-                    ],
-                  )
-                : null,
+            // appBar: !(viewModel.selectedIndex == 0 || viewModel.selectedIndex == 1|| viewModel.selectedIndex == 2 || viewModel.selectedIndex == 3)
+            //     ? AppBar(
+            //         toolbarHeight: 80,
+            //         flexibleSpace: Container(
+            //           decoration: BoxDecoration(
+            //             image: DecorationImage(
+            //               image: AssetImage(AssetsPath.appbarBackgroundImg),
+            //               fit: BoxFit.cover,
+            //             ),
+            //           ),
+            //         ),
+            //         title: Padding(
+            //           padding: const EdgeInsets.all(0.0),
+            //           child: Row(
+            //             children: [
+            //               Container(
+            //                 width: 60,
+            //                 height: 60,
+            //                 decoration: BoxDecoration(
+            //                   shape: BoxShape.circle,
+            //                   border: Border.all(color: Colors.black, width: 3),
+            //                 ),
+            //                 child: Container(
+            //                   width: 55,
+            //                   height: 55,
+            //                   decoration: BoxDecoration(
+            //                     shape: BoxShape.circle,
+            //                     border: Border.all(
+            //                       color: Color(0xff958D8D),
+            //                       width: 3,
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //               SizedBox(width: width * 0.03),
+            //               Column(
+            //                 crossAxisAlignment: CrossAxisAlignment.start,
+            //                 children: [
+            //                   Text(
+            //                     'Mukesh Raj',
+            //                     style: TextStyle(
+            //                       fontSize: 14,
+            //                       fontWeight: FontWeight.w600,
+            //                     ),
+            //                   ),
+            //                   SizedBox(height: height * 0.01),
+            //                   Text(
+            //                     'FE-Developer',
+            //                     style: TextStyle(
+            //                       fontSize: 12,
+            //                       fontWeight: FontWeight.w500,
+            //                     ),
+            //                   ),
+            //                 ],
+            //               ),
+            //             ],
+            //           ),
+            //         ),
+            //         bottom: PreferredSize(
+            //           preferredSize: Size.fromHeight(60),
+            //           child: Padding(
+            //             padding: const EdgeInsets.all(10.0),
+            //             child: Row(
+            //               children: [
+            //                 Expanded(
+            //                   flex: 4,
+            //                   child: Container(
+            //                     height: 45,
+            //                     decoration: BoxDecoration(
+            //                       color: Colors.white,
+            //                       borderRadius: BorderRadius.circular(10),
+            //                       border: Border.all(
+            //                         width: 1,
+            //                         color: Colors.black,
+            //                       ),
+            //                     ),
+            //                     child: TextField(
+            //                       controller: viewModel.searchQueryController,
+            //                       onChanged: (query) {
+            //                         viewModel.setSearchQuery = query;
+            //                       },
+            //                       decoration: InputDecoration(
+            //                         prefixIcon: Icon(Icons.search),
+            //                         hintText: "Search here...",
+            //                         border: InputBorder.none,
+            //                         contentPadding: EdgeInsets.symmetric(
+            //                           vertical: 10,
+            //                         ),
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ),
+            //                 if (viewModel
+            //                     .searchQueryController
+            //                     .text
+            //                     .isNotEmpty) ...[
+            //                   SizedBox(width: width * 0.02),
+            //                   Expanded(
+            //                     flex: 1,
+            //                     child: Container(
+            //                       height: 45,
+            //                       decoration: BoxDecoration(
+            //                         color: Colors.white,
+            //                         borderRadius: BorderRadius.circular(10),
+            //                         border: Border.all(
+            //                           width: 1,
+            //                           color: Colors.black,
+            //                         ),
+            //                       ),
+            //                       child: Row(
+            //                         mainAxisAlignment: MainAxisAlignment.center,
+            //                         children: [
+            //                           SvgPicture.asset(AssetsPath.filterImg),
+            //                           SizedBox(width: width * 0.01),
+            //                           Text(
+            //                             'Filter',
+            //                             style: TextStyle(
+            //                               fontSize: 12,
+            //                               fontWeight: FontWeight.w400,
+            //                               color: Color(0xff5D5D5D),
+            //                             ),
+            //                           ),
+            //                         ],
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ],
+            //               ],
+            //             ),
+            //           ),
+            //         ),
+            //         actions: [
+            //           IconButton(
+            //             onPressed: () {
+            //               AppRouter.instance.push(
+            //                 RoutePaths.notificationsScreen,
+            //               );
+            //             },
+            //             icon: SvgPicture.asset(AssetsPath.notificationImg),
+            //           ),
+            //         ],
+            //       )
+            //     : null,
             body: Consumer<DashboardViewModel>(
               builder: (context, viewModel, child) {
                 return [
-                  viewModel.searchQueryController.text.isEmpty
+                  true//viewModel.searchQueryController.text.isEmpty
                       ? HomeScreen()
                       : SearchResultScreen(),
                   ProjectsScreen(),

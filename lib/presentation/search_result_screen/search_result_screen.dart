@@ -17,6 +17,8 @@ class SearchResultScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
+            // Photographer
             Text(
               'Photographer',
               style: TextStyle(
@@ -25,13 +27,17 @@ class SearchResultScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: height*0.02,),
-            searchProfiles(size:size),
-            SizedBox(height: height*0.01,),
-            searchProfiles(size:size),
-            SizedBox(height: height*0.01,),
-            searchProfiles(size:size),
-            SizedBox(height: height*0.01,),
-            searchProfiles(size:size),
+
+            ...[1,2,3,4].map((_){
+              return Column(
+                children: [
+                  searchProfiles(size:size),
+                  SizedBox(height: height*0.01,),
+                ],
+              );
+            }).toList(),
+
+
           ],
         ),
       ),

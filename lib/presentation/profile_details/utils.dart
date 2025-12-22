@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sceneary/core/constants/app_colors.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 
 Widget viewProfiles({required Size size}){
@@ -21,8 +22,8 @@ Widget viewProfiles({required Size size}){
                 decoration: BoxDecoration(
                   color: Color(0xffD9D9D9),
                   borderRadius: BorderRadius.circular(8),
-
                 ),
+                child: Image.asset(AssetsPath.photographerProfilePngImg,fit: BoxFit.cover,),
               ),
               SizedBox(width: size.width*0.03,),
               SizedBox(
@@ -66,7 +67,7 @@ Widget viewProfiles({required Size size}){
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                color: Color(0xffDEDEDE),
+                                color: primaryColor100,
                                 borderRadius: BorderRadius.circular(8)
                               ),
                               child: Padding(
@@ -98,6 +99,9 @@ Widget viewProfiles({required Size size}){
                 flex: 1,
                 child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
+                        side: BorderSide(
+                          color: primaryButtonColor
+                        ),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)
                         )
@@ -107,7 +111,8 @@ Widget viewProfiles({required Size size}){
                       'Send Message',
                       style: TextStyle(
                           fontSize: 12,
-                          fontWeight: FontWeight.w500
+                          fontWeight: FontWeight.w500,
+                        color: primaryButtonColor
                       ),
                     ),
                 ),
@@ -117,7 +122,7 @@ Widget viewProfiles({required Size size}){
                 flex: 1,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
+                        backgroundColor: primaryButtonColor,
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)

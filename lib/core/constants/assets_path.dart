@@ -1,5 +1,8 @@
 class AssetsPath {
   /// Dashboard
+  static const appbarBackgroundImg = 'assets/images/dashboardAppbarBackground.png';
+  static const verifyImg = 'assets/images/verify.svg';
+  static const profilePictureImg = 'assets/images/profilePicture.png';
   static const notificationImg = 'assets/images/notification.svg';
   static const homeActiveImg = 'assets/images/homeActive.svg';
   static const homeInActiveImg = 'assets/images/homeInActive.svg';
@@ -21,6 +24,13 @@ class AssetsPath {
   /// Projects
   static const calendarImg = 'assets/images/calendar.svg';
   static const budgetMoneyImg = 'assets/images/budget_money.svg';
+  static const calenderFilled20Img = 'assets/images/calender_filled_20.svg';
+  static const projectInvitationItem1Img = 'assets/images/project_invitation_item1.svg';
+  static const projectInvitationItem2Img = 'assets/images/project_invitation_item2.svg';
+  static const projectInvitationItem3Img = 'assets/images/project_invitation_item3.svg';
+  static const projectInvitationItem4Img = 'assets/images/project_invitation_item4.svg';
+  static const photographerProfileSvgImg = 'assets/images/photographer_profile.svg';
+  static const photographerProfilePngImg = 'assets/images/photographer_profile.png';
   // Create Project
   static const calenderFilledImg = "assets/images/calendar_filled.svg";
   // Project Details

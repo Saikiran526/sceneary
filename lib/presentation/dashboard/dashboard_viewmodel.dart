@@ -4,7 +4,7 @@ class DashboardViewModel extends ChangeNotifier{
 
   // State
   int _selectedIndex=0;
-  TextEditingController searchQueryController=TextEditingController();
+
 
   // Getters
   int get selectedIndex=>_selectedIndex;
@@ -14,9 +14,6 @@ class DashboardViewModel extends ChangeNotifier{
     _selectedIndex=newIndex;
     notifyListeners();
   }
-  set setSearchQuery(String query){
-    searchQueryController.text=query;
-    notifyListeners();
-  }
+
 
 }

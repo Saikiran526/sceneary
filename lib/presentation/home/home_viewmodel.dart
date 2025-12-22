@@ -10,6 +10,7 @@ class HomeViewmodel extends ChangeNotifier {
   int _selectedDate=20;
   List<int> remainingDatesOfCurrentMonth = [20,21,22,23,24,25];
   int activeIndex = 0;
+  TextEditingController searchQueryController=TextEditingController();
 
   // Getters
   int get selectedDate=>_selectedDate;
@@ -21,6 +22,10 @@ class HomeViewmodel extends ChangeNotifier {
   }
   set updateIndex(int index) {
     activeIndex = index;
+    notifyListeners();
+  }
+  set setSearchQuery(String query){
+    searchQueryController.text=query;
     notifyListeners();
   }
 

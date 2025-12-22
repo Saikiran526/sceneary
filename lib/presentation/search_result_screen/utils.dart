@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:sceneary/core/constants/app_colors.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
@@ -21,10 +22,10 @@ Widget searchProfiles({required Size size}){
                 height: size.height*0.15,
                 width: size.width*0.25,
                 decoration: BoxDecoration(
-                  color: Color(0xffD9D9D9),
                   borderRadius: BorderRadius.circular(8),
-
                 ),
+                child: Image.asset(AssetsPath.photographerProfilePngImg)
+                // SvgPicture.asset(AssetsPath.photographerProfileSvgImg),
               ),
               SizedBox(width: size.width*0.03,),
               SizedBox(
@@ -100,18 +101,19 @@ Widget searchProfiles({required Size size}){
                   AppRouter.instance.push(RoutePaths.profileDetailsScreen);
                 },
                 style: OutlinedButton.styleFrom(
+                    side: BorderSide(
+                      color: primaryButtonColor
+                    ),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
-                        side: BorderSide(
-                          // color: Color(0xff000000).withAlpha(30)
-                        )
                     )
                 ),
                 child: Text(
                   'View Profile',
                   style: TextStyle(
                       fontSize: 10,
-                      fontWeight: FontWeight.w600
+                      fontWeight: FontWeight.w600,
+                    color: primaryButtonColor
                   ),
                 )
             ),
