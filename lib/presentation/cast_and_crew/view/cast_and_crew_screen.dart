@@ -138,7 +138,6 @@ class CastAndCrewScreen extends StatelessWidget {
                           IndexedStack(
                             index: viewModel.selectedTab,
                             children: [
-                              /// MEMBERS TAB (PASTE YOUR EXISTING MEMBERS UI HERE)
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 10,
@@ -146,7 +145,6 @@ class CastAndCrewScreen extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    // 🔥 everything you already had for Members
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -177,7 +175,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                                 decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(8),
-                                                  color: Color(0xFF454545),
+                                                  color: Color(0XFF1D55A8),
                                                 ),
                                                 child: Center(
                                                   child: Text(
@@ -186,7 +184,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                                       fontSize: 12,
                                                       fontWeight:
                                                           FontWeight.w400,
-                                                      color: Colors.white,
+                                                      color: Color(0XFFF6F6F6),
                                                     ),
                                                   ),
                                                 ),
@@ -217,15 +215,16 @@ class CastAndCrewScreen extends StatelessWidget {
                                                 child: Row(
                                                   children: [
                                                     CircleAvatar(
+                                                      backgroundColor:
+                                                          Colors.black,
                                                       radius: 20,
-                                                      backgroundColor: Color(
-                                                        0xFFD9D9D9,
-                                                      ),
+                                                      backgroundImage:
+                                                          AssetImage(
+                                                            AssetsPath.women,
+                                                          ),
                                                     ),
-
                                                     const SizedBox(width: 12),
 
-                                                    /// Name & Role
                                                     Column(
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
@@ -263,7 +262,6 @@ class CastAndCrewScreen extends StatelessWidget {
 
                                                     const Spacer(),
 
-                                                    /// Resend Button
                                                     Container(
                                                       height: 32,
                                                       padding:
@@ -272,7 +270,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                                           ),
                                                       decoration: BoxDecoration(
                                                         color: const Color(
-                                                          0xFFD3D3D3,
+                                                          0XFF1D55A8,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius.circular(
@@ -281,13 +279,17 @@ class CastAndCrewScreen extends StatelessWidget {
                                                       ),
                                                       alignment:
                                                           Alignment.center,
-                                                      child: const Text(
+                                                      child: Text(
                                                         'Resend',
-                                                        style: TextStyle(
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                        style:
+                                                            GoogleFonts.poppins(
+                                                              fontSize: 12,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
                                                       ),
                                                     ),
 
@@ -354,11 +356,14 @@ class CastAndCrewScreen extends StatelessWidget {
                                                     ),
                                                 child: Row(
                                                   children: [
-                                                    const CircleAvatar(
+                                                    CircleAvatar(
+                                                      backgroundColor:
+                                                          Colors.black,
                                                       radius: 20,
-                                                      backgroundColor: Color(
-                                                        0xFFD9D9D9,
-                                                      ),
+                                                      backgroundImage:
+                                                          AssetImage(
+                                                            AssetsPath.women,
+                                                          ),
                                                     ),
 
                                                     const SizedBox(width: 10),
@@ -394,31 +399,38 @@ class CastAndCrewScreen extends StatelessWidget {
 
                                                     const Spacer(),
 
-                                                    /// Access badge
-                                                    Container(
+                                                    SizedBox(
+                                                      width: 90,
                                                       height: 25,
-                                                      padding:
-                                                          const EdgeInsets.symmetric(
-                                                            horizontal: 16,
-                                                          ),
-                                                      decoration: BoxDecoration(
-                                                        color: const Color(
-                                                          0xFF474747,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                              8,
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets.symmetric(
+                                                              horizontal: 8,
                                                             ),
-                                                      ),
-                                                      alignment:
-                                                          Alignment.center,
-                                                      child: Text(
-                                                        accessList[index],
-                                                        style: const TextStyle(
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          color: Colors.white,
+                                                        decoration: BoxDecoration(
+                                                          color: const Color(
+                                                            0XFF5390DD,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                8,
+                                                              ),
+                                                        ),
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: Text(
+                                                          accessList[index],
+                                                          style:
+                                                              GoogleFonts.montserrat(
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
                                                         ),
                                                       ),
                                                     ),
@@ -467,6 +479,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                           style: GoogleFonts.montserrat(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w500,
+                                            color: Colors.black,
                                           ),
                                         ),
 
@@ -482,16 +495,15 @@ class CastAndCrewScreen extends StatelessWidget {
                                                 ),
                                                 child: Row(
                                                   children: [
-                                                    const CircleAvatar(
-                                                      radius: 20,
+                                                    CircleAvatar(
                                                       backgroundColor:
-                                                          Colors.grey,
-                                                      child: Icon(
-                                                        Icons.person,
-                                                        color: Colors.white,
-                                                      ),
+                                                          Colors.black,
+                                                      radius: 20,
+                                                      backgroundImage:
+                                                          AssetImage(
+                                                            AssetsPath.women,
+                                                          ),
                                                     ),
-
                                                     const SizedBox(width: 12),
 
                                                     Expanded(
@@ -510,6 +522,7 @@ class CastAndCrewScreen extends StatelessWidget {
                                                     Checkbox(
                                                       value: viewModel
                                                           .isSelected(index),
+
                                                       onChanged: (value) {
                                                         viewModel.toggle(
                                                           index,
@@ -530,6 +543,8 @@ class CastAndCrewScreen extends StatelessWidget {
                                               viewModel.showDateController,
                                           hintText: "Select Date",
                                           suffixIcon: Icons.calendar_month,
+                                          suffixIconColor: Color(0XFF1D55A8),
+
                                           enabled: false,
                                           onTap: () {
                                             viewModel.selectDate();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sceneary/core/constants/app_colors.dart';
 
 Widget customTextField({
   required TextEditingController controller,
@@ -7,56 +8,103 @@ Widget customTextField({
   IconData? prefixIcon,
   Widget? suffix,
   VoidCallback? onTap,
+  ValueChanged<String>? onChanged,
+  FocusNode? focusNode, // ✅ ADDED
   bool readOnly = false,
   bool obscureText = false,
   int maxLines = 1,
   int? maxLength,
   TextInputType? keyboardType,
+  bool isError = false,
+  String? errorText,
 }) {
-  return Container(
-    width: double.infinity,
-    height: 40,
-    padding: EdgeInsets.symmetric(horizontal: 10),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(8),
-      border: Border.all(color: Color(0xFFEDF1F3), width: 1),
-    ),
-    child: Row(
-      children: [
-        if (prefixIcon != null)
-          Padding(
-            padding: EdgeInsets.only(right: 8),
-            child: Icon(prefixIcon, size: 20, color: Colors.grey),
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        width: double.infinity,
+        height: 40,
+        padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            color: isError ? Colors.red : const Color(0xFFEDF1F3),
+            width: 1,
           ),
+        ),
+        child: Row(
+          children: [
+            // 🔹 PREFIX
+            if (prefixIcon != null) ...[
+              Icon(
+                prefixIcon,
+                size: 18,
+                color: Colors.grey,
+              ),
+              const SizedBox(width: 10),
+            ],
 
-        Expanded(
-          child: TextField(
-            controller: controller,
-            readOnly: readOnly,
-            onTap: onTap,
-            maxLength: maxLength,
-            keyboardType: keyboardType,
-            obscureText: obscureText,
-            maxLines: maxLines,
-            style: TextStyle(fontSize: 14, color: Colors.black),
-            decoration: InputDecoration(
-              isCollapsed: true,
-              border: InputBorder.none,
-              counterText: "",
-              hintText: hintText,
-              hintStyle:
-                  hintTextStyle ?? TextStyle(color: Colors.grey, fontSize: 14),
+            // 🔹 TEXT FIELD
+            Expanded(
+              child: TextField(
+                controller: controller,
+                focusNode: focusNode, // ✅ USED
+                readOnly: readOnly,
+                onTap: onTap,
+                onChanged: onChanged,
+                maxLength: maxLength,
+                keyboardType: keyboardType,
+                obscureText: obscureText,
+                maxLines: maxLines,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
+                decoration: InputDecoration(
+                  isCollapsed: true,
+                  border: InputBorder.none,
+                  counterText: "",
+                  hintText: hintText,
+                  hintStyle: hintTextStyle ??
+                      const TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey,
+                      ),
+                ),
+              ),
+            ),
+
+            // 🔹 SUFFIX
+            if (suffix != null) ...[
+              const SizedBox(width: 10),
+              suffix!,
+            ],
+          ],
+        ),
+      ),
+
+      // 🔴 ERROR TEXT BELOW
+      if (isError && errorText != null) ...[
+        const SizedBox(height: 6),
+        Padding(
+          padding: const EdgeInsets.only(left: 4),
+          child: Text(
+            errorText!,
+            style: const TextStyle(
+              fontSize: 12,
+              color: Colors.red,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),
-
-        if (suffix != null)
-          Padding(padding: EdgeInsets.only(left: 8), child: suffix),
       ],
-    ),
+    ],
   );
 }
+
+
+
 
 Widget customTextFieldWithHeading({
   required Size size,
@@ -117,7 +165,7 @@ Widget customDropdownWithHeading({
         style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
       ),
       const SizedBox(height: 8),
-  
+
       DropdownButtonFormField<String>(
         value: value,
         decoration: InputDecoration(
@@ -177,7 +225,7 @@ Widget customDropdown({
 Widget primaryButton({
   required String text,
   required VoidCallback onPressed,
-  Color backgroundColor = Colors.black,
+  Color backgroundColor = primaryBlue,
   Color textColor = Colors.white,
 }) {
   return SizedBox(
@@ -234,3 +282,25 @@ AppBar customAppBar({required String title}) {
     ),
   );
 }
+
+Widget appbarBackButton = Padding(
+  padding: const EdgeInsets.only(left: 22, top: 53),
+  child: Container(
+    width: 18,
+    height: 28,
+    decoration: BoxDecoration(
+      color: Colors.transparent,
+      borderRadius: BorderRadius.circular(6),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.10),
+          blurRadius: 12,
+          spreadRadius: 1,
+          offset: const Offset(0, 4),
+        ),
+      ],
+      border: Border.all(width: 1, color: Colors.white),
+    ),
+    child: const Icon(Icons.arrow_back_ios_new, size: 13, color: Colors.white),
+  ),
+);

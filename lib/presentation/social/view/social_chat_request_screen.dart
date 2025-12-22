@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
+import 'package:sceneary/presentation/social/helper_bottomsheets/show_top_alert.dart';
 import 'package:sceneary/presentation/social/viewmodel/social_chat_request_viewmodel.dart';
 
 class SocialChatRequestScreen extends StatelessWidget {
@@ -275,7 +276,7 @@ class SocialChatRequestScreen extends StatelessWidget {
 
                         Expanded(
                           child: OutlinedButton(
-                            onPressed: () {},
+                            onPressed: () {showTopAlert(context, message: "Connection Successfullty");},
                             style: OutlinedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(6),
@@ -363,4 +364,8 @@ class _ChatInputBar extends StatelessWidget {
       ),
     );
   }
+
+
+
+  
 }

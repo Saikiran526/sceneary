@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_screen_one.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_screen_three.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_screen_two.dart';
@@ -14,98 +17,97 @@ class BasicInformationPageview extends StatelessWidget {
       create: (context) => BasicInformationPageviewViewmodel(context: context),
       child: Consumer<BasicInformationPageviewViewmodel>(
         builder: (context, viewModel, child) {
-          return Scaffold(
-            body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (viewModel.currentPage > 0)
-                      GestureDetector(
-                        onTap: () {
-                          viewModel.pageController.previousPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.ease,
-                          );
-                        },
-                        child: Container(
-                          width: 67,
-                          height: 28,
-                          padding: EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(6),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.10),
-                                blurRadius: 12,
-                                spreadRadius: 1,
-                                offset: Offset(0, 4),
-                              ),
-                            ],
-                          ),
-                          child: Row(
+          return AnnotatedRegion(
+            value: const SystemUiOverlayStyle(
+              statusBarColor: Color(0xFF0B0B0B),
+              statusBarIconBrightness: Brightness.light,
+              statusBarBrightness: Brightness.dark,
+            ),
+            child: Scaffold(
+              resizeToAvoidBottomInset: false, 
+              body: Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.centerRight,
+                        colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 119,
+                    child: SvgPicture.asset(AssetsPath.basicViewGradient),
+                  ),
+                  Positioned(
+                    top: 20,
+                    left: 40,
+                    child: SvgPicture.asset(AssetsPath.basicViewImg),
+                  ),
+                  SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                            GestureDetector(
+                              onTap: () {
+                                viewModel.pageController.previousPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.ease,
+                                );
+                              },
+                              child: SvgPicture.asset(AssetsPath.appbarBtn),
+                            ),
+                          SizedBox(height: 140),
+                          Row(
                             children: [
-                              Icon(Icons.arrow_back_ios, size: 20),
-                              Text(
-                                'Back',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
+                              _buildStepCircle(0, viewModel),
+                              _buildLine(),
+                              _buildStepCircle(1, viewModel),
+                              _buildLine(),
+                              _buildStepCircle(2, viewModel),
                             ],
                           ),
-                        ),
-                      ),
-
-                    SizedBox(height: 20),
-
-                    Row(
-                      children: [
-                        _buildStepCircle(0, viewModel),
-                        _buildLine(),
-                        _buildStepCircle(1, viewModel),
-                        _buildLine(),
-                        _buildStepCircle(2, viewModel),
-                      ],
-                    ),
-
-                    SizedBox(height: 20),
-
-                    Text(
-                      "Basic Information",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Text(
-                      "Enter your details to create account",
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-
-                    SizedBox(height: 24),
-
-                    Expanded(
-                      child: PageView(
-                        controller: viewModel.pageController,
-                        onPageChanged: (page) {
-                          viewModel.changePage(page);
-                        },
-                        children: const [
-                          BasicInformationScreenOne(),
-                          BasicInformationScreenTwo(),
-                          BasicInformationScreenThree(),
+                          SizedBox(height: 20),
+                          Text(
+                            "Basic Information",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            "Enter your details to create account",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xFFB0B0B0),
+                            ),
+                          ),
+                          SizedBox(height: 24),
+                          Expanded(
+                            child: PageView(
+                              controller: viewModel.pageController,
+                              onPageChanged: (page) {
+                                viewModel.changePage(page);
+                              },
+                              children: const [
+                                BasicInformationScreenOne(),
+                                BasicInformationScreenTwo(),
+                                BasicInformationScreenThree(),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           );
@@ -118,11 +120,11 @@ class BasicInformationPageview extends StatelessWidget {
     bool isActive = viewModel.currentPage == index;
     return CircleAvatar(
       radius: 24,
-      backgroundColor: isActive ? Colors.black : Color(0xFF868686),
+      backgroundColor: isActive ? Colors.white : Color(0xFF868686),
       child: Text(
         "${index + 1}",
         style: const TextStyle(
-          color: Colors.white,
+          color: Colors.black,
           fontWeight: FontWeight.w700,
           fontSize: 20,
         ),

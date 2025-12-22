@@ -37,8 +37,9 @@ final TextEditingController youtubeController = TextEditingController();
   ];
   List<String> chooseExperienceLevel = [
     "Select your experience level",
-    "Senior ",
-    "Junior "
+    "0 - 3 Beginner",
+    "3 - 6 Intermediate",
+    "6+ Experienced"
   ];
 
 

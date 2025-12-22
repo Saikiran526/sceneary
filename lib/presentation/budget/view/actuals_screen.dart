@@ -17,22 +17,32 @@ class ActualsScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
+              iconTheme: const IconThemeData(color: Colors.white),
+              backgroundColor: Colors.transparent,
+              flexibleSpace: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                  ),
+                ),
+              ),
               title: Text(
                 "Actuals",
                 style: GoogleFonts.montserrat(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
-              backgroundColor: Colors.white,
               elevation: 1,
               actions: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: AppButton(
                     label: "Add Expense",
-                    buttonColor: Colors.blue,
+                    buttonColor: Color(0XFF1D55A8),
                     textColor: Colors.white,
                     onTap: () {
                       AppRouter.instance.push(RoutePaths.addExpenseScreen);
@@ -106,9 +116,9 @@ class ActualsScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         margin: const EdgeInsets.symmetric(vertical: 6),
         decoration: BoxDecoration(
-          color: const Color(0xFFFFF3FB),
+          color: const Color(0XFFFFF3FB),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.black12, width: 1),
+          border: Border.all(color: Color(0XFFECB5D9), width: 1),
         ),
         child: Row(
           children: [

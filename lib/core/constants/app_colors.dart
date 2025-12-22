@@ -9,6 +9,7 @@ const onPrimary=Colors.white;
 
 /// Secondary color shades
 const secondaryColor600= Color(0xff1D55A8);
+const primaryBlue = Color(0xFF1D55A8);
 
 /// Button colors
 const primaryButtonColor= Color(0xff1D55A8);

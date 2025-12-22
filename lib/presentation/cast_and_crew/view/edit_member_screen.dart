@@ -15,32 +15,46 @@ class EditMemberScreen extends StatelessWidget {
       child: Consumer<EditMemberViewmodel>(
         builder: (context, viewModel, child) {
           return Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.pink,
-              elevation: 1,
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Edit Member',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
+           appBar: AppBar(
+              iconTheme: const IconThemeData(color: Colors.white),
+              backgroundColor: Colors.transparent,
+              flexibleSpace: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                  ),
+                ),
+              ),
+              title: Text(
+                'Edit Member',
+                style: GoogleFonts.montserrat(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              centerTitle: false,
+              bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(10),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Update member profile and contact information',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  SizedBox(height: 2),
-                  Text(
-                    'Update member profile and contact information',
-                    style: GoogleFonts.poppins(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
+
 
             body: SingleChildScrollView(
               child: Padding(

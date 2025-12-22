@@ -6,6 +6,7 @@ BasicInformationViewmodelOne({
   required this.context
 });
 final TextEditingController fullNameController = TextEditingController();
+final TextEditingController screenNameController = TextEditingController();
 final TextEditingController emailIdController = TextEditingController();
 final TextEditingController verifyEmailIdController = TextEditingController();
 final TextEditingController mobileNOController = TextEditingController();

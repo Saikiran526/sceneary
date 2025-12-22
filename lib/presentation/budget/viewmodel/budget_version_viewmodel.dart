@@ -42,7 +42,7 @@ class BudgetVersionViewmodel extends ChangeNotifier {
       "Daily",
       "Confirmed",
     ],
-     [
+    [
       "Director",
       "Associate Director",
       "Daily",
@@ -59,7 +59,7 @@ class BudgetVersionViewmodel extends ChangeNotifier {
       "Daily",
       "Confirmed",
     ],
-     [
+    [
       "Story",
       "Story Board",
       "Daily",
@@ -76,7 +76,7 @@ class BudgetVersionViewmodel extends ChangeNotifier {
       "Daily",
       "Confirmed",
     ],
-       [
+    [
       "Story",
       "Story Board",
       "Daily",
@@ -92,7 +92,8 @@ class BudgetVersionViewmodel extends ChangeNotifier {
       "Director",
       "Daily",
       "Confirmed",
-    ],   [
+    ],
+    [
       "Story",
       "Writer",
       "Daily",
