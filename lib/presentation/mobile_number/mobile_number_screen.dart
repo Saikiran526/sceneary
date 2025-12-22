@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/app_utils/fill_textform_filed.dart';
 import 'package:sceneary/presentation/mobile_number/mobile_number_viewmodel.dart';
 
 class MobileNumberScreen extends StatelessWidget {
@@ -72,7 +73,7 @@ class MobileNumberScreen extends StatelessWidget {
                             SizedBox(
                               width: width,
                               height: 50,
-                              child: customTextField(
+                              child: FillTextFormField(
                                 controller: viewModel.mobileNOController,
                                 hintText: ' +91 Enter here',
                                 keyboardType: TextInputType.number

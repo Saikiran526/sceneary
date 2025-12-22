@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/app_utils/fill_textform_filed.dart';
 
-class ProjectStatusViewmodel extends ChangeNotifier{
+class ProjectStatusViewmodel extends ChangeNotifier {
   final BuildContext context;
-  ProjectStatusViewmodel({
-    required this.context
-  });
+  ProjectStatusViewmodel({required this.context});
   final TextEditingController projectHoldController = TextEditingController();
-  
+
   void projectHoldDailog() {
     showDialog(
       context: context,
@@ -27,16 +26,20 @@ class ProjectStatusViewmodel extends ChangeNotifier{
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                     Align(
-                      alignment: AlignmentGeometry.topRight,
-                      child: Icon(Icons.close)),
+                Align(
+                  alignment: AlignmentGeometry.topRight,
+                  child: Icon(Icons.close),
+                ),
                 SizedBox(height: 12),
                 Text(
                   'Enter How many days to hold the project',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                 ),
                 SizedBox(height: 12),
-                 customTextField(controller: projectHoldController, hintText: 'Enter Days'),
+                FillTextFormField(
+                  controller: projectHoldController,
+                  hintText: 'Enter Days',
+                ),
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,7 +52,10 @@ class ProjectStatusViewmodel extends ChangeNotifier{
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
-                            side: BorderSide(color: Color(0xFFEDF1F3), width: 1),
+                            side: BorderSide(
+                              color: Color(0xFFEDF1F3),
+                              width: 1,
+                            ),
                           ),
                         ),
                         onPressed: () => Navigator.pop(context),
@@ -85,5 +91,4 @@ class ProjectStatusViewmodel extends ChangeNotifier{
       },
     );
   }
-
-} 
+}

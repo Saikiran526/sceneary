@@ -10,7 +10,6 @@ import 'package:sceneary/presentation/basic_information/viewmodel/basic_informat
 
 class BasicInformationPageview extends StatelessWidget {
   const BasicInformationPageview({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -89,7 +88,7 @@ class BasicInformationPageview extends StatelessWidget {
                               color: Color(0xFFB0B0B0),
                             ),
                           ),
-                          SizedBox(height: 24),
+                          SizedBox(height: 15),
                           Expanded(
                             child: PageView(
                               controller: viewModel.pageController,

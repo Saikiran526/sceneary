@@ -96,8 +96,15 @@ class AppRouter {
   final GlobalKey<NavigatorState> _navKey = GlobalKey<NavigatorState>();
   GlobalKey<NavigatorState> get navKey => _navKey;
 
+  /// Pass arguments
+  // AppRouter.instance.push(RoutePaths.projectPlanAddPhaseScreen,arguments: '');
+  /// get the arguments in the "RoutePaths.projectPlanAddPhaseScreen" class
+  // String     -> final phone = ModalRoute.of(context)!.settings.arguments as String?;
+  // Obj        -> final user = ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>;
+  // custom obj -> final user = ModalRoute.of(context)!.settings.arguments as ModalClassName;
+
   // Route Builders (String → Widget)
-  static final Map<String, Widget Function()> _builders = {
+  static final Map<String, Widget Function()> _routesObject = {
     // Dashboard
     RoutePaths.dashboardScreen: () => DashboardScreen(),
     // Home
@@ -130,10 +137,13 @@ class AppRouter {
     // Shooting Schedules
     RoutePaths.shootingScheduleScreen: () => ShootingScheduleScreen(),
     RoutePaths.addShootingScheduleScreen: () => AddShootingScheduleScreen(),
-    RoutePaths.shootingSchedulesPreviewScreen: () => ShootingSchedulesPreviewScreen(),
+    RoutePaths.shootingSchedulesPreviewScreen: () =>
+        ShootingSchedulesPreviewScreen(),
     RoutePaths.editShootingScheduleScreen: () => EditShootingScheduleScreen(),
-    RoutePaths.shootingSchedulesNotificationScreen: () => ShootingSchedulesNotificationScreen(),
-    RoutePaths.acceptRejectShootingSchedulesScreen: () => AcceptRejectShootingSchedulesScreen(),
+    RoutePaths.shootingSchedulesNotificationScreen: () =>
+        ShootingSchedulesNotificationScreen(),
+    RoutePaths.acceptRejectShootingSchedulesScreen: () =>
+        AcceptRejectShootingSchedulesScreen(),
     RoutePaths.rejectedScreen: () => RejectedScreen(),
     RoutePaths.reviewRejectedScreen: () => ReviewRejectedScreen(),
 
@@ -160,15 +170,16 @@ class AppRouter {
 
     RoutePaths.projectPlanScreen: () => const ProjectPlanScreen(),
     RoutePaths.addPhaseScreen: () => const AddPhaseScreen(),
-    RoutePaths.projectPlanAddPhaseScreen: () => const ProjectPlanAddPhaseScreen(),
+    RoutePaths.projectPlanAddPhaseScreen: () =>
+        const ProjectPlanAddPhaseScreen(),
     RoutePaths.preProductionScreen: () => const PreProductionScreen(),
     RoutePaths.editPhaseScreen: () => const EditPhaseScreen(),
     RoutePaths.createTaskScreen: () => const CreateTaskScreen(),
     RoutePaths.scriptDiscussionScreen: () => const ScriptDiscussionScreen(),
     RoutePaths.extentPhaseDateScreen: () => const ExtentPhaseDateScreen(),
     RoutePaths.viewChartViewScreen: () => const ViewChartViewScreen(),
-    RoutePaths.basicInformationScreenThree: () => const BasicInformationScreenThree(),
-
+    RoutePaths.basicInformationScreenThree: () =>
+        const BasicInformationScreenThree(),
 
     //upendar
     RoutePaths.callSheetScreen: () => const CallSheetScreen(),
@@ -205,53 +216,22 @@ class AppRouter {
     RoutePaths.socialChatScreen: () => const SocialChatScreen(),
 
     RoutePaths.socialChatRequestScreen: () => const SocialChatRequestScreen(),
-    RoutePaths.addTextScreen:()=> const AddTextScreen(),
-    RoutePaths.showPostScreen:()=> const ShowPostScreen(),
+    RoutePaths.addTextScreen: () => const AddTextScreen(),
+    RoutePaths.showPostScreen: () => const ShowPostScreen(),
   };
 
   // Route Generator
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    final builder = _builders[settings.name];
+    final builder = _routesObject[settings.name];
     if (builder == null) return _error(settings.name);
     return _slide(builder(), settings);
   }
-
-  // Slide Transition
-  PageRouteBuilder _slide(Widget page, RouteSettings settings) {
-    return PageRouteBuilder(
-      settings: settings,
-      pageBuilder: (_, __, ___) => page,
-      transitionDuration: const Duration(milliseconds: 300),
-      transitionsBuilder: (_, animation, __, child) {
-        const begin = Offset(1.0, 0.0);
-        const end = Offset.zero;
-        final tween = Tween(
-          begin: begin,
-          end: end,
-        ).chain(CurveTween(curve: Curves.easeInOut));
-        return SlideTransition(position: animation.drive(tween), child: child);
-      },
-    );
-  }
-
-  // Error Screen
-  Route<dynamic> _error(String? name) => MaterialPageRoute(
-    builder: (_) => Scaffold(
-      appBar: AppBar(title: const Text('Error')),
-      body: Center(
-        child: Text(
-          'Route not found: "$name"',
-          style: const TextStyle(color: Colors.red, fontSize: 16),
-        ),
-      ),
-    ),
-  );
 
   // NAVIGATION HELPERS (Enhanced)
 
   /// Push a route (optionally with arguments)
   Future<T?> push<T extends Object?>(String routePath, {Object? arguments}) {
-    final builder = _builders[routePath];
+    final builder = _routesObject[routePath];
     if (builder == null) throw ArgumentError('No route: $routePath');
     final route = _slide(
       builder(),
@@ -270,7 +250,7 @@ class AppRouter {
 
   /// Replace the current screen (optionally with arguments)
   Future<T?> replace<T extends Object?>(String routePath, {Object? arguments}) {
-    final builder = _builders[routePath];
+    final builder = _routesObject[routePath];
     if (builder == null) throw ArgumentError('No route: $routePath');
     final route = _slide(
       builder(),
@@ -281,7 +261,7 @@ class AppRouter {
 
   /// Clear stack and go to a new route (optionally with arguments)
   Future<T?> goTo<T extends Object?>(String routePath, {Object? arguments}) {
-    final builder = _builders[routePath];
+    final builder = _routesObject[routePath];
     if (builder == null) throw ArgumentError('No route: $routePath');
     final route = _slide(
       builder(),
@@ -301,4 +281,35 @@ class AppRouter {
 
   /// Check if can pop
   bool get canPop => _navKey.currentState!.canPop();
+}
+
+// Error Screen
+Route<dynamic> _error(String? name) => MaterialPageRoute(
+  builder: (_) => Scaffold(
+    appBar: AppBar(title: const Text('Error')),
+    body: Center(
+      child: Text(
+        'Route not found: "$name"',
+        style: const TextStyle(color: Colors.red, fontSize: 16),
+      ),
+    ),
+  ),
+);
+
+// Slide Transition
+PageRouteBuilder _slide(Widget page, RouteSettings settings) {
+  return PageRouteBuilder(
+    settings: settings,
+    pageBuilder: (_, __, ___) => page,
+    transitionDuration: const Duration(milliseconds: 300),
+    transitionsBuilder: (_, animation, __, child) {
+      const begin = Offset(1.0, 0.0);
+      const end = Offset.zero;
+      final tween = Tween(
+        begin: begin,
+        end: end,
+      ).chain(CurveTween(curve: Curves.easeInOut));
+      return SlideTransition(position: animation.drive(tween), child: child);
+    },
+  );
 }

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/app_utils/fill_textform_filed.dart';
 import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_pageview_viewmodel.dart';
 import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_viewmodel_two.dart';
 
@@ -11,11 +12,15 @@ class BasicInformationScreenTwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bottomInset = MediaQuery.of(context).viewInsets.bottom;
+
     return ChangeNotifierProvider(
       create: (context) => BasicInformationViewmodelTwo(context: context),
       child: Consumer<BasicInformationViewmodelTwo>(
         builder: (context, viewModel, child) {
           return SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            padding: EdgeInsets.only(bottom: bottomInset + 20),
             child: Material(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -166,7 +171,7 @@ class BasicInformationScreenTwo extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 8),
-                    customTextField(
+                    FillTextFormField(
                       controller: viewModel.instaUserNameController,
                       hintText: '@Yourusername',
                     ),
@@ -179,41 +184,53 @@ class BasicInformationScreenTwo extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 8),
-                    customTextField(
+                    TextFormField(
                       controller: viewModel.youtubeController,
-                      hintText: 'Channel URL',
-                    ),
-                    SizedBox(height: 24),
-                    Text(
-                      "Career Highlights",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    customTextField(
-                      controller: viewModel.youtubeController,
-                      hintText: 'Enter here..',
-                      suffix: Container(
-                        height: 23,
-                        width: 51,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: Colors.white,
-                          border: Border.all(color: Colors.grey, width: 1),
+                      textAlignVertical:TextAlignVertical.center, 
+                      decoration: InputDecoration(
+                        hintText: 'Enter here..',
+                        hintStyle: const TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF9E9E9E),
                         ),
-                        child: Text(
-                          '+ Add',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF4F4F4F),
+                        filled: true,
+                        fillColor: Colors.white,
+
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        isDense: true,
+                        suffix: Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: GestureDetector(
+                            onTap: () {
+                            },
+                            child: Container(
+                              height: 23,
+                              width: 51,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(4),
+                                border: Border.all(color: Colors.grey),
+                              ),
+                              child: const Text(
+                                '+ Add',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
+
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
+                        ),
                       ),
                     ),
+
                     SizedBox(height: 16),
                     Container(
                       padding: EdgeInsets.all(8),

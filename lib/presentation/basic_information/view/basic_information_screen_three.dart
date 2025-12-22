@@ -6,6 +6,7 @@ import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/app_utils/fill_textform_filed.dart';
 import 'package:sceneary/presentation/basic_information/viewmodel/basic_information_viewmodel_three.dart';
 
 class BasicInformationScreenThree extends StatelessWidget {
@@ -13,11 +14,15 @@ class BasicInformationScreenThree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bottomInset = MediaQuery.of(context).viewInsets.bottom;
+
     return ChangeNotifierProvider(
       create: (context) => BasicInformationViewmodelThree(context: context),
       child: Consumer<BasicInformationViewmodelThree>(
         builder: (context, viewModel, child) {
           return SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            padding: EdgeInsets.only(bottom: bottomInset + 20),
             child: Material(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -71,7 +76,7 @@ class BasicInformationScreenThree extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 8),
-                    customTextField(
+                    FillTextFormField(
                       controller: viewModel.portfolioLinkController,
                       hintText: 'Paste here',
                     ),

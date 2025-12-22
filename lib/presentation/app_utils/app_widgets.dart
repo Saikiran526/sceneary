@@ -1,109 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/core/constants/app_colors.dart';
 
-Widget customTextField({
-  required TextEditingController controller,
-  required String hintText,
-  TextStyle? hintTextStyle,
-  IconData? prefixIcon,
-  Widget? suffix,
-  VoidCallback? onTap,
-  ValueChanged<String>? onChanged,
-  FocusNode? focusNode, // ✅ ADDED
-  bool readOnly = false,
-  bool obscureText = false,
-  int maxLines = 1,
-  int? maxLength,
-  TextInputType? keyboardType,
-  bool isError = false,
-  String? errorText,
-}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Container(
-        width: double.infinity,
-        height: 40,
-        padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            color: isError ? Colors.red : const Color(0xFFEDF1F3),
-            width: 1,
-          ),
-        ),
-        child: Row(
-          children: [
-            // 🔹 PREFIX
-            if (prefixIcon != null) ...[
-              Icon(
-                prefixIcon,
-                size: 18,
-                color: Colors.grey,
-              ),
-              const SizedBox(width: 10),
-            ],
-
-            // 🔹 TEXT FIELD
-            Expanded(
-              child: TextField(
-                controller: controller,
-                focusNode: focusNode, // ✅ USED
-                readOnly: readOnly,
-                onTap: onTap,
-                onChanged: onChanged,
-                maxLength: maxLength,
-                keyboardType: keyboardType,
-                obscureText: obscureText,
-                maxLines: maxLines,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  isCollapsed: true,
-                  border: InputBorder.none,
-                  counterText: "",
-                  hintText: hintText,
-                  hintStyle: hintTextStyle ??
-                      const TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
-                      ),
-                ),
-              ),
-            ),
-
-            // 🔹 SUFFIX
-            if (suffix != null) ...[
-              const SizedBox(width: 10),
-              suffix!,
-            ],
-          ],
-        ),
-      ),
-
-      // 🔴 ERROR TEXT BELOW
-      if (isError && errorText != null) ...[
-        const SizedBox(height: 6),
-        Padding(
-          padding: const EdgeInsets.only(left: 4),
-          child: Text(
-            errorText!,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Colors.red,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-      ],
-    ],
-  );
-}
-
-
 
 
 Widget customTextFieldWithHeading({
@@ -127,7 +24,7 @@ Widget customTextFieldWithHeading({
       TextField(
         controller: controller,
         readOnly: readOnly,
-        maxLines: maxLines,
+        maxLines: maxLines ?? 1,
         decoration: InputDecoration(
           hintText: hintText,
           focusedBorder: OutlineInputBorder(
@@ -172,7 +69,7 @@ Widget customDropdownWithHeading({
           hintText: hintText,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 1, 0, 0), width: 1),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),

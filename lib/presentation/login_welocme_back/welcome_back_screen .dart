@@ -7,6 +7,7 @@ import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/app_utils/fill_textform_filed.dart';
 import 'package:sceneary/presentation/login_welocme_back/welcome_back_viewmodel.dart';
 
 class WelcomeBackScreen extends StatelessWidget {
@@ -20,9 +21,9 @@ class WelcomeBackScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return AnnotatedRegion(
             value: const SystemUiOverlayStyle(
-              statusBarColor: Color(0xFF0B0B0B), 
-              statusBarIconBrightness: Brightness.light,  
-              statusBarBrightness: Brightness.dark,  
+              statusBarColor: Color(0xFF0B0B0B),
+              statusBarIconBrightness: Brightness.light,
+              statusBarBrightness: Brightness.dark,
             ),
             child: Scaffold(
               body: Stack(
@@ -121,18 +122,11 @@ class WelcomeBackScreen extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(height: 8),
-                                  customTextField(
+                                  FillTextFormField(
                                     controller:
                                         viewModel.emailOrMobileController,
                                     hintText: 'Enter here',
-                                    isError: viewModel.isEmailError,
-                                    errorText: viewModel.emailErrorText,
                                     keyboardType: TextInputType.emailAddress,
-                                    onChanged: (_) {
-                                      if (viewModel.isEmailError) {
-                                        viewModel.validateEmail();
-                                      }
-                                    },
                                   ),
 
                                   SizedBox(height: 24),
@@ -144,16 +138,9 @@ class WelcomeBackScreen extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(height: 8),
-                                  customTextField(
+                                  FillTextFormField(
                                     controller: viewModel.passwordController,
                                     hintText: 'Enter here',
-                                    obscureText: true,
-                                    focusNode: viewModel.passwordFocusNode,
-                                    isError: viewModel.isPasswordError,
-                                    errorText: viewModel.passwordErrorText,
-                                    onChanged: (_) {
-                                      viewModel.validatePassword();
-                                    },
                                   ),
 
                                   SizedBox(height: 24),
@@ -169,11 +156,9 @@ class WelcomeBackScreen extends StatelessWidget {
                                   primaryButton(
                                     text: 'Login',
                                     onPressed: () {
-                                      final isValid = viewModel.validateLogin();
-
-                                      if (isValid) {
-                                       AppRouter.instance.push(RoutePaths.basicInformationPageview);
-                                      }
+                                      AppRouter.instance.push(
+                                        RoutePaths.basicInformationPageview,
+                                      );
                                     },
                                   ),
 

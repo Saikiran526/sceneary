@@ -100,7 +100,7 @@ class AssetsPath {
   static const iconInvisible = "assets/images/icon_invisible.svg";
   static const pageTwoImg = "assets/images/ptwo_img.png";
   static const profilePicture = "assets/images/Group 1.png";
-
+ static const visibilityOff = "assets/images/visibility_off.svg";
 
 
   //upendar
