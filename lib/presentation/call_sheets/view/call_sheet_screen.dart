@@ -34,13 +34,28 @@ class CallSheetScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              title: Text(
-                "Call Sheet",
-                style: GoogleFonts.montserrat(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Call Sheet",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'Manage and Send call sheets to cast and crew.',
+                    style: GoogleFonts.inter(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
               actions: [
                 GestureDetector(
@@ -48,7 +63,7 @@ class CallSheetScreen extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(right: width * 0.04),
                     child: Container(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
@@ -64,17 +79,6 @@ class CallSheetScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    'Manage and Send call sheets to cast and crew.',
-                    style: TextStyle(
-                      fontSize: width * 0.032,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xff787878),
-                    ),
-                  ),
-
-                  SizedBox(height: height * 0.03),
-
                   Column(
                     children: [
                       Row(
@@ -85,6 +89,7 @@ class CallSheetScreen extends StatelessWidget {
                               buttonColor: Color(0XFF1D55A8),
                               textColor: Colors.white,
                               icon: AssetsPath.addImg,
+                              
                               onTap: () {
                                 AppRouter.instance.push(
                                   RoutePaths.createCallSheetScreen,
