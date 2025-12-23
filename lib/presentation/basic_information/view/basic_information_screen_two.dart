@@ -184,53 +184,10 @@ class BasicInformationScreenTwo extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 8),
-                    TextFormField(
+                    FillTextFormField(
                       controller: viewModel.youtubeController,
-                      textAlignVertical:TextAlignVertical.center, 
-                      decoration: InputDecoration(
-                        hintText: 'Enter here..',
-                        hintStyle: const TextStyle(
-                          fontSize: 12,
-                          color: Color(0xFF9E9E9E),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        isDense: true,
-                        suffix: Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: GestureDetector(
-                            onTap: () {
-                            },
-                            child: Container(
-                              height: 23,
-                              width: 51,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(color: Colors.grey),
-                              ),
-                              child: const Text(
-                                '+ Add',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 14,
-                        ),
-                      ),
+                      hintText: '@Yourusername',
                     ),
-
                     SizedBox(height: 16),
                     Container(
                       padding: EdgeInsets.all(8),
@@ -283,7 +240,6 @@ class BasicInformationScreenTwo extends StatelessWidget {
                         ).nextPage();
                       },
                     ),
-
                     SizedBox(height: 24),
                     Center(
                       child: Text(

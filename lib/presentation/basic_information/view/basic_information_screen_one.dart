@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/app_colors.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 import 'package:sceneary/presentation/app_utils/fill_textform_filed.dart';
@@ -20,9 +21,7 @@ class BasicInformationScreenOne extends StatelessWidget {
         builder: (context, viewModel, _) {
           return SingleChildScrollView(
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            padding: EdgeInsets.only(
-              bottom: bottomInset + 20, 
-            ),
+            padding: EdgeInsets.only(bottom: bottomInset + 20),
             child: Material(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -47,21 +46,6 @@ class BasicInformationScreenOne extends StatelessWidget {
                       controller: viewModel.fullNameController,
                       hintText: 'Enter here',
                     ),
-
-                    const SizedBox(height: 16),
-                    const Text(
-                      "Screen Name",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    FillTextFormField(
-                      controller: viewModel.screenNameController,
-                      hintText: 'Enter here',
-                    ),
-
                     const SizedBox(height: 16),
                     const Text(
                       "Mobile Number",
@@ -84,21 +68,19 @@ class BasicInformationScreenOne extends StatelessWidget {
                         ),
                       ],
                     ),
-
-                    const SizedBox(height: 16),
-                    const Text(
-                      "Email ID *",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    FillTextFormField(
-                      controller: viewModel.emailIdController,
-                      hintText: 'Enter here',
-                    ),
-
+                    // const SizedBox(height: 16),
+                    // const Text(
+                    //   "Screen Name",
+                    //   style: TextStyle(
+                    //     fontSize: 14,
+                    //     fontWeight: FontWeight.w600,
+                    //   ),
+                    // ),
+                    // const SizedBox(height: 8),
+                    // FillTextFormField(
+                    //   controller: viewModel.screenNameController,
+                    //   hintText: 'Enter here',
+                    // ),
                     const SizedBox(height: 16),
                     const Text(
                       "Password",
@@ -120,6 +102,37 @@ class BasicInformationScreenOne extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      "Re-Enter Password",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    FillTextFormField(
+                      controller: viewModel.reEnterPasswordController,
+                      hintText: 'Enter here',
+                      suffixIcon: IconButton(
+                        iconSize: 20,
+                        onPressed: () {},
+                        icon: Icon(Icons.visibility_off),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      "Email ID *",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    FillTextFormField(
+                      controller: viewModel.emailIdController,
+                      hintText: 'Enter here',
+                    ),
 
                     const SizedBox(height: 24),
                     primaryButton(
@@ -130,6 +143,44 @@ class BasicInformationScreenOne extends StatelessWidget {
                           listen: false,
                         ).nextPage();
                       },
+                    ),
+                    SizedBox(height: 24),
+                    Center(
+                      child: Text(
+                        'OR',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Center(
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Don’t have an account? ',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF4F4F4F),
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Register Now',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: primaryBlue,
+                                decoration: TextDecoration.underline,
+                                decorationThickness: 2,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
 
                     const SizedBox(height: 24),
