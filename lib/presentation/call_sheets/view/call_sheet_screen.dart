@@ -87,9 +87,15 @@ class CallSheetScreen extends StatelessWidget {
                             child: AppButton(
                               label: "Create Call Sheet",
                               buttonColor: Color(0XFF1D55A8),
-                              textColor: Colors.white,
+                              textColor: Color(0XFFF6F6F6),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
                               icon: AssetsPath.addImg,
-                              
+                              fontFamily: GoogleFonts.inter().fontFamily,
+                              borderWidth: 1,
+                              borderColor:
+                                  Colors.transparent, // for first button
+
                               onTap: () {
                                 AppRouter.instance.push(
                                   RoutePaths.createCallSheetScreen,
@@ -100,11 +106,16 @@ class CallSheetScreen extends StatelessWidget {
                           SizedBox(width: 12),
                           Expanded(
                             child: AppButton(
-                              label: "Download Template",
-                              onTap: () {},
-                              buttonColor: Colors.white,
-                              textColor: Colors.black,
+                              fontSize: 14,
+                              borderWidth: 1,
                               borderColor: Colors.black,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: GoogleFonts.inter().fontFamily,
+
+                              label: "Download Template",
+                              onTap: () { viewModel.showDownloadedSuccess(context);},
+                              buttonColor: Colors.white,
+                              textColor: Color(0XFF252525),
                               icon: AssetsPath.downloadImg,
                             ),
                           ),
@@ -118,6 +129,11 @@ class CallSheetScreen extends StatelessWidget {
                         children: [
                           AppButton(
                             width: 180,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: GoogleFonts.inter().fontFamily,
+                            textColor: Color(0XFF252525),
+
                             label: "Upload Call Sheet",
                             onTap: () {
                               AppRouter.instance.push(
@@ -125,7 +141,6 @@ class CallSheetScreen extends StatelessWidget {
                               );
                             },
                             borderColor: Colors.black,
-                            textColor: Colors.black,
                             buttonColor: Colors.white,
                             icon: AssetsPath.downloadImg,
                           ),
@@ -143,23 +158,38 @@ class CallSheetScreen extends StatelessWidget {
                       horizontal: width * 0.1,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Color(0XFFF9EAF5),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: Colors.grey.shade300),
                     ),
                     child: Text(
                       'No entries are scheduled. Add your first shooting schedule or upload an Excel file.',
-                      style: TextStyle(
-                        fontSize: width * 0.035,
+                      style: GoogleFonts.inter(
+                        fontSize: 14,
                         fontWeight: FontWeight.w400,
-                        color: Color(0xff787878),
+                        color: Color(0XFF7D7D7D),
                       ),
                       textAlign: TextAlign.center,
+                    ),
+                  ),
+
+                  Expanded(
+                    child: Center(
+                      child: SvgPicture.asset(
+                        AssetsPath.callSheetsBg,
+                        width: width * 0.6,
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
+       
+       
+       
+       
+       
           );
         },
       ),

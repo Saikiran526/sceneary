@@ -123,4 +123,5 @@ class AssetsPath {
   static const addBudget='assets/images/add_budget.svg';
   static const chatDocument="assets/images/chat_document.svg";
   static const chatGallery="assets/images/chat_gallery.svg";
+  static const callSheetsBg="assets/images/background_callsheets.svg";
 }

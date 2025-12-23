@@ -19,241 +19,360 @@ class ProjectsScreen extends StatelessWidget {
       create: (_) => ProjectsViewmodel(),
       child: Consumer<ProjectsViewmodel>(
         builder: (context, viewModel, child) {
-          return SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(21.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          return Scaffold(
+            appBar: AppBar(
+              elevation: 0,
+              toolbarHeight: 100,
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.transparent,
+
+              flexibleSpace: DecoratedBox(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(AssetsPath.socialBg),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Container(color: Colors.black.withOpacity(0.25)),
+              ),
+
+              // ),
+
+              /// 🔹 UI BELOW IS 100% UNCHANGED
+              title: Row(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Projects',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
+                  GestureDetector(
+                    onTap: () {},
+                    child: CircleAvatar(
+                      radius: 18,
+                      backgroundImage: AssetImage(AssetsPath.women),
+                    ),
+                  ),
+
+                  const SizedBox(width: 10),
+
+                  const Text(
+                    "Projects",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+
+                  const Spacer(),
+
+                  GestureDetector(
+                    onTap: () {
+                      AppRouter.instance.push(RoutePaths.notificationsScreen);
+                    },
+                    child: SvgPicture.asset(
+                      AssetsPath.socialNotification,
+                      width: 24,
+                      height: 24,
+                      color: Colors.white,
+                    ),
+                  ),
+
+                  const SizedBox(width: 16),
+                ],
+              ),
+
+              bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(64),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  child: Container(
+                    height: 48,
+                    padding: const EdgeInsets.fromLTRB(16, 8, 10, 8),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: const Color(0xFFF4D6EA),
+                        width: 1,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.search, color: Colors.grey),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: TextField(
+                            readOnly: true,
+                            onTap: () {
+                              AppRouter.instance.push(
+                                RoutePaths.socialSearchScreen,
+                              );
+                            },
+                            decoration: const InputDecoration(
+                              hintText: 'Search people or conversations...',
+                              hintStyle: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                              ),
+                              border: InputBorder.none,
+                              isDense: true,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(21.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Projects',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        if (viewModel.projectDetails.isNotEmpty)
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xff3D3D3D),
+                              padding: const EdgeInsets.all(8.0),
+                              minimumSize: Size(width * 0.3, 0),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
+                            onPressed: () {
+                              AppRouter.instance.push(
+                                RoutePaths.createProjectScreen,
+                              );
+                            },
+                            child: const Text(
+                              'Create Project',
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                    SizedBox(height: height * 0.01),
+                    if (viewModel.projectDetails.isEmpty)
+                      GestureDetector(
+                        onTap: () {
+                          AppRouter.instance.push(
+                            RoutePaths.createProjectScreen,
+                          );
+                        },
+                        child: Container(
+                          width: width * 0.3,
+                          decoration: BoxDecoration(
+                            color: Color(0xffD9D9D9),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              width: 1,
+                              color: Color(0xff000000).withAlpha(30),
+                            ),
+                          ),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0,
+                                vertical: 25,
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 24,
+                                    width: 24,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        '+',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: height * 0.02),
+                                  Text(
+                                    'Create Project',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                      if (viewModel.projectDetails.isNotEmpty)
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xff3D3D3D),
-                            padding: const EdgeInsets.all(8.0),
-                            minimumSize: Size(width * 0.3, 0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
-                          onPressed: () {
-                            AppRouter.instance.push(RoutePaths.createProjectScreen);
-                          },
-                          child: const Text(
-                            'Create Project',
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                  SizedBox(height: height * 0.01),
-                  if (viewModel.projectDetails.isEmpty)
-                    GestureDetector(
-                      onTap: () {
-                        AppRouter.instance.push(RoutePaths.createProjectScreen);
-                      },
-                      child: Container(
-                        width: width * 0.3,
-                        decoration: BoxDecoration(
-                          color: Color(0xffD9D9D9),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            width: 1,
-                            color: Color(0xff000000).withAlpha(30),
-                          ),
-                        ),
-                        child: Center(
+                    if (viewModel.projectDetails.isNotEmpty) ...[
+                      ...List.generate(3, (index) {
+                        final project = viewModel.projectDetails;
+                        return Card(
+                          elevation: 10,
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 10.0,
-                              vertical: 25,
-                            ),
+                            padding: const EdgeInsets.all(21.0),
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  height: 24,
-                                  width: 24,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      '+',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Color(0xffDADADA),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 15.0,
+                                        vertical: 8,
+                                      ),
+                                      child: Text(
+                                        project['productionType'] ??
+                                            "productionType",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: height * 0.02),
+                                SizedBox(height: height * 0.01),
+                                Container(
+                                  width: width,
+                                  height: height * 0.15,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffD9D9D9),
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                ),
+                                SizedBox(height: height * 0.01),
                                 Text(
-                                  'Create Project',
+                                  project['movie'] ?? "Movie name",
                                   style: TextStyle(
-                                    fontSize: 12,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  if (viewModel.projectDetails.isNotEmpty) ...[
-                    ...List.generate(3, (index) {
-                      final project = viewModel.projectDetails;
-                      return Card(
-                        elevation: 10,
-                        child: Padding(
-                          padding: const EdgeInsets.all(21.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Color(0xffDADADA),
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 15.0,
-                                      vertical: 8,
-                                    ),
-                                    child: Text(
-                                      project['productionType'] ??
-                                          "productionType",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: height * 0.01),
-                              Container(
-                                width: width,
-                                height: height * 0.15,
-                                decoration: BoxDecoration(
-                                  color: Color(0xffD9D9D9),
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                              ),
-                              SizedBox(height: height * 0.01),
-                              Text(
-                                project['movie'] ?? "Movie name",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              SizedBox(height: height * 0.01),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  RichText(
-                                    text: TextSpan(
-                                      text:'Director: ',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff4F4F4F)
-                                      ),
-                                      children: [
-                                        TextSpan(
-                                          text: project['Director'] ?? "Director",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        )
-                                      ]
-                                    ),
-                                  ),
-                                  RichText(
-                                    text: TextSpan(
-                                      text:'Producer: ',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xff4F4F4F)
-                                      ),
-                                      children: [
-                                        TextSpan(
-                                          text: project['Producer'] ?? "Producer",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        )
-                                      ]
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: height * 0.01),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      SvgPicture.asset(AssetsPath.calendarImg),
-                                      SizedBox(width: width*0.01,),
-                                      Text(
-                                        '${project['Duration'] ?? "Duration"}',
+                                SizedBox(height: height * 0.01),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    RichText(
+                                      text: TextSpan(
+                                        text: 'Director: ',
                                         style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xff4F4F4F),
                                         ),
+                                        children: [
+                                          TextSpan(
+                                            text:
+                                                project['Director'] ??
+                                                "Director",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      SvgPicture.asset(AssetsPath.budgetMoneyImg),
-                                      SizedBox(width: width*0.01,),
-                                      Text(
-                                        project['Budget'] ?? "Budget",
+                                    ),
+                                    RichText(
+                                      text: TextSpan(
+                                        text: 'Producer: ',
                                         style: TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color(0xff4F4F4F),
                                         ),
+                                        children: [
+                                          TextSpan(
+                                            text:
+                                                project['Producer'] ??
+                                                "Producer",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: height * 0.02),
-                              SizedBox(
-                                width: width,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Color(0xff3D3D3D),
-                                    foregroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    )
-                                  ),
-                                    onPressed: (){
-                                    AppRouter.instance.push(RoutePaths.projectDetailsScreen);
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: height * 0.01),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                          AssetsPath.calendarImg,
+                                        ),
+                                        SizedBox(width: width * 0.01),
+                                        Text(
+                                          '${project['Duration'] ?? "Duration"}',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                          AssetsPath.budgetMoneyImg,
+                                        ),
+                                        SizedBox(width: width * 0.01),
+                                        Text(
+                                          project['Budget'] ?? "Budget",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: height * 0.02),
+                                SizedBox(
+                                  width: width,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xff3D3D3D),
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      AppRouter.instance.push(
+                                        RoutePaths.projectDetailsScreen,
+                                      );
                                     },
                                     child: Text(
                                       'View Project',
@@ -261,16 +380,17 @@ class ProjectsScreen extends StatelessWidget {
                                         fontSize: 14,
                                         fontWeight: FontWeight.w600,
                                       ),
-                                    )
+                                    ),
+                                  ),
                                 ),
-                              )
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    }),
+                        );
+                      }),
+                    ],
                   ],
-                ],
+                ),
               ),
             ),
           );

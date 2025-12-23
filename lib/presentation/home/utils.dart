@@ -37,7 +37,7 @@ Widget quickActions({
                 width: 20,
                 child: SvgPicture.asset(
                   AssetsPath.calenderFilled20Img,
-                  fit: BoxFit.contain,
+                  // fit: BoxFit.contain,
                 ),
               ),
                   // Icon(Icons.calendar_view_day,color: onPrimary,size: 30,),

@@ -7,9 +7,6 @@ import 'package:sceneary/presentation/social/viewmodel/social_viewmodel.dart';
 class LikesBottomSheet extends StatelessWidget {
   const LikesBottomSheet({super.key});
 
-  static const double _buttonWidth = 120;
-  static const double _buttonHeight = 32;
-
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
@@ -90,13 +87,11 @@ class LikesBottomSheet extends StatelessWidget {
                               ),
                               Expanded(
                                 child: AppButton(
-                                  
-                                   
                                   label: user.isConnected
                                       ? "Send Message"
                                       : "Send Connection",
-                                  width: _buttonWidth,
-                                  height: _buttonHeight,
+                                  width: 120,
+                                  height: 32,
                                   buttonColor: user.isConnected
                                       ? Colors.white
                                       : const Color(0XFF1D55A8),
@@ -124,5 +119,3 @@ class LikesBottomSheet extends StatelessWidget {
     );
   }
 }
-
-

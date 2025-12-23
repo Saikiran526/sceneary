@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
-import 'package:sceneary/presentation/call_sheets/widgets/app_button.dart';
 import 'package:sceneary/presentation/social/viewmodel/social_search_viewmodel.dart';
 
 class SocialSearchScreen extends StatelessWidget {

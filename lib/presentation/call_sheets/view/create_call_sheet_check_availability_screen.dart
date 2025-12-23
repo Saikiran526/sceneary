@@ -664,10 +664,13 @@ class CreateCallSheetCheckAvailabilityScreen extends StatelessWidget {
   }
 
   Widget _buildLine() {
-    return Container(
-      height: 2,
-      color: Colors.grey.shade400,
-      margin: const EdgeInsets.symmetric(horizontal: 10),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Container(
+        height: 2,
+        color: Colors.grey.shade400,
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+      ),
     );
   }
 }

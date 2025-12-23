@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sceneary/presentation/call_sheets/view/call_sheet_user_screen.dart';
 import 'package:sceneary/presentation/shooting_schedules_notifications/accept_reject_shooting_schedules_screen.dart';
 import 'package:sceneary/presentation/add_phase/add_phase_screen.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/view/add_shooting_schedule_screen.dart';
@@ -218,6 +219,7 @@ class AppRouter {
     RoutePaths.socialChatRequestScreen: () => const SocialChatRequestScreen(),
     RoutePaths.addTextScreen: () => const AddTextScreen(),
     RoutePaths.showPostScreen: () => const ShowPostScreen(),
+    RoutePaths.callSheetUserScreen: () => const CallSheetUserScreen(),
   };
 
   // Route Generator

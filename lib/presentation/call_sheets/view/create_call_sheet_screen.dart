@@ -52,17 +52,22 @@ class CreateCallSheetScreen extends StatelessWidget {
                             number: 1,
                             color: Color(0XFF1D55A8),
                             title: 'Basic Details',
+                            textColor: Colors.black
                           ),
 
                           const SizedBox(width: 6),
 
-                          SizedBox(width: width * 0.2, child: _buildLine()),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 14.0),
+                            child: SizedBox(width: width * 0.2, child: _buildLine()),
+                          ),
                           const SizedBox(width: 6),
 
                           buildStepCircle(
                             number: 2,
                             color: Color(0XFFD1D1D1),
                             title: 'Check Availability',
+                            textColor: Color(0XFF7F7F7F),
                           ),
                         ],
                       ),
@@ -270,6 +275,7 @@ class CreateCallSheetScreen extends StatelessWidget {
                         AppButton(
                           label: "Add new crew member",
                           fullWidth: true,
+                          
                           onTap: () {},
                           buttonColor: Color(0XFF1D55A8),
                           textColor: Colors.white,
@@ -330,6 +336,7 @@ class CreateCallSheetScreen extends StatelessWidget {
     required int number,
     required Color color,
     required String title,
+    required Color textColor,
   }) {
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -353,7 +360,7 @@ class CreateCallSheetScreen extends StatelessWidget {
             fontWeight: FontWeight.w500,
             fontSize: 10,
             height: 1.0,
-            color: Colors.black,
+            color: textColor,
           ),
         ),
       ],

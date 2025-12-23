@@ -23,7 +23,7 @@ class CallSheetTableScreen extends StatelessWidget {
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
-               iconTheme: const IconThemeData(color: Colors.white),
+              iconTheme: const IconThemeData(color: Colors.white),
               backgroundColor: Colors.transparent,
               flexibleSpace: Container(
                 decoration: const BoxDecoration(
@@ -73,25 +73,33 @@ class CallSheetTableScreen extends StatelessWidget {
                                 Expanded(
                                   child: AppButton(
                                     label: "Create Call Sheet",
-                                    buttonColor:   Color(0XFF1D55A8),
-
-                                    textColor: Colors.white,
+                                    buttonColor: Color(0XFF1D55A8),
+                                    textColor: Color(0XFFF6F6F6),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
                                     icon: AssetsPath.addImg,
-                                    onTap: () {
-                                      AppRouter.instance.push(
-                                        RoutePaths.addBudgetScreen,
-                                      );
-                                    },
+                                    fontFamily: GoogleFonts.inter().fontFamily,
+                                    borderWidth: 1,
+                                    borderColor: Colors.transparent,
+
+                                    onTap: () {},
                                   ),
                                 ),
                                 SizedBox(width: 12),
                                 Expanded(
                                   child: AppButton(
-                                    label: "Download Template",
-                                    onTap: () {},
-                                    buttonColor: Colors.white,
-                                    textColor: Colors.black,
+                                    fontSize: 14,
+                                    borderWidth: 1,
                                     borderColor: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: GoogleFonts.inter().fontFamily,
+
+                                    label: "Download Template",
+                                    onTap: () {
+                                      viewModel.showDownloadedSuccess(context);
+                                    },
+                                    buttonColor: Colors.white,
+                                    textColor: Color(0XFF252525),
                                     icon: AssetsPath.downloadImg,
                                   ),
                                 ),
@@ -105,10 +113,14 @@ class CallSheetTableScreen extends StatelessWidget {
                               children: [
                                 AppButton(
                                   width: 180,
+                                  fontSize: 14,
+                                  borderWidth: 1,
+                                  borderColor: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: GoogleFonts.inter().fontFamily,
 
                                   label: "Upload Call Sheet",
                                   onTap: () {},
-                                  borderColor: Colors.black,
                                   textColor: Colors.black,
                                   buttonColor: Colors.white,
                                   icon: AssetsPath.downloadImg,

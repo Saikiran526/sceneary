@@ -36,11 +36,23 @@ class CommentsBottomSheet extends StatelessWidget {
 
                   const SizedBox(height: 12),
 
-                  Text(
-                    "Comments",
-                    style: GoogleFonts.inter(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
+                  Center(
+                    child: ShaderMask(
+                      shaderCallback: (bounds) {
+                        return const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                        ).createShader(bounds);
+                      },
+                      child: Text(
+                        "Comments",
+                        style: GoogleFonts.inter(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
 

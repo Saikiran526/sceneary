@@ -84,7 +84,7 @@ class NotificationScreen extends StatelessWidget {
                               vertical: 16,
                             ),
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Color(0XFFF9EAF5),
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: [
                                 BoxShadow(
@@ -139,6 +139,7 @@ class NotificationScreen extends StatelessWidget {
                                 Align(
                                   alignment: Alignment.centerLeft,
                                   child: AppButton(
+                                    height: 27,
                                     label: "View details",
                                     buttonColor: Color(0XFF1D55A8),
                                     textColor: Colors.white,
