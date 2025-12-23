@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sceneary/core/constants/app_colors.dart';
 
-
-
 Widget customTextFieldWithHeading({
   required Size size,
   required String heading,

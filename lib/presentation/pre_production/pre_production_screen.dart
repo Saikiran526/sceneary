@@ -32,7 +32,7 @@ class PreProductionScreen extends StatelessWidget {
                     },
                     child: SvgPicture.asset(AssetsPath.editMember),
                   ),
-                  SizedBox(width: 80),
+                  SizedBox(width: 60),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF454545),
