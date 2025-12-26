@@ -37,7 +37,6 @@ class BudgetScreen extends StatelessWidget {
                 "Budget",
                 style: GoogleFonts.montserrat(
                   fontSize: 14,
-
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),

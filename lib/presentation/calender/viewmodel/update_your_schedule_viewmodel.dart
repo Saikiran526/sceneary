@@ -2,19 +2,30 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import 'package:sceneary/core/constants/app_colors.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/app_utils/app_widgets.dart';
+import 'package:sceneary/presentation/app_utils/fill_textform_filed.dart';
+import 'package:sceneary/presentation/calender/model/calendar_intial_model.dart';
 
 class CalenderMonthPlanViewmodel extends ChangeNotifier {
   final BuildContext context;
   CalenderMonthPlanViewmodel({required this.context});
   final TextEditingController fromDateController = TextEditingController();
   final TextEditingController toDateController = TextEditingController();
+  final TextEditingController reasonController = TextEditingController();
+
   bool wholeDayOff = false;
   bool wholeDayBusy = false;
+  AvailabilityModel? _availabilityData;
+  AvailabilityModel? get availabilityData => _availabilityData;
+int selectedTab = 0;
 
-
-   void submitWholeDayOff() {
+void changeTab(int index) {
+  selectedTab = index;
+  notifyListeners();
+}
+  void submitWholeDayOff() {
     wholeDayOff = !wholeDayOff;
     notifyListeners();
   }
@@ -50,7 +61,7 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
     }
   }
 
-   TimeOfDay? selectedTime;
+  TimeOfDay? selectedTime;
   TimeOfDay? toSelectedTime;
   String? selectedValue = "Busy";
   List<String> chooseSelectedValue = [
@@ -60,7 +71,11 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
     "Evening",
     "Night",
   ];
-     final TextEditingController reasonController = TextEditingController();
+
+  void setAvailabilityData(AvailabilityModel data) {
+    _availabilityData = data;
+    notifyListeners();
+  }
 
   void showBottomSheet() {
     showModalBottomSheet(
@@ -76,12 +91,10 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
             return SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.only(
-                  left: 15,
-                  right: 15,
+                  left: 20,
+                  right: 20,
                   top: 15,
-                  bottom: MediaQuery.of(
-                    context,
-                  ).viewInsets.bottom
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -96,7 +109,10 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
                     ),
                     const Text(
                       "Select Time",
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     const SizedBox(height: 12),
                     Row(
@@ -108,7 +124,7 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
                               context: context,
                               initialTime: TimeOfDay.now(),
                             );
-              
+
                             if (picked != null) {
                               setState(() {
                                 selectedTime = picked;
@@ -119,7 +135,7 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
                             width: 91,
                             height: 32,
                             decoration: BoxDecoration(
-                              color: Colors.black,
+                              color: secondaryColor600,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             alignment: Alignment.center,
@@ -128,8 +144,9 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
                                   ? selectedTime!.format(context)
                                   : "Select",
                               style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 12,
+                                color: text50,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
@@ -151,7 +168,7 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
                             width: 91,
                             height: 32,
                             decoration: BoxDecoration(
-                              color: Colors.black,
+                              color: secondaryColor600,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             alignment: Alignment.center,
@@ -160,53 +177,63 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
                                   ? toSelectedTime!.format(context)
                                   : "Select",
                               style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 12,
+                                color: text50,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
                         ),
                       ],
                     ),
-              
+
                     const SizedBox(height: 28),
                     const Text(
                       'Select Availability',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-                    ),
-              
-                    const SizedBox(height: 12),
-                    Container(
-                      width: double.infinity,
-                      height: 40,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 16,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
                       ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.black, width: 1),
+                    ),
+
+                    const SizedBox(height: 12),
+                    InputDecorator(
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                            color: Color(0x4D000000),
+                            width: 1,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                            color: Color(0x4D000000),
+                            width: 1,
+                          ),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                        ),
                       ),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
-                          value: selectedValue,
                           isExpanded: true,
-                          icon: const Icon(Icons.keyboard_arrow_down_rounded),
-                          style: const TextStyle(
-                            fontSize: 14,
+                          value: selectedValue,
+                          icon: const Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            size: 24,
                             color: Colors.black,
-                            fontWeight: FontWeight.w500,
                           ),
-                          items:chooseSelectedValue.map((value) {
-                                return DropdownMenuItem(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
+                          items: chooseSelectedValue.map((value) {
+                            return DropdownMenuItem(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
                           onChanged: (value) {
-                            setState(() {
-                              selectedValue = value;
-                            });
+                            setState(() => selectedValue = value!);
                           },
                         ),
                       ),
@@ -214,30 +241,39 @@ class CalenderMonthPlanViewmodel extends ChangeNotifier {
                     const SizedBox(height: 28),
                     const Text(
                       'Add Comment',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                     const SizedBox(height: 12),
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.black, width: 1),
-                      ),
-                      child:  TextField(
-                        controller:reasonController ,
-                        maxLines: 3,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Enter text...",
-                          hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
-                        ),
-                        style: TextStyle(color: Colors.black, fontSize: 14),
-                      ),
+                    FillTextFormField(
+                      controller: reasonController,
+                      hintText: 'Enter Text..',
+                      maxLines: 4,
                     ),
-                    SizedBox(height: 24,),
-                    primaryButton(text: 'Add', onPressed: (){}),
-                     SizedBox(height: 100),
+                    SizedBox(height: 24),
+                    primaryButton(
+                      text: 'Add',
+                      onPressed: () {
+                        if (selectedTime != null &&
+                            toSelectedTime != null &&
+                            selectedValue != null) {
+                          setAvailabilityData(
+                            AvailabilityModel(
+                              fromTime: selectedTime!,
+                              toTime: toSelectedTime!,
+                              availability: selectedValue!,
+                              reason: reasonController.text,
+                            ),
+                          );
+
+                          Navigator.pop(context);
+                        }
+                      },
+                    ),
+
+                    SizedBox(height: 80),
                   ],
                 ),
               ),

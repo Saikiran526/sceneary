@@ -4,9 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
-import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 import 'package:sceneary/presentation/calender/calender_viewmodel.dart';
-import 'package:table_calendar/table_calendar.dart';
+ import 'package:table_calendar/table_calendar.dart';
 
 class CalenderScreen extends StatelessWidget {
   const CalenderScreen({super.key});
@@ -51,12 +50,10 @@ class CalenderScreen extends StatelessWidget {
                     onDaySelected: (selectedDay, focusedDay) {
                       viewModel.updateSelectedDay(selectedDay, focusedDay);
                     },
-
                     availableCalendarFormats: const {
                       CalendarFormat.month: 'Month',
                       CalendarFormat.week: 'Week',
                     },
-
                     headerStyle: const HeaderStyle(
                       titleCentered: true,
                       formatButtonVisible: false,
@@ -145,7 +142,6 @@ class CalenderScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-
                         Expanded(
                           child: GestureDetector(
                             onTap: () => viewModel.changeTab(1),
@@ -174,7 +170,6 @@ class CalenderScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-
                   SizedBox(height: 10),
                   if (viewModel.selectedTab == 0) ...[
                     Padding(

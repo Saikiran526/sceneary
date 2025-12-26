@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sceneary/presentation/call_sheets/view/call_sheet_user_screen.dart';
+import 'package:sceneary/presentation/calender/view/calender_intial_screen.dart';
+ import 'package:sceneary/presentation/call_sheets/view/call_sheet_user_screen.dart';
 import 'package:sceneary/presentation/shooting_schedules_notifications/accept_reject_shooting_schedules_screen.dart';
-import 'package:sceneary/presentation/add_phase/add_phase_screen.dart';
+import 'package:sceneary/presentation/project_plan/view/add_phase_screen.dart';
 import 'package:sceneary/presentation/add_shooting_schedule/view/add_shooting_schedule_screen.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_screen_three.dart';
 import 'package:sceneary/presentation/budget/view/add_budget_screen.dart';
@@ -14,7 +15,7 @@ import 'package:sceneary/presentation/budget/view/document_detail_form_screen.da
 import 'package:sceneary/presentation/budget/view/document_detail_screen.dart';
 import 'package:sceneary/presentation/budget/view/documents_screen.dart';
 import 'package:sceneary/presentation/budget/view/edit_budget_screen.dart';
-import 'package:sceneary/presentation/calender/calender_screen.dart';
+import 'package:sceneary/presentation/calender/view/calender_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_preview_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_screen.dart';
 import 'package:sceneary/presentation/call_sheets/view/call_sheet_table_screen.dart';
@@ -26,11 +27,11 @@ import 'package:sceneary/presentation/budget/view/select_date_filter_screen.dart
 
 import 'package:sceneary/presentation/create_task/create_task_screen.dart';
 import 'package:sceneary/presentation/dashboard/dashboard_screen.dart';
-import 'package:sceneary/presentation/calender_month_plan/calender_month_plan_screen.dart';
-import 'package:sceneary/presentation/edit_phase/edit_phase_screen.dart';
+import 'package:sceneary/presentation/calender/view/update_your_schedule_screen.dart';
+import 'package:sceneary/presentation/project_plan/view/edit_phase_screen.dart';
 import 'package:sceneary/presentation/edit_scenic_order_entry/edit_scenic_order_entry_screen.dart';
 import 'package:sceneary/presentation/edit_shooting_schedule/edit_shooting_schedule_screen.dart';
-import 'package:sceneary/presentation/extent_phase_date/extent_phase_date_screen.dart';
+import 'package:sceneary/presentation/project_plan/view/extent_phase_date_screen.dart';
 import 'package:sceneary/presentation/group_chat/view/chat_screen.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/basic_information/view/basic_information_pageview.dart';
@@ -55,8 +56,8 @@ import 'package:sceneary/presentation/pre_production/pre_production_screen.dart'
 import 'package:sceneary/presentation/preview_scenic_order_template_details/preview_scenic_order_template_details_screen.dart';
 import 'package:sceneary/presentation/privacy_policy/privacy_policy_screen.dart';
 import 'package:sceneary/presentation/profile_details/profile_details_screen.dart';
-import 'package:sceneary/presentation/project_plan/project_plan_screen.dart';
-import 'package:sceneary/presentation/project_plan_add_phase/project_plan_add_phase_screen.dart';
+import 'package:sceneary/presentation/project_plan/view/project_plan_screen.dart';
+import 'package:sceneary/presentation/project_plan/view/project_plan_add_phase_screen.dart';
 import 'package:sceneary/presentation/refund_policy/refund_policy_screen.dart';
 import 'package:sceneary/presentation/scenic_order/scenic_order_screen.dart';
 import 'package:sceneary/presentation/scenic_order_template_details/scenic_order_template_details_screen.dart';
@@ -86,7 +87,7 @@ import 'package:sceneary/presentation/two_factor_authentication/two_factor_authe
 import 'package:sceneary/presentation/project_settings/view/project_settings_screen.dart';
 import 'package:sceneary/presentation/verify_your_identity/verify_your_identity_screen.dart';
 import 'package:sceneary/presentation/project_details/project_details_screen.dart';
-import 'package:sceneary/presentation/view_chart_view_project_plan/view_chart_view_screen.dart';
+import 'package:sceneary/presentation/project_plan/view/view_chart_view_screen.dart';
 
 class AppRouter {
   // Singleton
@@ -171,16 +172,17 @@ class AppRouter {
 
     RoutePaths.projectPlanScreen: () => const ProjectPlanScreen(),
     RoutePaths.addPhaseScreen: () => const AddPhaseScreen(),
-    RoutePaths.projectPlanAddPhaseScreen: () =>
-        const ProjectPlanAddPhaseScreen(),
+    RoutePaths.projectPlanAddPhaseScreen: () =>const ProjectPlanAddPhaseScreen(),
     RoutePaths.preProductionScreen: () => const PreProductionScreen(),
     RoutePaths.editPhaseScreen: () => const EditPhaseScreen(),
     RoutePaths.createTaskScreen: () => const CreateTaskScreen(),
     RoutePaths.scriptDiscussionScreen: () => const ScriptDiscussionScreen(),
     RoutePaths.extentPhaseDateScreen: () => const ExtentPhaseDateScreen(),
     RoutePaths.viewChartViewScreen: () => const ViewChartViewScreen(),
-    RoutePaths.basicInformationScreenThree: () =>
-        const BasicInformationScreenThree(),
+    RoutePaths.basicInformationScreenThree: () =>const BasicInformationScreenThree(),
+    RoutePaths.calenderIntialScreen: () =>const CalenderIntialScreen(),
+   // RoutePaths.updateYourScheduleScreen: () =>const UpdateYourScheduleScreen(),
+    
 
     //upendar
     RoutePaths.callSheetScreen: () => const CallSheetScreen(),

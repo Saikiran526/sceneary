@@ -16,7 +16,7 @@ Widget showProfileItems({
         case "Edit Profile" : AppRouter.instance.push(RoutePaths.editProfileScreen); break;
         case "Change Password" : AppRouter.instance.push(RoutePaths.changePasswordScreen); break;
         case "Two-Factor Authentication" : AppRouter.instance.push(RoutePaths.twoFactorAuthenticationScreen); break;
-        case "Update Calender" : AppRouter.instance.push(RoutePaths.calenderScreen); break;
+        case "Update Calender" : AppRouter.instance.push(RoutePaths.calenderIntialScreen); break;
         case "Subscription Details" : AppRouter.instance.push(RoutePaths.subscriptionPlanesScreen); break;
         case "Terms & Conditions" : AppRouter.instance.push(RoutePaths.termsAndConditionsScreen); break;
         case "Privacy Policy" : AppRouter.instance.push(RoutePaths.privacyPolicyScreen); break;

@@ -33,7 +33,6 @@ class BasicInformationScreenOne extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 16),
-
                     const Text(
                       "Full Name *",
                       style: TextStyle(
@@ -133,7 +132,6 @@ class BasicInformationScreenOne extends StatelessWidget {
                       controller: viewModel.emailIdController,
                       hintText: 'Enter here',
                     ),
-
                     const SizedBox(height: 24),
                     primaryButton(
                       text: 'Verify',

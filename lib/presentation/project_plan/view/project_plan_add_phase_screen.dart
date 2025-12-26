@@ -5,7 +5,7 @@ import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/project_details/utils.dart';
-import 'package:sceneary/presentation/project_plan_add_phase/project_plan_add_phase_viewmodel.dart';
+import 'package:sceneary/presentation/project_plan/viewmodel/project_plan_add_phase_viewmodel.dart';
 
 class ProjectPlanAddPhaseScreen extends StatelessWidget {
   const ProjectPlanAddPhaseScreen({super.key});

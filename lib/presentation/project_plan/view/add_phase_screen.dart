@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
-import 'package:sceneary/presentation/add_phase/add_phase_viewmodel.dart';
+import 'package:sceneary/presentation/project_plan/viewmodel/add_phase_viewmodel.dart';
 import 'package:sceneary/presentation/create_project/utils.dart';
 //import 'package:sceneary/presentation/app_utils/app_widgets.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
-import 'package:sceneary/presentation/view_chart_view_project_plan/view_chart_view_viewmodel.dart';
+import 'package:sceneary/presentation/project_plan/viewmodel/view_chart_view_viewmodel.dart';
 
 class ViewChartViewScreen extends StatelessWidget {
   const ViewChartViewScreen({super.key});

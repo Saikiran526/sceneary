@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/create_project/utils.dart';
-import 'package:sceneary/presentation/extent_phase_date/extent_phase_date_viewmodel.dart';
+import 'package:sceneary/presentation/project_plan/viewmodel/extent_phase_date_viewmodel.dart';
 
 class ExtentPhaseDateScreen extends StatelessWidget {
   const ExtentPhaseDateScreen({super.key});

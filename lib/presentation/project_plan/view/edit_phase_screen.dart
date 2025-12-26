@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/presentation/create_project/utils.dart';
-import 'package:sceneary/presentation/edit_phase/edit_phase_viewmodel.dart';
+import 'package:sceneary/presentation/project_plan/viewmodel/edit_phase_viewmodel.dart';
 
 class EditPhaseScreen extends StatelessWidget {
   const EditPhaseScreen({super.key});

@@ -1,40 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart' show GoogleFonts;
 import 'package:provider/provider.dart';
+import 'package:sceneary/core/constants/app_colors.dart';
 import 'package:sceneary/core/constants/assets_path.dart';
 import 'package:sceneary/core/navigation/app_routes.dart';
 import 'package:sceneary/core/navigation/routes_path.dart';
 import 'package:sceneary/presentation/project_details/utils.dart';
-import 'package:sceneary/presentation/project_plan/project_plan_viewmodel.dart';
+import 'package:sceneary/presentation/project_plan/viewmodel/project_plan_viewmodel.dart';
 
 class ProjectPlanScreen extends StatelessWidget {
   const ProjectPlanScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return ChangeNotifierProvider(
       create: (context) => ProjectPlanViewmodel(context: context),
       child: Consumer(
         builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
-              title: Text(
-                'Project Plan',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              iconTheme: const IconThemeData(color: Colors.white),
+              backgroundColor: Colors.transparent,
+              flexibleSpace: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF090216), Color(0xFF9D306A)],
+                  ),
+                ),
               ),
-                actions: [
-                GestureDetector(
-                  onTap: () => servicePopUpMenu(context),
-                  child: Padding(
-                    padding: EdgeInsets.only(right: width * 0.04),
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
+              title: Text(
+                "Project Plans",
+                style: GoogleFonts.montserrat(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+              actions: [
+                Padding(
+                  padding: EdgeInsets.only(right: width * 0.04),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Material(
+                      color: secondaryColor600,
+                      child: InkWell(
+                        onTap: () => servicePopUpMenu(context),
+                        child: const SizedBox(
+                          height: 40,
+                          width: 40,
+                          child: Icon(Icons.menu, color: Colors.white),
+                        ),
                       ),
-                      child: SvgPicture.asset(AssetsPath.menuImg),
                     ),
                   ),
                 ),
@@ -47,13 +68,14 @@ class ProjectPlanScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         ElevatedButton(
                           onPressed: () {
                             AppRouter.instance.push(RoutePaths.addPhaseScreen);
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black,
+                            backgroundColor: secondaryColor600,
                             foregroundColor: Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -63,7 +85,7 @@ class ProjectPlanScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(AssetsPath.addImg),
-                              SizedBox(width: 5,),
+                              SizedBox(width: 5),
                               Text(
                                 'Add Phase',
                                 style: TextStyle(
@@ -74,67 +96,12 @@ class ProjectPlanScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Expanded(
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                side: BorderSide(color: Colors.black, width: 1),
-                              ),
-                            ),
-                            onPressed: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SvgPicture.asset(AssetsPath.downloadImg),
-                                SizedBox(width: 5),
-                                Text(
-                                  'Download Sheet',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
                       ],
-                    ),
-                    SizedBox(height: 8),
-                    SizedBox(
-                      width: 192,
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            side: BorderSide(color: Colors.black, width: 1),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                             SvgPicture.asset(AssetsPath.upload,height: 12,width: 12,),
-                            SizedBox(width: 5),
-                            Text(
-                              'Upload Sheet',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                     SizedBox(height: 16),
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: primaryColor100,
                         borderRadius: BorderRadius.circular(16),
                         boxShadow: [
                           BoxShadow(
@@ -145,7 +112,7 @@ class ProjectPlanScreen extends StatelessWidget {
                           ),
                         ],
                         border: Border.all(
-                          color: Colors.grey.shade300,
+                          color: primaryColor200,
                           width: 1,
                         ),
                       ),
@@ -159,8 +126,8 @@ class ProjectPlanScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'No Tasks ! Add Phase to track the flow',
-                                style: TextStyle(
+                                'No Phases ! Add Phase to track the flow',
+                                style: GoogleFonts.poppins(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -168,20 +135,20 @@ class ProjectPlanScreen extends StatelessWidget {
                               SizedBox(height: 8),
                               RichText(
                                 text: TextSpan(
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                     color: Colors.black,
                                     fontSize: 10,
                                   ),
-                                  children: [
+                                  children: const [
                                     TextSpan(
-                                      text: "Note : ",
+                                      text: "Note: ",
                                       style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                     TextSpan(
                                       text:
-                                          'Timeline shows project phases, and each phase includes its related tasks for easy tracking.',
+                                          "Project Plan shows project phases, and each phase includes its related tasks for easy tracking.",
                                       style: TextStyle(
                                         fontWeight: FontWeight.w400,
                                       ),
